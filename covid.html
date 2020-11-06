@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="corona/style.css"/>
+    <link rel="icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <title>Já nevím ještě</title>
+
+
+
+    <meta itemprop="name" content="Napiču">
+    <meta itemprop="image" content="https://napicu.cf/logo-meta.png">
+    <meta itemprop="description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
+    
+    <meta property="og:url" content="https://napicu.cf/covid.html">
+    <meta property="og:title" content="Já nevím ještě">
+    <meta property="og:description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
+    <meta property="og:site_name" content="Napiču">
+    <meta property="og:image" content="https://napicu.cf/logo-meta.png">
+
+    <meta name="twitter:url" content="https://napicu.cf/covid.html">
+    <meta name="twitter:title" content="Já nevím ještě">
+    <meta name="twitter:description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
+    <meta name="twitter:site_name" content="Napiču">
+    <meta name="twitter:image" content="https://napicu.cf/logo-meta.png">
+
+    <meta name="msapplication-TileColor" content="#f39c12">
+    <meta name="theme-color" content="#f39c12">
+
+
+
+  </head>
+  <body>
+    <header>
+      <div class="menu">
+          <h4><a href="https://napicu.cf/">Ahoj kamaráde!</a></h4>   
+      </div>
+    </header>  
+  
+    <main>
+      <div class="stats">
+        <div class="report">
+          <div class="mesto">
+            <div class="nazev">Čekej ne?</div>
+            <div class="zmenit-zemi">Změnit</div>
+            <div class="search-country hide">
+              <div class="hledani-box">
+                <input
+                  type="text"
+                  id="hledat"
+                  placeholder="Tu něco najdi!"
+                />
+                <img class="zav " src="corona/slozka/img/krizek.svg" alt="" />
+              </div>
+              <div class="mesta-list"></div>
+            </div>
+          </div>
+          
+          <div class="pripad">
+            <div class="title">Nakažených</div>
+            <div class="hodnota">0</div>
+            <div class="nova-hodnota">+0</div>
+          </div>
+          <div class="vylecenych">
+            <div class="title">Vyléčených</div>
+            <div class="hodnota">0</div>
+            <div class="nova-hodnota">+0</div>
+          </div>
+
+
+
+          <div class="podlehlo">
+            <div class="title">Podlehlo</div>
+            <div class="hodnota">0</div>
+            <div class="nova-hodnota">+0</div>
+          </div>
+        </div>
+
+        <div class="schema">
+          <canvas id="axes_line_chart"></canvas>
+        </div>
+      </div>
+
+
+      <div class="by">  <h4><a>Code by: </a><a class="LLL" href="https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA" target="_blank">Code Explained </a></h4></div>
+    
+    
+    </main>
+
+
+
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+      crossorigin="anonymous"
+    ></script>
+    <script
+
+      type="text/javascript"
+    ></script>
+    <script src="corona/slozka/js/mesta.js"></script>
+    <script src="corona/slozka/js/app.js"></script>
+    <script src="./JS/L.js"></script>
+  </body>
+</html>

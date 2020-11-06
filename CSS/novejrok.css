@@ -1,0 +1,188 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Roboto Mono', monospace;
+    
+}
+
+body{
+    background-color: #2c3033;
+}
+
+.zaklad{
+    user-select: none;
+}
+
+
+nav{
+
+    user-select: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 6vh;
+    background-color: #f39c12;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.menu a{ 
+    text-shadow: 2px 2px black;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size:  50px;
+    text-decoration: none;
+    background-color: #f39c12;
+    user-select: none;
+}
+
+
+
+.zaklad{
+
+    left: 100px;
+    bottom: 80px;
+    top: 80px;
+    right: 100px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.zaklad h2{
+    text-align: center;
+    font-size: 250px;
+    line-height: 0.7em;
+    color: #e74c3c;
+    margin-top: 200px;
+    font-family: 'Roboto Mono', monospace;
+}
+.zaklad h2 span{
+    display: block;
+    font-weight: 300;
+    letter-spacing: 6px;
+    font-size: 50px;
+    font-family: 'Roboto Mono', monospace;
+}
+.cas{
+    display: flex;
+    margin-top: 20px;
+}
+.cas div{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #e74c3c;
+    margin: 0 15px;
+    font-size: 50px;
+    font-weight: 500;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.cas div::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -30px;
+    height: 50px;
+    line-height: 35px;
+    font-size: 0.35em;
+}
+.cas #Dny::before{
+    content: 'Dny';
+}
+.cas #Hodiny::before{
+    content: 'Hodin';
+}
+.cas #Minuty::before{
+    content: 'Minuty';
+}
+.cas #Sekundy::before{
+    content: 'Sekundy';
+}
+/*     CAS-SIZE     */
+@media screen and (max-width:725px){
+    .zaklad h2{
+        font-size: 125px;
+    }
+    .cas div{
+        margin:  0 10px;
+        font-size: 40px;
+    }
+}
+@media screen and (max-width:500px){
+    .zaklad h2{
+        font-size: 95px;
+    }
+
+    .cas div{
+        margin:  0 -10px;
+    }
+}
+
+@media screen and (max-width:410px){
+    .zaklad h2{
+        font-size: 90px;
+    }
+    .cas div{
+        margin:  0 0px;
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width:375px){
+    .cas div{
+        margin:  -15px;
+        
+    }
+}
+@media screen and (max-width:320px){
+    .zaklad{
+        margin-top: -80px;
+    }
+    .zaklad h2{
+        font-size: 80px;
+    }
+    .cas div{
+        margin:  0 -20px;
+        font-size: 25px;
+    }
+}
+
+
+
+
+/*     Menu  ALL  */
+@media screen and (max-width:1200px){
+    .menu a{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width:1020px){
+    .menu a{
+        font-size: 40px;
+    }
+}
+@media screen and (max-width:950px){
+    .menu a{
+        font-size: 34px;
+    }
+}
+@media screen and (max-width:410px){
+    .menu a{
+        font-size: 30px;
+    }
+
+}
+
+@media screen and (max-width: 320px){
+    .menu a{
+        font-size: 25px;
+    }
+}

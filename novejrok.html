@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>Já nevím ještě</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="L">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="CSS/novejrok.css">
+    <link rel="icon" href="favicon.png">
+    <meta charset="utf-8"/>
+    
+    <meta itemprop="name" content="Napiču">
+    <meta itemprop="image" content="https://napicu.cf/logo-meta.png">
+    <meta itemprop="description" content="Ahoj kamaráde! Novej rok se blíží!">
+
+    <meta property="og:url" content="https://napicu.cf/novejrok.html">
+    <meta property="og:title" content="Já nevím ještě">
+    <meta property="og:description" content="Ahoj kamaráde! Novej rok se blíží!">
+    <meta property="og:site_name" content="Napiču">
+    <meta property="og:image" content="https://napicu.cf/logo-meta.png">
+
+    <meta name="twitter:url" content="https://napicu.cf/novejrok.html">
+    <meta name="twitter:title" content="Já nevím ještě">
+    <meta name="twitter:description" content="Ahoj kamaráde! Novej rok se blíží!">
+    <meta name="twitter:site_name" content="Napiču">
+    <meta name="twitter:image" content="https://napicu.cf/logo-meta.png">
+
+    <meta name="msapplication-TileColor" content="#f39c12">
+    <meta name="theme-color" content="#f39c12">
+    
+</head>
+
+<body>
+    <nav>
+        <div class="menu">
+            <h4><a href="https://napicu.cf/">Ahoj kamaráde!</a></h4>   
+        </div>  
+    </nav> 
+
+
+    <div class="zaklad">
+         <div class="nazev">
+            <h2><span>Novej rok</span>2021</h2>
+        </div>
+      
+         <div class="cas">
+            <div id="Dny">-</div>
+            <div id="Hodiny">-</div>
+            <div id="Minuty">-</div>
+            <div id="Sekundy">-</div>
+         </div>
+     </div>
+
+    <script type="text/javascript">
+        var countDate = new Date('Jan 1, 2021 00:00:00').getTime();
+
+
+        function novejrokpico(){
+            var now = new Date().getTime()
+                gap = countDate - now;
+
+                var second = 1000;
+                var minute = second * 60;
+                var hour = minute * 60;
+                var day = hour * 24;
+
+                var d = Math.floor(gap / (day));
+                var h = Math.floor((gap % (day)) / (hour)) ;
+                var m = Math.floor((gap % (hour)) / (minute));
+                var s = Math.floor((gap % (minute)) / second);
+
+                document.getElementById('Dny').innerText = d; 
+                document.getElementById('Hodiny').innerText = h;
+                document.getElementById('Minuty').innerText = m;
+                document.getElementById('Sekundy').innerText = s;
+        }
+        setInterval(function(){
+            novejrokpico();
+        },1000)  
+    </script>
+    
+    
+  
+    <script src="./JS/L.js"></script>
+
+
+</body>
+
+</html> 

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html oncontextmenu="return false">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="CSS/matematika.css">
+    <link rel="icon" href="favicon.png">
+    <meta charset="utf-8"/>
+    <title>Já nevím ještě</title>
+</head>
+
+
+
+<body>
+
+
+    <nav>
+        <div class="menu">
+            <h4><a href="https://napicu.cf/">Ahoj kamaráde!</a></h4>   
+        </div>
+    </nav>
+    <div class="cotujakochces">
+        <h2>Co tu jako chceš?<br>Raději se to nauč ne?  <br>Pěkně z hlavy musíš ne?<br>Si myslíš že tu budu 24/7 počítat?<br>To tu furt mám být a počítat to za tebe?<br>
+        Taková kalkulačka taky potřebuje občas pohov!</h2>
+    </div>
+
+    
+    <main>
+        <div class="kalkulator">
+            <form name="Lsdxd">
+                <input class="text" name="textin">
+            </form>
+            
+            <table>
+                <tr>
+                    <td><input class="tlacitko" type="button" value="x" onclick="vloz('*')"></td> 
+                    <td><input class="tlacitko" type="button" value="/" onclick="vloz('/')"></td>
+                    <td><input class="tlacitko" type="button" value="c" onclick="procsepletesjako()"></td>
+                    <td><input class="tlacitko" type="button" value="ac" onclick="cotomazesjako()"></td>
+                </tr>
+                <tr>
+                    <td><input class="tlacitko" type="button" value="7" onclick="vloz(7)"></td>
+                    <td><input class="tlacitko" type="button" value="8" onclick="vloz(8)"></td> 
+                    <td><input class="tlacitko" type="button" value="9" onclick="vloz(9)"></td>
+                    <td><input class="tlacitko" type="button" value="-" onclick="vloz('-')"></td>
+                </tr>
+                <tr>
+                    <td><input class="tlacitko" type="button" value="4" onclick="vloz(4)"></td>
+                    <td><input class="tlacitko" type="button" value="5" onclick="vloz(5)"></td> 
+                    <td><input class="tlacitko" type="button" value="6" onclick="vloz(6)"></td>
+                    <td><input class="tlacitko" type="button" value="+" onclick="vloz('+')"></td>
+                </tr>
+                <tr>
+                    <td><input class="tlacitko" type="button" value="1" onclick="vloz(1)"></td>
+                    <td><input class="tlacitko" type="button" value="2" onclick="vloz(2)"></td> 
+                    <td><input class="tlacitko" type="button" value="3" onclick="vloz(3)"></td>
+                    <td rowspan="5"><input class="tlacitko" type="button" value="=" style="height: 20vh;" onclick="pocitej()"></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input class="tlacitko" type="button" value="0" style="width: 100%;" onclick="vloz(0)"></td>
+                    <td><input class="tlacitko" type="button" value="." onclick="vloz('.')"></td>
+                </tr>
+            </table>
+        </div>
+    </main>
+    <script src="./JS/L.js"></script>
+</body>
+
+</html> 

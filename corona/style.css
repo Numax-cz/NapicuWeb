@@ -1,0 +1,243 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;    
+    background: #2c3033;
+}
+html{
+    font-size: 16px;
+    user-select: none;
+    
+}
+.hide{
+    display: none;
+}
+.fadeIn{
+    animation: fade 0.5s ease-in-out;
+
+}
+.menu{
+    user-select: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 6vh;
+    background-color: #f39c12;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.menu a{ 
+    text-shadow: 2px 2px black;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size:  4vh;
+    text-decoration: none;
+    background-color: #f39c12;
+}
+
+
+
+nav ul{
+    display: flex;
+    align-items: center;
+}
+nav ul li{
+    list-style: none;
+}
+nav ul li:last-child{
+    padding-right: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #6a149b;
+    padding: 10px;
+}
+
+.by{
+    user-select: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 6vh;
+
+}
+.by a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.report{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 50px;
+
+    color: #FFF;
+}
+
+.mesto,
+.pripad,
+.vylecenych,
+.podlehlo{
+    height: 100px;
+}
+
+.nazev{
+    font-size: 2.2em;
+    color:  #f39c12;
+    font-weight: bold;
+}
+
+.zmenit-zemi{
+    cursor: pointer;
+}
+
+.title{
+    font-size: 1.3em;
+}
+.pripad .hodnota{
+    font-size: 2em;
+    font-weight: bold;
+    color: #e74c3c;
+}
+.vylecenych .hodnota{
+    font-size: 2em;
+    font-weight: bold;
+    color: #2ecc71;
+}
+.podlehlo .hodnota{
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+}
+.nova-hodnota{
+    font-size: 1.3em;
+}
+
+.schema{
+    width: 80%;
+    height: 70vh;
+    min-height: 500px;
+
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.search-country{
+    position: relative;
+    top: 10px;
+}
+.hledani-box{
+    position: absolute;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 400px;
+    height: 30px;
+
+    background-color: #f39c12;
+
+    z-index: 1;
+}
+.hledani-box input{
+    width: 360px;
+    height: 25px;
+    border: none;
+
+    background-color: transparent;
+    color: #FFF;
+
+    padding-left: 15px;
+
+    font-size: 1.1em;
+}
+.hledani-box img{
+    width: 20px;
+    padding-right: 5px;
+    cursor: pointer;
+    background: #f39c12;
+}
+
+.mesta-list{
+    display: flex;
+
+    position: absolute;
+    top: 30px;
+
+    width: 400px;
+    height: 300px;
+
+    background-color: 34495e;
+    opacity: 0.9;
+
+    overflow-y: scroll;
+}
+
+.mesta-list ul{
+    width: 100%;
+}
+
+.mesta-list ul li{
+    list-style: none;
+    cursor: pointer;
+    padding: 10px;
+    color: #FFF;
+    font-size: 90%;
+}
+.mesta-list ul li:hover{
+    border-left: 1px solid #FFF;
+}
+
+.mesta-list::-webkit-scrollbar {
+    width: 10px;;
+  }
+  
+
+  .mesta-list::-webkit-scrollbar-track {
+    background: #111;
+  }
+  
+  
+  .mesta-list::-webkit-scrollbar-thumb {
+    background: #F1F1F1;
+  }
+  
+  
+  .mesta-list::-webkit-scrollbar-thumb:hover {
+    background: #FFF;
+}
+
+.LLL:hover{
+    transition: 0.5s;
+    color: white;
+}
+
+
+
+@media screen and (max-width: 600px){
+    .report{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
