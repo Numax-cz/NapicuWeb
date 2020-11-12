@@ -56,44 +56,23 @@ nav{
     padding: 7px;
     top: 10px;
 }
+
+
 .zdarne{
     font-size: 600%;
     color: #8e44ad;
 }
-.manuDole{
-    background-color: #f39c12;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    text-align: center;
-    display: flex;
-    height: 50px;
-    width: 100%;
-    top: 1600px; 
-}
-.manuDole li{   
-    list-style: none;
-}
-.manuDole a{
-    text-decoration: none;
-    letter-spacing: 3px;
-    border-radius: 20px;
-    font-size: 20px;
-    transition: .3s;
-    color: white;
-    padding: 7px;
-}
+
+
+
+
 
 .navigace a:hover{
     background-color: #ecf0f1;
     color: #222f3e;
     transition: .3s;
 }
-.manuDole a:hover{
-    background-color: #ecf0f1;
-    color: #222f3e;
-    transition: .3s;
-}
+
 ::-webkit-scrollbar {width: 10px;}
 ::-webkit-scrollbar-track {background: black;}
 ::-webkit-scrollbar-thumb {background: #f39c12;}

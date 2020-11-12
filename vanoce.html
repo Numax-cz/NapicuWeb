@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <title>Já nevím ještě</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="L">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="CSS/vanoce.css">
+    <link rel="icon" href="favicon.png">
+    <meta charset="utf-8"/>
+    
+    <meta itemprop="name" content="Napiču">
+    <meta itemprop="image" content="https://napicu.eu/logo-meta.png">
+    <meta itemprop="description" content="Ahoj kamaráde! Vánoce se blíží!">
+
+    <meta property="og:url" content="https://napicu.eu/novejrok.html">
+    <meta property="og:title" content="Já nevím ještě">
+    <meta property="og:description" content="Ahoj kamaráde! Vánoce se blíží!">
+    <meta property="og:site_name" content="Napiču">
+    <meta property="og:image" content="https://napicu.eu/logo-meta.png">
+
+    <meta name="twitter:url" content="https://napicu.eu/novejrok.html">
+    <meta name="twitter:title" content="Já nevím ještě">
+    <meta name="twitter:description" content="Ahoj kamaráde! Vánoce se blíží!">
+    <meta name="twitter:site_name" content="Napiču">
+    <meta name="twitter:image" content="https://napicu.eu/logo-meta.png">
+
+    <meta name="msapplication-TileColor" content="#f39c12">
+    <meta name="theme-color" content="#f39c12">
+    
+</head>
+
+
+<body>
+    <div id="snow">
+        <nav>
+            <div class="menu">
+                <h4><a href="https://napicu.eu/">Ahoj kamaráde!</a></h4>   
+            </div>  
+        </nav> 
+    
+    
+        <div class="zaklad">
+            <div class="nazev">
+                <h2><span>Vánoce</span>2020</h2>
+            </div>
+          
+             <div class="cas">
+                <div id="Dny">-</div>
+                <div id="Hodiny">-</div>
+                <div id="Minuty">-</div>
+                <div id="Sekundy">-</div>
+             </div>
+        </div>
+        
+    
+    
+    
+        <script type="text/javascript">
+            var countDate = new Date('Dec 24, 2020 00:00.00').getTime();
+    
+    
+            function novejrokpico(){
+                var time = new Date().getTime()
+                    cn = countDate - time;
+    
+                    var sekundy = 1000;
+                    var minuty = sekundy * 60;
+                    var hodiny = minuty * 60;
+                    var dny = hodiny * 24;
+                    
+                
+    
+                    var d = Math.floor(cn / (dny));
+                    var h = Math.floor((cn % (dny)) / (hodiny)) ;
+                    var m = Math.floor((cn % (hodiny)) / (minuty));
+                    var s = Math.floor((cn % (minuty)) / sekundy);
+         
+    
+                    document.getElementById('Dny').innerText = d; 
+                    document.getElementById('Hodiny').innerText = h;
+                    document.getElementById('Minuty').innerText = m;
+                    document.getElementById('Sekundy').innerText = s;
+            }
+            setInterval(function(){
+                novejrokpico();
+            },1000)  
+        </script>
+
+
+
+    </div>
+    
+    
+
+    
+    
+  
+    <script src="./JS/L.js"></script>
+    <script type="text/javascript" src="./JS/js/particles.js"></script>
+    <script type="text/javascript" src="./JS/js/app.js"></script>
+    
+    
+    
+</body>
+
+</html> 
