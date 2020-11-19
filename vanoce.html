@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="L">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="CSS/vanoce.css">
+    <link rel="stylesheet" href="css/vanoce.css">
     <link rel="icon" href="favicon.png">
     <meta charset="utf-8"/>
     
@@ -34,10 +34,11 @@
 <body>
     <div id="snow">
         <nav>
-            <div class="menu">
-                <h4><a href="https://napicu.eu/">Ahoj kamaráde!</a></h4>   
-            </div>  
-        </nav> 
+            <div class="menu-na">
+                <a href="https://napicu.eu">Ahoj kamaráde</a>
+            </div>
+        </nav>
+
     
     
         <div class="zaklad">
@@ -55,12 +56,12 @@
     
     
         <script type="text/javascript">
-            var countDate = new Date('Dec 24, 2020 00:00.00').getTime();
+            var nevím = new Date('Dec 24, 2020 00:00.00').getTime();
     
     
             function novejrokpico(){
-                var time = new Date().getTime()
-                    cn = countDate - time;
+                var čas = new Date().getTime()
+                    cn = nevím - čas;
     
                     var sekundy = 1000;
                     var minuty = sekundy * 60;
@@ -80,9 +81,7 @@
                     document.getElementById('Minuty').innerText = m;
                     document.getElementById('Sekundy').innerText = s;
             }
-            setInterval(function(){
-                novejrokpico();
-            },1000)  
+            setInterval(function(){novejrokpico();},1000)  
         </script>
 
 

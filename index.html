@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <title>Já nevím ještě</title>
+    <title>Ahoj kamaráde!</title>
     <link rel="icon" href="favicon.png">
     <meta name="author" content="L">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="CSS/styles.css">
-    <meta charset="utf-8"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
 
     <meta name="description" content="Ahoj kamaráde! Myslím si že by jsi se měl podívat na tuhle stránku">
     <meta name="keywords" content="HTML, CSS, JavaScript">
@@ -31,39 +32,118 @@
 
     <meta name="msapplication-TileColor" content="#f39c12">
     <meta name="theme-color" content="#f39c12">
-
+ 
 </head>
-
-<body>
-
-
-    <nav>
-        <div class="menu">
-            <h4><a href="https://napicu.eu/">Ahoj kamaráde!</a></h4>   
+<body onload="hodinyyyyyyyyy()">
+    <section id="zdarne">
+        <div class="zdarne-text">
+            <h1>Ahoj kamaráde</h1>
+            <div class="hodiny-hl">
+                <section id="hodiny"><div class="hodiny-txt">ERROR</div></section>
+            </div>
+            
         </div>
-        <ul class="navigace">
-            <li><a href="vanoce">Vánoce</a></li>
-            <li><a href="matematika">Matematika</a></li>
-            <li><a href="video">Video</a></li>
-            <li><a href="covid">COVID-19</a></li>
-            <li><a href="bot">Bot</a></li> 
-        </ul>
-    </nav>
+        <div class="zdarne-pop" id="zdarne-pop-text">ERROR</div>
+        <div class="odkazy">
+            <div class="box">
+                <div class="box-nazev">
+                    <h2>Vánoce</h2>
+                </div>
+                <div class="box-odkaz">
+                    <a href="https://napicu.eu/vanoce">
+                        Přejít na stránku
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-nazev">
+                    <h2>Matematika</h2>
+                </div>
+                <div class="box-odkaz">
+                    <a href="https://napicu.eu/matematika">
+                        Přejít na stránku
+                    </a>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-nazev">
+                    <h2>Video</h2>
+                </div>
+                <div class="box-odkaz">
+                    <a href="https://napicu.eu/video">
+                        Přejít na stránku
+                    </a>
+                </div>
+                
+            </div>
+            <div class="box">
+                <div class="box-nazev">
+                <h2>COVID-19</h2>
+                </div>
+                <div class="box-odkaz">
+                    <a href="https://napicu.eu/covid">
+                        Přejít na stránku
+                    </a>
+                </div>
+            </div>
+            
+        </div>
 
-
-
-
-    <main class="zdarne">
-        <h1>Ahoj kamaráde! Co tu jako pohledáváš?<br>Chceš jako MMA? pojď do klece si to rozdat jako!<br></h1>
-    </main>
+    </section>
+ 
 
     <script>
         console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: white; font-weight: bold; background-color: blue; font-size: 40px");
     </script>
     <script src="./JS/L.js"></script>
+
+    <script>
+
+
+
+        function morenula(L) {
+          if (L < 10) {L = "0" + L};  
+          return L;
+        }
+
+        function hodinyyyyyyyyy() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = morenula(m);
+          s = morenula(s);
+          document.getElementById('hodiny').innerHTML = h + ":" + m + ":" + s;
+          var t = setTimeout(hodinyyyyyyyyy, 1000);
+          var text1 = "Co tu chceš jako? Chceš MMA? Tak pozdě večer?" /*00:00 - 4:00*/
+          var text2 = "Ha more vstávat budeš!" /*5:00 - 6:00*/
+          var text3 = "Vstávat!!!" /*7:00 - 8:00*/
+          var text4 = "Nažer se jako!" /*9:00 - 10:00*/
+          var text5 = "Co tu chceš? Běž jíst!" /*11:00-12:00*/
+          var text6 = "Co tu chceš jako? MMA?"/*13:00 - 15:00*/
+          var text7 = "Beton!"/*16:00 - 17:00*/
+          var text8 = "Večerníček!"/*18:00 - 19:00*/
+          var text9 = "Ha! Večerníček ti skončil!"/*19:00 - 20:00*/
+          var text10 = "/time set night!"/*21:00 - 22:00*/
+          var text11 = "Spat běž!"/*23:00 - 00:00*/
+          if (h < 5) {document.getElementById('zdarne-pop-text').innerHTML = text1}
+          if (h >= 5) {document.getElementById('zdarne-pop-text').innerHTML = text2}
+          if (h >= 7) {document.getElementById('zdarne-pop-text').innerHTML = text3}
+          if (h >= 9) {document.getElementById('zdarne-pop-text').innerHTML = text4}
+          if (h >= 11) {document.getElementById('zdarne-pop-text').innerHTML = text5}
+          if (h >= 13) {document.getElementById('zdarne-pop-text').innerHTML = text6}
+          if (h >= 16) {document.getElementById('zdarne-pop-text').innerHTML = text7}
+          if (h >= 18) {document.getElementById('zdarne-pop-text').innerHTML = text8}
+          if (h >= 19) {document.getElementById('zdarne-pop-text').innerHTML = text9}
+          if (h >= 21) {document.getElementById('zdarne-pop-text').innerHTML = text10}
+          if (h >= 22) {document.getElementById('zdarne-pop-text').innerHTML = text10}
+        }
+    </script>
+    
+    <script src="./JS/L.js"></script>
     
 
 
+    
 </body>
-
-</html> 
+</html>

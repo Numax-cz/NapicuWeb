@@ -3,48 +3,49 @@
     padding: 0;
     box-sizing: border-box; 
     font-family: 'Roboto Mono', monospace;
-    
 }
 
 body{
     margin: 0;
     padding: 0;
     user-select: none;
-    background-color: #2c3033;
+    background-color: #2f3640;
     overflow: hidden;
+    
 }
 .snow{
-
     width: 100vh;
     height: 100vh;
-   
-  
 }
-
-
-
-nav{
-
+/*------MENU------*/
+.menu-na{
     user-select: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 6vh;
-    background-color: #f39c12;
-    font-family: 'Roboto Mono', monospace;
-}
+    width: 100%;
+    background-color: #c0392b;
+    font-size: 5vh;
+    padding-bottom: 5px;
+    letter-spacing: 1vh;
+    text-align: center;
+    top: 0;
 
-.menu a{ 
-    text-shadow: 2px 2px black;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    font-size:  50px;
+}
+.menu-na a {
+    transition: .4s;
     text-decoration: none;
-    background-color: #f39c12;
-    user-select: none;
+    color: white;
+    font-weight: bolder;
 }
+.menu-na a:hover {
+    transition: .3s;
+    letter-spacing: 1.2vh;
+}
+/*------MENU------*/
+
+
+
+
 .zaklad{
+
     height: 0;
     position: absolute;
     left: 100px;
@@ -58,11 +59,13 @@ nav{
 
 }
 .cislorok h1{
-    color: #e74c3c;
+    transition: .4s;
+    color: #c0392b;
     font-size: 250px;
 
 }
 .zaklad h2{
+    transition: .4s;
     text-align: center;
     font-size: 450px;
     color: white;
@@ -70,13 +73,15 @@ nav{
     font-family: 'Roboto Mono', monospace;
 }
 .zaklad h2 span{
+    transition: .4s;
     display: block;
-    font-weight: 300;
+    font-weight: 800;
     letter-spacing: 6px;
     font-size: 100px;
     font-family: 'Roboto Mono', monospace;
 }
 .cas{
+    transition: .4s;
     display: flex;
     margin-top: 20px;
     
@@ -195,31 +200,3 @@ nav{
 
 
 
-/*     Menu  ALL  */
-@media screen and (max-width:1200px){
-    .menu a{
-        font-size: 40px;
-    }
-}
-@media screen and (max-width:1020px){
-    .menu a{
-        font-size: 40px;
-    }
-}
-@media screen and (max-width:950px){
-    .menu a{
-        font-size: 34px;
-    }
-}
-@media screen and (max-width:410px){
-    .menu a{
-        font-size: 30px;
-    }
-
-}
-@media screen and (max-width: 320px){
-    .menu a{
-        font-size: 25px;
-    }
-}
-/*     Menu  ALL  */
