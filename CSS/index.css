@@ -1,21 +1,48 @@
-*{
-    padding: 0;
+* {
     margin: 0;
-    box-sizing: border-box;
-    user-select: none;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Roboto Mono', monospace;
 }
+
 body{
-    background-color: #2f3640;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    background-color: #2f3640;  
+    overflow: hidden;
+    
+}
+.snow{
+    position: absolute;
+    width: 100vh;
+    height: 100vh;
 
 }
+.hodiny-hl,
 .hodiny-txt,
 .box,
 .zdarne-pop{
+    
     font-family: 'Roboto Mono', monospace;
 
 }
+.ahojkamarade{
+    width: 100%;
+   
 
-.zdarne-text{
+    font-size: 20vh;
+    text-align: center;
+    letter-spacing: 2vh;
+    font-family: 'Bebas Neue', cursive;
+    padding-top: 15vh;
+    color: white;
+}
+
+
+.hodiny-hl{
+    
+    width: 100%;
     text-align: center;
     color: white;
     font-size: 10vh;
@@ -24,11 +51,7 @@ body{
 
 
 
-#zdarne{
-    font-family: 'Bebas Neue', cursive;
-    padding-top: 15vh;
 
-}
 /*TEXT - ČAS - POP-TEXT*/
 .zdarne-pop{
     font-weight: 700;
@@ -45,7 +68,7 @@ body{
 }
 .odkazy{
     user-select: none;
-    margin-top: 20vh;    
+    margin-top: 10vh;    
     grid-gap: 2vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, 385px);
@@ -89,16 +112,21 @@ body{
     margin-top: 20px;
 }
 @media screen and (max-width:700px){
-    .zdarne-text{
-        font-size: 7vh;
-
+    .ahojkamarade{
+        font-size: 10vh;
+    }
+    .hodiny-hl{
+        font-size: 5vh;
     }
 
 }
 @media screen and (max-width:462px){
-    .zdarne-text{
+    .ahojkamarade{
         font-size: 5vh;
 
+    }
+    .hodiny-hl{
+        font-size: 4vh;
     }
 
 }

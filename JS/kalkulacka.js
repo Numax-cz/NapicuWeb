@@ -7,10 +7,14 @@ function pocitej(){
     if(L){
         document.Lsdxd.textin.value = eval(L);
     }
+
+
 }
 
 function cotomazesjako(){
     document.Lsdxd.textin.value = "";
+
+ 
 }
 
 function procsepletesjako(){
