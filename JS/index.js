@@ -14,7 +14,7 @@ function morenula(L) {
   const nahoda5  = text5[Math.floor(Math.random() * text5.length)]
   const text6 = ["Co tu chceš jako? MMA?!", "Dáme MMA?", "chceš MMA?"]
   const nahoda6  = text6[Math.floor(Math.random() * text6.length)]
-  const text7 = ["MMA?", "Beton", "Cihle", "Moravák", "Židle", "Stůl", "DDOS", "napicu.eu"]
+  const text7 = ["MMA?", "Beton", "Cihle", "Moravák", "Židle", "Stůl", "DDOS", "napicu.eu", "vanoce.pinktube.eu"]
   const nahoda7  = text7[Math.floor(Math.random() * text7.length)]
   const text8 = ["Dělé je Večerníček je!", "Večerníček!!!", "No běž se kókat na Večerníček!"]
   const nahoda8  = text8[Math.floor(Math.random() * text8.length)]
