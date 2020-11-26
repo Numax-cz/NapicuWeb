@@ -4,6 +4,7 @@ function morenula(L) {
   }
   const text1 = ["Co tu chceš jako? Chceš MMA? Tak pozdě večer?", "Čo ti šibe takto večer?", "Takto pozdě večer?", "To je na MMA tak pozdě večer!"]
   const nahoda1  = text1[Math.floor(Math.random() * text1.length)]
+  
   const text2 = ["HA! more vstávat budeš!", "HA! nechtěl bych vstávat!", "Vsávat"]
   const nahoda2  = text2[Math.floor(Math.random() * text2.length)]
   const text3 = ["Vstávat!!!", "Vstávej more", "Vstávat budeš!", "Vstávé", "Hey wake up!", "Wake up!",]
