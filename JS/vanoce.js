@@ -24,3 +24,8 @@ function novejrokpico(){
         document.getElementById('Sekundy').innerText = s;
 }
 setInterval(function(){novejrokpico();},1000)  
+
+var hudba = document.getElementById('hudba');
+function HratHudbu(){
+    hudba.play();
+}

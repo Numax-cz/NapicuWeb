@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <title>Já nevím ještě</title>
+    <title>Napicu - Odpočet do Vánoc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="L">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet"> 
@@ -9,18 +9,18 @@
     <link rel="icon" href="favicon.png">
     <meta charset="utf-8"/>
     
-    <meta itemprop="name" content="Napiču">
+    <meta itemprop="name" content="Napicu - Odpočet do Vánoc">
     <meta itemprop="image" content="https://napicu.eu/logo-meta.png">
     <meta itemprop="description" content="Ahoj kamaráde! Vánoce se blíží!">
 
     <meta property="og:url" content="https://napicu.eu/novejrok.html">
-    <meta property="og:title" content="Já nevím ještě">
+    <meta property="og:title" content="Napicu - Odpočet do Vánoc">
     <meta property="og:description" content="Ahoj kamaráde! Vánoce se blíží!">
     <meta property="og:site_name" content="Napiču">
     <meta property="og:image" content="https://napicu.eu/logo-meta.png">
 
     <meta name="twitter:url" content="https://napicu.eu/novejrok.html">
-    <meta name="twitter:title" content="Já nevím ještě">
+    <meta name="twitter:title" content="Napicu - Odpočet do Vánoc">
     <meta name="twitter:description" content="Ahoj kamaráde! Vánoce se blíží!">
     <meta name="twitter:site_name" content="Napiču">
     <meta name="twitter:image" content="https://napicu.eu/logo-meta.png">
@@ -32,6 +32,11 @@
 
 
 <body>
+    <audio id="hudba">
+        <source src="./Songs/we-wish-you-a-merry-christmas.mp3" type="audio/mpeg">
+    </audio>
+
+
     <div id="snow">
         <nav>
             <div class="menu-na">
@@ -43,6 +48,10 @@
     
         <div class="zaklad">
             <h2><span>Vánoce</span><div class="cislorok"><h1>2020</h1></div></h2>
+            <div class="btn-music" onclick="HratHudbu()">
+                Hudba
+            </div>
+
 
             <div class="cas">
                 <div id="Dny">-</div>
@@ -69,6 +78,8 @@
     <script src="./JS/L.js"></script>
     <script type="text/javascript" src="./JS/js/particles.js"></script>
     <script type="text/javascript" src="./JS/js/app.js"></script>
+
+
     
     
     

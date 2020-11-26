@@ -132,6 +132,25 @@ body{
     content: 'Sekundy';
 }
 
+.btn-music{
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 20px;
+    background-color: #c0392b;
+    color: white;
+    cursor: pointer;
+    transition: .4s;
+}
+.btn-music:hover{
+    transition: .3s;
+    background-color: #a12f22;
+}
+
+
+
 
 /*     CAS-SIZE     */
 @media screen and (max-width:725px){
