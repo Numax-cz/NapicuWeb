@@ -1,8 +1,5 @@
 var nevím = new Date('Dec 24, 2020 00:00.00').getTime();
-var hudba = document.getElementById('hudba').play();
-function HratHudbu(){
-    hudba.play();
-}
+
 
     
 function novejrokpico(){
@@ -29,3 +26,7 @@ function novejrokpico(){
 }
 setInterval(function(){novejrokpico();},1000)  
 
+// var hudba = document.getElementById('hudba').play();
+// function HratHudbu(){
+//     hudba.play();
+// }

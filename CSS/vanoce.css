@@ -21,7 +21,8 @@ body{
 }
 /*MENU*/
 #menu{
-    position: fixed;
+    position: absolute;
+    z-index: 1;
     width: 100%;
     margin-top: 20px;
     text-align: center;
@@ -87,9 +88,8 @@ body{
 }
 
 .cas-text-cas{
-    
-    padding-top: 40px;
 
+    padding-top: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -138,6 +138,218 @@ body{
 }
 .cas-text-cas #Sekundy::before{
     content: 'Sekundy';
+}
+
+
+
+
+.svicky{
+    padding-top: 130px;
+
+
+
+    
+
+
+}
+.svicky-sv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+ 
+    
+    
+}
+.svicky-sv div{
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100px;
+    width: 100%;
+    background-color: white;
+
+}
+/* ------------------------ */
+
+.cas-text-ca{
+
+    padding-top: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.svicka1{
+    background-color: white;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #bdc3c7;
+    margin: 0 25px;
+    font-size: 50px;
+    font-weight: bold;
+    border-radius: 10px;
+    
+}
+
+.svicka2{
+    background-color: white;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #bdc3c7;
+    margin: 0 25px;
+    font-size: 50px;
+    border-radius: 10px;
+    font-weight: bold;
+
+}
+
+.svicka3{
+    background-color: white;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    color: #bdc3c7;
+    margin: 0 25px;
+    border-radius: 10px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.svicka4{
+    background-color: white;
+    position: relative;
+    width: 50px;
+    height: 100px;
+    border-radius: 10px;
+    line-height: 100px;
+    text-align: center;
+    color: #bdc3c7;
+    margin: 0 25px;
+    font-size: 50px;
+    font-weight: bold;
+
+}
+
+
+
+
+
+
+
+
+/* tu so more ohne  */
+.clasa1{
+    position: relative;
+    margin: 0 -30px;
+
+}.clasa2{
+
+    position: relative;
+    margin: 0 -30px;
+
+}.clasa3{
+    position: relative;
+    margin: 0 -30px;
+    display: none;
+
+}.clasa4{
+    position: relative;
+    margin: 0 -30px;
+    display: none;
+}
+
+.clasa1 div{
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 0% 50% 50%;
+    transform: rotate(-45deg);
+}
+.clasa2 div{
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 0% 50% 50%;
+    transform: rotate(-45deg);
+}
+.clasa3 div{
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 0% 50% 50%;
+    transform: rotate(-45deg);
+}
+.clasa4 div{
+    bottom: 0;
+    position: absolute;
+    border-radius: 50% 0% 50% 50%;
+    transform: rotate(-45deg);
+}
+
+
+
+.ohen1{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0 30px;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: orangered;
+    box-shadow: 0 0 15px 9px orangered;
+}
+.ohen2{
+    left: 5px;
+    
+    position: relative;
+    width: 40px;
+    height: 40px;
+    line-height: 100px;
+    text-align: center;
+
+    margin: 0 30px;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: orange;
+    box-shadow: 0 0 9px 5px orange;
+
+}
+.ohen3{
+    left: 10px;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0 30px;
+    font-size: 50px;
+    font-weight: bold;
+    background-color: gold;
+    box-shadow: 0 0 6px 4px gold;
+
+}
+.ohen4{
+    box-shadow: 0 0 5px 2px white; 
+    position: relative;
+    line-height: 100px;
+    text-align: center;
+    margin: 0 30px;
+    font-size: 50px;
+    font-weight: bold;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
 }
 
 
@@ -249,5 +461,30 @@ body{
         bottom: -50px;
 
     }
+
+
+    .svicka1{
+        width: 40px;
+        height: 80px;
+      
+    }
+    .svicka2{
+        width: 40px;
+        height: 80px;
+      
+    }
+    .svicka3{
+        width: 40px;
+        height: 80px;
+      
+    }
+    .svicka4{
+        width: 40px;
+        height: 80px;
+      
+    }
+    
+
+
 
 }

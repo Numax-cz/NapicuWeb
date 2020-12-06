@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+}
+#menu2{
+    background-color: #d0d5d8;
+    width: 100%;
+    
+
+}
+.menu2-txt{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.menu2-text-dv{
+    
+    background-color: #d0d5d8;
+    color: black;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 20px;
+
+}
+
+/* ----------------------- */
+
+#profil{
+    height: 100vh;
+    min-height: 400px;
+    display: table;
+    width: 100%;
+}
+.profil-box{
+    display: table-cell;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+
+
+
+
+}
+.profil-box2{
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    max-height: 800px;
+    margin: auto;
+
+}
+.profil-box-img{
+    padding: 20px;
+    width: 30%;
+    height: 100%;
+    justify-content: center;
+    text-align: center;
+}
+.profil-box-img-profil{
+    border-radius: 50%;
+}
+.profil-box-img-name{
+    text-align: center;
+    padding-top: 20px;
+    font-size: 35px;
+    font-weight: bold;
+}
+    
+.profil-box-img-name-btn{
+    padding-top: 20px;
+    
+}
+.profil-box-img-name-btn a{
+    text-decoration: none;
+    background-color: #70a1ff;
+    padding: 7px;
+    border-radius: 20px;
+    font-size: 20px;
+    color: black
+
+}
+
+
+
+
+
+
+/* ----------------------DALŠÍ BOX---------------------- */
+/* PRAVÝ BOX */
+
+.profil-inf{
+    padding-top: 25px;
+    float: right;
+    width: 100%;
+    max-width: 70%;
+    margin: auto;
+    height: 100%;
+}
+.profil-inf-box{
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+.profil-inf a{
+    font-weight: 800;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.profil-inf2{
+    padding-top: 80px;
+    padding-left: 50px;
+}
+.profil-inf2 p{
+    font-size: 20px;
+}
+
+@media screen and (max-width:1040px){
+    .profil-box-img-profil{
+        height: 200px;
+        width: 200px;
+    }
+}

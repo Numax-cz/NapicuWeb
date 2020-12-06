@@ -18,30 +18,30 @@ html{
     animation: fade 0.5s ease-in-out;
 
 }
-/*------MENU------*/
-.menu-na{
-    user-select: none;
-    width: 100%;
-    background-color: #c0392b;
-    font-size: 5vh;
-    padding-bottom: 5px;
-    letter-spacing: 1vh;
-    text-align: center;
-    top: 0;
+/*MENU*/
+#menu{
 
+    z-index: 1;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
 }
-.menu-na a {
-    background-color: #c0392b;
-    transition: .4s;
+.menu-text{
+    
+    max-width: 450px;
+    margin: auto;
+}
+.menu-text a{
+    color: #ecf0f1;
+    font-size: 50px;
+    font-family: 'Montserrat', sans-serif;
+
+    letter-spacing: 5px;
+    font-weight: bold;
     text-decoration: none;
-    color: white;
-    font-weight: bolder;
 }
-.menu-na a:hover {
-    transition: .3s;
-    letter-spacing: 1.2vh;
-}
-/*------MENU------*/
+
+/*MENU*/
 
 
 nav ul{
@@ -61,11 +61,8 @@ nav ul li a {
 }
 
 .by{
-    user-select: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 6vh;
+    text-align: center;
+    
 
 }
 .by a{
@@ -90,7 +87,7 @@ main{
 
     width: 80%;
     margin: 0 auto;
-    padding-top: 50px;
+    padding-top: 40px;
 
     color: #FFF;
 }
@@ -247,5 +244,12 @@ main{
         align-items: flex-start;
     }
 }
+
+
+
+
+
+
+
 
 
