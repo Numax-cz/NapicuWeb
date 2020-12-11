@@ -45,7 +45,7 @@ body{
 #hodiny{
 
 
-    position: fixed;
+    position: absolute;
     display: table;
 
     height: 100vh;
@@ -173,7 +173,6 @@ body{
 /* ------------------------ */
 
 .cas-text-ca{
-
     padding-top: 140px;
     display: flex;
     align-items: center;
@@ -187,14 +186,8 @@ body{
     position: relative;
     width: 50px;
     height: 100px;
-    line-height: 100px;
-    text-align: center;
-    color: #bdc3c7;
     margin: 0 25px;
-    font-size: 50px;
-    font-weight: bold;
     border-radius: 10px;
-    
 }
 
 .svicka2{
@@ -202,14 +195,9 @@ body{
     position: relative;
     width: 50px;
     height: 100px;
-    line-height: 100px;
-    text-align: center;
-    color: #bdc3c7;
     margin: 0 25px;
     font-size: 50px;
     border-radius: 10px;
-    font-weight: bold;
-
 }
 
 .svicka3{
@@ -217,13 +205,8 @@ body{
     position: relative;
     width: 50px;
     height: 100px;
-    line-height: 100px;
-    text-align: center;
-    color: #bdc3c7;
     margin: 0 25px;
     border-radius: 10px;
-    font-size: 50px;
-    font-weight: bold;
 }
 
 .svicka4{
@@ -232,13 +215,7 @@ body{
     width: 50px;
     height: 100px;
     border-radius: 10px;
-    line-height: 100px;
-    text-align: center;
-    color: #bdc3c7;
     margin: 0 25px;
-    font-size: 50px;
-    font-weight: bold;
-
 }
 
 
@@ -268,6 +245,7 @@ body{
     margin: 0 -30px;
     display: none;
 }
+/* tu so more ohne  */
 
 .clasa1 div{
     bottom: 0;
@@ -300,26 +278,16 @@ body{
     position: relative;
     width: 50px;
     height: 50px;
-    line-height: 100px;
-    text-align: center;
     margin: 0 30px;
-    font-size: 50px;
-    font-weight: bold;
     background-color: orangered;
     box-shadow: 0 0 15px 9px orangered;
 }
 .ohen2{
     left: 5px;
-    
     position: relative;
     width: 40px;
     height: 40px;
-    line-height: 100px;
-    text-align: center;
-
     margin: 0 30px;
-    font-size: 50px;
-    font-weight: bold;
     background-color: orange;
     box-shadow: 0 0 9px 5px orange;
 
@@ -329,11 +297,7 @@ body{
     position: relative;
     width: 30px;
     height: 30px;
-    line-height: 100px;
-    text-align: center;
     margin: 0 30px;
-    font-size: 50px;
-    font-weight: bold;
     background-color: gold;
     box-shadow: 0 0 6px 4px gold;
 
@@ -341,11 +305,7 @@ body{
 .ohen4{
     box-shadow: 0 0 5px 2px white; 
     position: relative;
-    line-height: 100px;
-    text-align: center;
     margin: 0 30px;
-    font-size: 50px;
-    font-weight: bold;
     left: 15px;
     width: 20px;
     height: 20px;
@@ -369,20 +329,13 @@ body{
         padding-top: 100px;   
     }
     .cas-text-cas div{
-
         width: 95px;
         height: 95px;
         font-size: 40px;
-    
-    
     }
     .cas-text-cas div::before{
-  
-
         bottom: -45px;
-
     }
-
 }
 
 @media screen and (max-width:500px){
@@ -392,45 +345,40 @@ body{
     .cas-text-rok{
         font-size: 70px;
     }
-    
     .cas-text-cas{
         font-size: 20px;
     }
-
     .cas-text-cas div{
-
         width: 74px;
         height: 74px;
         font-size: 35px;
-    
-    
     }
-
 }
 @media screen and (max-width:440px){
+    .menu-text a{
+        color: #ecf0f1;
+        font-size: 40px;
+
+    }
+
+
     .cas-text-vanoce{
         font-size: 80px;
     }
     .cas-text-rok{
         font-size: 70px;
     }
-    
     .cas-text-cas{
         font-size: 20px;
     }
     .cas{   
-        padding-top: 150px;   
+        padding-top: 90px;   
     }
-
     .cas-text-cas div{
-
         width: 74px;
         height: 74px;
         font-size: 35px;
-    
-    
     }
-
 }
 @media screen and (max-width:417px){
     .cas-text-vanoce{
@@ -439,52 +387,108 @@ body{
     .cas-text-rok{
         font-size: 70px;
     }
-    
     .cas-text-cas{
         font-size: 20px;
     }
     .cas{   
         padding-top: 150px;   
     }
-
     .cas-text-cas div{
-
         width: 64px;
         height: 64px;
         font-size: 35px;
-    
-    
     }
     .cas-text-cas div::before{
-  
-
         bottom: -50px;
-
     }
-
-
     .svicka1{
         width: 40px;
         height: 80px;
-      
     }
     .svicka2{
         width: 40px;
         height: 80px;
-      
     }
     .svicka3{
         width: 40px;
         height: 80px;
-      
     }
     .svicka4{
         width: 40px;
         height: 80px;
-      
     }
+}
+
+@media screen and (max-width:320px){
+    .cas-text-vanoce{
+        font-size: 50px;
+    }
+    .cas-text-rok{
+        font-size: 60px;
+    }
+    .cas-text-cas div{
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        padding-bottom: 65px;
+    }
+    .cas-text-cas{
+        padding-top: 20px;
+    }
+    .svicka1{
+        width: 30px;
+        height: 70px;
+    }
+    .svicka2{
+        width: 30px;
+        height: 70px;
+    }
+    .svicka3{
+        width: 30px;
+        height: 70px;
+    }
+    .svicka4{
+        width: 30px;
+        height: 70px;
+    }
+    .cas-text-cas div::before{
+
+        bottom: -40px;
+        height: 40px;
+
+        font-size: 0.30em;
+    }
+
+
+    .cas-text-ca {
+        padding-top:100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .clasa1{
+        position: relative;
+        margin: 0 -40px;
     
-
-
-
+    }.clasa2{
+    
+        position: relative;
+        margin: 0 -40px;
+    
+    }.clasa3{
+        position: relative;
+        margin: 0 -40px;
+        display: none;
+    
+    }.clasa4{
+        position: relative;
+        margin: 0 -40px;
+        display: none;
+    }
+    .cas{   
+        padding-top: 70px;   
+    }
+    .menu-text a{
+        font-size: 30px;
+    }
 }

@@ -7,24 +7,25 @@
     <link rel="icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
     <title>Napicu - COVID-19</title>
 
 
 
-    <meta itemprop="name" content="Napiču">
+    <meta itemprop="name" content="NaPicu">
     <meta itemprop="image" content="https://napicu.eu/logo-meta.png">
     <meta itemprop="description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
     
     <meta property="og:url" content="https://napicu.eu/covid.html">
     <meta property="og:title" content="Napicu - COVID-19">
     <meta property="og:description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
-    <meta property="og:site_name" content="Napiču">
+    <meta property="og:site_name" content="Napicu - COVID-19">
     <meta property="og:image" content="https://napicu.eu/logo-meta.png">
 
     <meta name="twitter:url" content="https://napicu.eu/covid.html">
     <meta name="twitter:title" content="Napicu - COVID-19">
     <meta name="twitter:description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
-    <meta name="twitter:site_name" content="Napiču">
+    <meta name="twitter:site_name" content="NaPicu">
     <meta name="twitter:image" content="https://napicu.eu/logo-meta.png">
 
     <meta name="msapplication-TileColor" content="#f39c12">
@@ -45,21 +46,7 @@
     <main>
       <div class="stats">
         <div class="report">
-          <div class="mesto">
-            <div class="nazev">Čekej ne?</div>
-            <div class="zmenit-zemi">Změnit</div>
-            <div class="search-country hide">
-              <div class="hledani-box">
-                <input
-                  type="text"
-                  id="hledat"
-                  placeholder="Tu něco najdi!"
-                />
-                <img class="zav " src="JS/img/krizek.svg" alt="" />
-              </div>
-              <div class="mesta-list"></div>
-            </div>
-          </div>
+
           
           <div class="pripad">
             <div class="title">Nakažených</div>
@@ -76,36 +63,30 @@
 
           <div class="podlehlo">
             <div class="title">Podlehlo</div>
-            <div class="hodnota">0</div>
-            <div class="nova-hodnota">+0</div>
+            <div class="hodnota">666</div>
+            <div class="nova-hodnota">+666</div>
           </div>
+
+          <!--
+            Máme rádi víno. A sebe taky
+          -->
+        </div>
+        <div class="graf">
+          <canvas id="GraphPico"></canvas>
         </div>
 
-        <div class="schema">
-          <canvas id="axes_line_chart"></canvas>
-        </div>
       </div>
 
-
-      <div class="by">  <h4><a>Code by: </a><a class="LLL" href="https://www.youtube.com/channel/UC8n8ftV94ZU_DJLOLtrpORA" target="_blank">Code Explained </a></h4></div>
     
     
     </main>
 
-
-
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
-      integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
-      crossorigin="anonymous"
-    ></script>
     <script
 
       type="text/javascript"
     ></script>
-    <script src="JS/mesta.js"></script>
-    <script src="JS/app.js"></script>
+    <script src="JS/choroba.js"></script>
     <script src="./JS/L.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   </body>
 </html>

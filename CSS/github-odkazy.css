@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+}
+#menu2{
+    background-color: #d0d5d8;
+    width: 100%;
+    
+
+}
+.menu2-txt{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.menu2-text-dv{
+    
+    background-color: #d0d5d8;
+    color: black;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 20px;
+
+}
+
+/* ----------------------- */
+
+#profil{
+    height: 100vh;
+    min-height: 400px;
+    display: table;
+    width: 100%;
+}
+.profil-box{
+    display: table-cell;
+
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+
+
+
+
+}
+.profil-box2{
+    width: 100%;
+    max-width: 1200px;
+    height: 100vh;
+    max-height: 800px;
+    margin: auto;
+
+}
+
+/* ----------------------ST BOX---------------------- */
+/* BOX */
+
+
+.profil-inf-box{
+    text-align: left;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+.profil-inf-2 a{
+    font-weight: 800;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.profil-inf3-projekty{
+    padding-top: 80px;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    font-size: 1.5rem;
+    text-align: center;
+    
+}
+.profil-inf3-projekty a{
+    font-size: 1.5rem;
+ 
+}
+
