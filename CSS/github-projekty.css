@@ -3,15 +3,123 @@
     padding: 0;
     box-sizing: border-box; 
     font-family: 'Montserrat', sans-serif;
-    background-color: white;
-}
-#menu2{
-    background-color: #d0d5d8;
-    width: 100%;
     
+    
+    
+}
+/* ----------------------- */
+/*  ----------------------- CLASA DARK MOD-----------------------  */
+html{
+    /* NastaveniColor */
+    color: black;
+    background-color: white;
+    --TextWhiteColor: white;
+    --TextWhiteColor2: black;
+    --TextBlackColor: black;
+    --TextGreyColor: #848e94;
+    --TextIDKColor: #07101a;
+        /* Nastaveni color2 -- con1*/
+    --TextHTML: orangered;
+    --TextJS: gold;
+    --TextPY: dodgerblue;
+        /* Color3 con2 -*/
+        --profil-inf3-projektyColor: #2f8bf3;
+        --profil-box-img-name-btnAColor: #70a1ff;
+}
 
+
+
+
+
+
+html[MoreCerna='CernaPyco']{
+    /* NastaveniColor */
+    background-color: #0d1929;
+    --TextWhiteColor2: white;
+
+    --TextWhiteColor: white;
+    --TextBlackColor: white;
+    --TextGreyColor: #848e94;
+    --TextIDKColor: #07101a;
+        /* Nastaveni color2 -- con1*/
+    --TextHTML: orangered;
+    --TextJS: gold;
+    --TextPY: dodgerblue;
+        /* Color3 con2 -*/
+    --profil-inf3-projektyColor: #2f8bf3;
+    --profil-box-img-name-btnAColor: #70a1ff;
+
+    --ButtonDarkMoDAf: rgb(9, 81, 153);
+}
+/* DARK MOD BUTTON */
+.profil-box-img-name-btn-DARK{
+    margin-top: 20px;
+    width: 100%;
+    max-width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ButtonLab{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+.ButtonLab input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.ButtonSpan{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: dodgerblue;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.ButtonSpan::before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .ButtonSpan {
+    background-color: var(--ButtonDarkMoDAf);
+}
+input:checked + .ButtonSpan:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+.ButtonSpan::before{
+    border-radius: 20px;
+}
+.ButtonSpan{
+    border-radius: 20px;
+}
+/* DARK MOD BUTTON */
+html.moresmooooth{
+    transition-delay: 0;
+    transition: all 1s !important
+}
+/*  ----------------------- CLASA DARK MOD-----------------------  */
+
+
+#menu2{
+    background-color: var(--TextIDKColor);
+    width: 100%;
 }
 .menu2-txt{
+
     width: 100%;
     max-width: 1200px;
     margin: auto;
@@ -19,8 +127,8 @@
 
 .menu2-text-dv{
     
-    background-color: #d0d5d8;
-    color: black;
+    background-color:  var(--TextIDKColor);
+    color: var(--TextWhiteColor);
     font-weight: 700;
     font-size: 2rem;
     padding: 20px;
@@ -37,14 +145,8 @@
 }
 .profil-box{
     display: table-cell;
-
     padding-top: 100px;
     padding-bottom: 100px;
-
-
-
-
-
 }
 .profil-box2{
     width: 100%;
@@ -77,7 +179,7 @@
 }
 .profil-box-img-name-btn a{
     text-decoration: none;
-    background-color: #70a1ff;
+    background-color: var(--profil-box-img-name-btnAColor);
     padding: 7px;
     border-radius: 20px;
     font-size: 20px;
@@ -85,6 +187,7 @@
 
 }
 .name{
+    color: var(--TextBlackColor);
     text-align: left;
     padding-left: 40px;
     
@@ -92,8 +195,7 @@
 .nickname{
     text-align: left;
     padding-left: 40px;
-    color: #848e94;
-
+    color: var(--TextGreyColor);
     font-size: 1.7rem;
 }
 
@@ -120,7 +222,7 @@
 }
 .profil-inf a{
     font-weight: 800;
-    color: black;
+    color: var(--TextWhiteColor2);
     text-decoration: none;
     font-size: 20px;
 
@@ -138,14 +240,12 @@
 }
 .profil-inf3-projekty a{
     font-size: 1.2rem;
-    color: black;
+    color: var(--profil-inf3-projektyColor);
     font-weight: bold;
  
 }
 
-.profil-inf3-projekty ul{
-    color: slateblue;
-}
+
 
 /* NASTAVENI CLASS */
 .profil-inf3-projekty--class1,
@@ -155,7 +255,7 @@
 .profil-inf3-projekty--class5,
 .profil-inf3-projekty--class6{
     padding: 17px;
-    color: black;
+    color: var(--TextBlackColor);
     font-size: 1rem;
     font-weight: 500;
 }
@@ -181,19 +281,19 @@
 }
 /* JAZYKY - ALL - CLASA */
 .Jazyk-HTML{
-    background-color: orangered;
+    background-color: var(--TextHTML);
     height: 13px;
     width: 13px;
     border-radius: 20px;
 }
 .Jazyk-JS{
-    background-color: gold;
+    background-color: var(--TextJS);
     height: 13px;
     width: 13px;
     border-radius: 20px;
 }
 .Jazyk-PY{
-    background-color: dodgerblue;
+    background-color: var(--TextPY); 
     height: 13px;
     width: 13px;
     border-radius: 20px;
