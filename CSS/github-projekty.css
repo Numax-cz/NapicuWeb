@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box; 
     font-family: 'Montserrat', sans-serif;
-    
+
     
     
 }
@@ -246,7 +246,6 @@ html.moresmooooth{
 }
 
 
-
 /* NASTAVENI CLASS */
 .profil-inf3-projekty--class1,
 .profil-inf3-projekty--class2,
@@ -256,13 +255,14 @@ html.moresmooooth{
 .profil-inf3-projekty--class6{
     padding: 17px;
     color: var(--TextBlackColor);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
+    padding-right: 100px;
 }
 /* NASTAVENI CLASS > POPISEK */
 .profil-inf3-projekty-popisekHL{
     width: 100%;
-    max-width: 600px;
+    max-width: 400px;
     margin-right: auto;
     margin-left: 30px;
     padding-top: 6px;
@@ -310,12 +310,202 @@ html.moresmooooth{
 /* JAZYKY - ALL - TEXT */
 
 
-
-
-
+/* media screen */
+/* JOU JOU MORE TOTO NENÍ FILTROVANÉ MORE!!!!!!!!! */
 @media screen and (max-width:1040px){
     .profil-box-img-profil{
         height: 200px;
         width: 200px;
     }
+
+
 }
+
+@media screen and (max-width:850px){
+    .profil-box-img-profil{
+        height: 150px;
+        width: 150px;
+    }
+}
+
+@media screen and (max-width:755px){
+    .profil-box {
+
+        padding-top: 20px;
+        padding-bottom: 100px;
+    }
+    .profil-box-img-profil{
+        height: 150px;
+        width: 150px;
+    }
+    .profil-box-img-name{
+        font-size: 21px;
+    }
+    .nickname{
+        font-size: 1.4rem;
+        padding-left: 0px;
+    }
+    .name{
+        padding-left: 0px;   
+    }
+    .profil-box-img-name-btn a{
+        text-decoration: none;
+
+        padding: 7px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 15px;
+
+    }
+    .profil-inf-box {
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+    .profil-inf3-projekty--class1,
+    .profil-inf3-projekty--class2,
+    .profil-inf3-projekty--class3,
+    .profil-inf3-projekty--class4,
+    .profil-inf3-projekty--class5,
+    .profil-inf3-projekty--class6{
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width:640px){
+    .profil-box-img-profil{
+        height: 130px;
+        width: 130px;
+    }
+    .profil-box-img-name{
+        font-size: 18px;
+ 
+    }
+    .nickname{
+        font-size: 1rem;
+
+    }
+
+    .profil-box-img-name-btn a{
+        text-decoration: none;
+
+        padding: 7px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 13px;
+
+    }
+}
+@media screen and (max-width:524px){
+    .profil-box-img-profil{
+        height: 130px;
+        width: 130px;
+    }
+    .profil-box-img-name{
+        font-size: 18px;
+    }
+    .nickname{
+        font-size: 1rem;
+
+    }
+    .profil-inf3-projekty a {
+        display: flex;
+        width: 140px;
+        font-size: 1rem;
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        font-weight: bold;
+    }
+    
+    
+    
+
+    .profil-inf2 {
+        padding-top: 30px;
+        padding-left: 30px;
+    }
+    .profil-inf3-projekty {
+        padding-left: 30px;
+        padding-top: 20px;
+    }
+    .profil-box-img {
+        padding: 10px;
+    }
+   
+
+
+
+    .profil-box-img-name-btn a{
+        text-decoration: none;
+        padding: 7px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 13px;
+        color: black
+    }
+}
+
+
+
+@media screen and (max-width:484px){
+    .profil-box-img-profil{
+        height: 120px;
+        width: 120px;
+    }
+    .profil-inf a {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .profil-box-img-name {
+        font-size: 15px;
+    }
+    .profil-box-img-name-btn a {
+
+        font-size: 10px;
+
+    }
+}
+
+@media screen and (max-width:400px){
+    .profil-box-img-profil{
+        height: 100px;
+        width: 100px;
+    }
+    .profil-inf a {
+        font-weight: bold;
+        font-size: 13px;
+    }
+    .profil-inf2 p {
+        font-size: 14px;
+    }
+    .profil-box-img-name {
+        font-size: 15px;
+    }
+    .profil-box-img-name-btn a {
+
+        font-size: 10px;
+
+    }
+}
+@media screen and (max-width:384px){
+    .profil-box-img-profil{
+        height: 90px;
+        width: 90px;
+    }
+    .profil-inf a {
+        font-weight: bold;
+        font-size: 13px;
+    }
+    .profil-inf2 p {
+        font-size: 14px;
+    }
+    .profil-box-img-name {
+        font-size: 15px;
+    }
+    .profil-box-img-name-btn a {
+        font-size: 8px;
+    }
+}
+/* TU DODĚLAT 320 <===*/    
