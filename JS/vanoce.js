@@ -16,8 +16,29 @@ function novejrokpico(){
         document.getElementById('Hodiny').innerText = h;
         document.getElementById('Minuty').innerText = m;
         document.getElementById('Sekundy').innerText = s;
+
+
+
+       
 }
 setInterval(function(){novejrokpico();},1000)  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 var hudba = document.getElementById('hudba').play();
 function HratHudbu(){

@@ -1,0 +1,109 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: 'Montserrat', sans-serif;
+
+}
+body{
+    overflow: hidden;
+}
+
+html{
+    background: #242424;
+    --CasDivColor: white;
+    --TextColorCas: #bdc3c7;
+}
+
+
+/*MENU*/
+#menu{
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+.menu-text{
+    
+    max-width: 450px;
+    margin: auto;
+}
+.menu-text a{
+    color: #ecf0f1;
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*MENU*/
+
+
+#hodiny{
+    display: table;
+    z-index: 1;
+    position: absolute;
+    height: 100vh;
+    min-height: 500px;
+    width: 100%;
+
+}
+
+.cas{
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 250px;
+}
+.cas-class-width{
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.cas-class-width div{    
+
+    position: relative;
+
+    
+    line-height: 100px;
+    text-align: center;
+    color: #bdc3c7;
+    margin: 0 35px;
+    padding: 14px;
+    font-size: 8rem;
+ 
+}
+
+.cas-class-width div::before{
+
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -50px;
+    height: 50px;
+    line-height: 35px;
+    font-size: 1.15rem;
+    
+    
+
+
+}
+.cas-class-width  #Dny::before{
+    content: 'Dny';
+}
+.cas-class-width  #Hodiny::before{
+    content: 'Hodin';
+}
+.cas-class-width  #Minuty::before{
+    content: 'Minuty';
+}
+.cas-class-width  #Sekundy::before{
+    content: 'Sekundy';
+}

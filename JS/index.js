@@ -5,7 +5,7 @@ function morenula(L) {
   const text1 = ["Co tu chceš jako? Chceš MMA? Tak pozdě večer?", "Čo ti šibe takto večer?", "Takto pozdě večer?", "To je na MMA tak pozdě večer!", "Co si to dovoluješ tak pozdě večer?"]
   const nahoda1  = text1[Math.floor(Math.random() * text1.length)]
   
-  const text2 = ["HA! more vstávat budeš!", "HA! nechtěl bych vstávat!", "Vsávat"]
+  const text2 = ["HA! more vstávat budeš!", "HA! nechtěl bych vstávat!", "Vstávej"]
   const nahoda2  = text2[Math.floor(Math.random() * text2.length)]
   const text3 = ["Vstávat!!!", "Vstávej more", "Vstávat budeš!", "Vstávé", "Hey wake up!", "Wake up!",]
   const nahoda3  = text3[Math.floor(Math.random() * text3.length)]
@@ -26,26 +26,49 @@ function morenula(L) {
   const text11 = ["Spat běž!", "SPI!", "Spát budeš!!", "Spát běž nebo nevstaneš!"]
   const nahoda11 = text11[Math.floor(Math.random() * text11.length)]
 
+  const vanoce = ["Veselé Vánoce! :)", "Vánoce!", "Šťastné a veselé Vánoce! :)"]
+  const VanoceNahoda = vanoce[Math.floor(Math.random() * vanoce.length)]
+
+
   function hodinyyyyyyyyy() {
-    var today = new Date();
-    var h = today.getHours();
-    var m = today.getMinutes();
-    var s = today.getSeconds();
+    var morecas = new Date();
+    var d = morecas.getDate();
+    var dm = morecas.getMonth();
+    var dmnevimvolecosedeje = dm + 1;
+    var h = morecas.getHours();
+    var m = morecas.getMinutes();
+    var s = morecas.getSeconds();
     m = morenula(m);
     s = morenula(s);
-    document.getElementById('hodiny').innerHTML = h + ":" + m + ":" + s;
+    document.getElementById('hodiny').innerHTML = h + " : " + m + " : " + s;
     var t = setTimeout(hodinyyyyyyyyy, 1000);
-    if (h < 5) {document.getElementById('zdarne-pop-text').innerHTML = nahoda1}
-    if (h >= 5) {document.getElementById('zdarne-pop-text').innerHTML = nahoda2}
-    if (h >= 7) {document.getElementById('zdarne-pop-text').innerHTML = nahoda3}
-    if (h >= 9) {document.getElementById('zdarne-pop-text').innerHTML = nahoda4}
-    if (h >= 11) {document.getElementById('zdarne-pop-text').innerHTML = nahoda5}
-    if (h >= 13) {document.getElementById('zdarne-pop-text').innerHTML = nahoda6}
-    if (h >= 16) {document.getElementById('zdarne-pop-text').innerHTML = nahoda7}
-    if (h >= 18) {document.getElementById('zdarne-pop-text').innerHTML = nahoda8}
-    if (h >= 19) {document.getElementById('zdarne-pop-text').innerHTML = nahoda9}
-    if (h >= 21) {document.getElementById('zdarne-pop-text').innerHTML = nahoda10}
-    if (h >= 22) {document.getElementById('zdarne-pop-text').innerHTML = nahoda11}
+    
+    if (d == 24 && dmnevimvolecosedeje == 12){document.getElementById('zdarne-pop-text').innerHTML = VanoceNahoda
+  }
+    else if (h < 5) {document.getElementById('zdarne-pop-text').innerHTML = nahoda1
+  }
+    else if (h >= 5) {document.getElementById('zdarne-pop-text').innerHTML = nahoda2
+  }
+    else if (h >= 7) {document.getElementById('zdarne-pop-text').innerHTML = nahoda3
+  }
+    else if (h >= 9) {document.getElementById('zdarne-pop-text').innerHTML = nahoda4
+  }
+    else if (h >= 11) {document.getElementById('zdarne-pop-text').innerHTML = nahoda5
+  }
+    else if (h >= 13) {document.getElementById('zdarne-pop-text').innerHTML = nahoda6
+  }
+    else if (h >= 16) {document.getElementById('zdarne-pop-text').innerHTML = nahoda7
+  }
+    else if (h >= 18) {document.getElementById('zdarne-pop-text').innerHTML = nahoda8
+  }
+    else if (h >= 19) {document.getElementById('zdarne-pop-text').innerHTML = nahoda9
+  }
+    else if (h >= 21) {document.getElementById('zdarne-pop-text').innerHTML = nahoda10
+  }
+    else if (h >= 22) {document.getElementById('zdarne-pop-text').innerHTML = nahoda11
+  }
+
+
 }
 console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: white; font-weight: bold; background-color: blue; font-size: 40px");
 console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: white; font-weight: bold; background-color: blue; font-size: 40px");
