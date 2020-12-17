@@ -4,7 +4,8 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto Mono', monospace;    
-    background: #2f3640;
+    background-color: #242424;
+    
 }
 html{
     font-size: 16px;

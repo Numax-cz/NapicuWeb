@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /*font-family: 'Roboto Mono', monospace;*/
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    overflow: hidden;
+    user-select: none;
+    
+  
+    
+}
+
+html{
+    background-color:  rgb(250, 250, 250); 
+    --Menu: #07101a;
+
+    --MenuColor: white;
+    --PodMenu: rgb(250, 250, 250);
+    --texted: white;
+
+}
+
+
+
+
+#Menu{
+    width: 100%;
+    height: 40px;
+    background-color: var(--Menu);
+    color: var(--MenuColor);
+}
+
+.Menu-Text{
+    width: 100%;
+    height: 100%;
+    font-size: 2rem;
+    max-width: 1400px;
+    margin: auto;
+}
+#Pole{
+    height: 100vh;
+    display: table;
+    width: 100%;
+
+}
+.PodPole{
+    display: table-cell;
+    background-color: var(--PodMenu);   
+    padding: 20px;
+    
+}
+.PodPole textarea{
+    height: 100%;
+    width: 100%;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bolder;
+    background-color: var(--texted);
+    border: 1px black solid;
+
+}
+.PodPole2{
+    
+    padding: 10px;
+    width: 50%;
+    float: right;
+    height: 100%;
+}
+.PodPole1{
+
+    padding: 10px;
+    width: 50%;
+    float: left;
+    height: 100%;
+
+}
+
+
+.PodPole2 iframe{
+    height: 100%;
+    font-size: 100rem;
+    border: none;
+    background-color: var(--texted);
+    width: 100%;
+    border: 1px black solid;
+
+
+}
+

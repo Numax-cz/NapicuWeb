@@ -8,7 +8,8 @@ body{
     margin: 0;
     padding: 0;
     user-select: none;
-    background-color: #2f3640;
+    background-color: #242424;
+    
     overflow: hidden;
 }
 /*------MENU------*/
