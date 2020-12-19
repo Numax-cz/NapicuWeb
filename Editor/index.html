@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="L.css">
+    <title>NaPicu - Editor</title>
+</head>
+<body>
+  <div class="HlavniMenu">
+    <div class="podmenu">
+      NaPicu - Editor
+
+    </div>
+
+  </div>
+  
+  <div class="menu1">
+      <div class="PodPole">
+          <div class="menu12">
+            <div class="MenuSett">
+              <div class="MenuSett-nan">
+                <div class="Menu-Nastaveni" title="Menu">
+                  <div class="lajna"></div>
+                  <div class="lajna"></div>
+                  <div class="lajna"></div>
+                </div>          
+                <div class="Menu-DarkMode">
+                  <!-- <div class="ButtonDark" title="Vzhled"></div> -->
+                  <label class="ButtonLab">
+                    <input class="ButtonDark" type="checkbox" id="ButtonID" name="darkMod">
+                    <span class="ButtonSpan"></span>
+                </label>
+                </div>
+                <!-- class="ButtonDark" title="Vzhled" -->
+
+
+
+                
+                
+
+              </div>
+            </div>
+            
+            
+            <div class="textit">
+                <iframe id="TextInput"></iframe>
+
+            </div>
+
+                
+            <div class="menu22">
+                <div id="editor" oninput="Code()"></div>
+            </div>
+    
+        
+        </div>
+
+
+        
+      </div>
+
+  </div>
+    
+
+    
+</body>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.9/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="main.js"></script>
+</html>
