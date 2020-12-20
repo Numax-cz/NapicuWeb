@@ -20,19 +20,31 @@
           <div class="menu12">
             <div class="MenuSett">
               <div class="MenuSett-nan">
-                <div class="Menu-Nastaveni" title="Menu">
-                  <div class="lajna"></div>
-                  <div class="lajna"></div>
-                  <div class="lajna"></div>
-                </div>          
                 <div class="Menu-DarkMode">
-                  <!-- <div class="ButtonDark" title="Vzhled"></div> -->
+                  
                   <label class="ButtonLab">
                     <input class="ButtonDark" type="checkbox" id="ButtonID" name="darkMod">
                     <span class="ButtonSpan"></span>
-                </label>
+                  </label>
+
                 </div>
-                <!-- class="ButtonDark" title="Vzhled" -->
+
+                <div class="cssbuttonnad">
+                  <label class="CSS">
+                    <input class="ButtonCSS" type="checkbox" id="ButtonIDCSS" name="cssMod">
+                    <span class="ButtonSpanCSS">CSS</span>
+                  </label>
+                </div>
+                
+                <div class="cssbuttonnad">
+                  <label class="CSS">
+                    <input class="ButtonCSS" type="checkbox" id="ButtonIDCSS" name="jsMod">
+                    <span class="ButtonSpanCSS">JS</span>
+                  </label>
+                </div>
+                
+                
+                
 
 
 
@@ -40,6 +52,7 @@
                 
 
               </div>
+              
             </div>
             
             
@@ -50,8 +63,14 @@
 
                 
             <div class="menu22">
+                <!-- <div id="txtmenu">HTML</div> -->
                 <div id="editor" oninput="Code()"></div>
+                <!-- <div id="txtmenu">CSS</div> -->
+                
+                <div id="editor2" oninput="Code()"></div>
+                <div id="editor3" oninput="Code()"></div>
             </div>
+
     
         
         </div>

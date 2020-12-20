@@ -10,6 +10,7 @@ if (BarvaMode == Cerna){
     document.getElementById('ButtonID').checked = false;
     document.documentElement.setAttribute('MoreCerna', Bejla) 
 }
+
 Button.addEventListener('change', function(){
     if(this.checked){
         HejMorecasMoreAnimaceToToAsiMoznabude()
