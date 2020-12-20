@@ -2,15 +2,14 @@ ace.require("ace/ext/language_tools");
 var editor = ace.edit("editor");
 var editor2 = ace.edit("editor2");
 var editor3 = ace.edit("editor3");
+editor.getSession().setValue("<html>" + "</html>")
+editor2.getSession().setValue("*{}")
 
 
 // editor.setTheme("ace/theme/twilight");
 editor.getSession().setMode("ace/mode/html");
 editor2.getSession().setMode("ace/mode/css");
 editor3.getSession().setMode("ace/mode/javascript");
-
-
-
 editor3.setOptions({
     fontSize: '12pt',
 })
@@ -31,9 +30,6 @@ function Code(){
   frame.write(html+CSS+JS);
   frame.close();
 }
-
-
-
 
 var Button = document.querySelector('input[name=darkMod]')
 var ButtonCss = document.querySelector('input[name=cssMod]')
@@ -83,13 +79,14 @@ ButtonCss.addEventListener('change', function(){
         document.getElementById('editor').style.height = '50%'
         document.getElementById('editor2').style.display = 'block'
         document.getElementById('editor2').style.height = '50%'
-
         document.getElementById('editor3').style.display = 'none'
 
         
     }else{
         document.getElementById('editor').style.height = '100%'
         document.getElementById('editor2').style.display = 'none'
+        document.getElementById('editor3').style.display = 'none'
+
     }
 })
 
