@@ -2,8 +2,27 @@ ace.require("ace/ext/language_tools");
 var editor = ace.edit("editor");
 var editor2 = ace.edit("editor2");
 var editor3 = ace.edit("editor3");
-editor.getSession().setValue("<html>" + "</html>")
-editor2.getSession().setValue("*{}")
+editor.getSession().setValue(`<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+</body>
+</html>`)
+editor2.getSession().setValue(`body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}`)
+editor3.getSession().setValue(`function main(){
+
+}`)
+
 
 
 // editor.setTheme("ace/theme/twilight");
