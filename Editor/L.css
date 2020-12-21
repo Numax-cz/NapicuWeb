@@ -35,7 +35,13 @@ html[MoreCerna='CernaPyco']{
     font-size: 2rem;
     margin: auto;
     color: white;
+    user-select: none;
     font-family: 'Montserrat', sans-serif;
+}
+.podmenu a{
+    text-decoration: none;
+    color: white;
+
 }
 
 .menu1{

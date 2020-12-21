@@ -102,9 +102,17 @@ body{
     color: #bdc3c7;
 
 }
+@media screen and (max-width:800px){
+    .menu-text{
+        text-align:center
+    }
+
+}
 @media screen and (max-width:764px){
     .menu{
-        text-align: center;
+        margin: auto;
+        max-width: 1300px;
+        text-align:center
     }
     .menu a{
         font-size: 1.2rem;
@@ -124,6 +132,9 @@ body{
         font-size: 1rem;
         padding: 20px 35px;
         margin: 2px;
+    }
+    .menu{
+        text-align: center;
     }
 }
 @media screen and (max-width:660px){
