@@ -32,12 +32,14 @@ editor3.getSession().setMode("ace/mode/javascript");
 
 editor3.setOptions({
     fontSize: '12pt',
+
 })
 editor2.setOptions({
     fontSize: '12pt',
 })
 editor.setOptions({
     fontSize: '12pt',
+    
 })
 
 function newFunction() {
@@ -98,10 +100,11 @@ Button.addEventListener('change', function(){
 
 ButtonCss.addEventListener('change', function(){
     if (this.checked){
-        document.getElementById('editor').style.height = '50%'
+        document.getElementById('editor').style.display = 'block'
         document.getElementById('editor2').style.display = 'block'
+        document.getElementById('editor').style.height = '50%'
         document.getElementById('editor2').style.height = '50%'
-        document.getElementById('editor3').style.display = 'none'        
+        document.getElementById('editor3').style.display = 'none'     
     }else{
         document.getElementById('editor').style.height = '100%'
         document.getElementById('editor2').style.display = 'none'

@@ -19,6 +19,8 @@ html{
     --TextGreyColor: #848e94;
     --TextIDKColor: #07101a;
         /* Nastaveni color2 -- con1*/
+    --scrollbar: #0d1929;
+    --scrollbarAct: #080d14;
     --TextHTML: orangered;
     --TextJS: gold;
     --TextPY: dodgerblue;
@@ -36,7 +38,8 @@ html[MoreCerna='CernaPyco']{
     /* NastaveniColor */
     background-color: #0d1929;
     --TextWhiteColor2: white;
-
+    --scrollbar: #878a8a;
+    --scrollbarAct: #616363;
     --TextWhiteColor: white;
     --TextBlackColor: white;
     --TextGreyColor: #848e94;
@@ -245,6 +248,25 @@ html.moresmooooth{
  
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar); 
+}
+  
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbarAct); 
+}
+
 
 /* NASTAVENI CLASS */
 .profil-inf3-projekty--class1,
@@ -373,6 +395,13 @@ html.moresmooooth{
         font-size: .9rem;
     }
 }
+
+
+
+
+
+
+
 
 @media screen and (max-width:640px){
     .profil-box-img-profil{
@@ -510,3 +539,5 @@ html.moresmooooth{
     }
 }
 /* TU DODĚLAT 320 <===*/    
+
+
