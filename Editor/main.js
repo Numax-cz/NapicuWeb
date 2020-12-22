@@ -29,6 +29,7 @@ editor3.getSession().setValue(`function main(){
 editor.getSession().setMode("ace/mode/html");
 editor2.getSession().setMode("ace/mode/css");
 editor3.getSession().setMode("ace/mode/javascript");
+
 editor3.setOptions({
     fontSize: '12pt',
 })
@@ -38,6 +39,12 @@ editor2.setOptions({
 editor.setOptions({
     fontSize: '12pt',
 })
+
+function newFunction() {
+    ma = L;
+    console.log(ma);
+}
+
 function Code(){
   var html = editor.getValue()
   var htmlcss = editor2.getValue()
@@ -45,15 +52,15 @@ function Code(){
   var frame = document.getElementById("TextInput").contentWindow.document;
   var CSS = "<style>"+htmlcss+"</style>"
   var JS = "<scr"+"ipt>"+htmljs+"</scr"+"ipt>"
+  HtmlCssJs = html+CSS+JS
   frame.open();
-  frame.write(html+CSS+JS);
+  frame.write(HtmlCssJs);
   frame.close();
 }
 
 var Button = document.querySelector('input[name=darkMod]')
 var ButtonCss = document.querySelector('input[name=cssMod]')
 var buttonJs = document.querySelector('input[name=jsMod]')
-
 var Cerna = ('CernaPyco')
 var Bejla = ('BejlaPyco')
 var SusenkyVole =document.cookie.split(';').map(cookie => cookie.split('=')).reduce((L, [key, value]) => ({...L, [key.trim()]: decodeURIComponent(value)}), {})
@@ -77,19 +84,15 @@ Button.addEventListener('change', function(){
     if(this.checked){
         document.documentElement.setAttribute('MoreCerna', Cerna)
         cookies = document.cookie = `darkmod=${Cerna}`;
-
-
         editor.setTheme("ace/theme/twilight");
         editor2.setTheme("ace/theme/twilight");
         editor3.setTheme("ace/theme/twilight");
-
     }else{
         document.documentElement.setAttribute('MoreCerna', Bejla)
         cookies = document.cookie = `darkmod=${Bejla}`;
         editor.setTheme();
         editor2.setTheme();
         editor3.setTheme();
-
     }
 })
 
@@ -98,19 +101,15 @@ ButtonCss.addEventListener('change', function(){
         document.getElementById('editor').style.height = '50%'
         document.getElementById('editor2').style.display = 'block'
         document.getElementById('editor2').style.height = '50%'
-        document.getElementById('editor3').style.display = 'none'
-
-        
+        document.getElementById('editor3').style.display = 'none'        
     }else{
         document.getElementById('editor').style.height = '100%'
         document.getElementById('editor2').style.display = 'none'
         document.getElementById('editor3').style.display = 'none'
-
     }
 })
 
 buttonJs.addEventListener('change', function(){
-
     if (this.checked){
         document.getElementById('editor').style.height = '33%'
         document.getElementById('editor2').style.height = '33%'
@@ -120,11 +119,15 @@ buttonJs.addEventListener('change', function(){
     } else{
         document.getElementById('editor').style.height = '100%'
         document.getElementById('editor2').style.height = '50%'
-
         document.getElementById('editor2').style.display = 'none'
         document.getElementById('editor3').style.display = 'none'
-
-
-
     }
 })
+function MoreStahujNeco(){
+    var L = document.createElement('a')
+    L.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(HtmlCssJs))
+    L.setAttribute('download', "NaPicuEditor.html")
+    L.style.display = 'none'
+    L.click()
+    document.body.appendChild(L)
+}

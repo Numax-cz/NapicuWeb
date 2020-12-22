@@ -167,3 +167,19 @@ html[MoreCerna='CernaPyco']{
     width: 0;
     height: 0;
 }
+
+/* download button */
+.downloadbuttonnad{
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.dw{
+    height: 27px;
+    width: 27px;
+    border: 5px solid var(--ikony);
+    border-radius: 50% 0% 50% 50%;
+    cursor: pointer;
+    padding: 5px;
+}
