@@ -1,4 +1,4 @@
-var nevim = new Date('Dec 24, 2020 00:00:00').getTime();
+var nevim = new Date('Dec 24, 2021 00:00:00').getTime();
 setInterval(function(){
     var cas = new Date().getTime()
     cn = nevim - cas;

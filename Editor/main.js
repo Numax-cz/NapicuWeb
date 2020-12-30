@@ -134,3 +134,14 @@ function MoreStahujNeco(){
     L.click()
     document.body.appendChild(L)
 }
+
+var FajrfoxProblem = typeof InstallTrigger !== 'undefined';
+if (FajrfoxProblem == true){
+    document.getElementById('editor').style.display = 'none'
+    document.getElementById('editor2').style.display = 'none'
+    document.getElementById('editor3').style.display = 'none'
+    document.getElementById('TextInput').style.display = 'none'
+    document.getElementById('MenuSettID').style.display = 'none'
+    document.getElementById('error').style.display = 'block'
+
+}

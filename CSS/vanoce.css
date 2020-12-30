@@ -191,6 +191,7 @@ body{
     height: 100px;
     margin: 0 25px;
     border-radius: 10px;
+    display: none;
 }
 
 .svicka2{
@@ -201,6 +202,8 @@ body{
     margin: 0 25px;
     font-size: 50px;
     border-radius: 10px;
+    display: none;
+
 }
 
 .svicka3{
@@ -210,6 +213,8 @@ body{
     height: 100px;
     margin: 0 25px;
     border-radius: 10px;
+    display: none;
+
 }
 
 .svicka4{
@@ -219,6 +224,8 @@ body{
     height: 100px;
     border-radius: 10px;
     margin: 0 25px;
+    display: none;
+
 }
 
 
@@ -232,19 +239,23 @@ body{
 .clasa1{
     position: relative;
     margin: 0 -30px;
+    display: none;
 
 }.clasa2{
 
     position: relative;
     margin: 0 -30px;
+    display: none;
 
 }.clasa3{
     position: relative;
     margin: 0 -30px;
+    display: none;
 
 }.clasa4{
     position: relative;
     margin: 0 -30px;
+    display: none;
 
 }
 /* tu so more ohne  */
