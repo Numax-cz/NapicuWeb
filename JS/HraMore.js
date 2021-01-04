@@ -78,15 +78,20 @@ an = function() {
     Objekt.RychlostX -= 0.5;
 
   }
-
+  // !!-------default-------!!
+  // Objekt.RychlostY *= 1.05;
+  // Objekt.RychlostX *= 0.975; 
+  // Objekt.RychlostY += 1.6; 
   // Nastavení (rychlost-X, rychlost-Y, gravitace....)
+
+  // !!-------optimální-------!!
   Objekt.y += Objekt.RychlostY;
   Objekt.x += Objekt.RychlostX;
-  Objekt.RychlostY *= 1.05;
+  Objekt.RychlostY *= 1.042;
   Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
-  Objekt.RychlostY += 1.6; // skok více je míně!!!!!
-  // Kolize more
+  Objekt.RychlostY += 1.7; // skok více je míně!!!!!
 
+  // Kolize more
   if (Objekt.y > PoziceHraceY) {
     Objekt.skok = false;
     Objekt.y = PoziceHraceY;
@@ -162,7 +167,9 @@ an = function() {
     Objekt.y = PoziceBloku2Y  + 20
     Objekt.RychlostY = 0;
   }
-
+  //--------------------------
+  //--------------------------
+  //Blok2
 
   Hrac.strokeStyle = "#ecf0f1";
   Hrac.lineWidth = 10;
@@ -187,19 +194,19 @@ an = function() {
   Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
   Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
   Hrac.stroke();
-    // Kolize plošiny 1
+    // Kolize plošiny 2
   if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
     Objekt.skok = false;
     Objekt.y = BlokVychoziPozice_2 //Vrázení na pozicu 0 (500)
     Objekt.RychlostY = 0;
   }
-  // Kolize plošiny spodní (Názar ze spodu)
-  // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > PoziceBloku2Y - Blok2HLineWidth) + 1 (Proti bugu)
   if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
     Objekt.skok = true
     Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
     Objekt.RychlostY = 0;
   }
+  //--------------------------
+  //--------------------------
 
 
 
