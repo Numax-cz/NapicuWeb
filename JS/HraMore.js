@@ -120,7 +120,7 @@ an = function() {
   
   Hrac.beginPath();
 
-  // Blok1
+  // Blok1 --------------------------
   Hrac.strokeStyle = "#ecf0f1";
   Hrac.lineWidth = 10;
   Hrac.beginPath();
@@ -149,21 +149,58 @@ an = function() {
   // objekt pos 400!!!!
   //355
 
-// Kolize plošiny 1
+  // Kolize plošiny 1
   if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < PoziceBloku2Y ) {
     Objekt.skok = false;
     Objekt.y = BlokVychoziPozice //Vrázení na pozicu 0 (500)
     Objekt.RychlostY = 0;
   }
-
   // Kolize plošiny spodní (Názar ze spodu)
   // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > PoziceBloku2Y - Blok2HLineWidth) + 1 (Proti bugu)
   if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
-    Objekt.skok = false
-    Objekt.y = PoziceHraceY; //Vrázení na pozicu 0 (500)
+    Objekt.skok = true
+    Objekt.y = PoziceBloku2Y  + 20
     Objekt.RychlostY = 0;
-
   }
+
+
+  Hrac.strokeStyle = "#ecf0f1";
+  Hrac.lineWidth = 10;
+  Hrac.beginPath();
+  Hrac.moveTo(0, PoziceHraceY + Objekt.height);
+  Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
+  Hrac.stroke();
+
+  // Hlavní Blolk!!
+  PoziceBloku2Y_2 = PoziceHraceY - 200; //(400)
+  Blok2HW_2 = 400; 
+  Blok2H_2 = 600; //width
+  Blok2HLineWidth_2 = 10;
+
+  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; //410
+  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; //390  vraceni na vychozi pozici
+  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;//355
+
+  Hrac.strokeStyle = "#ecf0f1";
+  Hrac.lineWidth = Blok2HLineWidth_2;
+  Hrac.beginPath();
+  Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
+  Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
+  Hrac.stroke();
+    // Kolize plošiny 1
+  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
+    Objekt.skok = false;
+    Objekt.y = BlokVychoziPozice_2 //Vrázení na pozicu 0 (500)
+    Objekt.RychlostY = 0;
+  }
+  // Kolize plošiny spodní (Názar ze spodu)
+  // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > PoziceBloku2Y - Blok2HLineWidth) + 1 (Proti bugu)
+  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
+    Objekt.skok = true
+    Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
+    Objekt.RychlostY = 0;
+  }
+
 
 
 
