@@ -21,21 +21,20 @@ function MoreButtonNaMoreOffnutiMoreTohoJakseTojmenujeTootvljatozapomnelDis(){
 Hrac = document.querySelector("canvas").getContext("2d");
 
 
-
-Objekt = {
-  height:40,
-  width:40,
-  skok:true,
-  x:500, 
-  y:0,
-  RychlostY:0,
-  RychlostX:0
-};
-PoziceHraceY = 500;
+PoziceHraceY = 500; 
 OknoHeight = 860;
 OknoWidth = 1700;
 Hrac.canvas.height = OknoHeight;
 Hrac.canvas.width = OknoWidth;
+Objekt = {
+  height:40,
+  width:40,
+  skok:true,
+  x:500, //spawn hrace na ose x
+  y:PoziceHraceY, //spawn hrace na ose y
+  RychlostY:0,
+  RychlostX:0
+};
 OvladaniMore= {
   up:false,
   right:false,
@@ -84,46 +83,46 @@ an = function() {
   // Objekt.RychlostY += 1.6; 
   // Nastavení (rychlost-X, rychlost-Y, gravitace....)
 
-  // !!-------optimální-------!!
+  // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
   Objekt.y += Objekt.RychlostY;
   Objekt.x += Objekt.RychlostX;
   Objekt.RychlostY *= 1.042;
   Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
   Objekt.RychlostY += 1.7; // skok více je míně!!!!!
 
-  // Kolize more
+  // -------------HLAVNÍ KOLIZE!!!-------------
+  // Kolize boxu
+    // Kolize box spodní strany
   if (Objekt.y > PoziceHraceY) {
     Objekt.skok = false;
     Objekt.y = PoziceHraceY;
     Objekt.RychlostY = 0;
 
   }
-    // Kolize box P
+    // Kolize box pravé strany
   if (Objekt.x > OknoWidth - Objekt.width){
     Objekt.x=OknoWidth - Objekt.width
   }
-    // Kolize box L (Vždy 0 || 1)
+    // Kolize box levé strany (Vždy 0 || 1)
   if (Objekt.x < 1 ){
     Objekt.x= 0
   }
+    // Kolize horní strany
+  if (Objekt.y < 1){
+    Objekt.y = 0;
+  }
+  // Kolize boxu
 
 
-  Hrac.fillStyle = '#202020';
-
-  Hrac.fillRect(0, 0, OknoWidth, OknoHeight);
-  Hrac.fillStyle = '#ffc0cb';
+  Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
+  Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
+  Hrac.fillStyle = '#ffc0cb'; //Barva hráce
   Hrac.beginPath();
-
-
-
-
-
   Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
   Hrac.fill();
-  
   Hrac.strokeStyle = "#ffc0cb";
-  
   Hrac.beginPath();
+
 
   // Blok1 --------------------------
   Hrac.strokeStyle = "#ecf0f1";
@@ -143,7 +142,7 @@ an = function() {
   BlokLinePlusPos2 = PoziceBloku2Y - Blok2HLineWidth; //390  vraceni na vychozi pozici
   BlokVychoziPozice = BlokLinePlusPos2 - Objekt.height + Blok2HLineWidth/2;//355
 
-  Hrac.strokeStyle = "#ecf0f1";
+  Hrac.strokeStyle = "#ecf0f1"; //barva plosiny
   Hrac.lineWidth = Blok2HLineWidth;
   Hrac.beginPath();
   Hrac.moveTo(Blok2HW, PoziceBloku2Y);
@@ -170,25 +169,30 @@ an = function() {
   //--------------------------
   //--------------------------
   //Blok2
+    // -----ALL-----
+  // PoziceBloku2Y_
+  // Blok2HW_
+  // Blok2H_
+  // BlokLinePlusPos_
+  // BlokLinePlusPos2_
+  // BlokVychoziPozice_
+  // Blok2HLineWidth_ 
+  // -----ALL-----
 
-  Hrac.strokeStyle = "#ecf0f1";
-  Hrac.lineWidth = 10;
-  Hrac.beginPath();
-  Hrac.moveTo(0, PoziceHraceY + Objekt.height);
-  Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
-  Hrac.stroke();
+  
+
 
   // Hlavní Blolk!!
-  PoziceBloku2Y_2 = PoziceHraceY - 200; //(400)
+  PoziceBloku2Y_2 = PoziceHraceY - 200; 
   Blok2HW_2 = 400; 
   Blok2H_2 = 600; //width
   Blok2HLineWidth_2 = 10;
 
-  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; //410
-  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; //390  vraceni na vychozi pozici
-  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;//355
+  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; 
+  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; 
+  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;
 
-  Hrac.strokeStyle = "#ecf0f1";
+  Hrac.strokeStyle = "#ecf0f1"; //barva plosiny
   Hrac.lineWidth = Blok2HLineWidth_2;
   Hrac.beginPath();
   Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
@@ -197,7 +201,7 @@ an = function() {
     // Kolize plošiny 2
   if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
     Objekt.skok = false;
-    Objekt.y = BlokVychoziPozice_2 //Vrázení na pozicu 0 (500)
+    Objekt.y = BlokVychoziPozice_2 
     Objekt.RychlostY = 0;
   }
   if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
@@ -207,6 +211,85 @@ an = function() {
   }
   //--------------------------
   //--------------------------
+
+
+  // Blok3
+  //--------------------------
+  //--------------------------
+
+  PoziceBloku2Y_2 = PoziceHraceY - 400; 
+  Blok2HW_2 = 600; 
+  Blok2H_2 = 1000; //width
+  Blok2HLineWidth_2 = 10;
+
+  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; 
+  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; 
+  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;
+
+  Hrac.strokeStyle = "#e74c3c"; //barva plosiny
+  Hrac.lineWidth = Blok2HLineWidth_2;
+  Hrac.beginPath();
+  Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
+  Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
+  Hrac.stroke();
+    // Kolize plošiny 2
+  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
+    Objekt.skok = false;
+    Objekt.y = PoziceHraceY
+    Objekt.RychlostY = 0;
+  }
+  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
+    Objekt.skok = false
+    Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
+    Objekt.RychlostY = 0;
+  }
+  //--------------------------
+  //--------------------------
+
+
+
+
+
+
+  // Blok4
+  //--------------------------
+  //--------------------------
+
+  PoziceBloku2Y_2 = PoziceHraceY - 250; 
+  Blok2HW_2 = 1450; 
+  Blok2H_2 = 2000; //width
+  Blok2HLineWidth_2 = 20;
+
+  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; 
+  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; 
+  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;
+
+  Hrac.strokeStyle = "#f1c40f"; //barva plosiny
+  Hrac.lineWidth = Blok2HLineWidth_2;
+  Hrac.beginPath();
+  Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
+  Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
+  Hrac.stroke();
+    // Kolize plošiny 2
+  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
+    Objekt.skok = false;
+    Objekt.y = BlokVychoziPozice_2;
+    Objekt.RychlostY = 0;
+  }
+  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
+    Objekt.skok = true
+    Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
+    Objekt.RychlostY = 0;
+  }
+  //-------------------------------------------------------------------------
+
+  //-------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 

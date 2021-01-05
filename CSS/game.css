@@ -26,6 +26,7 @@ body {
 }
   
 canvas {
+  height: 80vh;
     
   background-color:#ffffff;
 
@@ -144,4 +145,40 @@ canvas {
   margin-left: 1%;
 
 
+}
+
+
+@media screen and (max-width:1396px){
+  canvas{
+    height: 70vh;
+      
+    background-color:#ffffff;
+
+  
+
+  }
+  
+}
+@media screen and (max-width:1242px){
+  canvas{
+    height: 60vh;
+      
+    background-color:#ffffff;
+
+  
+
+  }
+  
+}
+
+@media screen and (max-width:1050px){
+  canvas{
+    height: 58vh;
+      
+    background-color:#ffffff;
+
+  
+
+  }
+  
 }
