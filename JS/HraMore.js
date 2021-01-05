@@ -124,6 +124,10 @@ an = function() {
   Hrac.beginPath();
 
 
+
+
+
+
   // Blok1 --------------------------
   Hrac.strokeStyle = "#ecf0f1";
   Hrac.lineWidth = 10;
@@ -132,158 +136,54 @@ an = function() {
   Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
   Hrac.stroke();
 
-  // Hlavní Blolk!!
-  PoziceBloku2Y = PoziceHraceY - 100; //(400)
-  Blok2HW = 50; 
-  Blok2H = 300; //width
-  Blok2HLineWidth = 10;
-
-  BlokLinePlusPos = Blok2HLineWidth + PoziceBloku2Y; //410
-  BlokLinePlusPos2 = PoziceBloku2Y - Blok2HLineWidth; //390  vraceni na vychozi pozici
-  BlokVychoziPozice = BlokLinePlusPos2 - Objekt.height + Blok2HLineWidth/2;//355
-
-  Hrac.strokeStyle = "#ecf0f1"; //barva plosiny
-  Hrac.lineWidth = Blok2HLineWidth;
-  Hrac.beginPath();
-  Hrac.moveTo(Blok2HW, PoziceBloku2Y);
-  Hrac.lineTo(Blok2H, PoziceBloku2Y);
-  Hrac.stroke();
+  Plosiny(100, 50, 300, 10, true, "#ecf0f1") //"#ecf0f1"
+  Plosiny(200, 400, 600, 10, true, "#ecf0f1")
+  Plosiny(400, 600, 1000, 10, false, "#c0392b")
+  Plosiny(250, 1450, 2000, 15, true, "#f39c12")
 
 
-  // objekt pos 400!!!!
-  //355
+  function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva){
+    PoziceBloku2Y = PoziceHraceY - Vyska; 
+    Blok2HW = Pozice1; 
+    Blok2H = Pozice2; //width
+    Blok2HLineWidth = SirkaLine;
 
-  // Kolize plošiny 1
-  if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < PoziceBloku2Y ) {
-    Objekt.skok = false;
-    Objekt.y = BlokVychoziPozice //Vrázení na pozicu 0 (500)
-    Objekt.RychlostY = 0;
+    BlokLinePlusPos = Blok2HLineWidth + PoziceBloku2Y; 
+    BlokLinePlusPos2 = PoziceBloku2Y - Blok2HLineWidth; 
+    BlokVychoziPozice = BlokLinePlusPos2 - Objekt.height + Blok2HLineWidth/2;
+  
+    Hrac.strokeStyle = Barva; //barva plosiny
+    Hrac.lineWidth = Blok2HLineWidth;
+    Hrac.beginPath();
+    Hrac.moveTo(Blok2HW, PoziceBloku2Y);
+    Hrac.lineTo(Blok2H, PoziceBloku2Y);
+    Hrac.stroke();
+  
+  
+    if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < PoziceBloku2Y ) {
+      Objekt.skok = false;
+      Objekt.y = BlokVychoziPozice 
+      Objekt.RychlostY = 0;
+    }
+    // Kolize plošiny spodní (Názar ze spodu)
+    // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > PoziceBloku2Y - Blok2HLineWidth) + 1 (Proti bugu)
+    if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
+      Objekt.skok = ObjektMoznostSkoku //|| false
+      Objekt.y = PoziceBloku2Y  + 20
+      Objekt.RychlostY = 0;
+    }
+
   }
-  // Kolize plošiny spodní (Názar ze spodu)
-  // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > PoziceBloku2Y - Blok2HLineWidth) + 1 (Proti bugu)
-  if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
-    Objekt.skok = true
-    Objekt.y = PoziceBloku2Y  + 20
-    Objekt.RychlostY = 0;
-  }
-  //--------------------------
-  //--------------------------
-  //Blok2
-    // -----ALL-----
-  // PoziceBloku2Y_
-  // Blok2HW_
-  // Blok2H_
-  // BlokLinePlusPos_
-  // BlokLinePlusPos2_
-  // BlokVychoziPozice_
-  // Blok2HLineWidth_ 
-  // -----ALL-----
+
 
   
 
 
-  // Hlavní Blolk!!
-  PoziceBloku2Y_2 = PoziceHraceY - 200; 
-  Blok2HW_2 = 400; 
-  Blok2H_2 = 600; //width
-  Blok2HLineWidth_2 = 10;
-
-  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; 
-  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; 
-  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;
-
-  Hrac.strokeStyle = "#ecf0f1"; //barva plosiny
-  Hrac.lineWidth = Blok2HLineWidth_2;
-  Hrac.beginPath();
-  Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
-  Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
-  Hrac.stroke();
-    // Kolize plošiny 2
-  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
-    Objekt.skok = false;
-    Objekt.y = BlokVychoziPozice_2 
-    Objekt.RychlostY = 0;
-  }
-  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
-    Objekt.skok = true
-    Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
-    Objekt.RychlostY = 0;
-  }
-  //--------------------------
-  //--------------------------
-
-
-  // Blok3
-  //--------------------------
-  //--------------------------
-
-  PoziceBloku2Y_2 = PoziceHraceY - 400; 
-  Blok2HW_2 = 600; 
-  Blok2H_2 = 1000; //width
-  Blok2HLineWidth_2 = 10;
-
-  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; 
-  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; 
-  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;
-
-  Hrac.strokeStyle = "#e74c3c"; //barva plosiny
-  Hrac.lineWidth = Blok2HLineWidth_2;
-  Hrac.beginPath();
-  Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
-  Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
-  Hrac.stroke();
-    // Kolize plošiny 2
-  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
-    Objekt.skok = false;
-    Objekt.y = PoziceHraceY
-    Objekt.RychlostY = 0;
-  }
-  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
-    Objekt.skok = false
-    Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
-    Objekt.RychlostY = 0;
-  }
-  //--------------------------
-  //--------------------------
 
 
 
 
 
-
-  // Blok4
-  //--------------------------
-  //--------------------------
-
-  PoziceBloku2Y_2 = PoziceHraceY - 250; 
-  Blok2HW_2 = 1450; 
-  Blok2H_2 = 2000; //width
-  Blok2HLineWidth_2 = 20;
-
-  BlokLinePlusPos_2 = Blok2HLineWidth_2 + PoziceBloku2Y_2; 
-  BlokLinePlusPos2_2 = PoziceBloku2Y_2 - Blok2HLineWidth_2; 
-  BlokVychoziPozice_2 = BlokLinePlusPos2_2 - Objekt.height + Blok2HLineWidth_2/2;
-
-  Hrac.strokeStyle = "#f1c40f"; //barva plosiny
-  Hrac.lineWidth = Blok2HLineWidth_2;
-  Hrac.beginPath();
-  Hrac.moveTo(Blok2HW_2, PoziceBloku2Y_2);
-  Hrac.lineTo(Blok2H_2, PoziceBloku2Y_2);
-  Hrac.stroke();
-    // Kolize plošiny 2
-  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < PoziceBloku2Y_2 ) {
-    Objekt.skok = false;
-    Objekt.y = BlokVychoziPozice_2;
-    Objekt.RychlostY = 0;
-  }
-  if (Objekt.x < Blok2H_2 && Objekt.x >= Blok2HW_2 - Objekt.width && Objekt.y > BlokLinePlusPos2_2 - Objekt.height  && Objekt.y < BlokLinePlusPos_2 + 1 && Objekt.y > BlokLinePlusPos2_2 - 1) {
-    Objekt.skok = true
-    Objekt.y = PoziceBloku2Y_2  + 20 //nejvíce optimální!!
-    Objekt.RychlostY = 0;
-  }
-  //-------------------------------------------------------------------------
-
-  //-------------------------------------------------------------------------
 
 
 
