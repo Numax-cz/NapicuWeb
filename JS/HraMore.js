@@ -149,7 +149,7 @@ an = function() {
   function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva){
     Vyska = PoziceHraceY - Vyska; // = 400(100)
 
-    BlokLinePlusPos = SirkaLine/2 + Vyska; 
+    BlokLinePlusPos = SirkaLine + Vyska; 
     BlokLinePlusPos2 = Vyska - SirkaLine; 
     BlokVychoziPozice = BlokLinePlusPos2 - Objekt.height + SirkaLine/2;
   
@@ -171,12 +171,10 @@ an = function() {
     // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > Vyska - SirkaLine) + 1 (Proti bugu)
     if (Objekt.x <= Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
       Objekt.skok = ObjektMoznostSkoku //|| false
-      console.log(Objekt.y)
-      Objekt.y = Vyska + SirkaLine //Zpět na výchozí pozici (Pod plošinou) (Vyska + SirkaLine*2)
+      Objekt.y = Vyska + SirkaLine*2 //Zpět na výchozí pozici (Pod plošinou) (Vyska + SirkaLine*2)
       Objekt.RychlostY = 0;
       
     }
-    
     
 
 
