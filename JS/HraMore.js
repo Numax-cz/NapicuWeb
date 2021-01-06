@@ -4,6 +4,7 @@ var cookies =document.cookie.split(';').map(cookie => cookie.split('=')).reduce(
 var CookiesTutorial = cookies.Tutorial
 if (CookiesTutorial == 'none'){
   MoreButtonNaMoreOffnutiMoreTohoJakseTojmenujeTootvljatozapomnelDis()
+  MoreButtonNaMoreOffnutiMoreTohoJakseTojmenujeTootvljatozapomnelDis2()
 }
 Button.addEventListener('change', function(){
   if(this.checked){
@@ -16,7 +17,10 @@ Button.addEventListener('change', function(){
 
 function MoreButtonNaMoreOffnutiMoreTohoJakseTojmenujeTootvljatozapomnelDis(){
   button = document.getElementById("Tutorial").style.display = 'none'
-  potvrzeni = true
+}
+function MoreButtonNaMoreOffnutiMoreTohoJakseTojmenujeTootvljatozapomnelDis2(){
+  button = document.getElementById("Tutorial2").style.display = 'none'
+  potvrzeni = true;
 }
 Hrac = document.querySelector("canvas").getContext("2d");
 
@@ -113,83 +117,72 @@ an = function() {
   }
   // Kolize boxu
 
+    
 
+
+  Barva_Pozadi = '#202020'
+  Barva_Hrace = '#ffc0cb'
+  Barva_Desky = "#ecf0f1"
+  Sirka_Desky = 10
+  
   Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
   Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
   Hrac.fillStyle = '#ffc0cb'; //Barva hráce
-  Hrac.beginPath();
+
   Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
   Hrac.fill();
-  Hrac.strokeStyle = "#ffc0cb";
-  Hrac.beginPath();
 
-
-
-
-
-
-  // Blok1 --------------------------
-  Hrac.strokeStyle = "#ecf0f1";
-  Hrac.lineWidth = 10;
+  Hrac.strokeStyle = Barva_Desky;
+  Hrac.lineWidth = Sirka_Desky;
   Hrac.beginPath();
   Hrac.moveTo(0, PoziceHraceY + Objekt.height);
   Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
   Hrac.stroke();
 
-  Plosiny(100, 50, 300, 10, true, "#ecf0f1") //"#ecf0f1"
+
+  // ObjektMoznostSkoku(5) (true||false) = skok true || false (Plošina gliding)
+  // Vyska, Pozice1, Pozice2, SirkaLine(MAX 40), ObjektMoznostSkoku, Barva
+  Plosiny(100, 50, 300, 40, true, "#ecf0f1") //"#ecf0f1"
   Plosiny(200, 400, 600, 10, true, "#ecf0f1")
   Plosiny(400, 600, 1000, 10, false, "#c0392b")
   Plosiny(250, 1450, 2000, 15, true, "#f39c12")
-
-
   function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva){
-    PoziceBloku2Y = PoziceHraceY - Vyska; 
-    Blok2HW = Pozice1; 
-    Blok2H = Pozice2; //width
-    Blok2HLineWidth = SirkaLine;
+    Vyska = PoziceHraceY - Vyska; // = 400(100)
 
-    BlokLinePlusPos = Blok2HLineWidth + PoziceBloku2Y; 
-    BlokLinePlusPos2 = PoziceBloku2Y - Blok2HLineWidth; 
-    BlokVychoziPozice = BlokLinePlusPos2 - Objekt.height + Blok2HLineWidth/2;
+    BlokLinePlusPos = SirkaLine/2 + Vyska; 
+    BlokLinePlusPos2 = Vyska - SirkaLine; 
+    BlokVychoziPozice = BlokLinePlusPos2 - Objekt.height + SirkaLine/2;
   
     Hrac.strokeStyle = Barva; //barva plosiny
-    Hrac.lineWidth = Blok2HLineWidth;
+    Hrac.lineWidth = SirkaLine;
     Hrac.beginPath();
-    Hrac.moveTo(Blok2HW, PoziceBloku2Y);
-    Hrac.lineTo(Blok2H, PoziceBloku2Y);
+    Hrac.moveTo(Pozice1, Vyska);
+    Hrac.lineTo(Pozice2, Vyska);
     Hrac.stroke();
   
   
-    if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < PoziceBloku2Y ) {
-      Objekt.skok = false;
-      Objekt.y = BlokVychoziPozice 
-      Objekt.RychlostY = 0;
+    if (Objekt.x < Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < Vyska ) {
+      Objekt.skok = false; //|| true
+      Objekt.y = BlokVychoziPozice //Zpět na výchozí pozici (Pod plošinou)
+      Objekt.RychlostY = 0;  
+      
     }
     // Kolize plošiny spodní (Názar ze spodu)
-    // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > PoziceBloku2Y - Blok2HLineWidth) + 1 (Proti bugu)
-    if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
+    // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > Vyska - SirkaLine) + 1 (Proti bugu)
+    if (Objekt.x <= Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
       Objekt.skok = ObjektMoznostSkoku //|| false
-      Objekt.y = PoziceBloku2Y  + 20
+      console.log(Objekt.y)
+      Objekt.y = Vyska + SirkaLine //Zpět na výchozí pozici (Pod plošinou) (Vyska + SirkaLine*2)
       Objekt.RychlostY = 0;
+      
     }
+    
+    
+
+
 
   }
-
-
   
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -198,6 +191,35 @@ an = function() {
   window.requestAnimationFrame(an);
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 window.addEventListener("keydown", OvladaniMore.Klavesa)
 window.addEventListener("keyup", OvladaniMore.Klavesa);
 window.requestAnimationFrame(an);
+
+
+
+
+
+
+
+
+
+
+

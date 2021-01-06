@@ -37,18 +37,46 @@ canvas {
 
   position: absolute;
   z-index: 1000;
-  height: 60%;
-  width: 60%;
+  height: 100%;
+  width: 100%;
   left: 0;
   background-color: rgb(20, 20, 20);
   right: 0;
   top: 0;
   bottom: 0;
-  border-radius: 8px;
   margin: auto;
   text-align: center;
 
   color: black;
+}
+.Okno2{
+  position: absolute;
+  z-index: 999;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: rgb(20, 20, 20);
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  text-align: center;
+
+  color: black;
+
+}
+.TextTutorialIMG{
+  color: white;
+  align-self: center;
+  margin-left: 2%;
+}
+
+.ObrazkyNavodPlosiny-img1,
+.ObrazkyNavodPlosiny-img2,
+.ObrazkyNavodPlosiny-img3{
+  display: flex;
+  padding: 30px;
+  margin-left: 10%;
 }
 .HlavniText{
   color: white;
@@ -133,12 +161,12 @@ canvas {
   user-select: none;
   cursor: pointer;
   border-radius: 6px;
-  max-width: 25%;
+  max-width: 300px;
   margin: auto;
   background-color: greenyellow;
 }
 .plsplsnechcu{
-  margin-bottom: 2%;
+  margin-bottom: 1%;
 }
 .plsplsnechcu span{
   color:  white;
