@@ -142,7 +142,7 @@ an = function() {
 
   // ObjektMoznostSkoku(5) (true||false) = skok true || false (Plošina gliding)
   // Vyska, Pozice1, Pozice2, SirkaLine(MAX 40), ObjektMoznostSkoku, Barva
-  Plosiny(100, 50, 300, 40, true, "#ecf0f1") //"#ecf0f1"
+  Plosiny(100, 50, 300, 20, true, "#ecf0f1") //"#ecf0f1"
   Plosiny(200, 400, 600, 10, true, "#ecf0f1")
   Plosiny(400, 600, 1000, 10, false, "#c0392b")
   Plosiny(250, 1450, 2000, 15, true, "#f39c12")
@@ -162,19 +162,31 @@ an = function() {
   
   
     if (Objekt.x < Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < Vyska ) {
+
       Objekt.skok = false; //|| true
       Objekt.y = BlokVychoziPozice //Zpět na výchozí pozici (Pod plošinou)
       Objekt.RychlostY = 0;  
       
     }
     // Kolize plošiny spodní (Názar ze spodu)
-    // Hlavní část (bjekt.y < BlokLinePlusPos + 1 && Objekt.y > Vyska - SirkaLine) + 1 (Proti bugu)
-    if (Objekt.x <= Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y < BlokLinePlusPos + 1 && Objekt.y > BlokLinePlusPos2 - 1) {
+    // Spodí náraz plošiny (1, lepší přesnost přichycení )
+    if (ObjektMoznostSkoku == false && Objekt.x <= Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y < Vyska + SirkaLine + 1 && Objekt.y > Vyska - SirkaLine - 1){
       Objekt.skok = ObjektMoznostSkoku //|| false
       Objekt.y = Vyska + SirkaLine*2 //Zpět na výchozí pozici (Pod plošinou) (Vyska + SirkaLine*2)
       Objekt.RychlostY = 0;
-      
     }
+    // Spodí náraz plošiny (2, horší přesnost přichycení => Kvalita nárazu) 
+    // Když se buguje > "&& Objekt.y < Vyska + SirkaLine/2 + 1  && Objekt.y > Vyska - SirkaLine - 1"
+    if (Objekt.x <= Pozice2 && Objekt.x >= Pozice1 - Objekt.width && Objekt.y < Vyska + SirkaLine/2  && Objekt.y > Vyska - SirkaLine ) {
+      Objekt.skok = true //|| false
+      Objekt.y = Vyska + SirkaLine //Zpět na výchozí pozici (Pod plošinou) (Vyska + SirkaLine*2)
+      Objekt.RychlostY = 0;
+    }
+
+
+    
+
+
     
 
 
