@@ -1,4 +1,8 @@
 potvrzeni = false
+
+
+
+
 var Button = document.querySelector('input[name=Nezobrazovat]')
 var cookies =document.cookie.split(';').map(cookie => cookie.split('=')).reduce((L, [key, value]) => ({...L, [key.trim()]: decodeURIComponent(value)}), {})
 var CookiesTutorial = cookies.Tutorial
@@ -30,7 +34,7 @@ function MoreButtonNaMoreOffnutiMoreTohoJakseTojmenujeTootvljatozapomnelDis2(){
 
 Hrac = document.querySelector("canvas").getContext("2d");
 
-
+LevelAcces = null;
 PoziceHraceY = 500; 
 OknoHeight = 860;
 OknoWidth = 1700;
@@ -79,6 +83,8 @@ OvladaniMore= {
 
 };
 
+
+
 function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva, LevelName, debugging){
 
   PoziceBloku2Y = PoziceHraceY - Vyska; 
@@ -98,16 +104,24 @@ function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva, 
   Hrac.stroke();
 
 
-
+ 
   if (Objekt.x < Blok2H && Objekt.x >= Blok2HW - Objekt.width && Objekt.y > BlokLinePlusPos2 - Objekt.height  && Objekt.y < PoziceBloku2Y ) {
     Objekt.skok = false;
     Objekt.y = BlokVychoziPozice 
     Objekt.RychlostY = 0;
+
+
     if (LevelName == "Game2"){
+      LevelAcces = "Level1Com"
       Level2()
     }
     if (LevelName == "Game3"){
+      LevelAcces = "Level2Com"
       Level3()
+    } 
+    if (LevelName == "Game4"){
+      LevelAcces = "Level3Com"
+      Level4()
     } 
     
   }
@@ -115,7 +129,6 @@ function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva, 
     Objekt.skok = ObjektMoznostSkoku //|| false
     Objekt.y = PoziceBloku2Y  + 20;
     Objekt.RychlostY = 0; 
-    console.log(debugging)
   }
   
   // Kolize plošiny spodní (Názar ze spodu)
@@ -129,6 +142,8 @@ function Plosiny(Vyska, Pozice1, Pozice2, SirkaLine, ObjektMoznostSkoku, Barva, 
 }
 
 an = function() {
+  
+
 
   if (OvladaniMore.up && Objekt.skok == false) {
     Objekt.RychlostY -= 20;
@@ -220,108 +235,100 @@ an = function() {
 /////////////////////////
 
 
-
-
-
-
-
-
 function Level2(){
-  PoziceHraceY = 500; 
+  if (LevelAcces == "Level1Com"){
+    PoziceHraceY = 500; 
 
-  Hrac.canvas.height = OknoHeight;
-  Hrac.canvas.width = OknoWidth;
-  Objekt = {
-    height:40,
-    width:40,
-    skok:true,
-    x:800, //spawn hrace na ose x
-    y:PoziceHraceY, //spawn hrace na ose y
-    RychlostY:0,
-    RychlostX:0
-  };
-
-
-  an = function() {
-
-    if (OvladaniMore.up && Objekt.skok == false) {
-      Objekt.RychlostY -= 20;
-      Objekt.skok = true;
-      
-    }
-    if (OvladaniMore.right) {
-      Objekt.RychlostX += 0.5;
-    }
-
-    if (OvladaniMore.left) {
-      Objekt.RychlostX -= 0.5;
-
-    }
+    Hrac.canvas.height = OknoHeight;
+    Hrac.canvas.width = OknoWidth;
+    Objekt = {
+      height:40,
+      width:40,
+      skok:true,
+      x:800, //spawn hrace na ose x
+      y:PoziceHraceY, //spawn hrace na ose y
+      RychlostY:0,
+      RychlostX:0
+    };
   
-
-    // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
-    Objekt.y += Objekt.RychlostY;
-    Objekt.x += Objekt.RychlostX;
-    Objekt.RychlostY *= 1.042;
-    Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
-    Objekt.RychlostY += 1.7; // skok více je míně!!!!!
-
-    // -------------HLAVNÍ KOLIZE!!!-------------
-    // Kolize boxu
-      // Kolize box spodní strany
-    if (Objekt.y > PoziceHraceY) {
-      Objekt.skok = false;
-      Objekt.y = PoziceHraceY;
-      Objekt.RychlostY = 0;
-
-    }
-      // Kolize box pravé strany
-    if (Objekt.x > OknoWidth - Objekt.width){
-      Objekt.x=OknoWidth - Objekt.width
-    }
-      // Kolize box levé strany (Vždy 0 || 1)
-    if (Objekt.x < 1 ){
-      Objekt.x= 0
-    }
-      // Kolize horní strany
-    if (Objekt.y < 1){
-      Objekt.y = 0;
-    }
-    // Kolize boxu
-
-      
-
-
-    Barva_Pozadi = '#202020'
-    Barva_Hrace = '#ffc0cb'
-    Barva_Desky = "#ecf0f1"
-    Sirka_Desky = 10
+  
+    an = function() {
+  
+      if (OvladaniMore.up && Objekt.skok == false) {
+        Objekt.RychlostY -= 20;
+        Objekt.skok = true;
+        
+      }
+      if (OvladaniMore.right) {
+        Objekt.RychlostX += 0.5;
+      }
+  
+      if (OvladaniMore.left) {
+        Objekt.RychlostX -= 0.5;
+  
+      }
     
-    Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
-    Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
-    Hrac.fillStyle = '#ffc0cb'; //Barva hráce
-
-    Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
-    Hrac.fill();
-
-    Hrac.strokeStyle = Barva_Desky;
-    Hrac.lineWidth = Sirka_Desky;
-    Hrac.beginPath();
-    Hrac.moveTo(0, PoziceHraceY + Objekt.height);
-    Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
-    Hrac.stroke();
-
-    Plosiny(100, 400, 800, 10, true, "#ecf0f1", "none", false) 
-    Plosiny(200, 400, 600, 10, true, "#ecf0f1", "none", true) 
-    Plosiny(400, 600, 1000, 10, true, "ecf0f1", "none", false) 
-    Plosiny(250, 1450, 2000, 15, true, "#f39c12", "Game3", false)
-    window.requestAnimationFrame(an);
-  };
   
+      // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
+      Objekt.y += Objekt.RychlostY;
+      Objekt.x += Objekt.RychlostX;
+      Objekt.RychlostY *= 1.042;
+      Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
+      Objekt.RychlostY += 1.7; // skok více je míně!!!!!
+  
+      // -------------HLAVNÍ KOLIZE!!!-------------
+      // Kolize boxu
+        // Kolize box spodní strany
+      if (Objekt.y > PoziceHraceY) {
+        Objekt.skok = false;
+        Objekt.y = PoziceHraceY;
+        Objekt.RychlostY = 0;
+  
+      }
+        // Kolize box pravé strany
+      if (Objekt.x > OknoWidth - Objekt.width){
+        Objekt.x=OknoWidth - Objekt.width
+      }
+        // Kolize box levé strany (Vždy 0 || 1)
+      if (Objekt.x < 1 ){
+        Objekt.x= 0
+      }
+        // Kolize horní strany
+      if (Objekt.y < 1){
+        Objekt.y = 0;
+      }
+      // Kolize boxu
+  
+        
+  
+  
+      Barva_Pozadi = '#202020'
+      Barva_Hrace = '#ffc0cb'
+      Barva_Desky = "#ecf0f1"
+      Sirka_Desky = 10
+      
+      Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
+      Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
+      Hrac.fillStyle = '#ffc0cb'; //Barva hráce
+  
+      Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
+      Hrac.fill();
+  
+      Hrac.strokeStyle = Barva_Desky;
+      Hrac.lineWidth = Sirka_Desky;
+      Hrac.beginPath();
+      Hrac.moveTo(0, PoziceHraceY + Objekt.height);
+      Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
+      Hrac.stroke();
+  
+      Plosiny(100, 400, 800, 10, true, "#ecf0f1", "none", false) 
+      Plosiny(200, 400, 600, 10, true, "#ecf0f1", "none", true) 
+      Plosiny(300, 600, 1000, 10, true, "ecf0f1", "none", false) 
+      Plosiny(250, 1450, 2000, 15, true, "#f39c12", "Game3", false)
+      window.requestAnimationFrame(an);
+    };
+  }
 }
-
-
-
 
 
 /////////////////////////
@@ -334,100 +341,216 @@ function Level2(){
 
 
 function Level3(){
-  PoziceHraceY = 500; 
+  if (LevelAcces == "Level2Com"){
+    PoziceHraceY = 500; 
 
-  Hrac.canvas.height = OknoHeight;
-  Hrac.canvas.width = OknoWidth;
-  Objekt = {
-    height:40,
-    width:40,
-    skok:true,
-    x:800, //spawn hrace na ose x
-    y:PoziceHraceY, //spawn hrace na ose y
-    RychlostY:0,
-    RychlostX:0
-  };
-
-
-  an = function() {
-
-    if (OvladaniMore.up && Objekt.skok == false) {
-      Objekt.RychlostY -= 20;
-      Objekt.skok = true;
-      
-    }
-    if (OvladaniMore.right) {
-      Objekt.RychlostX += 0.5;
-    }
-
-    if (OvladaniMore.left) {
-      Objekt.RychlostX -= 0.5;
-
-    }
-  
-
-    // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
-    Objekt.y += Objekt.RychlostY;
-    Objekt.x += Objekt.RychlostX;
-    Objekt.RychlostY *= 1.042;
-    Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
-    Objekt.RychlostY += 1.7; // skok více je míně!!!!!
-
-    // -------------HLAVNÍ KOLIZE!!!-------------
-    // Kolize boxu
-      // Kolize box spodní strany
-    if (Objekt.y > PoziceHraceY) {
-      Objekt.skok = false;
-      Objekt.y = PoziceHraceY;
-      Objekt.RychlostY = 0;
-
-    }
-      // Kolize box pravé strany
-    if (Objekt.x > OknoWidth - Objekt.width){
-      Objekt.x=OknoWidth - Objekt.width
-    }
-      // Kolize box levé strany (Vždy 0 || 1)
-    if (Objekt.x < 1 ){
-      Objekt.x= 0
-    }
-      // Kolize horní strany
-    if (Objekt.y < 1){
-      Objekt.y = 0;
-    }
-    // Kolize boxu
-
-      
+    Hrac.canvas.height = OknoHeight;
+    Hrac.canvas.width = OknoWidth;
+    Objekt = {
+      height:40,
+      width:40,
+      skok:true,
+      x:800, //spawn hrace na ose x
+      y:PoziceHraceY, //spawn hrace na ose y
+      RychlostY:0,
+      RychlostX:0
+    };
 
 
-    Barva_Pozadi = '#202020'
-    Barva_Hrace = '#ffc0cb'
-    Barva_Desky = "#ecf0f1"
-    Sirka_Desky = 10
+    an = function() {
+
+      if (OvladaniMore.up && Objekt.skok == false) {
+        Objekt.RychlostY -= 20;
+        Objekt.skok = true;
+        
+      }
+      if (OvladaniMore.right) {
+        Objekt.RychlostX += 0.5;
+      }
+
+      if (OvladaniMore.left) {
+        Objekt.RychlostX -= 0.5;
+
+      }
     
-    Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
-    Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
-    Hrac.fillStyle = '#ffc0cb'; //Barva hráce
 
-    Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
-    Hrac.fill();
+      // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
+      Objekt.y += Objekt.RychlostY;
+      Objekt.x += Objekt.RychlostX;
+      Objekt.RychlostY *= 1.042;
+      Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
+      Objekt.RychlostY += 1.7; // skok více je míně!!!!!
 
-    Hrac.strokeStyle = Barva_Desky;
-    Hrac.lineWidth = Sirka_Desky;
-    Hrac.beginPath();
-    Hrac.moveTo(0, PoziceHraceY + Objekt.height);
-    Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
-    Hrac.stroke();
+      // -------------HLAVNÍ KOLIZE!!!-------------
+      // Kolize boxu
+        // Kolize box spodní strany
+      if (Objekt.y > PoziceHraceY) {
+        Objekt.skok = false;
+        Objekt.y = PoziceHraceY;
+        Objekt.RychlostY = 0;
 
-    Plosiny(100, 400, 800, 10, true, "#ecf0f1", "none", false) 
-    Plosiny(200, 200, 300, 10, true, "#ecf0f1", "none", true)
-    Plosiny(300, 400, 500, 10, true, "#ecf0f1", "none", true)
-    Plosiny(300, 500, 900, 10, true, "ecf0f1", "none", false) 
-    Plosiny(450, 400, 1400, 10, false, "#c0392b", "none", true) 
-    Plosiny(250, 1450, 2000, 15, true, "#f39c12", "Game4", false)
-    window.requestAnimationFrame(an);
-  };
+      }
+        // Kolize box pravé strany
+      if (Objekt.x > OknoWidth - Objekt.width){
+        Objekt.x=OknoWidth - Objekt.width
+      }
+        // Kolize box levé strany (Vždy 0 || 1)
+      if (Objekt.x < 1 ){
+        Objekt.x= 0
+      }
+        // Kolize horní strany
+      if (Objekt.y < 1){
+        Objekt.y = 0;
+      }
+      // Kolize boxu
+
+        
+
+
+      Barva_Pozadi = '#202020'
+      Barva_Hrace = '#ffc0cb'
+      Barva_Desky = "#ecf0f1"
+      Sirka_Desky = 10
+      
+      Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
+      Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
+      Hrac.fillStyle = '#ffc0cb'; //Barva hráce
+
+      Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
+      Hrac.fill();
+
+      Hrac.strokeStyle = Barva_Desky;
+      Hrac.lineWidth = Sirka_Desky;
+      Hrac.beginPath();
+      Hrac.moveTo(0, PoziceHraceY + Objekt.height);
+      Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
+      Hrac.stroke();
+
+      Plosiny(100, 400, 800, 10, true, "#ecf0f1", "none", false) 
+      Plosiny(200, 200, 300, 10, true, "#ecf0f1", "none", true)
+      Plosiny(300, 400, 500, 10, true, "#ecf0f1", "none", true)
+      Plosiny(300, 500, 900, 10, true, "ecf0f1", "none", false) 
+      Plosiny(450, 400, 1400, 10, false, "#c0392b", "none", true) 
+      Plosiny(250, 1450, 2000, 15, true, "#f39c12", "Game4", false)
+      window.requestAnimationFrame(an);
+    };
   
+
+  }
 }
+
+
+/////////////////////////
+/////////////////////////
+/////////////////////////
+// -------Game4------- //
+/////////////////////////
+/////////////////////////
+/////////////////////////
+
+
+function Level4(){
+  if (LevelAcces == "Level3Com"){
+    PoziceHraceY = 500; 
+
+    Hrac.canvas.height = OknoHeight;
+    Hrac.canvas.width = OknoWidth;
+    Objekt = {
+      height:40,
+      width:40,
+      skok:true,
+      x:1000, //spawn hrace na ose x
+      y:PoziceHraceY, //spawn hrace na ose y
+      RychlostY:0,
+      RychlostX:0
+    };
+
+
+    an = function() {
+
+      if (OvladaniMore.up && Objekt.skok == false) {
+        Objekt.RychlostY -= 20;
+        Objekt.skok = true;
+        
+      }
+      if (OvladaniMore.right) {
+        Objekt.RychlostX += 0.5;
+      }
+
+      if (OvladaniMore.left) {
+        Objekt.RychlostX -= 0.5;
+
+      }
+    
+
+      // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
+      Objekt.y += Objekt.RychlostY;
+      Objekt.x += Objekt.RychlostX;
+      Objekt.RychlostY *= 1.042;
+      Objekt.RychlostX *= 0.975; //(1) rychlost objektu 
+      Objekt.RychlostY += 1.7; // skok více je míně!!!!!
+
+      // -------------HLAVNÍ KOLIZE!!!-------------
+      // Kolize boxu
+        // Kolize box spodní strany
+      if (Objekt.y > PoziceHraceY) {
+        Objekt.skok = false;
+        Objekt.y = PoziceHraceY;
+        Objekt.RychlostY = 0;
+
+      }
+        // Kolize box pravé strany
+      if (Objekt.x > OknoWidth - Objekt.width){
+        Objekt.x=OknoWidth - Objekt.width
+      }
+        // Kolize box levé strany (Vždy 0 || 1)
+      if (Objekt.x < 1 ){
+        Objekt.x= 0
+      }
+        // Kolize horní strany
+      if (Objekt.y < 1){
+        Objekt.y = 0;
+      }
+      // Kolize boxu
+
+        
+
+
+      Barva_Pozadi = '#202020'
+      Barva_Hrace = '#ffc0cb'
+      Barva_Desky = "#ecf0f1"
+      Sirka_Desky = 10
+      
+      Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
+      Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
+      Hrac.fillStyle = '#ffc0cb'; //Barva hráce
+
+      Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
+      Hrac.fill();
+
+      Hrac.strokeStyle = Barva_Desky;
+      Hrac.lineWidth = Sirka_Desky;
+      Hrac.beginPath();
+      Hrac.moveTo(0, PoziceHraceY + Objekt.height);
+      Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
+      Hrac.stroke();
+
+      Plosiny(50, 400, 800, 10, true, "#ecf0f1", "none", true) 
+      Plosiny(100, 100, 300, 10, true, "#ecf0f1", "none", false)
+      Plosiny(250, 400, 500, 10, true, "#ecf0f1", "none", false)
+      Plosiny(300, 600, 800, 10, true, "#ecf0f1", "none", true)
+      Plosiny(350, 900, 1300, 10, true, "ecf0f1", "none", false)
+      Plosiny(300, 1450, 2000, 15, true, "#f39c12", "Game5", false)
+      window.requestAnimationFrame(an);
+    };
+  
+
+  }
+}
+
+
+
+
 
 
 
@@ -451,7 +574,6 @@ function Level3(){
 window.addEventListener("keydown", OvladaniMore.Klavesa)
 window.addEventListener("keyup", OvladaniMore.Klavesa);
 window.requestAnimationFrame(an);
-
 
 
 

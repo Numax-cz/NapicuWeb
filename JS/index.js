@@ -68,3 +68,5 @@ console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: 
 console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: white; font-weight: bold; background-color: blue; font-size: 40px");
 console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: white; font-weight: bold; background-color: blue; font-size: 40px");
 console.log("%c Co tu chceš jako? Chceš MMA? pojď do klece na MMA!", "color: white; font-weight: bold; background-color: blue; font-size: 40px");
+
+
