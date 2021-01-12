@@ -20,8 +20,81 @@
 
 
 
+    <div id="mobile">
+      <div class="mobile-text">
+        Omlouváme se, ale tento web není na vašem zařízení podporován :(
+      </div>
+    </div>
+    <div id="loading">
+      <div class="loading-text">
+        Hra se načítá!
+      </div>
+    </div>
+    <div class="HlavniMenu" id="MenuButtonID">
+      <div class="Buttons">
+        <div class="MenuButton" onclick="Nastaveni()">
+          <div class="lajna"></div>
+          <div class="lajna"></div>
+          <div class="lajna"></div>
+        </div>
+      </div>
+    </div>
+    <div id="Nastaveni">
 
-    
+      <div class="Nastaveni-moznosti">
+        
+        
+
+        <div class="Nastaveni-look">
+          <div id="Nastaveni-Nastaveni">
+
+
+          </div>
+          <div id="Nastaveni-Zvuky">
+            <div class="Nastaveni-Zvuky-Text">
+              Zvuky
+            </div>
+            <div class="Nastaveni-Zvuky-nastaveniallzvuky">
+              <div class="ZvukyALL">
+                Vypnout všechny zvuky
+
+              </div>
+
+              <label class="ButtonLab">
+                <input class="ButtonClass" type="checkbox" id="ButtonID" name="zvukyall">
+                <span class="ButtonSpan"></span>
+              </label>
+              
+              
+            </div>
+            
+          </div>
+          <div id="informace">
+            <div class="inforamce-text">
+              <span>Jméno hry :</span> NapicuJonanekGame3000<br>
+              <span>Autor hry :</span>Numax_cz<br>
+              <span>Postava hry : </span> Jonánek<br>
+              Tato hra nemá nikoho zesměšnit!<br>
+              <br>
+              <span>Verze hry : </span> 1.4.0<br>
+              <span>Den vydání verze : </span> 12.1.2021<br>
+              <span>Programovácí jazyky :</span> JS, HTML, CSS
+              <br>
+              <span>Kód hry je veřejný. Tento kód můžete stáhnout, upravit a následně zveřejnit. Nikoliv vydávat kód jako své vlastní dílo!!!</span>
+              <a href="https://github.com/Numax-cz/napicu-web/blob/main/JS/HraMore.js">https://github.com/Numax-cz/napicu-web/blob/main/JS/HraMore.js</a>
+            </div>
+          </div>
+          
+          
+
+        </div>
+
+        <div class ="button" id="ButtonZvuky" onclick="NastaveniZvuky()">Zvuky</div>
+        <div class ="button" id="ButtonInformace" onclick="NastaveniInformace()">Informace</div>
+        <div class ="button" id="ButtonExit" onclick="NastaveniExit()">Exit</div>
+      </div>
+    </div>
+
     <canvas></canvas>
 
 

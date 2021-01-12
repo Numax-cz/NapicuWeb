@@ -1,18 +1,53 @@
-potvrzeni = false
-
 
 const Player = new Image()
-Player.src = './Img/jonanekxd.png'
+Player.src = './Img/jonanekxd.webp'
+PotvrzeniStartuHry = false
+PotvrzeniMobil = false
+BarvaPozadi = '#202020' //Pozadí canavasGame
+
+
 var StartAudio = new Audio('./Songs/Ahoj Lidi.mp3')
+//NastaveniMenu
+document.getElementById('Nastaveni-Zvuky').style.display = 'none'
+
+document.getElementById('mobile').style.display = 'none'
+document.getElementById('Nastaveni').style.display = 'none'
 
 
+if(navigator.userAgent.toLowerCase().match(/mobile/i)) { 
+ document.getElementById('MenuButtonID').style.display = 'none'
+ document.getElementById('mobile').style.display = 'table'
+ document.getElementById('loading').style.display = 'none'
+ document.querySelector('canvas').style.display = 'none'
+ PotvrzeniMobil = true
+}
+function Nastaveni(){
+  document.getElementById('Nastaveni').style.display = 'table'
+  document.getElementById('mobile').style.display = 'none'
+  document.getElementById('loading').style.display = 'none'
+  document.querySelector('canvas').style.display = 'none'
+  document.getElementById('MenuButtonID').style.display = 'none'
+}
+function NastaveniExit(){
+  document.getElementById('Nastaveni').style.display = 'none'
+  document.getElementById('mobile').style.display = 'none'
+  document.getElementById('loading').style.display = 'none'
+  document.querySelector('canvas').style.display = 'block'
+  document.getElementById('MenuButtonID').style.display = 'block'
+}
+function NastaveniZvuky(){
+  document.getElementById('informace').style.display = 'none'
+  document.getElementById('Nastaveni-Zvuky').style.display = 'inline'
+}
+function NastaveniInformace(){
+  document.getElementById('Nastaveni-Zvuky').style.display = 'none'
+  document.getElementById('informace').style.display = 'block'
 
-
+}
 
 
 
 Hrac = document.querySelector("canvas").getContext("2d");
-StartAudio.play() 
 
 // Spodní deska
 Barva_Pozadi = '#202020'
@@ -35,8 +70,8 @@ Objekt = {
   height:97, //neměnit!!!!
   width:90, //neměnit!!!!
   skok:true,
-  x:800, //spawn hrace na ose x
-  y:0, //spawn hrace na ose y
+  x:10, //spawn hrace na ose x
+  y:10, //spawn hrace na ose y
   RychlostY:0,
   RychlostX:0
 };
@@ -58,23 +93,19 @@ OvladaniMore= {
       case 68:
         OvladaniMore.right = Klavesnice;
       break;
-      }
-
-    
-
-
+    }
   }
-
 };
 
 
-
+// LineWidth = 10 někdy opravit!!! (problém u kolizi boklu!)
 function Plosiny(Vyska, Pozice1, Pozice2, LineWidth, Barva){
+
   // PoziceDeskyY + Sirka_Desky*3 ( Pozice "0" tesně nad deskou)
   // PoziceDeskyY + Sirka_Desky*4 (Přímo v bloku když sirka_desky = 10...... 10*4 = 40 - v bloku)
   // PoziceBloku2Y = PoziceDeskyY + Sirka_Desky*3; (Pozice "0" - střed objektu sirka_desky)
 
-  PoziceBloku = PoziceDeskyY - Vyska
+  PoziceBloku = PoziceDeskyY - Vyska //600 - 100 = 500
   Hrac.strokeStyle = Barva;
   Hrac.lineWidth = LineWidth;
   Hrac.beginPath();
@@ -82,40 +113,48 @@ function Plosiny(Vyska, Pozice1, Pozice2, LineWidth, Barva){
   Hrac.lineTo(Pozice2, PoziceBloku);
   Hrac.stroke();
 
-  // Boční náraz
-  //X strana
-  if(Objekt.x > Pozice1 - 7 - Objekt.width  && Objekt.x < Pozice2 + 7){
-    //Y strana
-    if(Objekt.y > PoziceBloku + 7  && Objekt.y < PoziceBloku + LineWidth/2 + Objekt.height - 7){
-      // Pravá strana
-      if (Objekt.x > Pozice1 - Objekt.width - 7 && Objekt.x < (Pozice2 - Pozice1)/2 ){
-        Objekt.skok = true;
-        Objekt.x = Pozice1  - Objekt.width - 7//AntiBug
-      }
-      if (Objekt.x < Pozice2 + 7 && Objekt.x > (Pozice2 + Pozice1)/2 ){
-        Objekt.skok = true;
-        Objekt.x = Pozice2 + 7
-      }
+  // Boční náraz není :( bugoval se 
 
-     
-      
+  // Plosina1Naraz = Pozice2 + 5 //Prava strana 
+  // Plosina2Naraz = Pozice1 - 5 //Leva strana
+
+  // if (Objekt.x < Plosina1Naraz - 5 && Objekt.x > Pozice2 - 50){
+  //   if (Objekt.y > PoziceBloku - LineWidth/2  && Objekt.y < PoziceBloku + LineWidth/2 -3 ){
+  //     Objekt.x = Plosina1Naraz - 5
+  //     console.log('hiot')
+  //     Objekt.RychlostX = 0
+  //   }
+
+  // }
+
+    //X strana
+    if(Objekt.x > Pozice1 - 7 - Objekt.width  && Objekt.x < Pozice2 + 7){
+      //Y strana
+      if(Objekt.y > PoziceBloku + 7  && Objekt.y < PoziceBloku + LineWidth/2 + Objekt.height - 7){
+        //Levá strana
+        if (Objekt.x > Pozice1 - Objekt.width - 7 && Objekt.x < (Pozice2 + Pozice1)/2 ){
+          Objekt.skok = true;
+          Objekt.x = Pozice1  - Objekt.width - 7//AntiBug
+        }
+        //Pravá strana
+        if (Objekt.x < Pozice2 + 7 && Objekt.x > (Pozice2 + Pozice1)/2 ){
+          Objekt.skok = true;
+          Objekt.x = Pozice2 + 7
+        } 
+      }
     }
 
-    
-  }
-  // Horní náraz
-  //X strana
-  if(Objekt.x > Pozice1- Objekt.width/2 - 10 && Objekt.x < Pozice2 -Objekt.width/2 + 10){
+  if(Objekt.x > Pozice1 - Objekt.width/2 - 10 && Objekt.x < Pozice2 - Objekt.width/2 + 10){
     //Y strana
-    if(Objekt.y > PoziceBloku - 1 - LineWidth/2 && Objekt.y < PoziceBloku + 1){
+    if(Objekt.y > PoziceBloku - 10 - LineWidth/2 && Objekt.y < PoziceBloku + LineWidth/2 + 20 ){
       Objekt.skok = false;
-      Objekt.y = PoziceBloku - LineWidth/2 + 1 //AntiBug
+      Objekt.y = PoziceBloku - LineWidth/2 //AntiBug
       Objekt.RychlostY = 0;
     }
   }
   // Dolní náraz
   // X strana
-  if(Objekt.x > Pozice1- 1 - Objekt.width/2 - 10 && Objekt.x < Pozice2 - 1 -Objekt.width/2 + 10){
+  if(Objekt.x > Pozice1 - 1 - Objekt.width/2 - 15 && Objekt.x < Pozice2 - 1 -Objekt.width/2 + 15){
     //Y strana
     if(Objekt.y > PoziceBloku - 1  && Objekt.y < PoziceBloku + LineWidth/2 + Objekt.height + 1){
       Objekt.skok = true;
@@ -124,95 +163,102 @@ function Plosiny(Vyska, Pozice1, Pozice2, LineWidth, Barva){
       
     }
   }
+}
+function NewGameBlock(){
+  Plosiny(140, 120, 400, 10, '#ecf0f1') 
+  // Plosiny(150, 750, 805, 20, '#e84118') 
 
-
-
-
-
-} 
-
-
-
-
-Game = function() {
- 
-
-
-  if (OvladaniMore.up && Objekt.skok == false) {
-    Objekt.RychlostY -= 20;
-    Objekt.skok = true;
-
-    
-  }
-  if (OvladaniMore.right) {
-    Objekt.RychlostX += 0.5;
-  }
-
-  if (OvladaniMore.left) {
-    Objekt.RychlostX -= 0.5;
-
-  }
- 
-
-  // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
-  Objekt.y += Objekt.RychlostY;
-  Objekt.x += Objekt.RychlostX;
-  Objekt.RychlostY *= Kolize_RychlostY_1;
-  Objekt.RychlostX *= Kolize_RychlostX; 
-  Objekt.RychlostY += Kolize_RychlostY_2; 
-
-  // -------------HLAVNÍ KOLIZE!!!-------------
-  // Kolize boxu
-  // Kolize box spodní strany
-  if (Objekt.y > PoziceDeskyY - Sirka_Desky/2) {
-    Objekt.skok = false;
-    Objekt.y = PoziceDeskyY - Sirka_Desky/2;
-    Objekt.RychlostY = 0;
-
-  }
-    // Kolize box pravé strany
-  if (Objekt.x > OknoEnd - Objekt.width){
-    Objekt.x=OknoEnd - Objekt.width
-  }
-    // Kolize box levé strany (Vždy 0 || 1)
-  if (Objekt.x < 1 ){
-    Objekt.x= 0
-  }
-    // Kolize horní strany
-  if (Objekt.y < 1){
-    Objekt.y = 0;
-  }
-  // Kolize boxu
-
-    
-
-  // Třídit!!!!!
-  // Spodní deska
-
+  Plosiny(150, 600, 800, 10, '#ecf0f1') 
   
-  Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
-  Hrac.fillRect(0, 0, OknoEnd, OknoStart); //Šířka a Výška pozadí
-  Hrac.fillStyle = '#ffc0cb'; //Barva hráce
+}
 
-  Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
-  Hrac.drawImage(Player, Objekt.x,Objekt.y - Objekt.height, Objekt.width, Objekt.height)
+
+Player.onload = function Game() {
+  if (PotvrzeniMobil == false){
+    if (PotvrzeniStartuHry == false){
+      document.querySelector('canvas').style.display = 'block'
+      document.getElementById('loading').style.display = 'none'
+      StartAudio.play()
+      PotvrzeniStartuHry = true
+    }
+  
+  
+   
+  
+  
+    if (OvladaniMore.up && Objekt.skok == false) {
+      Objekt.RychlostY -= 20;
+      Objekt.skok = true;   
+       
+    }
+    if (OvladaniMore.right) {
+      Objekt.RychlostX += 0.5;
+    }
+  
+    if (OvladaniMore.left) {
+      Objekt.RychlostX -= 0.5;
+  
+    }
+   
+  
+    // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!!
+    Objekt.y += Objekt.RychlostY;
+    Objekt.x += Objekt.RychlostX;
+    Objekt.RychlostY *= Kolize_RychlostY_1;
+    Objekt.RychlostX *= Kolize_RychlostX; 
+    Objekt.RychlostY += Kolize_RychlostY_2; 
+  
+    // -------------HLAVNÍ KOLIZE!!!-------------
+    // Kolize boxu
+    // Kolize box spodní strany
+    if (Objekt.y > PoziceDeskyY - Sirka_Desky/2) {
+      Objekt.skok = false;
+      Objekt.y = PoziceDeskyY - Sirka_Desky/2;
+      Objekt.RychlostY = 0;
+      
+  
+    }
+      // Kolize box pravé strany
+    if (Objekt.x > OknoEnd - Objekt.width){
+      Objekt.x=OknoEnd - Objekt.width
+    }
+      // Kolize box levé strany (Vždy 0 || 1)
+    if (Objekt.x < 1 ){
+      Objekt.x= 0
+    }
+      // Kolize horní strany
+    if (Objekt.y < 1){
+      Objekt.y = 0;
+    }
+    // Kolize boxu
+  
+      
+  
+    // Třídit!!!!!
+    // Spodní deska
+  
+    
+    Hrac.fillStyle = BarvaPozadi; //Barva pozadí (#202020)
+    Hrac.fillRect(0, 0, OknoEnd, OknoStart); //Šířka a Výška pozadí
  
-  Hrac.strokeStyle = Barva_Desky;
-  Hrac.lineWidth = Sirka_Desky;
-  Hrac.beginPath();
-  Hrac.moveTo(0, PoziceDeskyY);
-  Hrac.lineTo(OknoEnd, PoziceDeskyY);
-  Hrac.stroke();
+  
+    Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
+    Hrac.drawImage(Player, Objekt.x,Objekt.y - Objekt.height, Objekt.width, Objekt.height)
+   
+    Hrac.strokeStyle = Barva_Desky;
+    Hrac.lineWidth = Sirka_Desky;
+    Hrac.beginPath();
+    Hrac.moveTo(0, PoziceDeskyY);
+    Hrac.lineTo(OknoEnd, PoziceDeskyY);
+    Hrac.stroke();
+  
+  
+    NewGameBlock()
+  
+  
+    window.requestAnimationFrame(Game);
 
-
-  // ObjektMoznostSkoku(5) (true||false) = skok true || false (Plošina gliding)
-  // Vyska, Pozice1, Pozice2, SirkaLine(MAX 40), ObjektMoznostSkoku, Barva, level, debugging(True když blok prochází!!!)
-  //(Kolize SirkaLine max 40-50")
-  //Neoptimalizováno 
-  Plosiny(140, 120, 400, 10, '#2ecc71')
-
-
-  window.requestAnimationFrame(Game);
+  }
 };
 
 
@@ -226,7 +272,7 @@ Game = function() {
 
 window.addEventListener("keydown", OvladaniMore.Klavesa)
 window.addEventListener("keyup", OvladaniMore.Klavesa);
-window.requestAnimationFrame(Game);
+
 
 
 
