@@ -220,7 +220,11 @@ input:checked + .ButtonSpan:before {
 }
 
 
-
+#Dev{
+  z-index: 10000;
+  position: absolute;
+  right: 30%;
+}
 
 @media screen and (max-width:1396px){
   canvas{
