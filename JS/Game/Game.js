@@ -17,11 +17,16 @@ Barva_Pozadi = '#202020'
 Barva_Desky = "#ecf0f1"
 Sirka_Desky = 10
 WorldID = 1
+PoziceDeskyY = 600; 
 
-PoziceSpawnHraceX = 800
+
+PoziceSpawnPlechaceX = 1000
+PoziceSpawnPlechaceY = PoziceDeskyY
+
+PoziceSpawnHraceX = 8
 PoziceSpawnHraceY = 0
 
-PoziceDeskyY = 600; 
+
 OknoStart = 860;
 OknoEnd = 1700;
 
@@ -48,8 +53,8 @@ Plechovka = {
   height:97, //neměnit!!!!
   width:90, //neměnit!!!!
   skok:true,
-  x:1000, //spawn hrace na ose x
-  y:PoziceDeskyY, //spawn hrace na ose y
+  x:PoziceSpawnPlechaceX, //spawn hrace na ose x
+  y:PoziceSpawnPlechaceY, //spawn hrace na ose y
   RychlostY:0,
   RychlostX:0,
 };
@@ -83,16 +88,17 @@ Player.onload = function Game() {
       document.querySelector('canvas').style.display = 'block'
       document.getElementById('loading').style.display = 'none'
       document.getElementById('MenuButtonID').style.display = 'block'
-
       StartAudio.play()
       PotvrzeniStartuHry = true
     }
-    FollowMode() 
-    if(Objekt.x > Plechovka.x - Plechovka.height && Objekt.x < Plechovka.x + Plechovka.height){
-      if (Objekt.y < Plechovka.y + Plechovka.height && Objekt.y > Plechovka.y - Plechovka.height){
 
-      }
-      
+    MoveMode()
+    
+    
+    if(Objekt.x > Plechovka.x - Plechovka.height + 24 && Objekt.x < Plechovka.x + Plechovka.height - 24){
+      if (Objekt.y < Plechovka.y + Plechovka.height && Objekt.y > Plechovka.y - Plechovka.height){
+        GameOver()
+      } 
     }
   
    
@@ -189,80 +195,31 @@ Player.onload = function Game() {
 
 
 
-function NewGameLevel(SpawnHraceNaOseX){
+
+function NewGameLevel(SpawnHraceNaOseX, SpawnHraceNaOseY,SpawnPlechaceNaOseX, SpawnPlechaceNaOseY){
+  PoziceSpawnPlechaceX = SpawnPlechaceNaOseX
+  PoziceSpawnPlechaceY = SpawnPlechaceNaOseY
+
+  PoziceSpawnHraceX = SpawnHraceNaOseX
+  PoziceSpawnHraceY = SpawnHraceNaOseY
+
   Objekt = {
     height:97, //neměnit!!!!
     width:90, //neměnit!!!!
     skok:true,
     x:SpawnHraceNaOseX, //spawn hrace na ose x
-    y:600, //spawn hrace na ose y
+    y:SpawnHraceNaOseY, //spawn hrace na ose y
     RychlostY:0,
     RychlostX:0
   };
-  an = function() {
-  
-    if (OvladaniMore.up && Objekt.skok == false) {
-      Objekt.RychlostY -= 20;
-      Objekt.skok = true;
-        
-    }
-    if (OvladaniMore.right) {
-      Objekt.RychlostX += 0.5;
-    }
-    if (OvladaniMore.left) {
-      Objekt.RychlostX -= 0.5;
-    }
-    
-  
-      // !!-------optimální(Někdy opravit problém - propad přes plošinu)-------!
-    Objekt.y += Objekt.RychlostY;
-    Objekt.x += Objekt.RychlostX;
-    Objekt.RychlostY *= Kolize_RychlostY_1;
-    Objekt.RychlostX *= Kolize_RychlostX; 
-    Objekt.RychlostY += Kolize_RychlostY_2; 
-      // -------------HLAVNÍ KOLIZE!!!-------------
-      // Kolize boxu
-        // Kolize box spodní strany
-    if (Objekt.y > PoziceHraceY) {
-      Objekt.skok = false;
-      Objekt.y = PoziceHraceY;
-      Objekt.RychlostY = 0;
-  
-    }
-        // Kolize box pravé strany
-    if (Objekt.x > OknoWidth - Objekt.width){
-      Objekt.x=OknoWidth - Objekt.width
-    }
-        // Kolize box levé strany (Vždy 0 || 1)
-    if (Objekt.x < 1 ){
-      Objekt.x= 0
-    }
-        // Kolize horní strany
-    if (Objekt.y < 1){
-      Objekt.y = 0;
-    }
-      // Kolize boxu
-  
-        
-  
-  
-    Barva_Pozadi = '#202020'
-    Barva_Hrace = '#ffc0cb'
-    Barva_Desky = "#ecf0f1"
-    Sirka_Desky = 10
-    Hrac.fillStyle = '#202020'; //Barva pozadí (#202020)
-    Hrac.fillRect(0, 0, OknoWidth, OknoHeight); //Šířka a Výška pozadí
-    Hrac.fillStyle = '#ffc0cb'; //Barva hráce
-    Hrac.rect(Objekt.x, Objekt.y, Objekt.width, Objekt.height);
-    Hrac.fill();
-    Hrac.strokeStyle = Barva_Desky;
-    Hrac.lineWidth = Sirka_Desky;
-    Hrac.beginPath();
-    Hrac.moveTo(0, PoziceHraceY + Objekt.height);
-    Hrac.lineTo(OknoWidth, PoziceHraceY + Objekt.height);
-    Hrac.stroke();
-    NewGameBlock()
-    window.requestAnimationFrame(an);
+  Plechovka = {
+    height:97, //neměnit!!!!
+    width:90, //neměnit!!!!
+    skok:true,
+    x:SpawnPlechaceNaOseX, //spawn hrace na ose x
+    y:SpawnPlechaceNaOseY, //spawn hrace na ose y
+    RychlostY:0,
+    RychlostX:0,
   };
   
 }

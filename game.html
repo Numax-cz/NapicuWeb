@@ -27,11 +27,24 @@
         Omlouváme se, ale tento web není na vašem zařízení podporován :(
       </div>
     </div>
+    <div id="GameOver">
+      <div class="GameOver-text">
+        Game over :(
+          <div class="GameOverButton">
+            <div class="GameOverButtonCL" onclick="RestartGame()">
+              Zkusit znovu
+            </div>
+          </div>
+      </div>
+    </div>
+
     <div id="loading">
       <div class="loading-text">
         Hra se načítá!
       </div>
     </div>
+
+
     <div class="HlavniMenu" id="MenuButtonID">
       <div class="Buttons">
         <div class="MenuButton" onclick="Nastaveni()">
@@ -73,13 +86,13 @@
           </div>
           <div id="informace">
             <div class="inforamce-text">
-              <span>Jméno hry :</span> NapicuJonanekGame3000<br>
+              <span>Jméno hry :</span> JONÁNEK VS DIVOKEJ PLECHÁČ<br>
               <span>Autor hry :</span>Numax_cz<br>
               <span>Postava hry : </span> Jonánek<br>
               Tato hra nemá nikoho zesměšnit!<br>
               <br>
-              <span>Verze hry : </span> 1.4.3<br>
-              <span>Den vydání verze : </span> 16.1.2021<br>
+              <span>Verze hry : </span> 1.4.4<br>
+              <span>Den vydání verze : </span> 18.1.2021<br>
               <span>Programovácí jazyky :</span> JS, HTML, CSS
               <br>
               <span>Kód hry je veřejný. Tento kód můžete stáhnout, upravit a následně zveřejnit. Nikoliv vydávat kód jako své vlastní dílo!!!</span>
@@ -108,7 +121,7 @@
     <script src="./JS/Game/GameWorld.js"></script>
     <script src="./JS/Game/GameKolize.js"></script>
     <script src="./JS/Game/nastaveni.js"></script>
-    <script src="./JS/Game/PlechovkaMod.js"></script>
+    <script src="./JS/Game/MoveMode.js"></script>
 
   </body>
 
