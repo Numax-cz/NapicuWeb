@@ -1,23 +1,12 @@
-function MoveMode(){
-    if(WorldID == 1){
-        FollowMode() 
-    }
-    if(WorldID == 2){
-        StayMode(120, 700)
-    }
-}
+
 
 function FollowMode(){
-
-    
-    if(Plechovka.x < Objekt.x){
+    if(Plechovka.x < Objekt.x - Objekt.width){
         Plechovka.RychlostX = 3
     }
-    if(Plechovka.x > Objekt.x){
+    if(Plechovka.x > Objekt.x + Objekt.width){
         Plechovka.RychlostX = -3
     }
-
-
 
 }
 

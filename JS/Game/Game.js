@@ -1,8 +1,19 @@
 
 const Player = new Image()
 const PlayerPlechac = new Image()
+const Pozadi = new Image()
+
 Player.src = './Img/jonanekxd.webp'
 PlayerPlechac.src = './Img/plechac.webp'
+Pozadi.src = './Img/bg.webp'
+
+
+
+const Platforma = new Image()
+Platforma.src = './Img/Deska.webp'
+
+const PlatformaVyherni = new Image()
+PlatformaVyherni.src = './Img/DeskaVyherni.webp'
 
 PotvrzeniStartuHry = false
 PotvrzeniMobil = false
@@ -164,11 +175,11 @@ Player.onload = function Game() {
     }
 
   
+    Hrac.drawImage(Pozadi, 0, 0, OknoEnd, OknoStart)
 
-    Hrac.fillStyle = BarvaPozadi; //Barva pozadí (#202020)
-    Hrac.fillRect(0, 0, OknoEnd, OknoStart); //Šířka a Výška pozadí
-    //Hrac
-
+    // Hrac.fillRect(0, 0, OknoEnd, OknoStart); //Šířka a Výška pozadí
+    // //Hrac
+    console.log(Plechovka)
   
     Hrac.strokeStyle = Barva_Desky;
     Hrac.lineWidth = Sirka_Desky;
