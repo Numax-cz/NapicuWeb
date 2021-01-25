@@ -4,9 +4,13 @@ document.getElementById('MenuButtonID').style.display = 'none'
 document.getElementById('Nastaveni').style.display = 'none'
 document.getElementById('GameOver').style.display = 'none'
 
+
+
+
 if(navigator.userAgent.toLowerCase().match(/mobile/i)) { 
  document.getElementById('MenuButtonID').style.display = 'none'
  document.getElementById('mobile').style.display = 'table'
+ document.getElementById('HlavniMenu').style.display = 'none'
  document.getElementById('loading').style.display = 'none'
  document.querySelector('canvas').style.display = 'none'
  PotvrzeniMobil = true
@@ -44,6 +48,11 @@ function GameOver(){
   document.getElementById('MenuButtonID').style.display = 'none'
   document.getElementById('GameOver').style.display = 'table'
 }
+function EndTutorial(){
+  document.getElementById('HlavniMenu').style.display = 'none'
+  PotvrzeniStartuHry = false
+  Player.src = './Img/jonanekxd.webp'
+}
 
 
 function RestartGame(){
@@ -57,6 +66,6 @@ function RestartGame(){
   Objekt.RychlostY = 0
   Objekt.RychlostX = 0
   PotvrzeniStartuHry = false
-
-
 }
+
+

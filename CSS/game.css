@@ -4,17 +4,18 @@
 
   box-sizing:border-box;
   margin:0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Rubik', sans-serif;
   padding:0;
-  background-color: #242424;;
+  
   
 }
   
 html, body {
   
+  background-color: #242424;
   height:100%;
   width:100%;
-  
+ 
 }
   
 body {
@@ -26,18 +27,18 @@ body {
   
 }
 .inforamce-text{
-  background-color: #242424;
+
   padding-top: 0.6%;
   padding-left: 1%;
   font-size: 1.3rem;
-  color: rgb(122, 120, 120);
+  color: rgb(0, 0, 0);
 }
 .inforamce-text span{
-  background-color: #242424;
+
   color: white
 }
 .inforamce-text a{
-  background-color: #242424;
+
   color: #00a8ff;
 }
 canvas {
@@ -64,9 +65,11 @@ canvas {
 #GameOver{
   height: 100vh;
   width: 100%;
-  background-color: black;
   display: table;
+  position: absolute;
+  background-color: black;
   text-align: center;
+  user-select: none;
 
 }
 .GameOver-text{
@@ -76,14 +79,14 @@ canvas {
   font-size: 4rem;
 }
 .GameOverButton{
-  padding-top: 7%;
+  padding-top: 4%;
 
 }
 .GameOverButtonCL{
   padding: 7px;
   user-select: none;
   width: 100%;
-  max-width: 60%;
+  max-width: 20%;
   border-radius: 7px;
   cursor: pointer;
   margin: auto;
@@ -95,8 +98,10 @@ canvas {
 #loading{
   height: 100vh;
   width: 100%;
+  position: absolute;
   background-color: black;
   display: table;
+  text-align: center;
 }
 .loading-text{
   display: table-cell;
@@ -104,6 +109,7 @@ canvas {
   font-size: 7rem;
 
 }
+
 
 
 /* menu */
@@ -152,14 +158,18 @@ canvas {
   width: 85%;
   float: right;
   height: 100%;
-  background-color: #242424;
+  background: url('https://napicu.eu/Img/FotoMain.webp');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 
 } 
 .Nastaveni-moznosti{
   width: 100%;
   height: 100vh;
-
-  background-color: #3a3a3a;
+  background-color: #242424;
+  
+  
 }
 .button{
   justify-content: center;
@@ -167,7 +177,8 @@ canvas {
   display: flex;
   cursor: pointer;
   font-size: 1.3rem;
-  background-color: #3a3a3a;
+  background-color: #242424;
+
   text-align: center;
   height: 40px;
   transition: .4s;
@@ -176,13 +187,14 @@ canvas {
 }
 .button.button:hover{ 
   transition: .4s;
-  background-color: #696969;
+  background-color: #353535;
+  
 }
 
 /* Zvuky */
 .Nastaveni-Zvuky-Text{
   text-align: left;
-
+  
   background-color: #242424;
   padding-top: 1%;
   padding-left: 10%;
@@ -251,6 +263,103 @@ input:checked + .ButtonSpan:before {
 .ButtonSpan{
   border-radius: 20px;
 }
+
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+body{
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+#HlavniMenu{
+  display: table;
+  z-index: 1;
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
+  position: absolute;
+  background: url('/Img/FotoMain2.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.plochaMenu{
+  display: table-cell;
+  vertical-align: middle;
+  padding-top: 130px;
+  padding-bottom: 100px;
+}
+
+#imglogo{
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+}
+.nazev{
+  padding-top: 2%;
+  font-size: 3vh;
+}
+
+.TutorialBox{
+  width: 100%;
+  max-width: 30%;
+  height: 80%;
+  margin: auto;
+  background-color: #161616;
+  box-shadow: 0px 2px 13px 0px #000000;
+  border-radius: 7px;
+  padding: 2%;
+  color: white;
+  text-align: center;
+}
+.text{
+  width: 100%;
+  height: 60%;    
+  background-color: #161616;
+}
+.nazev{
+  background-color: #161616;
+}
+.popis{
+  font-size: 1.5vh;
+  color: #696969;
+  background-color: #161616;
+  padding-top: 2%;
+}
+.TutorialNdButton{
+  background-color: #161616;
+
+}
+.TutorialButton{
+
+  width: 100%;
+  max-width: 50%;
+  margin: auto;
+  padding: 3%;
+  border-radius: 30px;
+  font-size: 2.4vh;
+  background-color: #e74c3c;
+  user-select: none;
+  box-shadow: 0px 2px 13px 0px #e74c3c;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
 
 
 #Dev{

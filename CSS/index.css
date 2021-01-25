@@ -7,9 +7,15 @@
 }
 
 body{
+    
     overflow: hidden;
     user-select: none;
-    background-color: #242424;
+    background-color: black;
+    background-image: url('https://napicu.eu/Img/FotoMain.webp');
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+    
   
     
 }

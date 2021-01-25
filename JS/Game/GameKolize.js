@@ -1,6 +1,5 @@
 function Plosiny(Vyska, Pozice1, Pozice2, LineWidth,  GameName){
 
-  Platforma
   
   
   PoziceBloku = PoziceDeskyY - Vyska //600 - 100 = 500
@@ -17,7 +16,7 @@ function Plosiny(Vyska, Pozice1, Pozice2, LineWidth,  GameName){
   }
   Hrac.drawImage(Barva, Pozice1, PoziceBloku - LineWidth/2, Pozice2-Pozice1,LineWidth)
 
-  
+  //Boční náraz
   //X strana
   if(Objekt.x > Pozice1 - 5 - Objekt.width  && Objekt.x < Pozice2 + 5){
     //Y strana
@@ -32,8 +31,6 @@ function Plosiny(Vyska, Pozice1, Pozice2, LineWidth,  GameName){
       if (Objekt.x < Pozice2 + 7 && Objekt.x > (Pozice2 + Pozice1)/2 + 100 ){
         Objekt.skok = true;
         Objekt.RychlostX = 0
-  
-  
         Objekt.x = Pozice2 + 5
       } 
     }
@@ -45,15 +42,15 @@ function Plosiny(Vyska, Pozice1, Pozice2, LineWidth,  GameName){
       Objekt.skok = false;
       Objekt.y = PoziceBloku - LineWidth/2 //AntiBug
       Objekt.RychlostY = 0;
-
-      if (GameName == 'level_2'){
-        WorldID = 2
-        NewGameLevel(1000, 600, 250, 0, 2)        
+      if(GameName !== "none"){
+        LevelMode(GameName)
       }
+      
     }
   }
+
   //Horní náraz plechovka
-  if(Plechovka.x > Pozice1 - Plechovka.width/2 - 10 && Plechovka.x < Pozice2 - Plechovka.width/2 + 10){
+  if(Plechovka.x > Pozice1 - Plechovka.width/2 - 10 && Plechovka.x < Pozice2 - Plechovka.width/2 + 10 && PlechovkaKolize == true){
     //Y strana
     if(Plechovka.y > PoziceBloku - 10 - LineWidth/2 && Plechovka.y < PoziceBloku + LineWidth/2 + 20 ){
       Plechovka.skok = false;
@@ -75,4 +72,35 @@ function Plosiny(Vyska, Pozice1, Pozice2, LineWidth,  GameName){
       Objekt.RychlostY = 0;
     }
   }
+}
+function ZakladniKolize(){
+    // Kolize boxu
+    // Kolize box spodní strany
+    if (Objekt.y> PoziceDeskyY - Sirka_Desky/2) {
+      Objekt.skok = false;
+      Objekt.y = PoziceDeskyY - Sirka_Desky/2;
+      Objekt.RychlostY = 0;
+    }
+    // Kolize boxu
+    // Kolize box spodní strany
+    if (Plechovka.y> PoziceDeskyY - Sirka_Desky/2) {
+      Plechovka.skok = false;
+      Plechovka.y = PoziceDeskyY - Sirka_Desky/2;
+      Plechovka.RychlostY = 0;
+    }
+
+
+      // Kolize box pravé strany
+    if (Objekt.x > OknoEnd - Objekt.width){
+      Objekt.x=OknoEnd - Objekt.width
+    }
+      // Kolize box levé strany (Vždy 0 || 1)
+    if (Objekt.x < 1 ){
+      Objekt.x= 0
+    }
+      // Kolize horní strany
+    if (Objekt.y < (1 + Objekt.height)){
+      Objekt.y = 0 + Objekt.height;
+      Objekt.skok = true;
+    }
 }
