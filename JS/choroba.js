@@ -17,6 +17,7 @@ fetch(ApiTechRomu)
         Celkove_Nakazeni_Nova_Hodnota.innerHTML = "+" + apiData.data[0].potvrzene_pripady_vcerejsi_den;
         Celkove_Vylecenych_Hodnota .innerHTML = apiData.data[0].vyleceni;
         Celkove_Podlehlo_Hodnota.innerHTML = apiData.data[0].umrti;
+        
     })
 fetch(ApiTechRomu2)
     .then((data2) => data2.json())
@@ -27,13 +28,17 @@ fetch(ApiTechRomu2)
         const Vylecenych = [];
         const Chciplo = [];
         const Datum = [];
-
+        const NakazenychDen = [];
+        
 
         for(i = (apiData2.data.length - 30); i < apiData2.data.length; i++){
             Nakazenych.push(apiData2.data[i].kumulativni_pocet_nakazenych);
             Vylecenych.push(apiData2.data[i].kumulativni_pocet_vylecenych);
             Chciplo.push(apiData2.data[i].kumulativni_pocet_umrti);
             Datum.push(apiData2.data[i].datum);
+            x = apiData2.data[i].kumulativni_pocet_nakazenych
+            y = apiData2.data[i -1].kumulativni_pocet_nakazenych
+            NakazenychDen.push(x - y)
         }
         const graph = document.getElementById('GraphPico').getContext('2d');
         Chart.defaults.global.defaultFontColor = 'white';
@@ -59,14 +64,15 @@ fetch(ApiTechRomu2)
                         backgroundColor: "#2ecc71",
                         borderWidth: 1,
                     },
+
                     {
-                        label: "Podlehlo",
-                        data: Chciplo,
+                        label: "Nakažených za den",
+                        data: NakazenychDen,
                         fill: false,
-                        borderColor: "black",
-                        backgroundColor: "black",
+                        borderColor: "#e67e22",
+                        backgroundColor: "#e67e22",
                         borderWidth: 1,
-                    },
+                    }
                 ],
                 labels: Datum,
             },
