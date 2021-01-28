@@ -14,17 +14,22 @@ class Level{
         Key_5.KeySetup()
         Key_6.KeySetup()
         Door_1.DoorSetup()
+        Nepritel_1.Setup()
     }
-    static SecondLevel(){
 
+   static BaseLevelReset(){
+        Key_1.KeyReset()
+        Key_2.KeyReset()
+        Key_3.KeyReset()
+        Key_4.KeyReset()
+        Key_5.KeyReset()
+        Key_6.KeyReset()
+   }
+   
+   static World(){
+    if(Level.ID == 1){
+        this.BaseLevel()
     }
-}
-
-function World(){
-    if (Level.ID == 1){
-        Level.BaseLevel()
-    }else{
-
-    }
+} 
 }
 

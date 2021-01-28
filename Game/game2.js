@@ -78,10 +78,19 @@ class Key{
         this.Vyska = Vyska
         this.Pozice1 = Pozice1
         this.width = 20
+        this.VyskaBefore = Vyska
+        this.Pozice1Before = Pozice1
     }
     static CelkemKlicu = 6
     static KeyCountRemaining = Key.CelkemKlicu
     static KeyCount = 0
+    KeyReset(){
+        this.Vyska = this.VyskaBefore
+        this.Pozice1 = this.Pozice1Before
+        this.width = 20
+        Key.KeyCount = 0
+    }
+
     static KeyCountText(){
         document.getElementById('Key').innerText = Key.KeyCount + '/' + Key.CelkemKlicu
     }
@@ -94,13 +103,14 @@ class Key{
                 var KeyTakeSound = new Audio('Key.mp3')
                 KeyTakeSound.play()
                 this.Pozice1 = 0
-                this.Vyska = 0
-                this.width = 0.01
+                this.Vyska = 10
+                this.width = 0
                 Key.KeyCount += 1
                 Key.KeyCountRemaining -=1
             }
         }
     }
+
     KeySetup(){ //Pro Fast Setup
         this.KeyImg()
         this.KeyTake()

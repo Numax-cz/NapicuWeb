@@ -116,7 +116,8 @@ class Nepritel{
     Attack(){
         if((Player.x + Player.width) > this.x && Player.x < (this.x + this.width)){
             if(Player.y > (this.y - this.height) && Player.y < (this.y + this.height)){
-                // f
+                Level.BaseLevelReset()
+                Player.Reset()
             }            
         }
     }
@@ -170,12 +171,12 @@ function GameMode(){
 
     Plosina.ZakladniDeska() // Spodní deska
     Key.KeyCountText() //Key Count (x/6)
-    World() // Tvorba základního levelu
+    Level.World() // Tvorba základního levelu
 
     Kolize.Setup(Player)
     Kolize.Setup(Nepritel_1)
 
-    Nepritel_1.Setup()
+
     Player.Skin() // Nastavit hráči skin
 
     window.requestAnimationFrame(GameMode);
