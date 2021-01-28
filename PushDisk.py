@@ -1,6 +1,6 @@
 import shutil
 import os
-Des = "D:\\Test\\Test2"
+Des = "D:\\Google Disk\\NapicuWebGoogleDisk"
 Dir = os.getcwd()
 
 try:
