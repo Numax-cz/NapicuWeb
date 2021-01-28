@@ -39,17 +39,19 @@ class HraFc{
         this.RychlostX = RychlostX
         this.RychlostY = RychlostY
         this.skok = skok
+        this.BeforeX = x
+        this.BeforeY = y
+    }
+    Reset(){
+        this.x = this.BeforeX
+        this.y = this.BeforeY
+        this.RychlostX = 0
+        this.RychlostY = 0
     }
     static Kolize_RychlostY_1 = 0.9299; 
     static Kolize_RychlostX = 0.925; // * //(1) rychlost objektu 
     static Kolize_RychlostY_2 = 0.584; 
-    ZakladniRychlost(){
-        this.y += this.RychlostY
-        this.x += this.RychlostX
-        this.RychlostY *= HraFc.Kolize_RychlostY_1
-        this.RychlostX *= HraFc.Kolize_RychlostX
-        this.RychlostY += HraFc.Kolize_RychlostY_2
-    }
+
     ZakladniOvladani(){
         if(OvladaniMore.up && this.skok == false){
             this.RychlostY -= 20
@@ -66,11 +68,8 @@ class HraFc{
         Hra.rect(this.x, this.y, this.width, this.height)
         Hra.drawImage(PlayerSkin, this.x, this.y - this.height, this.width, this.height)
     }
-    setup(){
-        // this.ZakladniKolize()
-        this.ZakladniOvladani()
-        this.ZakladniRychlost()
-    }
+
+
 }
 
 class Kolize{
@@ -87,6 +86,17 @@ class Kolize{
             Player.x = okno.width_end - Player.width
         }
     }
+    static ZakladniRychlost(Player){
+        Player.y += Player.RychlostY
+        Player.x += Player.RychlostX 
+        Player.RychlostY *= HraFc.Kolize_RychlostY_1
+        Player.RychlostX *= HraFc.Kolize_RychlostX
+        Player.RychlostY += HraFc.Kolize_RychlostY_2
+    }
+    static Setup(Player){
+        this.ZakladniRychlost(Player)
+        this.ZakladniKolize(Player)
+    }
 }
 
 
@@ -101,18 +111,23 @@ class Nepritel{
         this.RychlostY = RychlostY
         this.skok = skok
     }
-    ZakladniRychlost(){
-        this.y += this.RychlostY
-        this.x += this.RychlostX
-        this.RychlostY *= HraFc.Kolize_RychlostY_1
-        this.RychlostX *= HraFc.Kolize_RychlostX
-        this.RychlostY += HraFc.Kolize_RychlostY_2
+
+
+    Attack(){
+        if((Player.x + Player.width) > this.x && Player.x < (this.x + this.width)){
+            if(Player.y > (this.y - this.height) && Player.y < (this.y + this.height)){
+                // f
+            }            
+        }
     }
     Skin(){
         Hra.rect(this.x, this.y, this.width, this.height)
         Hra.drawImage(PlayerSkin, this.x, this.y - this.height, this.width, this.height)
     }
-
+    Setup(){
+        this.Attack()
+        this.Skin()
+    }
 }
 
 
@@ -138,7 +153,8 @@ OvladaniMore= {
 
 
 
-const Player = new HraFc(40,40,0,591,0,0,true)
+const Player = new HraFc(40,40,0,500,0,0,true)
+const Nepritel_1 = new Nepritel(40,40,1000,500,0,0,true)
 
 
 
@@ -147,15 +163,19 @@ const Player = new HraFc(40,40,0,591,0,0,true)
 
 
 function GameMode(){
-    Player.setup() //Fast Setup
+    Player.ZakladniOvladani()
 
     Hra.drawImage(Pozadi,0,0,okno.width_end,okno.width_start) //Pozadí
     Hra.beginPath(); // Zruší cetsu hráče(ghosting)
 
     Plosina.ZakladniDeska() // Spodní deska
     Key.KeyCountText() //Key Count (x/6)
-    Level.BaseLevel() // Tvorba základního levelu
-    Kolize.ZakladniKolize(Player)
+    World() // Tvorba základního levelu
+
+    Kolize.Setup(Player)
+    Kolize.Setup(Nepritel_1)
+
+    Nepritel_1.Setup()
     Player.Skin() // Nastavit hráči skin
 
     window.requestAnimationFrame(GameMode);

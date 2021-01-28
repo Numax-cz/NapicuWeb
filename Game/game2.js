@@ -109,16 +109,18 @@ class Key{
 }
 
 class Door{
-    constructor(Vyska, Pozice1){
+    constructor(Vyska, Pozice1, LevelId){
         this.Vyska = Vyska
         this.Pozice1 = Pozice1
         this.width = 50
+        this.LevelId = LevelId
     }
     Open(){
         if(Player.x > (this.Pozice1 - Player.width) && Player.x < (this.Pozice1 + 200)){
             if(Player.y > (this.Vyska - this.width/2) && Player.y < (this.Vyska + this.width/2 + Player.height)){
                 if(Key.CelkemKlicu == Key.KeyCount){
-                    console.log('Máš Key')
+                    Level.ID = this.LevelId
+                    Player.Reset()
                 }else{
                     console.log('nemáš key')
                 }
@@ -134,24 +136,22 @@ class Door{
     }
 }
 
-
-const Door_1 = new Door(513, 1150)
-
+// Level_1
+const Door_1 = new Door(513, 1150, 2)
 const Key_1 = new Key(270, 100)
 const Key_2 = new Key(370, 500)
 const Key_3 = new Key(420, 700)
 const Key_4 = new Key(370, 1100)
 const Key_5 = new Key(210, 1180)
 const Key_6 = new Key(420, 350)
-
 const Plosina_2 = new Plosina(450, 280, 450, 20, '#2b2b2b')
 const Plosina_3 = new Plosina(300, 0, 350, 20, '#2b2b2b')
 const Plosina_4 = new Plosina(400, 480, 550, 20, '#2b2b2b')
 const Plosina_5 = new Plosina(450, 650, 820, 20, '#2b2b2b')
 const Plosina_6 = new Plosina(400, 1000, 1600, 20, '#2b2b2b')
-
 const Plosina_8 = new Plosina(250, 600, 1600, 20, '#2b2b2b')
 
+// Level_2
 
 
 
