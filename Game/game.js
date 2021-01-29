@@ -13,7 +13,11 @@ KeySkin.src = 'key.png'
 const DoorSkin = new Image()
 DoorSkin.src = 'vrata.png'
 
-
+//Kontrola načtených obrázků
+Pozadi.onload = ImgLoad = 1
+PlayerSkin.onload = ImgLoad = 2
+KeySkin.onload = ImgLoad = 3
+DoorSkin.onload = ImgLoad = 4
 
 
 
@@ -164,6 +168,7 @@ const Nepritel_1 = new Nepritel(40,40,1000,500,0,0,true)
 
 
 function GameMode(){
+
     Player.ZakladniOvladani()
 
     Hra.drawImage(Pozadi,0,0,okno.width_end,okno.width_start) //Pozadí
@@ -173,25 +178,21 @@ function GameMode(){
     Key.KeyCountText() //Key Count (x/6)
     Level.World() // Tvorba základního levelu
 
-    Kolize.Setup(Player)
-    Kolize.Setup(Nepritel_1)
-
+    Kolize.Setup(Player) //Fast Setup 
+    Kolize.Setup(Nepritel_1) //Fast Setup 
+ 
 
     Player.Skin() // Nastavit hráči skin
 
     window.requestAnimationFrame(GameMode);
 }
-window.requestAnimationFrame(GameMode);
+
+if(ImgLoad == 4){ //Když se načtou všechny obrázky
+    window.requestAnimationFrame(GameMode); //Start Funkce GameMode()
+}
+
 
 
 
 window.addEventListener("keydown", OvladaniMore.Klavesa)
 window.addEventListener("keyup", OvladaniMore.Klavesa);
-
-
-
-
-
-
-//Hrac
-
