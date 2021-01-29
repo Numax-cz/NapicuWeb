@@ -1,168 +1,48 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NaPicu - Hra</title>
+    <link rel="stylesheet" href="./CSS/game.css">
 
-  <meta name = "viewport" content = "width=device-width">
-  <title>NaPicu - Hra</title>
-  <meta charset="UTF-8">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
 
-  <link href = "./css/game.css" rel = "stylesheet" type = "text/css">
+
+    <meta itemprop="name" content="NaPicu">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Numax">
+
+    <meta itemprop="image" content="https://napicu.eu/Img/jonanekxd.webp">
+    <meta itemprop="description" content="Ahoj kamaráde! Chceš si zahrát tu nejlepší hru všech dob? Právě proto je tu tato hra!!! Tak neváhej a běž si jí zahrát!!">
     
-  <link rel="icon" href="favicon.png">
+    <meta property="og:url" content="https://napicu.eu/">
+    <meta property="og:title" content="NaPicu - Game">
+    <meta property="og:description" content="Ahoj kamaráde! Chceš si zahrát tu nejlepší hru všech dob? Právě proto je tu tato hra!!! Tak neváhej a běž si jí zahrát!!">
+    <meta property="og:site_name" content="NaPicu">
+    <meta property="og:image" content="https://napicu.eu/Img/jonanekxd.webp">
 
+    <meta name="twitter:url" content="https://napicu.eu/">
+    <meta name="twitter:title" content="NaPicu - Game">
+    <meta name="twitter:description" content="Ahoj kamaráde! Chceš si zahrát tu nejlepší hru všech dob? Právě proto je tu tato hra!!! Tak neváhej a běž si jí zahrát!!">
+    <meta name="twitter:site_name" content="NaPicu">
+    <meta name="twitter:image" content="https://napicu.eu/Img/jonanekxd.webp">
 
+    <meta name="msapplication-TileColor" content="#f39c12">
+    <meta name="theme-color" content="#f39c12">
 </head>
 
-  <body>
-
-
-    </section>
-
-    <section id="HlavniMenu">
-      <div class="plochaMenu">
-          <div class="TutorialBox">
-              <div class="text">
-                  <div class="nazev">
-                    JONÁNEK VS DIVOKEJ PLECHÁČ
-
-                  </div>
-                  <div class="popis"> 
-                    Divoká plechovka chce jít MMA s Jonánkem, ale Jonánek chce jít UFC!<br>
-                    Podaří se ti utéct Divoké plechovce? A přimět Divokou plechovku jít UFC?<br>
-                    Ale pozor!!! Divoká plechovka umí velice dobře MMA! Pouhého smrtelníka usmrtí pohledem!!!
-                    Proto si dávej pozor!!!<br>
-                    Hra se ovládá klávesami A D a MEZERNÍK. Cíl hry není znám!
-                  </div>
-                  
-              </div>
 
 
 
-              <div class="TutorialNdButton">
-                  <div class="TutorialButton" onclick="EndTutorial()">
-                    Jdu do toho!
-                  </div>
-
-                  
-              </div>
-              
-              
-          </div>
-      </div>
-      
-  </section>
-
-    
-
-
-
-
-    <div id="mobile">
-      <div class="mobile-text">
-        Omlouváme se, ale tento web není na vašem zařízení podporován :(
-      </div>
-    </div>
-    <div id="GameOver">
-      <div class="GameOver-text">
-        Game over :(
-          <div class="GameOverButton">
-            <div class="GameOverButtonCL" onclick="RestartGame()">
-              Zkusit znovu
-            </div>
-          </div>
-      </div>
-    </div>
-
-    <div id="loading">
-      <div class="loading-text">
-        Hra se načítá!
-      </div>
-    </div>
-
-
-    <div class="HlavniMenu" id="MenuButtonID">
-      <div class="Buttons">
-        <div class="MenuButton" onclick="Nastaveni()">
-          <div class="lajna"></div>
-          <div class="lajna"></div>
-          <div class="lajna"></div>
-        </div>
-      </div>
-    </div>
-    <div id="Nastaveni">
-
-      <div class="Nastaveni-moznosti">
-        
-        
-
-        <div class="Nastaveni-look">
-          <div id="Nastaveni-Nastaveni">
-
-
-          </div>
-          <div id="Nastaveni-Zvuky">
-            <div class="Nastaveni-Zvuky-Text">
-              Nastavení
-            </div>
-            <div class="Nastaveni-Zvuky-nastaveniallzvuky">
-              <div class="ZvukyALL">
-                Vypnout všechny zvuky
-
-              </div>
-
-              <label class="ButtonLab">
-                <input class="ButtonClass" type="checkbox" id="ButtonID" name="zvukyall">
-                <span class="ButtonSpan"></span>
-              </label>
-              
-              
-            </div>
-            
-          </div>
-          <div id="informace">
-            <div class="inforamce-text">
-              <span>Jméno hry :</span> JONÁNEK VS DIVOKEJ PLECHÁČ<br>
-              <span>Autor hry :</span>Numax_cz<br>
-              <span>Postava hry : </span> Jonánek<br>
-              Tato hra nemá nikoho zesměšnit!<br>
-              <br>
-              <span>Verze hry : </span> 1.5.0<br>
-              <span>Den vydání verze : </span> 19.1.2021<br>
-              <span>Programovácí jazyky :</span> JS, HTML, CSS
-              <br>
-              <span>Kód hry je veřejný. Tento kód můžete stáhnout, upravit a následně zveřejnit. Nikoliv vydávat kód jako své vlastní dílo!!!</span>
-              <a href="https://github.com/Numax-cz/napicu-web/blob/main/JS/HraMore.js">https://github.com/Numax-cz/napicu-web/blob/main/JS/HraMore.js</a><br>
-              <span>Varování!!</span><br>
-              Tato hra není nějak zabezpečená!!! Hra se dá ovládat pomocí console. F12<br>
-              Je tedy čistě na vás jestli tuto hru budete hrát poctivě, nebo budete cheatovat :(
-            </div>
-          </div>
-          
-          
-
-        </div>
-
-        <!-- <div class ="button" id="ButtonZvuky" onclick="NastaveniZvuky()">Nastavení</div> -->
-        <div class ="button" id="ButtonInformace" onclick="NastaveniInformace()">Informace</div>
-        <div class ="button" id="ButtonExit" onclick="NastaveniExit()">Exit</div>
-      </div>
-    </div>
-
+<body>
     <canvas></canvas>
+    <div class="keyCount">
+        <div id="Key"></div>
+    </div>
+</body>
 
-
-    
-    <script src="./JS/Game/Game.js"></script>
-    <script src="./JS/Game/GameWorld.js"></script>
-    <script src="./JS/Game/GameKolize.js"></script>
-    <script src="./JS/Game/nastaveni.js"></script>
-    <script src="./JS/Game/MoveMode.js"></script>
-
-  </body>
-
+<script src="./JS/Game/Game.js"></script>
+<script src="./JS/Game/Level.js"></script>
+<script src="./JS/Game/Objekty.js"></script>
 
 </html>

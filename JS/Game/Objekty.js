@@ -100,7 +100,7 @@ class Key{
     KeyTake(){
         if(Player.x > (this.Pozice1 - Player.width) && this.Pozice1 !== 0 && Player.x < (this.Pozice1 + 20)){
             if(Player.y > (this.Vyska - this.width/2) && Player.y < (this.Vyska + this.width/2 + Player.height)){
-                var KeyTakeSound = new Audio('Key.mp3')
+                var KeyTakeSound = new Audio('https://napicu.eu/Songs/Key.mp3')
                 KeyTakeSound.play()
                 this.Pozice1 = 0
                 this.Vyska = 10
