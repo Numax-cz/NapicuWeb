@@ -1,28 +1,22 @@
 Hra = document.querySelector('canvas').getContext('2d')
-
+// Začátek a konec okna (výška se nastavuje v css!!!)
 const okno = {
     width_start: 600, //Začátek Okna
     width_end: 1240 //Konec Okna
 }
+Hra.canvas.height = okno.width_start;
+Hra.canvas.width = okno.width_end;
+// Obrázky (skiny)
 const Pozadi = new Image()
 Pozadi.src = '../Img/bg.webp'
 const PlayerSkin = new Image()
 PlayerSkin.src = '../Img/jonanekxd.webp'
 const KeySkin = new Image()
-KeySkin.src = 'key.png'
+KeySkin.src = 'key.webp'
 const DoorSkin = new Image()
-DoorSkin.src = 'vrata.png'
-
-//Kontrola načtených obrázků
-Pozadi.onload = ImgLoad = 1
-PlayerSkin.onload = ImgLoad = 2
-KeySkin.onload = ImgLoad = 3
-DoorSkin.onload = ImgLoad = 4
-
-
-
-Hra.canvas.height = okno.width_start;
-Hra.canvas.width = okno.width_end;
+DoorSkin.src = 'vrata.webp'
+const Plechovka = new Image()
+Plechovka.src = '../Img/plechac.webp'
 
 
 // static Kolize_RychlostY_1 = 1.042; // *
@@ -46,7 +40,7 @@ class HraFc{
         this.BeforeX = x
         this.BeforeY = y
     }
-    Reset(){
+    Reset(){ // Reset Hráče
         this.x = this.BeforeX
         this.y = this.BeforeY
         this.RychlostX = 0
@@ -97,7 +91,7 @@ class Kolize{
         Player.RychlostX *= HraFc.Kolize_RychlostX
         Player.RychlostY += HraFc.Kolize_RychlostY_2
     }
-    static Setup(Player){
+    static Setup(Player){ //Základní setup
         this.ZakladniRychlost(Player)
         this.ZakladniKolize(Player)
     }
@@ -114,24 +108,43 @@ class Nepritel{
         this.RychlostX = RychlostX
         this.RychlostY = RychlostY
         this.skok = skok
+        this.BeforeX = x
+        this.BeforeY = y
     }
+    static BaseSpeed = 3 // Základní rychlost Nepritele
 
-
-    Attack(){
+    Reset(){ // Pro reset pozice Nepratele
+        this.x = this.BeforeX
+        this.y = this.BeforeY
+        this.RychlostX = 0
+        this.RychlostY = 0
+    }
+    Attack(){ //Když se dotkneš Nepřátele
         if((Player.x + Player.width) > this.x && Player.x < (this.x + this.width)){
             if(Player.y > (this.y - this.height) && Player.y < (this.y + this.height)){
-                Level.BaseLevelReset()
-                Player.Reset()
+                Level.BaseLevelReset() // Resetování oběktů
+                Player.Reset() // Resetování Hráče
+                Nepritel_1.Reset() //Resetování Nepratele
             }            
         }
     }
     Skin(){
         Hra.rect(this.x, this.y, this.width, this.height)
-        Hra.drawImage(PlayerSkin, this.x, this.y - this.height, this.width, this.height)
+        Hra.drawImage(Plechovka, this.x, this.y - this.height, this.width, this.height)
     }
-    Setup(){
+    Setup(){ //Základní setup
         this.Attack()
         this.Skin()
+        this.FollowMode()
+    }
+
+    FollowMode(){ //Následuje Hráče(Player)
+        if(this.x > (Player.x + Player.width)){
+            this.RychlostX = - Nepritel.BaseSpeed
+        }
+        if(this.x < (Player.x - Player.width)){
+            this.RychlostX = Nepritel.BaseSpeed
+        }
     }
 }
 
@@ -169,7 +182,7 @@ const Nepritel_1 = new Nepritel(40,40,1000,500,0,0,true)
 
 function GameMode(){
 
-    Player.ZakladniOvladani()
+    Player.ZakladniOvladani() // Základní ovládání hráče
 
     Hra.drawImage(Pozadi,0,0,okno.width_end,okno.width_start) //Pozadí
     Hra.beginPath(); // Zruší cetsu hráče(ghosting)
@@ -187,9 +200,12 @@ function GameMode(){
     window.requestAnimationFrame(GameMode);
 }
 
-if(ImgLoad == 4){ //Když se načtou všechny obrázky
+window.onload = function(){ //Když se načtou vše potřebné
     window.requestAnimationFrame(GameMode); //Start Funkce GameMode()
 }
+
+    
+
 
 
 

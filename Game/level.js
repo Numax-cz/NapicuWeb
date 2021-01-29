@@ -1,6 +1,7 @@
 class Level{
     static ID = 1
     static BaseLevel(){
+
         Plosina_2.Setup(Player)
         Plosina_3.Setup(Player)
         Plosina_4.Setup(Player)
@@ -25,10 +26,17 @@ class Level{
         Key_5.KeyReset()
         Key_6.KeyReset()
    }
-   
+
+   static SecondLevel(){
+       
+   }
+
    static World(){
     if(Level.ID == 1){
         this.BaseLevel()
+    }
+    if(Level.ID == 2){
+
     }
 } 
 }

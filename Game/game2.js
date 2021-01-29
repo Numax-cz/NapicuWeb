@@ -147,6 +147,7 @@ class Door{
 }
 
 // Level_1
+
 const Door_1 = new Door(513, 1150, 2)
 const Key_1 = new Key(270, 100)
 const Key_2 = new Key(370, 500)
@@ -162,6 +163,7 @@ const Plosina_6 = new Plosina(400, 1000, 1600, 20, '#2b2b2b')
 const Plosina_8 = new Plosina(250, 600, 1600, 20, '#2b2b2b')
 
 // Level_2
+
 
 
 
