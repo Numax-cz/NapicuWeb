@@ -85,6 +85,7 @@ function VetaGenerator(){
                 document.getElementById('cas').innerText = wpm
                 document.getElementById('spatne').innerText =  pocetchyb
                 document.getElementById('time').innerText = Minuty*60 + 's'
+                Veta = 'Nevím kokote zmrde LLLl'
             }
         }
     })

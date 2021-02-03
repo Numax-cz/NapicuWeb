@@ -199,3 +199,41 @@ html[MoreBejla='BejlaMore']{
     
 }
 
+@media screen and (max-width:912px){
+
+    .stats-box div::before{
+
+        font-size: 0.45rem;
+
+    }
+    .stats-box{
+        font-size: 0.7rem;
+    }
+    .stats {
+        width: 100%;
+        max-width: 60%;
+        margin: auto;
+        padding: 4%;
+        display: block;
+    }
+    
+}
+@media screen and (max-width:707px){
+
+    .stats-box div::before{
+
+        font-size: 0.4rem;
+
+    }
+    .stats-box{
+        font-size: 0.6rem;
+    }
+    .stats {
+        width: 100%;
+        max-width: 60%;
+        margin: auto;
+        padding: 5%;
+        display: block;
+    }
+    
+}

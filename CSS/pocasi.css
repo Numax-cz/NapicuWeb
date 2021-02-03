@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+
+    box-sizing: border-box;
+}
+body{
+    background: url('../Img/10.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#blok{
+    width: 100%;
+    max-width: 60%;
+    margin: auto;
+
+}
+#blok2{
+    width: 100%;
+    max-width: 40%;
+    margin: auto;
+    margin-top: 7%;
+    border-radius: 7px;
+    padding: 7px;
+    background-color: rgba(255, 255, 255, 0.788);
+    display: none;
+
+
+}
+.vyhledavacibox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 10px 10px;
+}
+.vyhledavacibox input{
+    width: 100%;
+    max-width: 30%;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.288);
+}
+::placeholder{
+    color: rgba(0, 0, 0, 0.255);
+}
+
+
+.ClassVysledky{
+    width: 100%;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    padding: 0 20px 20px;
+    text-align: center;
+    color: white;
+}
+
+#NazveMesta{
+    font-size: 1.5rem;
+
+    color: rgba(177, 175, 175, 0.699);
+}
+
+#HlavniTeplota{
+    font-size: 5rem;
+    margin-top: 4%;
+    color: white;
+}
+#Popis{
+    font-size: 1.5rem;
+    margin-top: 1%;
+}
+
+#loading{
+    display: none;
+    position: absolute;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    z-index: 1;
+    height: 100vh;
+    min-height: 500px;
+    width: 100%;
+}
+.load{
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 600px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Druhej blok */
+
+.BlokDalsi2,
+.Hlavni2Blok{
+    font-size: 1.9rem;
+    color: rgba(0, 0, 0, 0.705);
+    width: 100%;
+    max-width: 50%;
+}
+.BlokDalsi2 div,
+.Hlavni2Blok div{
+    padding: 2px;
+}
+.BlokDalsi2  span,
+.Hlavni2Blok span{
+    color: rgba(37, 37, 37, 0.582);
+
+}
+
+.BlokDalsi2{
+    width: 100%;
+    max-width: 50%;
+    float: right;
+    text-align: right;
+}
+#img{
+    height: 16%;
+    width: 16%;
+}
