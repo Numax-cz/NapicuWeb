@@ -8,7 +8,10 @@
 body{
     background: url('../Img/10.jpg');
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
     background-size: cover;
+
 
 }
 #blok{
@@ -24,29 +27,77 @@ body{
     margin-top: 7%;
     border-radius: 7px;
     padding: 7px;
-    background-color: rgba(255, 255, 255, 0.788);
+    background-color: #2b292a;
     display: none;
-
-
 }
 .vyhledavacibox{
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 10px 10px;
+
 }
 .vyhledavacibox input{
     width: 100%;
-    max-width: 30%;
+    max-width: 40%;
     font-size: 1.2rem;
     padding: 10px 20px;
     border: none;
     outline: none;
-    background-color: rgba(255, 255, 255, 0.288);
+    color: rgba(255, 255, 255, 0.247);
+    background-color: #2b292a
 }
 ::placeholder{
-    color: rgba(0, 0, 0, 0.255);
+    color: rgba(255, 255, 255, 0.247);
 }
+
+
+
+
+
+
+
+
+
+
+#vyhledavacipole{
+    width: 100%;
+    max-width: 24%;
+    color: rgba(255, 255, 255, 0.616);
+    list-style: none;
+    padding: 8px;
+    background-color: #2b292a;
+    border-radius: 3px;
+    display: none;
+    position: absolute;
+    user-select: none;
+    left: 38%;
+}
+#vyhledavacipole li{
+    padding: 8px;
+    cursor: pointer;
+}
+#vyhledavacipole li:hover{
+    background-color: rgba(255, 255, 255, 0.247);
+    border-radius: 3px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .ClassVysledky{
@@ -59,11 +110,10 @@ body{
     text-align: center;
     color: white;
 }
-
 #NazveMesta{
     font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.534);
 
-    color: rgba(177, 175, 175, 0.699);
 }
 
 #HlavniTeplota{
@@ -82,7 +132,7 @@ body{
     color: white;
     font-size: 2rem;
     text-align: center;
-    z-index: 1;
+    z-index: -1;
     height: 100vh;
     min-height: 500px;
     width: 100%;
@@ -100,16 +150,15 @@ body{
 
 
 
-
-
 /* Druhej blok */
 
 .BlokDalsi2,
 .Hlavni2Blok{
     font-size: 1.9rem;
-    color: rgba(0, 0, 0, 0.705);
+    color: rgba(255, 255, 255, 0.705);
     width: 100%;
     max-width: 50%;
+    
 }
 .BlokDalsi2 div,
 .Hlavni2Blok div{
@@ -117,7 +166,7 @@ body{
 }
 .BlokDalsi2  span,
 .Hlavni2Blok span{
-    color: rgba(37, 37, 37, 0.582);
+    color: rgba(255, 255, 255, 0.247);
 
 }
 
@@ -130,4 +179,5 @@ body{
 #img{
     height: 16%;
     width: 16%;
+    user-select: none;
 }

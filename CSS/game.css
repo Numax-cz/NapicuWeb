@@ -4,12 +4,11 @@
     margin:0;
     font-family: 'Rubik', sans-serif;
     padding:0;
-    
-    
+     
 }
     
 html, body {
-    
+    overflow: hidden;   
     background-color: #242424;
     height:100%;
     width:100%;
@@ -33,4 +32,25 @@ canvas {
 #Key{
     margin-top: -2%;
     font-size: 2rem;
+}
+
+
+#loading{
+    position: absolute;
+    background-color: #2b292a;
+    display: table;
+    z-index: 1;
+    height: 100vh;
+    text-align: center;
+    min-height: 500px;
+    width: 100%;
+}
+#loadingtxt{
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 130px;
+    font-size: 2rem;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.685);
+    padding-bottom: 100px;
 }

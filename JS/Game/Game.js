@@ -201,7 +201,15 @@ function GameMode(){
 }
 
 window.onload = function(){ //Když se načtou vše potřebné
-    window.requestAnimationFrame(GameMode); //Start Funkce GameMode()
+    if(navigator.userAgent.toLowerCase().match(/mobile/i)) { //Detekce mobilního zařízení
+        document.getElementById('loadingtxt').innerHTML = 'Omlouváme se ale, vaše zařízení není podporované :(' 
+        document.getElementById('loadingtxt').style.fontSize = '2rem'
+        document.getElementById('loading').style.display = 'table'
+    } else { //Když zařízení není mobil
+        document.getElementById('loading').style.display = 'none'
+        window.requestAnimationFrame(GameMode); //Start Funkce GameMode()
+    }
+    
 }
 
     
