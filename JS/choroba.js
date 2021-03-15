@@ -8,6 +8,9 @@ const Celkove_Vylecenych_Hodnota = document.querySelector(".vylecenych .hodnota"
 const Celkove_Vylecenych_Nova_Hodnota = document.querySelector(".vylecenych .nova-hodnota");
 const Celkove_Podlehlo_Hodnota = document.querySelector(".podlehlo .hodnota");
 const Celkove_Podlehlo_Nova_Hodnota = document.querySelector(".podlehlo .nova-hodnota");
+const Celkove_Testovanych_Hodnota = document.querySelector(".testy .hodnota");
+const Celkove_Testovanych_Nova_Hodnota = document.querySelector(".testy .nova-hodnota");
+
 
 
 fetch(ApiTechRomu)
@@ -17,7 +20,8 @@ fetch(ApiTechRomu)
         Celkove_Nakazeni_Nova_Hodnota.innerHTML = "+" + apiData.data[0].potvrzene_pripady_vcerejsi_den;
         Celkove_Vylecenych_Hodnota .innerHTML = apiData.data[0].vyleceni;
         Celkove_Podlehlo_Hodnota.innerHTML = apiData.data[0].umrti;
-        
+        Celkove_Testovanych_Nova_Hodnota.innerHTML = "+" + apiData.data[0].vykazana_ockovani_vcerejsi_den;
+        Celkove_Testovanych_Hodnota.innerHTML = apiData.data[0].vykazana_ockovani_celkem;
     })
 fetch(ApiTechRomu2)
     .then((data2) => data2.json())

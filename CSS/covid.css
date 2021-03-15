@@ -142,7 +142,11 @@ main{
 .nova-hodnota{
     font-size: 1.3em;
 }
-
+.testy .hodnota{
+    font-size: 2em;
+    color: #2980b9;
+    font-weight: bold;
+}
 
 /*HODNOTY*//*HODNOTY*/
 
