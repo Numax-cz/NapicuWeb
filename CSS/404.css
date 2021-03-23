@@ -2,67 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-    font-family: 'Roboto Mono', monospace;
-    background-color: #242424;
-    
-    user-select: none;
+    font-family: 'Source Code Pro', monospace;
 }
-/*------MENU------*/
-.menu-na{
-    user-select: none;
+body{
+    background-color: #ffb142;
+}
+#Page{
+    display: table;
+    z-index: 1;
+    height: 100vh;
+    min-height: 500px;
     width: 100%;
-    background-color: #c0392b;
-    font-size: 5vh;
-    padding-bottom: 5px;
-    letter-spacing: 1vh;
-    text-align: center;
-    top: 0;
-
 }
-.menu-na a {
-    background-color: #c0392b;
-    transition: .4s;
-    text-decoration: none;
-    color: white;
+
+#ERROR{
+    display: table-cell;
+    vertical-align: middle;
+
+    padding-bottom: 190px;
+}
+.Error-Dis{
+    text-align: center;
+    font-size: 5rem;
+    color: black;
+}
+.Error-title{
+    text-align: center;
+    font-size: 16rem;
     font-weight: bolder;
+    color: black;
 }
-.menu-na a:hover {
-    transition: .3s;
-    letter-spacing: 1.2vh;
-}
-/*------MENU------*/
-
-
-.error{
-    width: 100%;
-    position: absolute;
-    top: 50vh;
-    transform: translateY(-50%);
-    text-align: center;
-    color: white;
-}
-
-.error h1{
-    font-size: 8vh;
-    margin: 0;
-    letter-spacing: 1vh;
-}
-
-.error a{
-    text-decoration: none;
-    background: #c0392b;
-    color: white;
-    padding: 1vh 10vh;
-    display: inline-block;
-    border-radius: 12vh;
-    margin-top: 1%;
-    transition: .4s;
-}
-
-.error a:hover{
-    background: #9e2619;
-    transition: .3s;
-}
-
-
-
