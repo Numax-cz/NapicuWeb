@@ -28,11 +28,11 @@ Plechovka.src = 'https://napicu.eu/Img/plechac.webp'
 
 
 
-class HraFc{
-    constructor(height, width, x, y, RychlostX, RychlostY, skok){
+class HraFc {
+    constructor(height, width, x, y, RychlostX, RychlostY, skok) {
         this.height = height
         this.width = width
-        this.x = x 
+        this.x = x
         this.y = y
         this.RychlostX = RychlostX
         this.RychlostY = RychlostY
@@ -40,29 +40,29 @@ class HraFc{
         this.BeforeX = x
         this.BeforeY = y
     }
-    Reset(){ // Reset Hráče
+    Reset() { // Reset Hráče
         this.x = this.BeforeX
         this.y = this.BeforeY
         this.RychlostX = 0
         this.RychlostY = 0
     }
-    static Kolize_RychlostY_1 = 0.9299; 
+    static Kolize_RychlostY_1 = 0.9299;
     static Kolize_RychlostX = 0.925; // * //(1) rychlost objektu 
-    static Kolize_RychlostY_2 = 0.584; 
+    static Kolize_RychlostY_2 = 0.584;
 
-    ZakladniOvladani(){
-        if(OvladaniMore.up && this.skok == false){
+    ZakladniOvladani() {
+        if (OvladaniMore.up && this.skok == false) {
             this.RychlostY -= 20
             this.skok = true
         }
-        else if(OvladaniMore.right){
+        else if (OvladaniMore.right) {
             this.RychlostX += 0.5
         }
-        else if(OvladaniMore.left){
+        else if (OvladaniMore.left) {
             this.RychlostX -= 0.5
-        }   
+        }
     }
-    Skin(){
+    Skin() {
         Hra.rect(this.x, this.y, this.width, this.height)
         Hra.drawImage(PlayerSkin, this.x, this.y - this.height, this.width, this.height)
     }
@@ -70,28 +70,28 @@ class HraFc{
 
 }
 
-class Kolize{
-    static ZakladniKolize(Player){
-        if(Player.y > (Plosina.ZakladniDeskaVyskaY - Plosina.ZakladniDeskaLineWidth/2)){
-            Player.y = (Plosina.ZakladniDeskaVyskaY - Plosina.ZakladniDeskaLineWidth/2)
+class Kolize {
+    static ZakladniKolize(Player) {
+        if (Player.y > (Plosina.ZakladniDeskaVyskaY - Plosina.ZakladniDeskaLineWidth / 2)) {
+            Player.y = (Plosina.ZakladniDeskaVyskaY - Plosina.ZakladniDeskaLineWidth / 2)
             Player.skok = false
-            Player.RychlostY = 0   
+            Player.RychlostY = 0
         }
-        if(Player.x < 0){
+        if (Player.x < 0) {
             Player.x = 0
         }
-        if(Player.x > okno.width_end - Player.width){
+        if (Player.x > okno.width_end - Player.width) {
             Player.x = okno.width_end - Player.width
         }
     }
-    static ZakladniRychlost(Player){
+    static ZakladniRychlost(Player) {
         Player.y += Player.RychlostY
-        Player.x += Player.RychlostX 
+        Player.x += Player.RychlostX
         Player.RychlostY *= HraFc.Kolize_RychlostY_1
         Player.RychlostX *= HraFc.Kolize_RychlostX
         Player.RychlostY += HraFc.Kolize_RychlostY_2
     }
-    static Setup(Player){ //Základní setup
+    static Setup(Player) { //Základní setup
         this.ZakladniRychlost(Player)
         this.ZakladniKolize(Player)
     }
@@ -99,11 +99,11 @@ class Kolize{
 
 
 
-class Nepritel{
-    constructor(height, width, x, y, RychlostX, RychlostY, skok){
+class Nepritel {
+    constructor(height, width, x, y, RychlostX, RychlostY, skok) {
         this.height = height
         this.width = width
-        this.x = x 
+        this.x = x
         this.y = y
         this.RychlostX = RychlostX
         this.RychlostY = RychlostY
@@ -113,66 +113,66 @@ class Nepritel{
     }
     static BaseSpeed = 3 // Základní rychlost Nepritele
 
-    Reset(){ // Pro reset pozice Nepratele
+    Reset() { // Pro reset pozice Nepratele
         this.x = this.BeforeX
         this.y = this.BeforeY
         this.RychlostX = 0
         this.RychlostY = 0
     }
-    Attack(){ //Když se dotkneš Nepřátele
-        if((Player.x + Player.width) > this.x && Player.x < (this.x + this.width)){
-            if(Player.y > (this.y - this.height) && Player.y < (this.y + this.height)){
+    Attack() { //Když se dotkneš Nepřátele
+        if ((Player.x + Player.width) > this.x && Player.x < (this.x + this.width)) {
+            if (Player.y > (this.y - this.height) && Player.y < (this.y + this.height)) {
                 Level.BaseLevelReset() // Resetování oběktů
                 Player.Reset() // Resetování Hráče
                 Nepritel_1.Reset() //Resetování Nepratele
-            }            
+            }
         }
     }
-    Skin(){
+    Skin() {
         Hra.rect(this.x, this.y, this.width, this.height)
         Hra.drawImage(Plechovka, this.x, this.y - this.height, this.width, this.height)
     }
-    Setup(){ //Základní setup
+    Setup() { //Základní setup
         this.Attack()
         this.Skin()
         this.FollowMode()
     }
 
-    FollowMode(){ //Následuje Hráče(Player)
-        if(this.x > (Player.x + Player.width)){
+    FollowMode() { //Následuje Hráče(Player)
+        if (this.x > (Player.x + Player.width)) {
             this.RychlostX = - Nepritel.BaseSpeed
         }
-        if(this.x < (Player.x - Player.width)){
+        if (this.x < (Player.x - Player.width)) {
             this.RychlostX = Nepritel.BaseSpeed
         }
     }
 }
 
 
-OvladaniMore= {
-    up:false,
-    right:false,
-    left:false,
-    Klavesa:function(event) {
-      var Klavesnice = (event.type == "keydown")?true:false;
-      switch(event.keyCode) {
-          case 65:
-          OvladaniMore.left = Klavesnice;
-        break;
-        case 32:
-          OvladaniMore.up = Klavesnice;
-        break;
-        case 68:
-          OvladaniMore.right = Klavesnice;
-        break;
-      }
+OvladaniMore = {
+    up: false,
+    right: false,
+    left: false,
+    Klavesa: function (event) {
+        var Klavesnice = (event.type == "keydown") ? true : false;
+        switch (event.keyCode) {
+            case 65:
+                OvladaniMore.left = Klavesnice;
+                break;
+            case 32:
+                OvladaniMore.up = Klavesnice;
+                break;
+            case 68:
+                OvladaniMore.right = Klavesnice;
+                break;
+        }
     }
 };
 
 
 
-const Player = new HraFc(40,40,0,500,0,0,true)
-const Nepritel_1 = new Nepritel(40,40,1000,500,0,0,true)
+const Player = new HraFc(40, 40, 0, 500, 0, 0, true)
+const Nepritel_1 = new Nepritel(40, 40, 1000, 500, 0, 0, true)
 
 
 
@@ -180,11 +180,11 @@ const Nepritel_1 = new Nepritel(40,40,1000,500,0,0,true)
 
 
 
-function GameMode(){
+function GameMode() {
 
     Player.ZakladniOvladani() // Základní ovládání hráče
 
-    Hra.drawImage(Pozadi,0,0,okno.width_end,okno.width_start) //Pozadí
+    Hra.drawImage(Pozadi, 0, 0, okno.width_end, okno.width_start) //Pozadí
     Hra.beginPath(); // Zruší cetsu hráče(ghosting)
 
     Plosina.ZakladniDeska() // Spodní deska
@@ -193,26 +193,26 @@ function GameMode(){
 
     Kolize.Setup(Player) //Fast Setup 
     Kolize.Setup(Nepritel_1) //Fast Setup 
- 
+
 
     Player.Skin() // Nastavit hráči skin
 
     window.requestAnimationFrame(GameMode);
 }
 
-window.onload = function(){ //Když se načtou vše potřebné
-    if(navigator.userAgent.toLowerCase().match(/mobile/i)) { //Detekce mobilního zařízení
-        document.getElementById('loadingtxt').innerHTML = 'Omlouváme se ale, vaše zařízení není podporované :(' 
+window.onload = function () { //Když se načtou vše potřebné
+    if (navigator.userAgent.toLowerCase().match(/mobile/i)) { //Detekce mobilního zařízení
+        document.getElementById('loadingtxt').innerHTML = 'Omlouváme se, ale vaše zařízení není podporované :('
         document.getElementById('loadingtxt').style.fontSize = '2rem'
         document.getElementById('loading').style.display = 'table'
     } else { //Když zařízení není mobil
         document.getElementById('loading').style.display = 'none'
         window.requestAnimationFrame(GameMode); //Start Funkce GameMode()
     }
-    
+
 }
 
-    
+
 
 
 
