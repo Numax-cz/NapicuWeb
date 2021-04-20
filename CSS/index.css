@@ -33,7 +33,10 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
-
+.Box{
+    justify-content: space-around;
+    display: flex;
+}
 .TopMenu-Tabel nav ul {
     display: flex !important;
     list-style: none !important;
@@ -89,17 +92,49 @@ body {
 #MainDescriptionPage p{
     color: rgba(255, 255, 255, 0.524);
 }
+@media screen and (max-width:910px){
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+    .TopMenu-Tabel nav ul li {
+        margin-right: 15px;
+    }
+}
 
+@media screen and (max-width:740px){
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+    .TopMenu-Tabel nav ul li a {
+        font-size: 1.2rem;
+    }
+    .TopMenu-Tabel nav ul li {
+        margin-right: 15px;
+    }
+}
+@media screen and (max-width:683px){
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+    .TopMenu-Tabel nav ul li a {
+        font-size: 1rem;
+    }
+    .TopMenu-Tabel nav ul li {
+        margin-right: 14px;
+    }
+}
 @media screen and (max-width:578px){
     .TopMenu-Tabel {
         max-width: 90%;
     }
-
+    .TopMenu-Tabel nav ul li a {
+        font-size: .9rem;
+    }
     #MainTitlePage {
         font-size: 5.5rem;
     }
     .TopMenu-Tabel nav ul li {
-        margin-right: 18px;
+        margin-right: 14px;
     }
 }
 @media screen and (max-width:456px){
@@ -138,17 +173,17 @@ body {
 
 @media screen and (max-width:375px){
     .TopMenu-Tabel {
-        max-width: 90%;
+        max-width: 92%;
     }
 
     #MainTitlePage {
         font-size: 4rem;
     }
     .TopMenu-Tabel nav ul li {
-        margin-right: 12px;
+        margin-right: 10px;
     }
     .TopMenu-Tabel nav ul li a {
-        font-size: .75rem;
+        font-size: .64rem;
     }
     #MainDescriptionPage p{
     font-size: .95rem;
