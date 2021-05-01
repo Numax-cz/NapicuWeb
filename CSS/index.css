@@ -41,10 +41,10 @@ body {
     display: flex !important;
     list-style: none !important;
 }
-
 .TopMenu-Tabel nav ul li {
-    margin-right: 25px;
+    padding: 6px 10px;
 }
+
 
 .TopMenu-Tabel nav ul li a {
     font-size: 1.3rem;
@@ -77,10 +77,6 @@ body {
     margin-right: auto;
 }
 
-/* MainText */
-.TableMain-Box{
-
-}
 #MainTitlePage{
     font-size: 6rem;
     font-weight: 900;
@@ -92,123 +88,160 @@ body {
 #MainDescriptionPage p{
     color: rgba(255, 255, 255, 0.524);
 }
-@media screen and (max-width:910px){
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
-    .TopMenu-Tabel nav ul li {
-        margin-right: 15px;
-    }
+
+.moreIcon{
+    cursor: pointer;
+    top: -2px; 
+    width: 18px;
+    stroke: hsla(0,0%,100%,.5); 
+    background: transparent; 
 }
 
-@media screen and (max-width:740px){
-    .TopMenu-Tabel {
-        max-width: 90%;
+
+details > summary {
+    cursor: pointer;
+    list-style: none;
+}
+.DropMenu{
+    background-color: rgba(255, 255, 255, 0.999);
+    margin-top: 7%;
+    padding: 10px;
+    border-radius: 10px;
+}
+#Odkaz{
+    display: flex;
+    padding: 4px;
+    color: black;
+}
+#Odkaz:hover{
+   color: #3498db;
+    
+}
+
+
+
+
+
+
+@media screen and (max-width:840px){
+    .TopMenu-Tabel nav ul li {
+        padding: 6px 10px;
     }
     .TopMenu-Tabel nav ul li a {
         font-size: 1.2rem;
-    }
-    .TopMenu-Tabel nav ul li {
-        margin-right: 15px;
-    }
-}
-@media screen and (max-width:683px){
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: 1rem;
-    }
-    .TopMenu-Tabel nav ul li {
-        margin-right: 14px;
-    }
-}
-@media screen and (max-width:578px){
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: .9rem;
-    }
-    #MainTitlePage {
-        font-size: 5.5rem;
-    }
-    .TopMenu-Tabel nav ul li {
-        margin-right: 14px;
-    }
-}
-@media screen and (max-width:456px){
-    .TopMenu-Tabel {
-        max-width: 90%;
     }
 
     #MainTitlePage {
         font-size: 5rem;
     }
-    .TopMenu-Tabel nav ul li {
-        margin-right: 13px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: 1.2rem;
+    #MainDescriptionPage p {
+        font-size: .9rem;
     }
 }
-
-
-
-@media screen and (max-width:414px){
-    .TopMenu-Tabel {
-        max-width: 90%;
+@media screen and (max-width:783px){
+    .TopMenu-Tabel nav ul li {
+        padding: 6px 10px;
+    }
+    .TopMenu-Tabel nav ul li a {
+        font-size: 1rem;
     }
 
     #MainTitlePage {
-        font-size: 4rem;
+        font-size: 5rem;
     }
+    #MainDescriptionPage p {
+        font-size: .9rem;
+    }
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width:600px){
     .TopMenu-Tabel nav ul li {
-        margin-right: 12px;
+        padding: 6px 8px;
     }
     .TopMenu-Tabel nav ul li a {
         font-size: .9rem;
     }
-}
-
-@media screen and (max-width:375px){
-    .TopMenu-Tabel {
-        max-width: 92%;
-    }
 
     #MainTitlePage {
         font-size: 4rem;
     }
-    .TopMenu-Tabel nav ul li {
-        margin-right: 10px;
+    #MainDescriptionPage p {
+        font-size: .8rem;
     }
-    .TopMenu-Tabel nav ul li a {
-        font-size: .64rem;
-    }
-    #MainDescriptionPage p{
-    font-size: .95rem;
-    }
-}
-@media screen and (max-width:320px){
     .TopMenu-Tabel {
         max-width: 90%;
     }
-
-    #MainTitlePage {
-        font-size: 4rem;
+    .moreIcon {
+        top: -2px;
+        width: 13px;
     }
+}
+
+@media screen and (max-width:516px){
     .TopMenu-Tabel nav ul li {
-        margin-right: 10px;
+        padding: 6px 7px;
     }
     .TopMenu-Tabel nav ul li a {
-        font-size: .65rem;
-    }
-    #MainDescriptionPage p{
         font-size: .85rem;
+    }
+
+    #MainTitlePage {
+        font-size: 3.75rem;
+    }
+    #MainDescriptionPage p {
+        font-size: .7555rem;
+    }
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width:468px){
+    .TopMenu-Tabel nav ul li {
+        padding: 6px 5px;
+    }
+    .TopMenu-Tabel nav ul li a {
+        font-size: .8rem;
+    }
+
+    #MainTitlePage {
+        font-size: 3.7rem;
+    }
+    #MainDescriptionPage p {
+        font-size: .7rem;
+    }
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+    .moreIcon {
+        top: -2px;
+        width: 11.5px;
     }
 }
 
 
+@media screen and (max-width:440px){
+    .TopMenu-Tabel nav ul li {
+        padding: 6px 6px;
+    }
+    .TopMenu-Tabel nav ul li a {
+        font-size: .7rem;
+    }
 
-
+    #MainTitlePage {
+        font-size: 3.7rem;
+    }
+    #MainDescriptionPage p {
+        font-size: .7rem;
+    }
+    .TopMenu-Tabel {
+        max-width: 90%;
+    }
+}
 /* 405px min*/ 
+
+
+

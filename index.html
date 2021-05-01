@@ -44,7 +44,7 @@
                     <nav>
                         <ul>
                             <div class="Box">
-                        
+
                                 <li>
                                     <a href="https://napicu.eu/vanoce">Vánoce</a>
                                 </li>
@@ -58,13 +58,25 @@
                                     <a href="https://chat.napicu.eu/">Chat</a>
                                 </li>
                                 <li>
-                                    <a href="https://flappybird.napicu.eu/">Flappy</a>
-                                </li>
-                                <li>
-                                    <a href="https://napicu.eu/game">Plecháč</a>
-                                </li>
-                                <li>
-                                    <a href="https://popjonanek.napicu.eu">PopJonanek</a>
+
+
+                                    <details id="Drop">
+                                        <summary>
+                                            <a>Hry</a>
+                                            <svg x="0px" y="0px" viewBox="0 0 14 8" fill="none" class="moreIcon">
+                                                <path d="M1,1l6.2,6L13,1"></path>
+                                            </svg>
+                                        </summary>
+                                        <div class="DropMenu">
+
+                                            <a href="xd" id="Odkaz">PopJonanek</a>
+                                            <a href="xd" id="Odkaz">Plecháč</a>
+                                            <a href="xd" id="Odkaz">Flappy</a>
+                                            <a href="xd" id="Odkaz">Typing Game</a>
+                                        </div>
+                                    </details>
+
+
                                 </li>
                             </div>
                         </ul>
@@ -105,3 +117,26 @@
 </html>
 <script type="text/javascript" src="./JS/js2/particles.js"></script>
 <script type="text/javascript" src="./JS/js2/app.js"></script>
+
+
+<script>
+    const details = document.getElementById("Drop");
+    details.onmouseover = e => {
+        if (typeof target == "undefined") {
+            details.open = true
+        } else {
+            details.open = false
+        }
+    }
+    document.addEventListener('mouseover', (mouseEvent) => {
+        if (details.matches(':hover')) {
+            return
+        }
+        details.open = false
+    })
+
+
+
+
+
+</script>
