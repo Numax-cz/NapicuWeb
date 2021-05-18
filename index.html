@@ -17,6 +17,7 @@
     <link rel="icon" href="favicon.png">
     <meta itemprop="image" content="https://napicu.eu/logo-meta.png">
     <meta itemprop="description" content="Ahoj kamaráde! Měl by si se podávat na tuto stránku!">
+    <script src="./JS/Global/gl.js"></script>
 
     <meta property="og:url" content="https://napicu.eu/">
     <meta property="og:title" content="NaPicu">
@@ -40,7 +41,6 @@
         <section id="Table">
             <section id="TopMenu">
                 <div class="TopMenu-Tabel">
-
                     <nav>
                         <ul>
                             <div class="Box">
@@ -58,8 +58,6 @@
                                     <a href="https://chat.napicu.eu/">Chat</a>
                                 </li>
                                 <li>
-
-
                                     <details id="Drop">
                                         <summary>
                                             <a>Hry</a>
@@ -72,10 +70,9 @@
                                             <a href="https://napicu.eu/game" id="Odkaz">Plecháč</a>
                                             <a href="https://flappybird.napicu.eu/" id="Odkaz">Flappy</a>
                                             <a href="https://napicu.eu/typegame" id="Odkaz">Typing Game</a>
+                                            <a href="https://tic.tac.toe.napicu.eu/" id="Odkaz">Tic Tac Toe</a>
                                         </div>
                                     </details>
-
-
                                 </li>
                             </div>
                         </ul>
@@ -101,41 +98,14 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </section>
-
-
         </section>
     </div>
-
 </body>
 
 </html>
 <script type="text/javascript" src="./JS/js2/particles.js"></script>
 <script type="text/javascript" src="./JS/js2/app.js"></script>
-
-
-<script>
-    const details = document.getElementById("Drop");
-    details.onmouseover = e => {
-        if (typeof target == "undefined") {
-            details.open = true
-        } else {
-            details.open = false
-        }
-    }
-    document.addEventListener('mouseover', (mouseEvent) => {
-        if (details.matches(':hover')) {
-            return
-        }
-        details.open = false
-    })
-
-
-
-
-
-</script>
+<script src="./JS/DropMenu.js"></script>
