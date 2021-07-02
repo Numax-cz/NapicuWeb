@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: napicu.eu
-Token: 7bd5862629f8a8633f13199b632236aaee4830e18fb0084b800c4d9ab41e0541
