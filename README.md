@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://napicu.eu"><img src="https://napicu.eu/icon-512x512.png" alt="Markdownify" width="130"></a>
+  <a href="http://napicu.eu"><img src="https://napicu.eu/icon-512x512.png" alt="NapicuWeb" width="130"></a>
   <br>
     NapicuWeb
   <br>
