@@ -107,6 +107,7 @@ details > summary {
     margin-top: 7%;
     padding: 10px;
     border-radius: 10px;
+
 }
 #Odkaz{
     display: flex;
@@ -117,7 +118,11 @@ details > summary {
    color: #3498db;
     
 }
-
+.DropTitle{
+    padding: 10px 1px;
+    font-weight: bold;
+    font-size: 1.24rem;
+}
 
 
 
