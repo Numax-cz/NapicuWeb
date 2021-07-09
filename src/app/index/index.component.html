@@ -5,34 +5,25 @@
         <div class="Navigation">
           <nav>
             <ul>
-              <li>
-                <a>Vánoce</a>
-              </li>
-              <li>
-                <a>Covid</a>
-              </li>
-              <li>
-                <a>Editor</a>
-              </li>
-              <li>
-                <a>Faktura</a>
-              </li>
+              <a>Vánoce</a>
 
-              <li>
-                <button
-                  #Button
-                  mat-button
-                  [matMenuTriggerFor]="NapicuMenu"
-                  #NapicuMenuTrigger="matMenuTrigger"
-                  (mouseenter)="ButtonMatMenuOpen(NapicuMenuTrigger)"
-                  (mouseleave)="ButtonMatMenuClose(NapicuMenuTrigger, Button)"
-                  style="z-index: 1050"
-                  id="MatButton"
-                  
-                >
-                  Další
-                </button>
-              </li>
+              <a>Covid</a>
+
+              <a>Editor</a>
+
+              <a>Faktura</a>
+
+              <a
+                #Button
+                [matMenuTriggerFor]="NapicuMenu"
+                #NapicuMenuTrigger="matMenuTrigger"
+                (mouseenter)="ButtonMatMenuOpen(NapicuMenuTrigger)"
+                (mouseleave)="ButtonMatMenuClose(NapicuMenuTrigger, Button)"
+                style="z-index: 1050"
+                id="MatButton"
+              >
+                Další
+              </a>
             </ul>
           </nav>
         </div>

@@ -9,6 +9,7 @@ export function ButtonClose(
 ): void {
   setTimeout(() => {
     if (IndexComponent.ButtonOpen && !IndexComponent.MenuOpen) {
+      trigger.closeMenu();
       ren.removeClass(button['_elementRef'].nativeElement, 'cdk-focused');
       ren.removeClass(
         button['_elementRef'].nativeElement,

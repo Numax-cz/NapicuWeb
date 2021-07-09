@@ -48,6 +48,11 @@
 }
 #MatButton {
 
-
+  cursor: pointer;
 }
 
+
+.mat-icon-button:hover .mat-button-focus-overlay {
+  opacity: 1 !important;
+  background-color: red;
+}
