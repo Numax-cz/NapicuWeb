@@ -106,7 +106,7 @@ export const ParticlesConfig =
         }
     },
     "retina_detect": true,
-    "config_demo": {
+    "config_demo":  {
         "hide_card": false,
         "background_color": "#b61924",
         "background_image": "",

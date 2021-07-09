@@ -6,13 +6,12 @@ declare let particlesJS: any;
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss']
+  styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-
-
   isNapicuMenuOpen: boolean = false;
   isEnteredButton: boolean = false;
+  ButtonTrigger: any;
   ngOnInit(): void {
     this.LoadParticles();
   }
@@ -21,56 +20,48 @@ export class IndexComponent implements OnInit {
   }
 
   public LoadParticles(): void {
-    particlesJS('particles-js', ParticlesConfig, function () { });
+    particlesJS('particles-js', ParticlesConfig, function () {});
   }
-
-
 
   public MenuEnter(): void {
     this.isNapicuMenuOpen = true;
   }
 
   public MenuLeave(NapicuMenuTrigger: MatMenuTrigger, ab: any): void {
-
     setTimeout(() => {
       if (!this.isNapicuMenuOpen && !this.isEnteredButton) {
         this.isNapicuMenuOpen = false;
         NapicuMenuTrigger.closeMenu();
 
-
-        this.ren.removeClass(
-          ab['_elementRef'].nativeElement,
-          'cdk-focused'
-        );
+        this.ren.removeClass(ab['_elementRef'].nativeElement, 'cdk-focused');
         this.ren.removeClass(
           ab['_elementRef'].nativeElement,
           'cdk-program-focused'
         );
-
       } else {
         this.isNapicuMenuOpen = false;
       }
-
-    }, 80)
+    }, 80);
   }
 
-
-  public ButtonMatMenuOpen(NapicuMenuTrigger: any): void {
+  public ButtonMatMenuOpen(NapicuMenuTrigger: MatMenuTrigger): void {
     NapicuMenuTrigger.openMenu();
-    //HERE
-
-
+    setTimeout(() => {
+      if (this.ButtonTrigger && this.ButtonTrigger !== NapicuMenuTrigger) {
+        this.ButtonTrigger.openMenu();
+        this.ButtonTrigger = NapicuMenuTrigger;
+        this.isNapicuMenuOpen = false;
+        this.isEnteredButton = false;
+        NapicuMenuTrigger.openMenu();
+      }
+    }, 100);
   }
 
   public ButtonMatMenuClose(NapicuMenuTrigger: MatMenuTrigger, ab: any): void {
-
     setTimeout(() => {
       if (!this.isNapicuMenuOpen) {
         NapicuMenuTrigger.closeMenu();
-        this.ren.removeClass(
-          ab['_elementRef'].nativeElement,
-          'cdk-focused'
-        );
+        this.ren.removeClass(ab['_elementRef'].nativeElement, 'cdk-focused');
         this.ren.removeClass(
           ab['_elementRef'].nativeElement,
           'cdk-program-focused'
@@ -78,16 +69,6 @@ export class IndexComponent implements OnInit {
       } else {
         this.isEnteredButton = false;
       }
-    }, 100)
+    }, 100);
   }
-
-
-
-
-
-
-
-
-
 }
-

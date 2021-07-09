@@ -1,54 +1,52 @@
-#Background{
-    background: url("/assets/img/background.webp");
-    background-position: center;
-   
-    background-repeat: repeat;
-    background-size: cover;
-   
+#Background {
+  background: url("/assets/img/background.webp");
+  background-position: center;
+
+  background-repeat: repeat;
+  background-size: cover;
 }
 
 //Navigator
-.Navigation{
-    width: 100%;
-    padding: 0px 100px;
+.Navigation {
+  width: 100%;
+  padding: 0px 100px;
 }
-#TopMenu ul{
-    list-style: none;
-    display: flex;
-    max-width: 20%;
-    padding: 20px 1px;
-    justify-content: space-evenly;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.692);
-    font-size: 1.25rem;
+#TopMenu ul {
+  list-style: none;
+  display: flex;
+  max-width: 20%;
+  padding: 20px 1px;
+  justify-content: space-evenly;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.692);
+  font-size: 1.25rem;
 }
-
 
 // Middle
 
-#MiddleMenu{ //Pozor u tohoto (ID) dát pod snow absolut, jinak nebude fungovat (Nebude vidět "snow")
-    display: table;
-    position: absolute;
-    z-index: 1;
-    height: 100vh;
-    min-height: 500px;
-    width: 100%;
+#MiddleMenu {
+  //Pozor u tohoto (ID) dát pod snow absolut, jinak nebude fungovat (Nebude vidět "snow")
+  display: table;
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
 }
-.MainTextBox{
-    display: table-cell;
-    vertical-align: middle;
-    padding-bottom: 100px;
+.MainTextBox {
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 100px;
 }
 
-.MatMenuTxt{
-    font-size: 1.2rem;
-    font-weight: 500;
-    padding: 0px;
-    height: auto;
-    line-height: normal;
-
+.MatMenuTxt {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0px;
+  height: auto;
+  line-height: normal;
 }
-.mat-menu-content{
-    padding-top: 100px; 
-    padding-bottom: 0px;
+.mat-menu-content {
+  padding-top: 100px;
+  padding-bottom: 0px;
 }
