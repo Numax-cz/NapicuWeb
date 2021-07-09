@@ -1,0 +1,72 @@
+<section id="Background" class="SourceCode">
+    <div id="particles-js">
+
+        <main>
+            <section id="TopMenu">
+                <div class="Navigation">
+
+
+
+                    <mat-menu #NapicuMenu="matMenu">
+                        <span (mouseenter)="MenuEnter()" (mouseleave)="MenuLeave(NapicuMenuTrigger, Ab)">
+                            <button class="MatMenuTxt SourceCode" mat-menu-item>Settings</button>
+                            <button class="MatMenuTxt SourceCode" mat-menu-item>Help</button>
+                        </span>
+                    </mat-menu>
+
+
+
+                    <nav>
+                        <ul>
+                            <li>
+                                <a>Vánoce</a>
+                            </li>
+                            <li>
+                                <a>Covid</a>
+                            </li>
+                            <li>
+                                <a>Editor</a>
+                            </li>
+                            <li>
+                                <a>Faktura</a>
+                            </li>
+                            <li>
+                                <button #Ab mat-icon-button [matMenuTriggerFor]="NapicuMenu"
+                                    #NapicuMenuTrigger="matMenuTrigger"
+                                    (mouseenter)="ButtonMatMenuOpen(NapicuMenuTrigger)"
+                                    (mouseleave)="ButtonMatMenuClose(NapicuMenuTrigger, Ab)"
+                                    style="z-index:1050">Další</button>
+                            </li>
+           
+
+
+
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+
+            <section id="MiddleMenu">
+                <div class="MainTextBox">
+                    <div class="Title">
+                        Napicu
+                    </div>
+                    <div class="Description">
+                        <p>
+                            Miliony lidí se sešlo, aby vytvořili tuto jedinečnou stránku!<br>
+                            Stránku, na které lidé pracovali tisíce a tisíce hodin, jen <br>
+                            aby dokázali dostat toto dílo do života ostatních lidí!<br>
+                            Stránka, která byla vytvořena lidmi přímo pro tebe!<br>
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+
+        </main>
+
+
+
+    </div>
+</section>
