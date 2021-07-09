@@ -25,7 +25,7 @@
 // Middle
 
 #MiddleMenu {
-  //Pozor u tohoto (ID) dát pod snow absolut, jinak nebude fungovat (Nebude vidět "snow")
+
   display: table;
   position: absolute;
   z-index: 1;
@@ -49,4 +49,6 @@
 .mat-menu-content {
   padding-top: 100px;
   padding-bottom: 0px;
+
 }
+
