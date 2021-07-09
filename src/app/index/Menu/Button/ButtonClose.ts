@@ -1,6 +1,6 @@
 import { Renderer2 } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { IndexComponent } from './index.component';
+import { IndexComponent } from '../../index.component';
 
 export function ButtonClose(
   trigger: MatMenuTrigger,

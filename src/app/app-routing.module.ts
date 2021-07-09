@@ -5,11 +5,11 @@ import { IndexComponent } from './index/index.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent },
-  { path: '**', component: Error404Component }
+  { path: '**', component: Error404Component },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

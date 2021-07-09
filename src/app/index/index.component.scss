@@ -25,7 +25,6 @@
 // Middle
 
 #MiddleMenu {
-
   display: table;
   position: absolute;
   z-index: 1;
@@ -47,10 +46,8 @@
   line-height: normal;
 }
 #MatButton {
-
   cursor: pointer;
 }
-
 
 .mat-icon-button:hover .mat-button-focus-overlay {
   opacity: 1 !important;

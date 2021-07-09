@@ -1,10 +1,14 @@
-import { Component, OnInit, QueryList, Renderer2, ViewEncapsulation } from '@angular/core';
-import { MatMenuItem, MatMenuPanel } from '@angular/material/menu';
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
-import { ButtonClose } from './ButtonClose';
-import { ButtonOpen } from './ButtonOpen';
-import { MenuClose } from './MenuClose';
-import { OpenMenu } from './MenuOpen';
+import {
+Component,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
+
+import { ButtonClose } from './Menu/Button/ButtonClose';
+import { ButtonOpen } from './Menu/Button/ButtonOpen';
+import { MenuClose } from './Menu/Menu/MenuClose';
+import { OpenMenu } from './Menu/Menu/MenuOpen';
 
 import { ParticlesConfig } from './particles-config';
 declare let particlesJS: any;
@@ -12,7 +16,6 @@ declare let particlesJS: any;
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
-
 })
 export class IndexComponent implements OnInit {
   static MenuOpen: boolean = false;

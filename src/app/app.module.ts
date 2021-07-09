@@ -9,7 +9,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from '@angular/material/button';
+
 @NgModule({
   declarations: [AppComponent, IndexComponent, Error404Component],
   imports: [
@@ -22,9 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     NoopAnimationsModule,
-    MatMenuModule,
-    MatButtonModule,
-
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent],

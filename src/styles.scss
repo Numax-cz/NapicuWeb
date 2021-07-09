@@ -1,31 +1,27 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 #particles-js {
-    height: 100vh;
-
+  height: 100vh;
 }
 
-
-.SourceCode{
-    font-family: 'Source Code Pro', monospace;
+.SourceCode {
+  font-family: "Source Code Pro", monospace;
 }
-.Ubuntu{
-    font-family: 'Ubuntu', sans-serif;
+.Ubuntu {
+  font-family: "Ubuntu", sans-serif;
 }
-.Bold{
-    font-weight: bold;
+.Bold {
+  font-weight: bold;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
-
-
-//
-
-.mat-button.mat-primary .mat-button-focus-overlay {
-  background-color: transparent;
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

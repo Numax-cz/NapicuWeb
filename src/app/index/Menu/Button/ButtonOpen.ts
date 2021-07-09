@@ -1,5 +1,5 @@
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
-import { IndexComponent } from './index.component';
+import { IndexComponent } from '../../index.component';
 
 export function ButtonOpen(trigger: MatMenuTrigger): void {
   setTimeout(() => {
