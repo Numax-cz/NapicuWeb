@@ -23,7 +23,8 @@ import { MatButtonModule } from '@angular/material/button';
     }),
     NoopAnimationsModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -35,12 +35,17 @@
           </nav>
         </div>
       </section>
-      <mat-menu #NapicuMenu="matMenu">
-        <span>
+
+      <mat-menu #NapicuMenu="matMenu" direction="down" yPosition="below">
+        <span
+          (mouseenter)="MatMenuOpen()"
+          (mouseleave)="MatMenuClose(NapicuMenuTrigger, Button)"
+        >
           <button class="MatMenuTxt SourceCode" mat-menu-item>Settings</button>
           <button class="MatMenuTxt SourceCode" mat-menu-item>Help</button>
         </span>
       </mat-menu>
+
       <section id="MiddleMenu">
         <div class="MainTextBox">
           <div class="Title">Napicu</div>

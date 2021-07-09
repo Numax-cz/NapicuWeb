@@ -1,4 +1,5 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit, QueryList, Renderer2 } from '@angular/core';
+import { MatMenuItem, MatMenuPanel } from '@angular/material/menu';
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
 
 import { ParticlesConfig } from './particles-config';
@@ -23,11 +24,28 @@ export class IndexComponent implements OnInit {
     particlesJS('particles-js', ParticlesConfig, function () {});
   }
 
-  public MenuEnter(): void {
-    //this.isNapicuMenuOpen = true;
+  public MatMenuOpen(): void {
+    this.MenuOpen = true;
   }
 
-  //Button > Menu
+  public MatMenuClose(trigger: MatMenuTrigger, button: any): void {
+    setTimeout(() => {
+      if (!this.ButtonOpen) {
+        this.MenuOpen = false;
+        trigger.closeMenu();
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
+          'cdk-focused'
+        );
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
+          'cdk-program-focused'
+        );
+      } else {
+        this.MenuOpen = false;
+      }
+    }, 80);
+  }
 
   public ButtonMatMenuOpen(trigger: MatMenuTrigger): void {
     setTimeout(() => {
@@ -36,27 +54,37 @@ export class IndexComponent implements OnInit {
         this.ButtonTrigger = trigger;
         this.MenuOpen = false;
         trigger.openMenu();
-        //TODO elementRef
       } else if (!this.MenuOpen) {
         this.ButtonOpen = true;
         this.ButtonTrigger = trigger;
         trigger.openMenu();
-        //TODO elementRef
       } else {
         this.ButtonOpen = true;
         this.ButtonTrigger = trigger;
       }
     });
   }
-  public ButtonMatMenuClose(trigger: MatMenuTrigger, Button: any): void {
-    console.log(Button);
-
+  public ButtonMatMenuClose(trigger: MatMenuTrigger, button: any): void {
     setTimeout(() => {
       if (this.ButtonOpen && !this.MenuOpen) {
-        //TDO elementRef
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
+          'cdk-focused'
+        );
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
+          'cdk-program-focused'
+        );
       }
       if (!this.MenuOpen) {
-        //TDO elementRef
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
+          'cdk-focused'
+        );
+        this.ren.removeClass(
+          button['_elementRef'].nativeElement,
+          'cdk-program-focused'
+        );
         trigger.closeMenu();
       } else {
         this.ButtonOpen = false;
