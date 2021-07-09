@@ -9,8 +9,8 @@ declare let particlesJS: any;
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent implements OnInit {
-  isNapicuMenuOpen: boolean = false;
-  isEnteredButton: boolean = false;
+  MenuOpen: boolean = false;
+  ButtonOpen: boolean = false;
   ButtonTrigger: any;
   ngOnInit(): void {
     this.LoadParticles();
@@ -24,50 +24,42 @@ export class IndexComponent implements OnInit {
   }
 
   public MenuEnter(): void {
-    this.isNapicuMenuOpen = true;
+    //this.isNapicuMenuOpen = true;
   }
 
-  public MenuLeave(NapicuMenuTrigger: MatMenuTrigger, ab: any): void {
-    setTimeout(() => {
-      if (!this.isNapicuMenuOpen && !this.isEnteredButton) {
-        this.isNapicuMenuOpen = false;
-        NapicuMenuTrigger.closeMenu();
+  //Button > Menu
 
-        this.ren.removeClass(ab['_elementRef'].nativeElement, 'cdk-focused');
-        this.ren.removeClass(
-          ab['_elementRef'].nativeElement,
-          'cdk-program-focused'
-        );
+  public ButtonMatMenuOpen(trigger: MatMenuTrigger): void {
+    setTimeout(() => {
+      if (this.ButtonTrigger && this.ButtonTrigger != trigger) {
+        this.ButtonTrigger.closeMenu();
+        this.ButtonTrigger = trigger;
+        this.MenuOpen = false;
+        trigger.openMenu();
+        //TODO elementRef
+      } else if (!this.MenuOpen) {
+        this.ButtonOpen = true;
+        this.ButtonTrigger = trigger;
+        trigger.openMenu();
+        //TODO elementRef
       } else {
-        this.isNapicuMenuOpen = false;
+        this.ButtonOpen = true;
+        this.ButtonTrigger = trigger;
       }
-    }, 80);
+    });
   }
+  public ButtonMatMenuClose(trigger: MatMenuTrigger, Button: any): void {
+    console.log(Button);
 
-  public ButtonMatMenuOpen(NapicuMenuTrigger: MatMenuTrigger): void {
-    NapicuMenuTrigger.openMenu();
     setTimeout(() => {
-      if (this.ButtonTrigger && this.ButtonTrigger !== NapicuMenuTrigger) {
-        this.ButtonTrigger.openMenu();
-        this.ButtonTrigger = NapicuMenuTrigger;
-        this.isNapicuMenuOpen = false;
-        this.isEnteredButton = false;
-        NapicuMenuTrigger.openMenu();
+      if (this.ButtonOpen && !this.MenuOpen) {
+        //TDO elementRef
       }
-    }, 100);
-  }
-
-  public ButtonMatMenuClose(NapicuMenuTrigger: MatMenuTrigger, ab: any): void {
-    setTimeout(() => {
-      if (!this.isNapicuMenuOpen) {
-        NapicuMenuTrigger.closeMenu();
-        this.ren.removeClass(ab['_elementRef'].nativeElement, 'cdk-focused');
-        this.ren.removeClass(
-          ab['_elementRef'].nativeElement,
-          'cdk-program-focused'
-        );
+      if (!this.MenuOpen) {
+        //TDO elementRef
+        trigger.closeMenu();
       } else {
-        this.isEnteredButton = false;
+        this.ButtonOpen = false;
       }
     }, 100);
   }

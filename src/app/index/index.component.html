@@ -3,18 +3,6 @@
     <main>
       <section id="TopMenu">
         <div class="Navigation">
-          <mat-menu #NapicuMenu="matMenu">
-            <span
-              (mouseenter)="MenuEnter()"
-              (mouseleave)="MenuLeave(NapicuMenuTrigger, Ab)"
-            >
-              <button class="MatMenuTxt SourceCode" mat-menu-item>
-                Settings
-              </button>
-              <button class="MatMenuTxt SourceCode" mat-menu-item>Help</button>
-            </span>
-          </mat-menu>
-
           <nav>
             <ul>
               <li>
@@ -29,14 +17,15 @@
               <li>
                 <a>Faktura</a>
               </li>
+
               <li>
                 <button
-                  #Ab
-                  mat-icon-button
+                  #Button
+                  mat-button
                   [matMenuTriggerFor]="NapicuMenu"
                   #NapicuMenuTrigger="matMenuTrigger"
                   (mouseenter)="ButtonMatMenuOpen(NapicuMenuTrigger)"
-                  (mouseleave)="ButtonMatMenuClose(NapicuMenuTrigger, Ab)"
+                  (mouseleave)="ButtonMatMenuClose(NapicuMenuTrigger, Button)"
                   style="z-index: 1050"
                 >
                   Další
@@ -46,7 +35,12 @@
           </nav>
         </div>
       </section>
-
+      <mat-menu #NapicuMenu="matMenu">
+        <span>
+          <button class="MatMenuTxt SourceCode" mat-menu-item>Settings</button>
+          <button class="MatMenuTxt SourceCode" mat-menu-item>Help</button>
+        </span>
+      </mat-menu>
       <section id="MiddleMenu">
         <div class="MainTextBox">
           <div class="Title">Napicu</div>

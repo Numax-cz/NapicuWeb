@@ -8,13 +8,10 @@ import { Error404Component } from './error404/error404.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
 @NgModule({
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    Error404Component
-  ],
+  declarations: [AppComponent, IndexComponent, Error404Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -22,13 +19,13 @@ import {MatMenuModule} from '@angular/material/menu';
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
+      registrationStrategy: 'registerWhenStable:30000',
     }),
     NoopAnimationsModule,
     MatMenuModule,
-    
+    MatButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
