@@ -1,77 +1,83 @@
 <!DOCTYPE html>
 <html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./CSS/pocasi.css">
-    <link rel="icon" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&ampdisplay=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./CSS/pocasi.css" />
+    <link rel="icon" href="favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&ampdisplay=swap"
+      rel="stylesheet"
+    />
 
+    <meta itemprop="name" content="NaPicu" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Numax" />
 
-    <meta itemprop="name" content="NaPicu">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Numax">
+    <meta itemprop="image" content="https://napicu.eu/favicon.png" />
+    <meta
+      itemprop="description"
+      content="Ahoj kamaráde! Chceš vědět to nejlepší počasí? Právě proto tu je tato stránka, která ti ukáže to nejvíce aktuální počasí"
+    />
 
-    <meta itemprop="image" content="https://napicu.eu/favicon.png">
-    <meta itemprop="description" content="Ahoj kamaráde! Chceš vědět to nejlepší počasí? Právě proto tu je tato stránka, která ti ukáže to nejvíce aktuální počasí">
-    
-    <meta property="og:url" content="https://napicu.eu/pocasi">
-    <meta property="og:title" content="NaPicu - Počasí">
-    <meta property="og:description" content="Ahoj kamaráde! Chceš vědět to nejlepší počasí? Právě proto tu je tato stránka, která ti ukáže to nejvíce aktuální počasí">
-    <meta property="og:site_name" content="NaPicu">
-    <meta property="og:image" content="https://napicu.eu/favicon.png">
+    <meta property="og:url" content="https://napicu.eu/pocasi" />
+    <meta property="og:title" content="NaPicu - Počasí" />
+    <meta
+      property="og:description"
+      content="Ahoj kamaráde! Chceš vědět to nejlepší počasí? Právě proto tu je tato stránka, která ti ukáže to nejvíce aktuální počasí"
+    />
+    <meta property="og:site_name" content="NaPicu" />
+    <meta property="og:image" content="https://napicu.eu/favicon.png" />
 
-    <meta name="twitter:url" content="https://napicu.eu/pocasi">
-    <meta name="twitter:title" content="NaPicu - Počasí">
-    <meta name="twitter:description" content="Ahoj kamaráde! Chceš vědět to nejlepší počasí? Právě proto tu je tato stránka, která ti ukáže to nejvíce aktuální počasí">
-    <meta name="twitter:site_name" content="NaPicu">
-    <meta name="twitter:image" content="https://napicu.eu/favicon.png">
+    <meta name="twitter:url" content="https://napicu.eu/pocasi" />
+    <meta name="twitter:title" content="NaPicu - Počasí" />
+    <meta
+      name="twitter:description"
+      content="Ahoj kamaráde! Chceš vědět to nejlepší počasí? Právě proto tu je tato stránka, která ti ukáže to nejvíce aktuální počasí"
+    />
+    <meta name="twitter:site_name" content="NaPicu" />
+    <meta name="twitter:image" content="https://napicu.eu/favicon.png" />
 
-    <meta name="msapplication-TileColor" content="#f39c12">
-    <meta name="theme-color" content="#f39c12">
+    <meta name="msapplication-TileColor" content="#f39c12" />
+    <meta name="theme-color" content="#f39c12" />
 
     <title>NaPicu - Počasí</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="loading">
-        <div class="load">Loading...</div>
+      <div class="load">Loading...</div>
     </div>
     <section id="blok">
-        <div class="podblok" >
-            <div class="vyhledavacibox">
-                <input type="text" name="mesto" placeholder="Zadejte město"> 
-            </div>
-            <div class="vyhledtst">
-                <div id="vyhledavacipole">
-                </div>
-            </div>
+      <div class="podblok">
+        <div class="vyhledavacibox">
+          <input type="text" name="mesto" placeholder="Zadejte město" />
         </div>
-        <div class="ClassVysledky" id="podblok">
-            <div id="NazveMesta"></div>
-            <div id="HlavniTeplota"></div>
-            <div id="Popis"></div>
-            <img id="img">
+        <div class="vyhledtst">
+          <div id="vyhledavacipole"></div>
         </div>
+        <p id="warn">Lze zadat i města, která nejsou v nabídce*</p>
+      </div>
+      <div class="ClassVysledky" id="podblok">
+        <div id="NazveMesta"></div>
+        <div id="HlavniTeplota"></div>
+        <div id="Popis"></div>
+        <img id="img" />
+      </div>
     </section>
     <section id="blok2">
-        <div class="BlokDalsi2">
-            <div id="Tlak"></div>
-            <div id="Vlhkost"></div>
-            <div id="Vitr"></div>
-            <div id="Mraky"></div>
-
-        </div>
-        <div class="Hlavni2Blok">
-            <div id="Teplota"></div>
-            <div id="Teplota-max"></div>
-            <div id="Teplota-min"></div>
-            <div id="Teplota-pocit"></div>
-            
-        </div>
-
-
+      <div class="BlokDalsi2">
+        <div id="Tlak"></div>
+        <div id="Vlhkost"></div>
+        <div id="Vitr"></div>
+        <div id="Mraky"></div>
+      </div>
+      <div class="Hlavni2Blok">
+        <div id="Teplota"></div>
+        <div id="Teplota-max"></div>
+        <div id="Teplota-min"></div>
+        <div id="Teplota-pocit"></div>
+      </div>
     </section>
-    
-</body>
+  </body>
 </html>
 <script src="./JS/pocasi.js"></script>
