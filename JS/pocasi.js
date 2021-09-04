@@ -70,16 +70,16 @@ function morevyber(thismore){
 function GetPocasi(api){
     vyhledavac2.value = ''
     daj.style.display = 'none'
-    fetch(`https://viem.pinktube.eu/api/numax/jsemgay?api=${api}`)
+    
         .then(res => res.json())
         .then((data) => {       
             PocasiNazevMesta.innerHTML = data.name + ', ' + (data.sys.country).toLowerCase()
             PocasiPopisMesta.innerHTML = data.weather[0].description
-            PocasiTeplotaMesta.innerHTML = data.main.temp + '°c'
-            PocasiTeplotaNehlavni.innerHTML = "<span>Normál: </span>" + data.main.temp + '°c'
-            PocasiMaxTeplota.innerHTML = "<span>Max: </span>" + data.main.temp_max + '°c'
-            PocasiMinTeplota.innerHTML = "<span>Min: </span>" + data.main.temp_min + '°c'
-            PocasiPocitTeplota.innerHTML = "<span>Pocit: </span>" + data.main.feels_like + '°c'
+            PocasiTeplotaMesta.innerHTML = data.main.temp + '°C'
+            PocasiTeplotaNehlavni.innerHTML = "<span>Normál: </span>" + data.main.temp + '°C'
+            PocasiMaxTeplota.innerHTML = "<span>Max: </span>" + data.main.temp_max + '°C'
+            PocasiMinTeplota.innerHTML = "<span>Min: </span>" + data.main.temp_min + '°C'
+            PocasiPocitTeplota.innerHTML = "<span>Pocit: </span>" + data.main.feels_like + '°C'
             PocasiTlak.innerHTML = "<span>Tlak: </span>" + data.main.pressure + "hPa"
             PocasiVlhkost.innerHTML = "<span>Vlhkost: </span>" + data.main.humidity + "%"
             PocasiMraky.innerHTML = '<span>Mraky: </span>' + data.clouds.all + "%"
