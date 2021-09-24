@@ -3,50 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./CSS/covid.css"/>
-    <link rel="icon" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap" rel="stylesheet">
-    
-    
-    
-    
+    <link rel="stylesheet" href="./CSS/covid.css" />
+    <link rel="icon" href="favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Napicu - COVID-19</title>
-    <meta itemprop="name" content="NaPicu">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Numax">
-    <meta itemprop="image" content="https://napicu.eu/logo-meta.png">
-    <meta itemprop="description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
-    
-    <meta property="og:url" content="https://napicu.eu/covid.html">
-    <meta property="og:title" content="Napicu - COVID-19">
-    <meta property="og:description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
-    <meta property="og:site_name" content="Napicu - COVID-19">
-    <meta property="og:image" content="https://napicu.eu/logo-meta.png">
+    <meta itemprop="name" content="NaPicu" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="author" content="Numax" />
+    <meta itemprop="image" content="https://napicu.eu/logo-meta.png" />
+    <meta
+      itemprop="description"
+      content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19."
+    />
 
-    <meta name="twitter:url" content="https://napicu.eu/covid.html">
-    <meta name="twitter:title" content="Napicu - COVID-19">
-    <meta name="twitter:description" content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19.">
-    <meta name="twitter:site_name" content="NaPicu">
-    <meta name="twitter:image" content="https://napicu.eu/logo-meta.png">
+    <meta property="og:url" content="https://napicu.eu/covid.html" />
+    <meta property="og:title" content="Napicu - COVID-19" />
+    <meta
+      property="og:description"
+      content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19."
+    />
+    <meta property="og:site_name" content="Napicu - COVID-19" />
+    <meta property="og:image" content="https://napicu.eu/logo-meta.png" />
 
-    <meta name="msapplication-TileColor" content="#f39c12">
-    <meta name="theme-color" content="#f39c12">
+    <meta name="twitter:url" content="https://napicu.eu/covid.html" />
+    <meta name="twitter:title" content="Napicu - COVID-19" />
+    <meta
+      name="twitter:description"
+      content="Ahoj kamaráde! Myslím si že by si se měl podívat na statistiky ohledně viru COVID-19."
+    />
+    <meta name="twitter:site_name" content="NaPicu" />
+    <meta name="twitter:image" content="https://napicu.eu/logo-meta.png" />
 
-
-    
+    <meta name="msapplication-TileColor" content="#f39c12" />
+    <meta name="theme-color" content="#f39c12" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   </head>
   <body>
     <section id="menu">
       <div class="menu-text">
-          <a href="https://napicu.eu">Ahoj kamaráde</a>
+        <a href="https://napicu.eu">Ahoj kamaráde</a>
       </div>
     </section>
-    
 
-
-  
     <main>
       <div class="stats">
         <div class="report">
@@ -75,14 +85,8 @@
           <canvas id="GraphPico"></canvas>
         </div>
       </div>
-
-    
-    
     </main>
 
     <script src="JS/Covid-19/choroba.js"></script>
-    
-    <script src="./JS/L.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   </body>
 </html>
