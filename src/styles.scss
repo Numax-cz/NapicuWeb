@@ -5,14 +5,16 @@
 }
 
 #particles-js {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .SourceCode {
-  font-family: "Source Code Pro", monospace;
+  font-family: 'Source Code Pro', monospace;
 }
 .Ubuntu {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
 .Bold {
   font-weight: bold;
@@ -23,5 +25,20 @@ body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.mat-icon-button:hover .mat-button-focus-overlay {
+  opacity: 1 !important;
+  background-color: red;
+}
+#MatButton {
+  cursor: pointer;
+}
+.MatMenuTxt {
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding: 0px;
+  height: auto;
+  line-height: normal;
 }
