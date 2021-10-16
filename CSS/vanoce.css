@@ -355,6 +355,9 @@ body {
   .cas-text-vanoce {
     font-size: 80px;
   }
+  #PlayButton {
+    font-size: 1.1rem;
+  }
   .cas-text-rok {
     font-size: 70px;
   }
@@ -390,12 +393,15 @@ body {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 386px) {
   .cas-text-vanoce {
     font-size: 50px;
   }
   .cas-text-rok {
     font-size: 60px;
+  }
+  #PlayButton {
+    font-size: 1rem;
   }
   .cas-text-cas div {
     width: 40px;
