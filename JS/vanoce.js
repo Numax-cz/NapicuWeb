@@ -20,7 +20,7 @@ setInterval(function(){
 
 
 
-var hudba = document.getElementById('hudba').play();
+var hudba = document.getElementById('hudba');
 function HratHudbu(){
     hudba.play();
 }
