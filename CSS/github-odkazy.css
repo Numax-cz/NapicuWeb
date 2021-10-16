@@ -1,143 +1,122 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    font-family: 'Montserrat', sans-serif;
-    
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
-body{
-    overflow: hidden;
-}
-
-html{
-    /* NastaveniColor */
-    color: black;
-    background-color: white;
-    --MenuText: white;
-    --Menu: #07101a;
-    --odkazy:  #2f8bf3;
-
-
+body {
+  overflow: hidden;
 }
 
-html[MoreCerna='CernaPyco']{
-    /* NastaveniColor - DarkMod */
-    color: white;
-    background-color: #0d1929;
-    --Menu: #07101a;
-    --MenuText: white;
-    --odkazy:  #2f8bf3;
+html {
+  /* NastaveniColor */
+  color: black;
+  background-color: white;
+  --MenuText: white;
+  --Menu: #07101a;
+  --odkazy: #2f8bf3;
 }
 
-
-
-
-#menu2{
-    background-color:  var(--Menu);
-    width: 100%;
-}
-.menu2-txt{
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-
-    color: var(--MenuText);
+html[MoreCerna='CernaPyco'] {
+  /* NastaveniColor - DarkMod */
+  color: white;
+  background-color: #0d1929;
+  --Menu: #07101a;
+  --MenuText: white;
+  --odkazy: #2f8bf3;
 }
 
-.menu2-text-dv{
-    background-color:  var(--Menu);
-    color: var(--TextNumaxGit);
-    font-weight: 700;
-    font-size: 2rem;
-    padding: 20px;
+#menu2 {
+  background-color: var(--Menu);
+  width: 100%;
+}
+.menu2-txt {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+
+  color: var(--MenuText);
+}
+
+.menu2-text-dv {
+  background-color: var(--Menu);
+  color: var(--TextNumaxGit);
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 20px;
 }
 
 /* ----------------------- */
 
-#profil{
-    height: 100vh;
-    min-height: 400px;
-    display: table;
-    width: 100%;
+#profil {
+  height: 100vh;
+  min-height: 400px;
+  display: table;
+  width: 100%;
 }
-.profil-box{
-    display: table-cell;
-    padding-top: 100px;
-    padding-bottom: 100px;
+.profil-box {
+  display: table-cell;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-.profil-box2{
-    width: 100%;
-    max-width: 1200px;
-    height: 100vh;
-    max-height: 200px;
-    margin: auto;
-
+.profil-box2 {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  max-height: 200px;
+  margin: auto;
 }
 
 /* ----------------------ST BOX---------------------- */
 /* BOX */
 
-
-.profil-inf-box{
-    text-align: left;
-    width: 100%;
-    max-width: 500px;
-    margin: auto;
-    
+.profil-inf-box {
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
 }
-.profil-inf-2 a{
-    font-weight: 800;
-    color: var(--TextColor);
-    text-decoration: none;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
+.profil-inf-2 a {
+  font-weight: 800;
+  color: var(--TextColor);
+  text-decoration: none;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-
-.profil-inf3-projekty{
-    
-    padding-top: 80px;
-    width: 100%;
-    max-width: 1000px;
-    margin: auto;
-    font-size: 1.5rem;
-    text-align: center;
-    
+.profil-inf3-projekty {
+  padding-top: 80px;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  font-size: 1.5rem;
+  text-align: center;
 }
-.profil-inf3-projekty a{
-    font-size: 1.5rem;
-    color: var(--odkazy);
- 
+.profil-inf3-projekty a {
+  font-size: 1.5rem;
+  color: var(--odkazy);
 }
-
-
-
-
 
 /* media screen */
 /* JOU JOU MORE TOTO JE FILTROVANÉ!!!!!*/
-@media screen and (max-width:755px){
-    .profil-box {
-        padding-top: 20px;
-        padding-bottom: 100px;
-    }
-    .profil-inf-box {
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-        margin: auto;
-    }
-    .profil-inf3-projekty a{
-        font-size: 1.2rem;
-    }
+@media screen and (max-width: 755px) {
+  .profil-box {
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
+  .profil-inf-box {
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
+  .profil-inf3-projekty a {
+    font-size: 1.2rem;
+  }
 }
-@media screen and (max-width:340px){
-    .profil-inf-2 a {
-        font-size: 18px;
-    }
+@media screen and (max-width: 340px) {
+  .profil-inf-2 a {
+    font-size: 18px;
+  }
 }
-
-
-
-

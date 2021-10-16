@@ -1,239 +1,193 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
-    user-select: none;
-
-    
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+  user-select: none;
 }
-html{
-    background-color: rgb(29, 29, 29);
-    --Text: white;
-    font-size: 2rem;
-    
+html {
+  background-color: rgb(29, 29, 29);
+  --Text: white;
+  font-size: 2rem;
 }
-html[MoreBejla='BejlaMore']{
-    background-color: white;
-    --Text: Black;
-
+html[MoreBejla='BejlaMore'] {
+  background-color: white;
+  --Text: Black;
 }
-.PoleBox{
-
-    width: 100%;
-    height: 50%;
-    max-width: 80%;
-    padding: 7%;
-    margin: auto;
-    
-
-
+.PoleBox {
+  width: 100%;
+  height: 50%;
+  max-width: 80%;
+  padding: 7%;
+  margin: auto;
 }
-.kurzorpico{
-    /* background-color: rgb(12, 202, 53); */
-    
-    border-left: 2.5px solid white;
-}
-.kurvanedelejchybu{
-    /* background-color: rgb(255, 75, 75); */
-    border-bottom: 2px solid rgb(255, 75, 75);;
+.kurzorpico {
+  /* background-color: rgb(12, 202, 53); */
 
+  border-left: 2.5px solid white;
 }
-.kurzorpicoDodelanomore{
-    color: rgb(172, 171, 171);
+.kurvanedelejchybu {
+  /* background-color: rgb(255, 75, 75); */
+  border-bottom: 2px solid rgb(255, 75, 75);
 }
-.Nastaveni{
-
-    height: 30px;
-    width: 100%;
-    bottom: 2%;
-    padding: 30px;
-    position: fixed;
+.kurzorpicoDodelanomore {
+  color: rgb(172, 171, 171);
 }
-#NastaveniImg{
-    cursor: pointer;
-
-
+.Nastaveni {
+  height: 30px;
+  width: 100%;
+  bottom: 2%;
+  padding: 30px;
+  position: fixed;
 }
-#TextPole{
-    color: var(--Text);
-    user-select: none;
-
-
+#NastaveniImg {
+  cursor: pointer;
 }
-#TextPole span{
-    padding: 5px;
-    
+#TextPole {
+  color: var(--Text);
+  user-select: none;
+}
+#TextPole span {
+  padding: 5px;
 }
 
-.stats{
-    width: 100%;
-    max-width: 60%;
-    margin: auto;
-    padding: 2%;
-    display: block;
+.stats {
+  width: 100%;
+  max-width: 60%;
+  margin: auto;
+  padding: 2%;
+  display: block;
 }
 #time,
 #cas,
-#spatne{
-    color: var(--Text);
-    padding-left: 3%;
-    padding-right: 3%;
+#spatne {
+  color: var(--Text);
+  padding-left: 3%;
+  padding-right: 3%;
 }
-#time{
-    width: 14%;
-    padding-right: 0;
+#time {
+  width: 14%;
+  padding-right: 0;
 }
 
+.stats-box div::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  line-height: 35px;
+  font-size: 0.55rem;
+}
+.stats-box #cas::before {
+  content: 'wpm ';
+}
+.stats-box #spatne::before {
+  content: 'chyb';
+}
+.stats-box #time::before {
+  content: 'čas';
+}
+.stats-box {
+  display: flex;
+}
 
-.stats-box div::before{
+#button {
+  display: flex;
+  align-items: center;
+}
+#button input {
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+#label1 {
+  display: flex;
+  align-items: center;
+}
+.ButtonSpan {
+  height: 17px;
+  width: 17px;
+  background-color: rgb(77, 77, 77);
+  border-radius: 2.5px;
+  cursor: pointer;
+}
+.lajna {
+  width: 10px;
+  height: 3px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 7px; /*(17/2 = 8.5)*/
+  background-color: white;
+}
+
+@media screen and (max-width: 1617px) {
+  .stats-box div::before {
     content: '';
     position: absolute;
-    top: 10px;
+    top: 1px;
     line-height: 35px;
     font-size: 0.55rem;
-    
-    
-
-}
-.stats-box #cas::before{
-    content: 'wpm ';
-}
-.stats-box #spatne::before{
-    content: 'chyb';
-}
-.stats-box #time::before{
-    content: 'čas';
-}
-.stats-box{
-    display: flex;
+  }
 }
 
-
-#button{
-    display: flex;
-    align-items: center;
-    
-
+@media screen and (max-width: 1460px) {
+  .stats-box div::before {
+    font-size: 0.5rem;
+  }
+  .stats-box {
+    font-size: 0.99rem;
+  }
 }
-#button input{
-    height: 0;
-    width: 0;
-    opacity: 0;
+@media screen and (max-width: 1240px) {
+  .stats-box div::before {
+    font-size: 0.45rem;
+  }
+  .stats-box {
+    font-size: 0.8rem;
+  }
 }
-#label1{
-    display: flex;
-    align-items: center;
-
-}
-.ButtonSpan{
-    height: 17px;
-    width: 17px;
-    background-color: rgb(77, 77, 77);
-    border-radius: 2.5px;
-    cursor: pointer;
-}    
-.lajna{
-    width: 10px;
-    height: 3px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 7px;  /*(17/2 = 8.5)*/
-    background-color: white;
-}
-
-@media screen and (max-width:1617px){
-
-    .stats-box div::before{
-        content: '';
-        position: absolute;
-        top: 1px;
-        line-height: 35px;
-        font-size: 0.55rem;
-    
-    
-
-    }
+@media screen and (max-width: 1142px) {
+  .stats-box div::before {
+    font-size: 0.45rem;
+  }
+  .stats-box {
+    font-size: 0.7rem;
+  }
+  .stats {
+    width: 100%;
+    max-width: 60%;
+    margin: auto;
+    padding: 3%;
+    display: block;
+  }
 }
 
-@media screen and (max-width:1460px){
-
-    .stats-box div::before{
-
-        font-size: 0.5rem;
-
-    }
-    .stats-box{
-        font-size: 0.99rem;
-    }
+@media screen and (max-width: 912px) {
+  .stats-box div::before {
+    font-size: 0.45rem;
+  }
+  .stats-box {
+    font-size: 0.7rem;
+  }
+  .stats {
+    width: 100%;
+    max-width: 60%;
+    margin: auto;
+    padding: 4%;
+    display: block;
+  }
 }
-@media screen and (max-width:1240px){
-
-    .stats-box div::before{
-
-        font-size: 0.45rem;
-
-    }
-    .stats-box{
-        font-size: 0.8rem;
-    }
-}
-@media screen and (max-width:1142px){
-
-    .stats-box div::before{
-
-        font-size: 0.45rem;
-
-    }
-    .stats-box{
-        font-size: 0.7rem;
-    }
-    .stats {
-        width: 100%;
-        max-width: 60%;
-        margin: auto;
-        padding: 3%;
-        display: block;
-    }
-    
-}
-
-@media screen and (max-width:912px){
-
-    .stats-box div::before{
-
-        font-size: 0.45rem;
-
-    }
-    .stats-box{
-        font-size: 0.7rem;
-    }
-    .stats {
-        width: 100%;
-        max-width: 60%;
-        margin: auto;
-        padding: 4%;
-        display: block;
-    }
-    
-}
-@media screen and (max-width:707px){
-
-    .stats-box div::before{
-
-        font-size: 0.4rem;
-
-    }
-    .stats-box{
-        font-size: 0.6rem;
-    }
-    .stats {
-        width: 100%;
-        max-width: 60%;
-        margin: auto;
-        padding: 5%;
-        display: block;
-    }
-    
+@media screen and (max-width: 707px) {
+  .stats-box div::before {
+    font-size: 0.4rem;
+  }
+  .stats-box {
+    font-size: 0.6rem;
+  }
+  .stats {
+    width: 100%;
+    max-width: 60%;
+    margin: auto;
+    padding: 5%;
+    display: block;
+  }
 }

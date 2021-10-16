@@ -1,35 +1,34 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    font-family: 'Source Code Pro', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Source Code Pro', monospace;
 }
-body{
-    background-color: #ffb142;
+body {
+  background-color: #ffb142;
 }
-#Page{
-    display: table;
-    z-index: 1;
-    height: 100vh;
-    min-height: 500px;
-    width: 100%;
-}
-
-#ERROR{
-    display: table-cell;
-    vertical-align: middle;
-
-    padding-bottom: 190px;
-}
-.Error-Dis{
-    text-align: center;
-    font-size: 5rem;
-    color: black;
-}
-.Error-title{
-    text-align: center;
-    font-size: 16rem;
-    font-weight: bolder;
-    color: black;
+#Page {
+  display: table;
+  z-index: 1;
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
 }
 
+#ERROR {
+  display: table-cell;
+  vertical-align: middle;
+
+  padding-bottom: 190px;
+}
+.Error-Dis {
+  text-align: center;
+  font-size: 5rem;
+  color: black;
+}
+.Error-title {
+  text-align: center;
+  font-size: 16rem;
+  font-weight: bolder;
+  color: black;
+}

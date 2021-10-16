@@ -1,437 +1,402 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
 }
-body{
-    overflow: hidden;
+body {
+  overflow: hidden;
 }
 /* ----------------------- */
 /*  ----------------------- CLASA DARK MOD-----------------------  */
-html{
-    /* NastaveniColor */
-    color: black;
-    background-color: white;
-    --Menu: #07101a;
-    --TextGreyColor: #848e94;
-    --TextNumaxGit: white;
-    --odkazy:  #2f8bf3;
+html {
+  /* NastaveniColor */
+  color: black;
+  background-color: white;
+  --Menu: #07101a;
+  --TextGreyColor: #848e94;
+  --TextNumaxGit: white;
+  --odkazy: #2f8bf3;
 }
 
-html[MoreCerna='CernaPyco']{
-    /* NastaveniColor - DarkMod */
-    color: white;
-    background-color: #0d1929;
-    --Menu: #07101a;
-    --TextGreyColor: #848e94;
-    --TextNumaxGit: white;
-    --ButtonDarkMoDAf: rgb(9, 81, 153);
-    --odkazy:  #2f8bf3;
-
-
+html[MoreCerna='CernaPyco'] {
+  /* NastaveniColor - DarkMod */
+  color: white;
+  background-color: #0d1929;
+  --Menu: #07101a;
+  --TextGreyColor: #848e94;
+  --TextNumaxGit: white;
+  --ButtonDarkMoDAf: rgb(9, 81, 153);
+  --odkazy: #2f8bf3;
 }
-
-
-
 
 /* DARK MOD BUTTON */
-.profil-box-img-name-btn-DARK{
-    margin-top: 20px;
-    width: 100%;
-    max-width: 70px;
-    margin-left: auto;
-    margin-right: auto;
+.profil-box-img-name-btn-DARK {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 70px;
+  margin-left: auto;
+  margin-right: auto;
 }
-.ButtonLab{
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+.ButtonLab {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
-.ButtonLab input{
-    opacity: 0;
-    width: 0;
-    height: 0;
+.ButtonLab input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
-.ButtonSpan{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: dodgerblue;
-    -webkit-transition: .4s;
-    transition: .4s;
+.ButtonSpan {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: dodgerblue;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
-.ButtonSpan::before{
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+.ButtonSpan::before {
+  position: absolute;
+  content: '';
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 input:checked + .ButtonSpan {
-    background-color: var(--ButtonDarkMoDAf);
+  background-color: var(--ButtonDarkMoDAf);
 }
 input:checked + .ButtonSpan:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
 }
-.ButtonSpan::before{
-    border-radius: 20px;
+.ButtonSpan::before {
+  border-radius: 20px;
 }
-.ButtonSpan{
-    border-radius: 20px;
+.ButtonSpan {
+  border-radius: 20px;
 }
 /* DARK MOD BUTTON */
-html.moresmooooth{
-    transition-delay: 0;
-    transition: all 1s !important
+html.moresmooooth {
+  transition-delay: 0;
+  transition: all 1s !important;
 }
 /*  ----------------------- CLASA DARK MOD-----------------------  */
 
-#menu2{
-    background-color: var(--Menu);
-    width: 100%;
+#menu2 {
+  background-color: var(--Menu);
+  width: 100%;
 }
-.menu2-txt{
-
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
+.menu2-txt {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.menu2-text-dv{
-    background-color:  var(--Menu);
-    color: var(--TextNumaxGit);
-    font-weight: 700;
-    font-size: 2rem;
-    padding: 20px;
+.menu2-text-dv {
+  background-color: var(--Menu);
+  color: var(--TextNumaxGit);
+  font-weight: 700;
+  font-size: 2rem;
+  padding: 20px;
 }
 
 /* ----------------------- */
 
-#profil{
-    height: 100vh;
-    min-height: 400px;
-    display: table;
-    width: 100%;
+#profil {
+  height: 100vh;
+  min-height: 400px;
+  display: table;
+  width: 100%;
 }
-.profil-box{
-    display: table-cell;
+.profil-box {
+  display: table-cell;
 
-    padding-top: 100px;
-    padding-bottom: 100px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
-.profil-box2{
-    width: 100%;
-    max-width: 1200px;
-    height: 100vh;
-    max-height: 500px;
-    margin: auto;
+.profil-box2 {
+  width: 100%;
+  max-width: 1200px;
+  height: 100vh;
+  max-height: 500px;
+  margin: auto;
 }
-.profil-box-img{
-    padding: 20px;
-    width: 30%;
+.profil-box-img {
+  padding: 20px;
+  width: 30%;
 
-    justify-content: center;
-    text-align: center;
+  justify-content: center;
+  text-align: center;
 }
-.profil-box-img-profil{
-    border-radius: 50%;
+.profil-box-img-profil {
+  border-radius: 50%;
 }
-.profil-box-img-name{
-    text-align: center;
-    padding-top: 20px;
-    font-size: 35px;
-    font-weight: bold;
-}
-    
-.profil-box-img-name-btn{
-    padding-top: 20px;
-    
-}
-.profil-box-img-name-btn a{
-    text-decoration: none;
-    background-color: #70a1ff;
-    padding: 7px;
-    border-radius: 20px;
-    font-size: 20px;
-    color: black
-
-}
-.name{
-    color: var(--TextBlackColor);
-
-    text-align: left;
-    padding-left: 40px;
-    
-}
-.nickname{
-    text-align: left;
-    padding-left: 40px;
-    color: var(--TextGreyColor);
-    
-
-    font-size: 1.7rem;
+.profil-box-img-name {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 35px;
+  font-weight: bold;
 }
 
+.profil-box-img-name-btn {
+  padding-top: 20px;
+}
+.profil-box-img-name-btn a {
+  text-decoration: none;
+  background-color: #70a1ff;
+  padding: 7px;
+  border-radius: 20px;
+  font-size: 20px;
+  color: black;
+}
+.name {
+  color: var(--TextBlackColor);
 
+  text-align: left;
+  padding-left: 40px;
+}
+.nickname {
+  text-align: left;
+  padding-left: 40px;
+  color: var(--TextGreyColor);
 
-
+  font-size: 1.7rem;
+}
 
 /* ----------------------DALŠÍ BOX---------------------- */
 /* PRAVÝ BOX */
 
-.profil-inf{
-    padding-top: 25px;
-    float: right;
-    width: 100%;
-    max-width: 70%;
-    margin: auto;
-    height: 100%;
+.profil-inf {
+  padding-top: 25px;
+  float: right;
+  width: 100%;
+  max-width: 70%;
+  margin: auto;
+  height: 100%;
 }
-.profil-inf-box{
-    text-align: left;
+.profil-inf-box {
+  text-align: left;
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+}
+.profil-inf a {
+  font-weight: 800;
+  color: black;
+  color: var(--TextWhiteColor2);
+  text-decoration: none;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.profil-inf2 {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+.profil-inf2 p {
+  font-size: 20px;
+  color: var(--TextWhiteColor2);
+}
+.profil-inf3-projekty {
+  padding-left: 50px;
+  padding-top: 60px;
+}
+.profil-inf3-projekty a {
+  display: flex;
+  width: 140px;
+  font-size: 1.2rem;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: black;
+  font-weight: bold;
+  color: var(--odkazy);
+}
+.profil-inf3-projekty ul {
+  color: var(--TextWhiteColor);
+}
+
+@media screen and (max-width: 1040px) {
+  .profil-box-img-profil {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .profil-box-img-profil {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  .profil-box {
+    padding-top: 20px;
+    padding-bottom: 100px;
+  }
+  .profil-box-img-profil {
+    height: 150px;
+    width: 150px;
+  }
+  .profil-box-img-name {
+    font-size: 21px;
+  }
+  .nickname {
+    font-size: 1.4rem;
+    padding-left: 0px;
+  }
+  .name {
+    padding-left: 0px;
+  }
+  .profil-box-img-name-btn a {
+    text-decoration: none;
+
+    padding: 7px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .profil-inf-box {
+    text-align: center;
     width: 100%;
     max-width: 500px;
     margin: auto;
+  }
 }
-.profil-inf a{
-    font-weight: 800;
-    color: black;
-    color: var(--TextWhiteColor2);
+
+@media screen and (max-width: 640px) {
+  .profil-box-img-profil {
+    height: 130px;
+    width: 130px;
+  }
+  .profil-box-img-name {
+    font-size: 18px;
+  }
+  .nickname {
+    font-size: 1rem;
+  }
+
+  .profil-box-img-name-btn a {
     text-decoration: none;
-    font-size: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
 
-.profil-inf2{
-    padding-top: 50px;
-    padding-left: 50px;
-    
-
+    padding: 7px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+  }
 }
-.profil-inf2 p{
-    font-size: 20px;
-    color: var(--TextWhiteColor2);
-}
-.profil-inf3-projekty{
-    padding-left: 50px;
-    padding-top: 60px;
-
-}
-.profil-inf3-projekty a{
+@media screen and (max-width: 524px) {
+  .profil-box-img-profil {
+    height: 130px;
+    width: 130px;
+  }
+  .profil-box-img-name {
+    font-size: 18px;
+  }
+  .nickname {
+    font-size: 1rem;
+  }
+  .profil-inf3-projekty a {
     display: flex;
     width: 140px;
-    font-size: 1.2rem;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    color: black;
+    font-size: 1rem;
+    padding-top: 4px;
+    padding-bottom: 4px;
+
     font-weight: bold;
-    color: var(--odkazy);
-}
-.profil-inf3-projekty ul{
-    color: var(--TextWhiteColor);
-    
-    
-}
+  }
 
-@media screen and (max-width:1040px){
-    .profil-box-img-profil{
-        height: 200px;
-        width: 200px;
-    }
-}
+  .profil-inf2 {
+    padding-top: 30px;
+    padding-left: 30px;
+  }
+  .profil-inf3-projekty {
+    padding-left: 30px;
+    padding-top: 20px;
+  }
+  .profil-box-img {
+    padding: 10px;
+  }
 
-@media screen and (max-width:850px){
-    .profil-box-img-profil{
-        height: 150px;
-        width: 150px;
-    }
-}
+  .profil-inf2 p {
+    font-size: 15px;
+  }
 
-@media screen and (max-width:755px){
-    .profil-box {
-
-        padding-top: 20px;
-        padding-bottom: 100px;
-    }
-    .profil-box-img-profil{
-        height: 150px;
-        width: 150px;
-    }
-    .profil-box-img-name{
-        font-size: 21px;
-    }
-    .nickname{
-        font-size: 1.4rem;
-        padding-left: 0px;
-    }
-    .name{
-        padding-left: 0px;   
-    }
-    .profil-box-img-name-btn a{
-        text-decoration: none;
-
-        padding: 7px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 15px;
-
-    }
-    .profil-inf-box {
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-        margin: auto;
-    }
+  .profil-box-img-name-btn a {
+    text-decoration: none;
+    background-color: #70a1ff;
+    padding: 7px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+    color: black;
+  }
 }
 
-@media screen and (max-width:640px){
-    .profil-box-img-profil{
-        height: 130px;
-        width: 130px;
-    }
-    .profil-box-img-name{
-        font-size: 18px;
- 
-    }
-    .nickname{
-        font-size: 1rem;
-
-    }
-
-    .profil-box-img-name-btn a{
-        text-decoration: none;
-
-        padding: 7px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 13px;
-
-    }
-}
-@media screen and (max-width:524px){
-    .profil-box-img-profil{
-        height: 130px;
-        width: 130px;
-    }
-    .profil-box-img-name{
-        font-size: 18px;
-    }
-    .nickname{
-        font-size: 1rem;
-
-    }
-    .profil-inf3-projekty a {
-        display: flex;
-        width: 140px;
-        font-size: 1rem;
-        padding-top: 4px;
-        padding-bottom: 4px;
-
-        font-weight: bold;
-    }
-    
-    
-    
-
-    .profil-inf2 {
-        padding-top: 30px;
-        padding-left: 30px;
-    }
-    .profil-inf3-projekty {
-        padding-left: 30px;
-        padding-top: 20px;
-    }
-    .profil-box-img {
-        padding: 10px;
-    }
-    
-
-    .profil-inf2 p {
-        font-size: 15px;
-    }
-
-    .profil-box-img-name-btn a{
-        text-decoration: none;
-        background-color: #70a1ff;
-        padding: 7px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 13px;
-        color: black
-    }
+@media screen and (max-width: 484px) {
+  .profil-box-img-profil {
+    height: 120px;
+    width: 120px;
+  }
+  .profil-inf a {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .profil-box-img-name {
+    font-size: 15px;
+  }
+  .profil-box-img-name-btn a {
+    font-size: 10px;
+  }
 }
 
-
-
-@media screen and (max-width:484px){
-    .profil-box-img-profil{
-        height: 120px;
-        width: 120px;
-    }
-    .profil-inf a {
-        font-weight: bold;
-        font-size: 15px;
-    }
-    .profil-box-img-name {
-        font-size: 15px;
-    }
-    .profil-box-img-name-btn a {
-
-        font-size: 10px;
-
-    }
+@media screen and (max-width: 400px) {
+  .profil-box-img-profil {
+    height: 100px;
+    width: 100px;
+  }
+  .profil-inf a {
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .profil-inf2 p {
+    font-size: 14px;
+  }
+  .profil-box-img-name {
+    font-size: 15px;
+  }
+  .profil-box-img-name-btn a {
+    font-size: 10px;
+  }
 }
-
-@media screen and (max-width:400px){
-    .profil-box-img-profil{
-        height: 100px;
-        width: 100px;
-    }
-    .profil-inf a {
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .profil-inf2 p {
-        font-size: 14px;
-    }
-    .profil-box-img-name {
-        font-size: 15px;
-    }
-    .profil-box-img-name-btn a {
-
-        font-size: 10px;
-
-    }
+@media screen and (max-width: 384px) {
+  .profil-box-img-profil {
+    height: 90px;
+    width: 90px;
+  }
+  .profil-inf a {
+    font-weight: bold;
+    font-size: 13px;
+  }
+  .profil-inf2 p {
+    font-size: 14px;
+  }
+  .profil-box-img-name {
+    font-size: 15px;
+  }
+  .profil-box-img-name-btn a {
+    font-size: 8px;
+  }
 }
-@media screen and (max-width:384px){
-    .profil-box-img-profil{
-        height: 90px;
-        width: 90px;
-    }
-    .profil-inf a {
-        font-weight: bold;
-        font-size: 13px;
-    }
-    .profil-inf2 p {
-        font-size: 14px;
-    }
-    .profil-box-img-name {
-        font-size: 15px;
-    }
-    .profil-box-img-name-btn a {
-        font-size: 8px;
-    }
-}
-/* TU DODĚLAT 320 <===*/    
+/* TU DODĚLAT 320 <===*/

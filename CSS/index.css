@@ -1,252 +1,239 @@
 * {
-    padding: 0;
-    margin: 0;
-    font-family: 'Source Code Pro', monospace;
-    overflow: hidden;
+  padding: 0;
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+  overflow: hidden;
 }
 
 body {
-    background-color: #040d21;
-    background-image: url('../Img/FOTO90.webp');
-    background-position: center;
-    background-repeat: repeat;
-    background-size: cover;
+  background-color: #040d21;
+  background-image: url('../Img/FOTO90.webp');
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
 }
-#Table{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
+#Table {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
 }
 
 #TopMenu {
-    position: absolute !important;
-    right: 0;
-    left: 0;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: initial;
+  position: absolute !important;
+  right: 0;
+  left: 0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: initial;
 }
 
 .TopMenu-Tabel {
-    width: 100%;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
-.Box{
-    justify-content: space-around;
-    display: flex;
+.Box {
+  justify-content: space-around;
+  display: flex;
 }
 .TopMenu-Tabel nav ul {
-    display: flex !important;
-    list-style: none !important;
+  display: flex !important;
+  list-style: none !important;
 }
 .TopMenu-Tabel nav ul li {
-    padding: 6px 10px;
+  padding: 6px 10px;
 }
-
 
 .TopMenu-Tabel nav ul li a {
-    font-size: 1.3rem;
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.425);
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.425);
 }
 .TopMenu-Tabel nav ul li a:hover {
-    color: rgba(255, 255, 255, 0.944);
+  color: rgba(255, 255, 255, 0.944);
 }
 
-
 .MiddleMenu-Table {
-    display: table;
-    z-index: 1;
-    height: 100vh;
-    min-height: 500px;
-    width: 100%;
+  display: table;
+  z-index: 1;
+  height: 100vh;
+  min-height: 500px;
+  width: 100%;
 }
 
 #middlemenutable {
-    display: table-cell;
-    vertical-align: middle;
-    padding-bottom: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  padding-bottom: 100px;
 }
 
 .MiddleMenu-TableMain {
-    width: 100%;
-    max-width: 70%;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  max-width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-#MainTitlePage{
-    font-size: 6rem;
-    font-weight: 900;
-    color: white;
+#MainTitlePage {
+  font-size: 6rem;
+  font-weight: 900;
+  color: white;
 }
-#MainDescriptionPage{
-    margin-left: 2%;
+#MainDescriptionPage {
+  margin-left: 2%;
 }
-#MainDescriptionPage p{
-    color: rgba(255, 255, 255, 0.524);
-}
-
-.moreIcon{
-    cursor: pointer;
-    top: -2px; 
-    width: 18px;
-    stroke: hsla(0,0%,100%,.5); 
-    background: transparent; 
+#MainDescriptionPage p {
+  color: rgba(255, 255, 255, 0.524);
 }
 
+.moreIcon {
+  cursor: pointer;
+  top: -2px;
+  width: 18px;
+  stroke: hsla(0, 0%, 100%, 0.5);
+  background: transparent;
+}
 
 details > summary {
-    cursor: pointer;
-    list-style: none;
+  cursor: pointer;
+  list-style: none;
 }
-.DropMenu{
-    background-color: rgba(255, 255, 255, 0.999);
-    margin-top: 7%;
-    padding: 10px;
-    border-radius: 10px;
-
+.DropMenu {
+  background-color: rgba(255, 255, 255, 0.999);
+  margin-top: 7%;
+  padding: 10px;
+  border-radius: 10px;
 }
-#Odkaz{
-    display: flex;
-    padding: 4px;
-    color: black;
+#Odkaz {
+  display: flex;
+  padding: 4px;
+  color: black;
 }
-#Odkaz:hover{
-   color: #3498db;
-    
+#Odkaz:hover {
+  color: #3498db;
 }
-.DropTitle{
-    padding: 10px 1px;
-    font-weight: bold;
-    font-size: 1.24rem;
+.DropTitle {
+  padding: 10px 1px;
+  font-weight: bold;
+  font-size: 1.24rem;
 }
 
+@media screen and (max-width: 840px) {
+  .TopMenu-Tabel nav ul li {
+    padding: 6px 10px;
+  }
+  .TopMenu-Tabel nav ul li a {
+    font-size: 1.2rem;
+  }
 
-
-
-
-@media screen and (max-width:840px){
-    .TopMenu-Tabel nav ul li {
-        padding: 6px 10px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: 1.2rem;
-    }
-
-    #MainTitlePage {
-        font-size: 5rem;
-    }
-    #MainDescriptionPage p {
-        font-size: .9rem;
-    }
+  #MainTitlePage {
+    font-size: 5rem;
+  }
+  #MainDescriptionPage p {
+    font-size: 0.9rem;
+  }
 }
-@media screen and (max-width:783px){
-    .TopMenu-Tabel nav ul li {
-        padding: 6px 10px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: 1rem;
-    }
+@media screen and (max-width: 783px) {
+  .TopMenu-Tabel nav ul li {
+    padding: 6px 10px;
+  }
+  .TopMenu-Tabel nav ul li a {
+    font-size: 1rem;
+  }
 
-    #MainTitlePage {
-        font-size: 5rem;
-    }
-    #MainDescriptionPage p {
-        font-size: .9rem;
-    }
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
+  #MainTitlePage {
+    font-size: 5rem;
+  }
+  #MainDescriptionPage p {
+    font-size: 0.9rem;
+  }
+  .TopMenu-Tabel {
+    max-width: 90%;
+  }
 }
 
-@media screen and (max-width:600px){
-    .TopMenu-Tabel nav ul li {
-        padding: 6px 8px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: .9rem;
-    }
+@media screen and (max-width: 600px) {
+  .TopMenu-Tabel nav ul li {
+    padding: 6px 8px;
+  }
+  .TopMenu-Tabel nav ul li a {
+    font-size: 0.9rem;
+  }
 
-    #MainTitlePage {
-        font-size: 4rem;
-    }
-    #MainDescriptionPage p {
-        font-size: .8rem;
-    }
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
-    .moreIcon {
-        top: -2px;
-        width: 13px;
-    }
+  #MainTitlePage {
+    font-size: 4rem;
+  }
+  #MainDescriptionPage p {
+    font-size: 0.8rem;
+  }
+  .TopMenu-Tabel {
+    max-width: 90%;
+  }
+  .moreIcon {
+    top: -2px;
+    width: 13px;
+  }
 }
 
-@media screen and (max-width:516px){
-    .TopMenu-Tabel nav ul li {
-        padding: 6px 7px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: .85rem;
-    }
+@media screen and (max-width: 516px) {
+  .TopMenu-Tabel nav ul li {
+    padding: 6px 7px;
+  }
+  .TopMenu-Tabel nav ul li a {
+    font-size: 0.85rem;
+  }
 
-    #MainTitlePage {
-        font-size: 3.75rem;
-    }
-    #MainDescriptionPage p {
-        font-size: .7555rem;
-    }
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
+  #MainTitlePage {
+    font-size: 3.75rem;
+  }
+  #MainDescriptionPage p {
+    font-size: 0.7555rem;
+  }
+  .TopMenu-Tabel {
+    max-width: 90%;
+  }
 }
 
-@media screen and (max-width:468px){
-    .TopMenu-Tabel nav ul li {
-        padding: 6px 5px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: .8rem;
-    }
+@media screen and (max-width: 468px) {
+  .TopMenu-Tabel nav ul li {
+    padding: 6px 5px;
+  }
+  .TopMenu-Tabel nav ul li a {
+    font-size: 0.8rem;
+  }
 
-    #MainTitlePage {
-        font-size: 3.7rem;
-    }
-    #MainDescriptionPage p {
-        font-size: .7rem;
-    }
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
-    .moreIcon {
-        top: -2px;
-        width: 11.5px;
-    }
+  #MainTitlePage {
+    font-size: 3.7rem;
+  }
+  #MainDescriptionPage p {
+    font-size: 0.7rem;
+  }
+  .TopMenu-Tabel {
+    max-width: 90%;
+  }
+  .moreIcon {
+    top: -2px;
+    width: 11.5px;
+  }
 }
 
+@media screen and (max-width: 440px) {
+  .TopMenu-Tabel nav ul li {
+    padding: 6px 6px;
+  }
+  .TopMenu-Tabel nav ul li a {
+    font-size: 0.7rem;
+  }
 
-@media screen and (max-width:440px){
-    .TopMenu-Tabel nav ul li {
-        padding: 6px 6px;
-    }
-    .TopMenu-Tabel nav ul li a {
-        font-size: .7rem;
-    }
-
-    #MainTitlePage {
-        font-size: 3.7rem;
-    }
-    #MainDescriptionPage p {
-        font-size: .7rem;
-    }
-    .TopMenu-Tabel {
-        max-width: 90%;
-    }
+  #MainTitlePage {
+    font-size: 3.7rem;
+  }
+  #MainDescriptionPage p {
+    font-size: 0.7rem;
+  }
+  .TopMenu-Tabel {
+    max-width: 90%;
+  }
 }
-/* 405px min*/ 
-
-
-
+/* 405px min*/
