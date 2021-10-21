@@ -1,7 +1,17 @@
+@import './variables.scss';
+@import 'sass/utilities/_all';
+@import 'sass/base/_all';
+@import 'sass/elements/_all';
+@import 'sass/form/_all';
+@import 'sass/components/_all';
+@import 'sass/grid/_all';
+@import 'sass/helpers/_all';
+@import 'sass/layout/_all';
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-weight: 600;
 }
 
 #particles-js {
@@ -16,9 +26,13 @@
 .Ubuntu {
   font-family: 'Ubuntu', sans-serif;
 }
+.Rubil {
+  font-family: 'Rubik', sans-serif;
+}
 .Bold {
   font-weight: bold;
 }
+
 html,
 body {
   height: 100%;
@@ -26,19 +40,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
-}
-
-.mat-icon-button:hover .mat-button-focus-overlay {
-  opacity: 1 !important;
-  background-color: red;
-}
-#MatButton {
-  cursor: pointer;
-}
-.MatMenuTxt {
-  font-size: 1.2rem;
-  font-weight: 500;
-  padding: 0px;
-  height: auto;
-  line-height: normal;
 }

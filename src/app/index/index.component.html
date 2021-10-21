@@ -1,58 +1,44 @@
-<section id="Background" class="SourceCode">
-  <div id="particles-js">
-    <main>
-      <section id="TopMenu">
-        <div class="Navigation">
-          <nav>
-            <ul>
-              <a>Vánoce</a>
-
-              <a>Covid</a>
-
-              <a>Editor</a>
-
-              <a>Faktura</a>
-
-              <a
-                #Button
-                [matMenuTriggerFor]="NapicuMenu"
-                #NapicuMenuTrigger="matMenuTrigger"
-                (mouseenter)="ButtonMatMenuOpen(NapicuMenuTrigger)"
-                (mouseleave)="ButtonMatMenuClose(NapicuMenuTrigger, Button)"
-                style="z-index: 1050"
-                id="MatButton"
-              >
-                Další
-              </a>
-            </ul>
-          </nav>
-        </div>
-      </section>
-
-      <mat-menu #NapicuMenu="matMenu" direction="down" yPosition="below">
-        <span (mouseenter)="MatMenuOpen()" (mouseleave)="MatMenuClose(NapicuMenuTrigger, Button)">
-          <button class="MatMenuTxt SourceCode" mat-menu-item>Settings</button>
-          <button class="MatMenuTxt SourceCode" mat-menu-item>Help</button>
-        </span>
-      </mat-menu>
-
-      <section>
-        <div class="MiddleMenu">
-          <div>
-            <div class="MainBox">
-              <div class="MainPageTitle">Napicu</div>
-              <div class="MainPageDescription">
-                <p>
-                  Miliony lidí se sešlo, aby vytvořili tuto jedinečnou stránku!<br />
-                  Stránku, na které lidé pracovali tisíce a tisíce hodin, jen <br />
-                  aby dokázali dostat toto dílo do života ostatních lidí!<br />
-                  Stránka, která byla vytvořena lidmi přímo pro tebe!<br />
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+<nav class="navbar" role="navigation" aria-label="main navigation" style="font-size: 1.3rem">
+  <div class="navbar-brand">
+    <a
+      #Burger
+      role="button"
+      class="navbar-burger"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="NapicuBarMain"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
-</section>
+
+  <div #NavMenu id="NapicuBarMain" class="navbar-menu">
+    <div class="navbar-start">
+      <a href="https://napicu.eu/vanoce" class="navbar-item">Vánoce</a>
+      <a href="https://napicu.eu/covid" class="navbar-item">Covid</a>
+      <a href="https://popjonanek.napicu.eu/" class="navbar-item">PopJonanek</a>
+      <a href="https://faktura.napicu.eu/" class="navbar-item">Faktura</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link"> Další </a>
+
+        <div class="navbar-dropdown">
+          <div>
+            <h2>Hry</h2>
+          </div>
+          <a href="https://napicu.eu/game" class="navbar-item">Plecháč</a>
+          <a href="https://flappybird.napicu.eu/" class="navbar-item">Flappy</a>
+          <a href="https://napicu.eu/typegame" class="navbar-item">Typing Game</a>
+          <a href="https://tic.tac.toe.napicu.eu/" class="navbar-item">Tic Tac Toe</a>
+          <div>
+            <h2>Nástroje</h2>
+          </div>
+          <a href="https://napicu.eu/pocasi" class="navbar-item">Počasí</a>
+          <a href="https://ip.napicu.eu" class="navbar-item">NapicuIP</a>
+          <a href="https://editor.napicu.eu" class="navbar-item">Editor</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
