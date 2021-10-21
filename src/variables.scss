@@ -1,11 +1,8 @@
 $family-sans-serif: 'Rubik', sans-serif;
 
-
-//! * * * Navbar * * *
-$navbar-item-hover-color: rgba(54, 54, 54, 0.541);
+//// --- -- -  -- - -- - -  ////
+$navbar-item-hover-color: #b1b1b1be;
+$navbar-item-color: #e0e0e0be; //? Index Top Main (Main-text-Color)
 $navbar-item-hover-background-color: #00000000;
-
-$navbar-dropdown-arrow: $navbar-item-hover-color; //TODO Zjistit hlavní barvu textu
-
-
-//Text
+$navbar-dropdown-arrow: $navbar-item-color;
+$navbar-background-color: #00000000;
