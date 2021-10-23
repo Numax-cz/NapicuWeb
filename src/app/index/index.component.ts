@@ -25,7 +25,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
     //this.LoadParticles();
   }
   ngAfterViewInit(): void {
-    //TODO Move (2)
     this.Burger.nativeElement.addEventListener('click', () => {
       this.NavMenu.nativeElement.classList.toggle('is-active');
     });
