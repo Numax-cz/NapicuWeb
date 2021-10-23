@@ -1,11 +1,6 @@
 import { MatMenuTrigger } from '@angular/material/menu/menu-trigger';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
-import { ButtonClose } from './Menu/Button/ButtonClose';
-import { ButtonOpen } from './Menu/Button/ButtonOpen';
-import { MenuClose } from './Menu/Menu/MenuClose';
-import { OpenMenu } from './Menu/Menu/MenuOpen';
-
 import { ParticlesConfig } from './particles-config';
 declare let particlesJS: any;
 @Component({
@@ -38,21 +33,5 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
   public LoadParticles(): void {
     particlesJS('particles-js', ParticlesConfig, function () {});
-  }
-
-  public MatMenuOpen(): void {
-    OpenMenu();
-  }
-
-  public MatMenuClose(trigger: MatMenuTrigger, button: any): void {
-    MenuClose(trigger, button, this.ren);
-  }
-
-  public ButtonMatMenuOpen(trigger: MatMenuTrigger): void {
-    ButtonOpen(trigger);
-  }
-
-  public ButtonMatMenuClose(trigger: MatMenuTrigger, button: any): void {
-    ButtonClose(trigger, button, this.ren);
   }
 }
