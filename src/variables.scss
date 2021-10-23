@@ -5,4 +5,6 @@ $navbar-item-hover-color: #b1b1b1be;
 $navbar-item-color: #e0e0e0be; //? Index Top Main (Main-text-Color)
 $navbar-item-hover-background-color: #00000000;
 $navbar-dropdown-arrow: $navbar-item-color;
-$navbar-background-color: #00000000;
+
+$navbar-background-color: #111111;
+$navbar-dropdown-background-color: $navbar-background-color

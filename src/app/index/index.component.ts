@@ -12,9 +12,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   constructor(private ren: Renderer2) {
     //Todo items
   }
-  static MenuOpen: boolean = false;
-  static ButtonOpen: boolean = false;
-  static ButtonTrigger: any;
+  public MenuOpen: boolean = false;
 
   //TODO Move (1)
 
@@ -27,6 +25,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.Burger.nativeElement.addEventListener('click', () => {
       this.NavMenu.nativeElement.classList.toggle('is-active');
+      this.MenuOpen = (!this.MenuOpen) ? true : false;
     });
   }
 
