@@ -7,18 +7,28 @@
 @import 'sass/grid/_all';
 @import 'sass/helpers/_all';
 @import 'sass/layout/_all';
-* {
-  padding: 0;
-  margin: 0;
+// * {
+//   padding: 0;
+//   margin: 0;
+//   font-weight: 500;
+// }
+html {
+  background-color: white;
+  font-size: 14px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: 300px;
   box-sizing: border-box;
-  font-weight: 500;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-rendering: optimizeLegibility;
 }
 
-#particles-js {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
+// #particles-js {
+//   width: 100%;
+//   height: 100%;
+//   z-index: -1;
+// }
 
 #SourceCode {
   font-family: 'Source Code Pro', monospace;
@@ -33,14 +43,11 @@
   font-weight: bold;
 }
 
-html,
-body {
-  height: 100%;
-}
+
 body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
-.initial{
-  line-height: initial
+.initial {
+  line-height: initial;
 }
