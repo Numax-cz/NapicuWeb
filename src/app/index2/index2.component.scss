@@ -1,0 +1,39 @@
+#Background {
+  width: 100%;
+  height: 100%;
+  background-color: #0e1624;
+}
+#NapicuPanel {
+  padding-top: 22rem;
+}
+#NapicuBlock {
+  width: 200px;
+  height: 25px;
+  border-radius: 20px;
+  background-image: linear-gradient(90deg, #0066FF, #CB16E6);
+}
+
+#NapicuBoxText-Title{
+    font-size: 2rem;
+}
+#NapicuBoxImg{
+    width: 128px;
+}
+
+@media screen and (max-width: 768px) {
+  #NapicuPanel {
+    padding-top: 16rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #NapicuPanel {
+    padding-top: 13rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  #NapicuPanel {
+    padding-top: 11rem;
+  }
+}

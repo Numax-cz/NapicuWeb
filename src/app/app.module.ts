@@ -9,9 +9,10 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
+import { Index2Component } from './index2/index2.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, Error404Component],
+  declarations: [AppComponent, IndexComponent, Error404Component, Index2Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
