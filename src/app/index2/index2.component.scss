@@ -3,6 +3,7 @@
   height: 100%;
   background-color: #0e1624;
 }
+
 #NapicuPanel {
   padding-top: 22rem;
 }
@@ -10,19 +11,28 @@
   width: 200px;
   height: 25px;
   border-radius: 20px;
-  background-image: linear-gradient(90deg, #0066FF, #CB16E6);
+  margin-top: 18vh;
+  background-image: linear-gradient(90deg, #0066ff, #cb16e6);
 }
-
-#NapicuBoxText-Title{
-    font-size: 2rem;
+#NapicuMainTitle {
+  font-size: 8rem;
 }
-#NapicuBoxImg{
-    width: 128px;
+#NapicuMainBox {
+  max-width: 75%;
+}
+#NapicuBoxText-Title {
+  font-size: 2rem;
+}
+#NapicuBoxImg {
+  width: 128px;
 }
 
 @media screen and (max-width: 768px) {
   #NapicuPanel {
     padding-top: 16rem;
+  }
+  #NapicuMainTitle {
+    font-size: 6rem;
   }
 }
 
@@ -30,10 +40,25 @@
   #NapicuPanel {
     padding-top: 13rem;
   }
+  #NapicuMainBox {
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 375px) {
   #NapicuPanel {
     padding-top: 11rem;
+  }
+  #NapicuPol2,
+  #NapicuPol1 {
+    width: 75%;
+  }
+  #NapicuBoxImg{
+    width: 64px;
+  }
+}
+@media screen and (max-width: 320px) {
+  #NapicuMainTitle{
+    font-size: 4.5rem;
   }
 }

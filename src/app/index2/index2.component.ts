@@ -25,4 +25,8 @@ export class Index2Component implements OnInit {
       this.MenuOpen = !this.MenuOpen ? true : false;
     });
   }
+
+  get year(): string {
+    return new Date().getFullYear().toString();
+  }
 }

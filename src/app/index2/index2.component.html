@@ -1,4 +1,18 @@
 <section id="Background">
+  <img
+    class="content"
+    src="/assets/img/NapicuObrazec-1.svg"
+    alt="Obrazec"
+    id="NapicuPol1"
+    style="position: absolute; right: 0px; top: 17%"
+  />
+  <img
+    class="content"
+    src="/assets/img/NapicuObrazec-2.svg"
+    alt="Obrazec"
+    id="NapicuPol2"
+    style="position: absolute; left: 0px; top: 90%; z-index: 20"
+  />
   <nav class="navbar is-size-4" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
@@ -39,30 +53,27 @@
       </div>
     </div>
   </nav>
-  <img
-    class="content"
-    src="/assets/img/NapicuObrazec.svg"
-    alt="Obrazec"
-    style="position: absolute; right: -120px; top: 17%"
-  />
 
-  <main class="is-relative">
+  <main class="is-relative" style="padding-bottom: 10rem">
     <div class="section" id="NapicuPanel">
-      <div style="max-width: 75%; margin: auto">
-        <div class="Verdana initial has-text-white is-size-1 has-text-weight-bold">Napicu</div>
-        <div class="section">
-          <p class="Verdana initial is-size-2" style="color: #c7c7c798">
-            Miliony lidí se sešlo, aby vytvořili tuto jedinečnou stránku!<br />
-            Stránku, na které lidé pracovali tisíce a tisíce hodin, jen <br />
-            aby dokázali dostat toto dílo do života ostatních lidí!<br />
-            Stránka, která byla vytvořena lidmi přímo pro tebe!<br />
-          </p>
+      <div id="NapicuMainBox" style="margin: auto">
+        <div style="z-index: 40; position: relative">
+          <div class="Verdana initial has-text-white has-text-weight-bold" id="NapicuMainTitle">Napicu</div>
+          <div class="section">
+            <p class="Verdana initial is-size-2 is-size-4-mobile" style="color: #c7c7c798">
+              Miliony lidí se sešlo, aby vytvořili tuto jedinečnou stránku!<br />
+              Stránku, na které lidé pracovali tisíce a tisíce hodin, jen <br />
+              aby dokázali dostat toto dílo do života ostatních lidí!<br />
+              Stránka, která byla vytvořena lidmi přímo pro tebe!<br />
+            </p>
+          </div>
         </div>
-        <div></div>
-        <section id="NapicuBlock"></section>
+
+        <section id="NapicuBlock" style="z-index: 10"></section>
       </div>
     </div>
-    <section class="section">
+
+    <section class="section mt-6" style="z-index: 30; position: relative">
       <div class="container is-max-desktop">
         <div class="box" style="background-color: #080d16">
           <article class="media">
@@ -73,11 +84,65 @@
             </div>
             <div class="media-content">
               <div class="content">
-                <div class="Verdana has-text-white initial has-text-weight-bold" id="NapicuBoxText-Title">
-                  Napicu
+                <div>
+                  <a
+                    href="https://github.com/Numax-cz/NapicuBios"
+                    target="_blank"
+                    class="
+                      Verdana
+                      is-size-3 is-size-4-mobile
+                      has-text-white
+                      initial
+                      is-info
+                      has-text-weight-bold
+                    "
+                  >
+                    NapicuBios
+                  </a>
                 </div>
-                <div class="container">
-                  <p>NapicuBios se blíží nenech si ujít novinky ohledně</p>
+                <div class="container m-3" style="color: #c7c7c798">
+                  <p class="is-size-5 is-size-6-mobile">
+                    NapicuBios se blíží! Nenech si ujít novinky ohledně tohoto projektu! NapicuBios je volně
+                    otevřená webová aplikace, která obsahuje emulovaný operační systém NapicuOS, BIOS a mnohem
+                    dalšího!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="box" style="background-color: #080d16">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image">
+                <a href="https://youtu.be/dV9Pta2DxYU" target="_blank">
+                  <img id="NapicuBoxImg" src="assets/img/roth.webp" alt="NapicuBios" />
+                </a>
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <div>
+                  <a
+                    href="https://youtu.be/dV9Pta2DxYU"
+                    target="_blank"
+                    class="
+                      Verdana
+                      is-size-3 is-size-4-mobile
+                      has-text-white
+                      initial
+                      is-info
+                      has-text-weight-bold
+                    "
+                  >
+                    Průzkum Dark Webu | Český web NaPicu
+                  </a>
+                </div>
+                <div class="container m-3" style="color: #c7c7c798">
+                  <p class="is-size-5 is-size-6-mobile">
+                    NapicuWeb se dostal i k známému tvůrci Roth Welldenovi, který ukázal tento skvělý web vé
+                    své sérii "Průzkum Dark Webu"
+                  </p>
                 </div>
               </div>
             </div>
@@ -86,4 +151,60 @@
       </div>
     </section>
   </main>
+
+  <footer
+    class="is-relative footer has-text-white"
+    style="background-color: #111111; padding-bottom: 1rem; z-index: 30"
+  >
+    <div class="content has-text-centered has-text-white">
+      <div class="is-size-2 initial">
+        <p>
+          <strong class="has-text-white">NapicuWeb</strong> Created by
+          <a href="https://github.com/Numax-cz" target="_blank"> Numax </a>with❤️
+        </p>
+      </div>
+    </div>
+    <div>
+      <div>
+        <div class="container">
+          <div class="columns">
+            <div class="column is-4">
+              <div class="bd-footer-tsp">
+                Source code licensed
+                <a href="https://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>
+                <br />
+                Website content licensed
+                <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"
+                  >CC BY-NC-SA 4.0</a
+                >
+              </div>
+            </div>
+            <div class="column is-4">
+              <h4 class="bd-footer-title"><strong>Contribute</strong> on GitHub</h4>
+
+              <div>
+                <a href="https://github.com/Numax-cz" target="_blank">
+                  <button class="button is-dark">
+                    <strong>Follow @Numax-cz </strong>
+                  </button>
+                </a>
+              </div>
+            </div>
+            <div class="column is-4">
+              <h4 class="bd-footer-title"><strong>Numax</strong> on Discord</h4>
+
+              <div>
+                <div class="bd-footer-iframe is-github">
+                  <button class="button is-dark">
+                    <strong>Numax#6286</strong>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="has-text-weight-medium is-size-5" style="color: #c7c7c798">©{{ year }} Napicu</h1>
+    </div>
+  </footer>
 </section>
