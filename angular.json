@@ -32,7 +32,8 @@
             "assets": [
               "src/favicon.ico",
               "src/favicon.png",
-              "logo-meta.png",
+              "src/logo-meta.png",
+              "src/icon-512x512.png",
               "src/assets",
               "src/manifest.webmanifest"
             ],
