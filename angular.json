@@ -31,6 +31,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
+              "src/favicon.png",
+              "logo-meta.png",
               "src/assets",
               "src/manifest.webmanifest"
             ],
@@ -38,9 +40,7 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/particles.js/particles.js"
-            ],
+            "scripts": ["node_modules/particles.js/particles.js"],
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json"
           },
@@ -103,11 +103,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.webmanifest"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
