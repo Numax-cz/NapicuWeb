@@ -20,8 +20,22 @@ html {
   min-width: 300px;
   box-sizing: border-box;
   overflow-x: hidden;
-
   text-rendering: optimizeLegibility;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+  background-color: #182131;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
 }
 
 // #particles-js {
