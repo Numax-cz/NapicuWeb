@@ -28,6 +28,15 @@
   width: 128px;
 }
 
+#NapicuButtonHover {
+  display: block;
+
+  > :focus {
+    background-color: rgb(16, 212, 85);
+    transition: 1s;
+  }
+}
+
 @media screen and (max-width: 768px) {
   #NapicuPanel {
     padding-top: 16rem;
@@ -54,12 +63,12 @@
   #NapicuPol1 {
     width: 75%;
   }
-  #NapicuBoxImg{
+  #NapicuBoxImg {
     width: 64px;
   }
 }
 @media screen and (max-width: 320px) {
-  #NapicuMainTitle{
+  #NapicuMainTitle {
     font-size: 4.5rem;
   }
 }

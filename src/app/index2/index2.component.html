@@ -32,19 +32,18 @@
 
       <div #NavMenu id="NapicuBarMain" class="navbar-menu">
         <div class="navbar-start Verdana">
-          <a href="https://napicu.eu/vanoce" class="navbar-item">Vánoce</a>
-          <a href="https://napicu.eu/covid" class="navbar-item">Covid</a>
-          <a href="https://popjonanek.napicu.eu/" class="navbar-item">PopJonanek</a>
-          <a href="https://faktura.napicu.eu/" class="navbar-item">Faktura</a>
+          <a href="https://vanoce.napicu.eu" class="navbar-item">Vánoce</a>
+          <a href="https://covid.napicu.eu" class="navbar-item">Covid</a>
+          <a href="https://popjonanek.napicu.eu" class="navbar-item">PopJonanek</a>
+          <a href="https://faktura.napicu.eu" class="navbar-item">Faktura</a>
           <div class="navbar-item has-dropdown is-hoverable napicuNavStyle">
             <a class="navbar-link"> Další </a>
 
             <div class="navbar-dropdown is-boxed is-size-5">
-              <a href="https://napicu.eu/game" class="navbar-item">Plecháč</a>
-              <a href="https://flappybird.napicu.eu/" class="navbar-item">Flappy</a>
-              <a href="https://napicu.eu/typegame" class="navbar-item">Typing Game</a>
-              <a href="https://tic.tac.toe.napicu.eu/" class="navbar-item">Tic Tac Toe</a>
-              <a href="https://napicu.eu/pocasi" class="navbar-item">Počasí</a>
+              <a href="https://flappybird.napicu.eu" class="navbar-item">Flappy</a>
+              <a href="https://typegame.napicu.eu" class="navbar-item">Typing Game</a>
+              <a href="https://tic.tac.toe.napicu.eu" class="navbar-item">Tic Tac Toe</a>
+              <a href="https://pocasi.napicu.eu" class="navbar-item">Počasí</a>
               <a href="https://ip.napicu.eu" class="navbar-item">NapicuIP</a>
               <a href="https://editor.napicu.eu" class="navbar-item">Editor</a>
             </div>
@@ -180,7 +179,9 @@
               </div>
             </div>
             <div class="column is-4">
-              <h4 class="bd-footer-title"><strong>Contribute</strong> on GitHub</h4>
+              <h4 class="bd-footer-title">
+                <strong class="has-text-weight-medium" style="color: #787878">Contribute</strong> on GitHub
+              </h4>
 
               <div>
                 <a href="https://github.com/Numax-cz" target="_blank">
@@ -191,12 +192,15 @@
               </div>
             </div>
             <div class="column is-4">
-              <h4 class="bd-footer-title"><strong>Numax</strong> on Discord</h4>
+              <h4 class="bd-footer-title">
+                <strong class="has-text-weight-medium" style="color: #787878">Numax</strong>
+                on Discord
+              </h4>
 
               <div>
-                <div class="bd-footer-iframe is-github">
-                  <button class="button is-dark">
-                    <strong>Numax#6286</strong>
+                <div id="NapicuButtonHover" class="bd-footer-iframe">
+                  <button #DiscordLink class="button is-dark" (click)="copyID()">
+                    <strong>{{ DiscordName }}</strong>
                   </button>
                 </div>
               </div>
