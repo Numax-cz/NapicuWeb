@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IndexComponent } from './index/index.component';
 import { Error404Component } from './error404/error404.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
@@ -12,7 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { Index2Component } from './index2/index2.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, Error404Component, Index2Component],
+  declarations: [AppComponent, Error404Component, Index2Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +22,7 @@ import { Index2Component } from './index2/index2.component';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     NoopAnimationsModule,
-    MatMenuModule
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
