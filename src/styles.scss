@@ -17,10 +17,10 @@ html {
   font-size: 14px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   min-width: 300px;
   box-sizing: border-box;
   overflow-x: hidden;
-  text-rendering: optimizeLegibility;
 }
 
 ::-webkit-scrollbar {

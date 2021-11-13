@@ -7,13 +7,12 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   styleUrls: ['./index2.component.scss'],
 })
 export class Index2Component implements OnInit {
-
   constructor(private ren: Renderer2) {
     //Todo items
   }
   public MenuOpen: boolean = false;
 
-  public readonly DiscordName: string = 'Numax#6286';
+  public readonly Email: string = 'numax@napicu.eu';
   //TODO Move (1)
 
   @ViewChild('Burger') protected declare Burger: ElementRef;
@@ -31,7 +30,7 @@ export class Index2Component implements OnInit {
   }
 
   public copyID(): void {
-    navigator.clipboard.writeText(this.DiscordName);
+    navigator.clipboard.writeText(this.Email);
     // this.DiscordLink.nativeElement.classList.add('NapicuButtonHover');
   }
 
