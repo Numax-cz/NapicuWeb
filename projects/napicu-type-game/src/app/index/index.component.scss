@@ -1,0 +1,23 @@
+
+#InputText{
+    width: 40%;
+    margin: 0px 25px;
+    input{
+        width: 100%;
+        outline: none;
+        border: 1px solid black;
+        padding: 10px 14px;
+        border-radius: 10px;
+    }
+}
+#BoxPanel1,
+#BoxPanel2{
+    width: 64px;
+    height: 64px;
+    padding: .9rem;
+    text-align: center;
+}
+#BoxPanel1{
+    width: 84px;
+
+}
