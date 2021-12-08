@@ -1,23 +1,31 @@
-
-#InputText{
-    width: 40%;
-    margin: 0px 25px;
-    input{
-        width: 100%;
-        outline: none;
-        border: 1px solid black;
-        padding: 10px 14px;
-        border-radius: 10px;
-    }
+#InputText {
+  width: 40%;
+  margin: 0px 25px;
+  input {
+    width: 100%;
+    outline: none;
+    border: 1px solid black;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
 }
 #BoxPanel1,
-#BoxPanel2{
-    width: 64px;
-    height: 64px;
-    padding: .9rem;
-    text-align: center;
+#BoxPanel2 {
+  width: 64px;
+  height: 64px;
+  padding: 0.9rem;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
 }
-#BoxPanel1{
-    width: 84px;
-
+#BoxPanel1 {
+  width: 84px;
+}
+.selectedWord {
+  background-color: #dbdbdb;
+  border-radius: 10px;
+}
+#Word {
+  padding: 3px 5px 3px 5px;
+  display: inline-block !important;
 }

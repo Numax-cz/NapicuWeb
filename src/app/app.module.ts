@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { Index2Component } from './index2/index2.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, Error404Component, Index2Component],
@@ -23,6 +24,7 @@ import { Index2Component } from './index2/index2.component';
     }),
     NoopAnimationsModule,
     MatMenuModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
