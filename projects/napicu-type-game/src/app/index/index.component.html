@@ -7,9 +7,9 @@
             <span
               id="Word"
               *ngFor="let i of words; let index = index"
-              [ngClass]="{ selectedWord: index == selectedWord }"
+              [ngClass]="{ 'has-background-grey-lighter': index == selectedWord && !i.mistake, 'has-background-danger': i.mistake }"
             >
-              {{ i }}
+              {{ i.value }}
             </span>
           </div>
         </div>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WordsAPI } from 'api';
+declare interface words {
+  value: string;
+  mistake: boolean;
+}
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -13,7 +17,13 @@ export class IndexComponent implements OnInit {
 
   public declare inputValue: string | null;
 
-  public words: string[] = [];
+  public words: words[] = [];
+
+  // public mistakesArray: words[] = [];
+
+  public exportData = {
+    mistakes: 0,
+  };
 
   constructor(private http: HttpClient) {
     window.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -30,6 +40,12 @@ export class IndexComponent implements OnInit {
   public onStart(): void {}
   public onEnd(): void {}
 
+  public checkWordFromInput(): void {}
+
+  public getSelecteWord(): words {
+    return this.words[this.selectedWord];
+  }
+
   public onSpaceBar(e: KeyboardEvent): void {
     if (this.inputValue?.indexOf(' ') != 0) {
       this.inputValue = null;
@@ -37,14 +53,37 @@ export class IndexComponent implements OnInit {
       e.preventDefault();
     }
   }
-  public onInputChange(e: any): void {
-    console.log(this.inputValue);
+
+  public apiGetError(): void {}
+
+  public showWindow(): void {}
+
+  public onInputChange(e: Event): void {
+    var selectedWord = this.getSelecteWord();
+    if (!this.inputValue || !selectedWord) {
+      selectedWord.mistake = false;
+    } else {
+      const indexInputLetter = this.inputValue.length - 1;
+      const inputLetters = this.inputValue.split('');
+      const selectedLetters = selectedWord.value?.split('');
+
+      inputLetters.forEach((sL: string, index: number) => {
+        if (sL !== selectedLetters[index]) {
+          selectedWord.mistake = true;
+        } else {
+          selectedWord.mistake = false;
+        }
+      });
+    }
   }
 
   public getWords(): void {
     this.http.get<any>(`${WordsAPI}?pocet=${this.maxWords}`).subscribe((data: string[]) => {
-      this.words = data;
+      data.forEach((i: string) => {
+        this.words.push({ value: i, mistake: false });
+      });
     });
+    console.log(this.words);
   }
   protected restart(): void {}
 }
