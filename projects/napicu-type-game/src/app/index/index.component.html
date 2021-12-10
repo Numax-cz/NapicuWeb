@@ -2,12 +2,18 @@
   <main>
     <div class="hero-body">
       <div class="container">
-        <div class="box" style="overflow-y: hidden; max-height: 5rem; height: auto; text-align: center">
+        <div
+          class="box"
+          style="overflow-y: hidden; max-height: 5rem; min-height: 5rem; height: auto; text-align: center"
+        >
           <div class="is-size-2 has-text-weight-normal">
             <span
               id="Word"
               *ngFor="let i of words; let index = index"
-              [ngClass]="{ 'has-background-grey-lighter': index == selectedWord && !i.mistake, 'has-background-danger': i.mistake }"
+              [ngClass]="{
+                'has-background-grey-lighter': index == selectedWord && !i.mistake,
+                'has-background-danger': i.mistake
+              }"
             >
               {{ i.value }}
             </span>
@@ -22,10 +28,13 @@
           style="background-color: rgba(70, 70, 70, 0.444)"
         >
           <div>
-            <div id="BoxPanel1" class="box is-size-4 has-text-weight-bold">0:00</div>
+            <div id="BoxPanel1" class="box is-size-4 has-text-weight-bold">
+              {{ timer.minutes }}:{{ timer.seconds }}
+            </div>
           </div>
           <div id="InputText">
             <input
+              [attr.disabled]="noMove ? '' : null"
               class="is-size-2 has-text-weight-normal"
               type="text"
               [(ngModel)]="inputValue"
@@ -34,7 +43,12 @@
           </div>
           <div>
             <div id="BoxPanel2" class="box">
-              <img class="is-32x32" src="/assets/refresh.svg" alt="RefreshButton" />
+              <img
+                class="is-32x32"
+                src="/assets/refresh.svg"
+                alt="RefreshButton"
+                (click)="restart(); getWords()"
+              />
             </div>
           </div>
         </div>
