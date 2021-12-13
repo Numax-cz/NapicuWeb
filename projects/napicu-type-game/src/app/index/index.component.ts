@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WordsAPI } from 'api';
 import { timer_minutes, timer_seconds } from './timerConfig';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 declare interface words {
   value: string;
   mistake: boolean;
@@ -10,11 +11,22 @@ declare interface words {
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
+  animations: [
+    trigger('curzor', [
+      state(
+        'true',
+        style({
+          background: '#dbdbdb',
+        })
+      ),
+      transition(`*=>*`, animate(200)),
+    ]),
+  ],
 })
 export class IndexComponent implements OnInit {
   public readonly maxWords: number = 300;
 
-  public selectedWord: number = 0;
+  public selectedWordIndex: number = 0;
 
   public declare inputValue: string | null;
 
@@ -30,6 +42,8 @@ export class IndexComponent implements OnInit {
 
   public declare exportData: any;
 
+  public declare previousWordPosition: number;
+
   constructor(private http: HttpClient) {
     window.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.keyCode == 32) this.onSpaceBar(e);
@@ -37,7 +51,7 @@ export class IndexComponent implements OnInit {
   }
 
   public restart(): void {
-    this.selectedWord = 0;
+    this.selectedWordIndex = 0;
     this.inputValue = null;
     this.noMove = false;
     this.timer = {
@@ -58,6 +72,7 @@ export class IndexComponent implements OnInit {
     if (!this.launched) {
       this.launched = true;
     }
+
     this.restart();
     this.setTimer();
   }
@@ -69,14 +84,26 @@ export class IndexComponent implements OnInit {
   public checkWordFromInput(): void {}
 
   public getSelecteWord(): words {
-    return this.words[this.selectedWord];
+    return this.words[this.selectedWordIndex];
   }
 
   public onSpaceBar(e: KeyboardEvent): void {
-    if (this.noMove) return;
+    if (this.noMove || !this.inputValue?.length) return;
+    var element = document
+      .getElementsByClassName(`napicuWord-${this.selectedWordIndex + 1}`)
+      .item(0) as HTMLElement;
+
+    if (this.previousWordPosition < element.offsetTop) {
+      this.words.splice(0, this.selectedWordIndex + 1);
+      this.selectedWordIndex = 0;
+      e.preventDefault();
+      
+    }
+    this.previousWordPosition = element.offsetTop;
+
     if (this.inputValue?.indexOf(' ') != 0) {
       this.inputValue = null;
-      this.selectedWord += 1;
+      this.selectedWordIndex += 1;
       e.preventDefault();
     }
   }
@@ -105,6 +132,7 @@ export class IndexComponent implements OnInit {
 
   public checkMistakes(): void {
     var selectedWord = this.getSelecteWord();
+
     var returnValue = false;
     if (this.inputValue && selectedWord) {
       const inputLetters = this.inputValue.split('');
@@ -119,6 +147,12 @@ export class IndexComponent implements OnInit {
     }
     selectedWord.mistake = returnValue;
   }
+  public checkFullText(): void {
+    var selectedWord = this.getSelecteWord();
+    if (selectedWord.value.length !== this.inputValue?.length) {
+      selectedWord.mistake = true;
+    }
+  }
 
   public getWords(): void {
     this.words = [];
@@ -127,6 +161,5 @@ export class IndexComponent implements OnInit {
         this.words.push({ value: i, mistake: false });
       });
     });
-    console.log(this.words);
   }
 }

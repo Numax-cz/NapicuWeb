@@ -8,12 +8,14 @@
         >
           <div class="is-size-2 has-text-weight-normal">
             <span
-              id="Word"
               *ngFor="let i of words; let index = index"
+              [@curzor]="index == selectedWordIndex ? 'true' : 'false'"
               [ngClass]="{
-                'has-background-grey-lighter': index == selectedWord && !i.mistake,
+                'has-background-grey-lighter': index == selectedWordIndex && !i.mistake,
                 'has-background-danger': i.mistake
               }"
+              [class]="'napicuWord-' + index"
+              id="Word"
             >
               {{ i.value }}
             </span>
