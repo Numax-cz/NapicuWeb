@@ -9,7 +9,7 @@
           <div class="is-size-2 has-text-weight-normal">
             <span
               *ngFor="let i of words; let index = index"
-              [@curzor]="index == selectedWordIndex ? 'true' : 'false'"
+              [@cursor]="index == selectedWordIndex ? 'true' : 'false'"
               [ngClass]="{
                 'has-background-grey-lighter': index == selectedWordIndex && !i.mistake,
                 'has-background-danger': i.mistake

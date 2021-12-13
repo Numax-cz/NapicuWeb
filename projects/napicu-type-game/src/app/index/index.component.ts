@@ -12,7 +12,7 @@ declare interface words {
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
   animations: [
-    trigger('curzor', [
+    trigger('cursor', [
       state(
         'true',
         style({
@@ -95,9 +95,7 @@ export class IndexComponent implements OnInit {
 
     if (this.previousWordPosition < element.offsetTop) {
       this.words.splice(0, this.selectedWordIndex + 1);
-      this.selectedWordIndex = 0;
-      e.preventDefault();
-      
+      this.selectedWordIndex = -1;
     }
     this.previousWordPosition = element.offsetTop;
 
