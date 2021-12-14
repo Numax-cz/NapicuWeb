@@ -34,10 +34,10 @@
               {{ timer.minutes }}:{{ timer.seconds }}
             </div>
           </div>
-          <div id="InputText">
+          <div class="InputDiv">
             <input
               [attr.disabled]="noMove ? '' : null"
-              class="is-size-2 has-text-weight-normal"
+              class="is-size-2 has-text-weight-normal InputWord"
               type="text"
               [(ngModel)]="inputValue"
               (ngModelChange)="onInputChange($event)"
