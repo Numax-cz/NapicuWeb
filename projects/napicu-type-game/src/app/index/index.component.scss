@@ -1,14 +1,24 @@
-#InputText {
+.InputDiv {
   width: 40%;
   margin: 0px 25px;
-  input {
-    width: 100%;
-    outline: none;
-    border: 1px solid black;
-    padding: 10px 14px;
-    border-radius: 10px;
-  }
 }
+
+.InputWord {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+input:disabled {
+  background-color: #dbdbdb;
+  border-color: #dbdbdb;
+  cursor: not-allowed;
+  box-shadow: none;
+  color: #7a7a7a;
+}
+
 #BoxPanel1,
 #BoxPanel2 {
   width: 64px;
