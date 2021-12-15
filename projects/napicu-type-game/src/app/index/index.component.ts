@@ -148,6 +148,7 @@ export class IndexComponent implements OnInit {
     }
     selectedWord.mistake = returnValue;
   }
+
   public checkFullText(): void {
     var selectedWord = this.getSelecteWord();
     if (!selectedWord) return;
