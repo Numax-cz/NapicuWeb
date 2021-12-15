@@ -30,8 +30,8 @@
           style="background-color: rgba(70, 70, 70, 0.444)"
         >
           <div>
-            <div id="BoxPanel1" class="box is-size-4 has-text-weight-bold">
-              {{ timer.minutes }}:{{ timer.seconds }}
+            <div (click)="timeDisplay()" id="BoxPanel1" class="box is-size-4 has-text-weight-bold">
+              <p *ngIf="displayTime">{{ timer.minutes }}:{{ timer.seconds }}</p>
             </div>
           </div>
           <div class="InputDiv">
@@ -58,3 +58,25 @@
     </div>
   </main>
 </div>
+
+<section style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+  <div class="features">
+    <div class="container">
+      <div class="columns is-centered is-vcentered is-mobile">
+        <div class="column is-narrow">
+          <div class="box has-background-link">
+            <div class="is-size-1">Výsledky</div>
+            <div class="container p-2">
+              <section>
+                <div>WPM</div>
+                <div>Počet chyb</div>
+                <div>Napsaných slov</div>
+                <div>Napsaných písmen</div>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { WordsAPI } from 'api';
 import { timer_minutes, timer_seconds } from './timerConfig';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { BlockScrollStrategy } from '@angular/cdk/overlay';
 declare interface words {
   value: string;
   mistake: boolean;
@@ -24,6 +25,9 @@ declare interface words {
   ],
 })
 export class IndexComponent implements OnInit {
+
+  public displayTime: boolean = true;
+
   public readonly maxWords: number = 300;
 
   public selectedWordIndex: number = 0;
@@ -37,8 +41,6 @@ export class IndexComponent implements OnInit {
   public declare noMove: boolean;
 
   public declare timer: any;
-
-  // public mistakesArray: words[] = [];
 
   public declare exportData: any;
 
@@ -100,6 +102,7 @@ export class IndexComponent implements OnInit {
     this.previousWordPosition = element.offsetTop;
 
     if (this.inputValue?.indexOf(' ') != 0) {
+      this.checkFullText();
       this.inputValue = null;
       this.selectedWordIndex += 1;
       e.preventDefault();
@@ -147,6 +150,7 @@ export class IndexComponent implements OnInit {
   }
   public checkFullText(): void {
     var selectedWord = this.getSelecteWord();
+    if (!selectedWord) return;
     if (selectedWord.value.length !== this.inputValue?.length) {
       selectedWord.mistake = true;
     }
@@ -159,5 +163,9 @@ export class IndexComponent implements OnInit {
         this.words.push({ value: i, mistake: false });
       });
     });
+  }
+
+  public timeDisplay(): void {
+    this.displayTime = this.displayTime ? false : true;
   }
 }
