@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { WordsAPI } from 'api';
-import { timer_minutes, timer_seconds } from './timerConfig';
+import { timer_minutes, timer_seconds } from './config';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BlockScrollStrategy } from '@angular/cdk/overlay';
 import { exportDataIn, inputValueIn, words } from './interface';
@@ -38,7 +38,7 @@ export class IndexComponent implements OnInit {
   public declare noMove: boolean;
 
   public declare timer: any;
-  
+
   /**
    * Data to be printed out
    */
