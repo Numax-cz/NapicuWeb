@@ -4,10 +4,8 @@ import { WordsAPI } from 'api';
 import { timer_minutes, timer_seconds } from './timerConfig';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BlockScrollStrategy } from '@angular/cdk/overlay';
-declare interface words {
-  value: string;
-  mistake: boolean;
-}
+import { exportDataIn, inputValueIn, words } from './interface';
+
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
@@ -25,14 +23,13 @@ declare interface words {
   ],
 })
 export class IndexComponent implements OnInit {
-
   public displayTime: boolean = true;
 
   public readonly maxWords: number = 300;
 
   public selectedWordIndex: number = 0;
 
-  public declare inputValue: string | null;
+  public declare inputValue: inputValueIn;
 
   public declare words: words[];
 
@@ -41,8 +38,11 @@ export class IndexComponent implements OnInit {
   public declare noMove: boolean;
 
   public declare timer: any;
-
-  public declare exportData: any;
+  
+  /**
+   * Data to be printed out
+   */
+  public declare exportData: exportDataIn;
 
   public declare previousWordPosition: number;
 
@@ -61,7 +61,10 @@ export class IndexComponent implements OnInit {
       seconds: timer_seconds,
     };
     this.exportData = {
-      allMistakes: 0,
+      wrongWords: 0,
+      wrongLetters: 0,
+      letters: 0,
+      words: 0,
     };
   }
 
@@ -105,6 +108,7 @@ export class IndexComponent implements OnInit {
       this.checkFullText();
       this.inputValue = null;
       this.selectedWordIndex += 1;
+      this.exportData.words += 1;
       e.preventDefault();
     }
   }
@@ -140,7 +144,7 @@ export class IndexComponent implements OnInit {
       const selectedLetters = selectedWord.value?.split('');
       inputLetters.forEach((sL: string, index: number) => {
         if (sL !== selectedLetters[index]) {
-          this.exportData.allMistakes += 1;
+          this.exportData.wrongLetters += 1;
           returnValue = true;
           return;
         }
