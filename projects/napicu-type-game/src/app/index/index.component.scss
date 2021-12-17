@@ -35,6 +35,7 @@ input:disabled {
 #Word {
   border-radius: 10px;
   margin: 0px 4px;
+  user-select: none;
   padding: 3px 5px 3px 5px;
   display: inline-block !important;
 }
