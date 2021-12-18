@@ -29,5 +29,11 @@ export declare interface words {
    * Determine if the word is misspelled.
    */
   mistake: boolean;
+  letters: wordsLetter[];
 }
 export declare type inputValueIn = string | null;
+
+export declare interface wordsLetter {
+  mistake: boolean | null;
+  value: string;
+}

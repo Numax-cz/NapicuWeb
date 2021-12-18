@@ -4,7 +4,7 @@ import { WordsAPI } from 'api';
 import { timer_minutes, timer_seconds } from './config';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BlockScrollStrategy } from '@angular/cdk/overlay';
-import { exportDataIn, inputValueIn, words } from './interface';
+import { exportDataIn, inputValueIn, words, wordsLetter } from './interface';
 
 @Component({
   selector: 'app-index',
@@ -31,7 +31,7 @@ export class IndexComponent implements OnInit {
 
   public declare inputValue: inputValueIn;
 
-  public declare words: words[];
+  public declare ApiWords: words[];
 
   public declare launched: boolean;
 
@@ -86,10 +86,18 @@ export class IndexComponent implements OnInit {
     this.launched = false;
   }
 
-  public checkWordFromInput(): void {}
+  protected getWPM(): number {
+    return Math.round(this.exportData.letters / 5 / timer_minutes + (timer_seconds % 3600) / 60);
+  }
+
+  protected getAccurately(): number {
+    return Math.round(
+      (this.exportData.letters - this.exportData.wrongLetters) / (this.exportData.letters / 100)
+    );
+  }
 
   public getSelecteWord(): words {
-    return this.words[this.selectedWordIndex];
+    return this.ApiWords[this.selectedWordIndex];
   }
 
   public onSpaceBar(e: KeyboardEvent): void {
@@ -99,16 +107,21 @@ export class IndexComponent implements OnInit {
       .item(0) as HTMLElement;
 
     if (this.previousWordPosition < element.offsetTop) {
-      this.words.splice(0, this.selectedWordIndex + 1);
+      this.ApiWords.splice(0, this.selectedWordIndex + 1);
       this.selectedWordIndex = -1;
     }
     this.previousWordPosition = element.offsetTop;
 
     if (this.inputValue?.indexOf(' ') != 0) {
       this.checkFullText();
+      if (this.getSelecteWord()?.mistake) {
+        this.exportData.wrongWords += 1;
+      } else {
+        this.exportData.words += 1;
+      }
+
       this.inputValue = null;
       this.selectedWordIndex += 1;
-      this.exportData.words += 1;
       e.preventDefault();
     }
   }
@@ -129,10 +142,23 @@ export class IndexComponent implements OnInit {
   }
   public apiGetError(): void {}
 
-  public onInputChange(e: Event): void {
+  public onInputChange(e: string): void {
     if (!this.launched) this.start();
     if (this.noMove) return;
     this.checkMistakes();
+
+    var letter: wordsLetter = this.getSelecteWord().letters[e.length - 1];
+
+    if (letter) {
+      if (this.getSelecteWord().mistake && letter.mistake == null) {
+        this.exportData.wrongLetters += 1;
+        letter.mistake = false;
+      } else if (letter.mistake == null) {
+        this.exportData.letters += 1;
+        letter.mistake = true;
+      }
+    }
+    // console.log(letter);
   }
 
   public checkMistakes(): void {
@@ -144,7 +170,6 @@ export class IndexComponent implements OnInit {
       const selectedLetters = selectedWord.value?.split('');
       inputLetters.forEach((sL: string, index: number) => {
         if (sL !== selectedLetters[index]) {
-          this.exportData.wrongLetters += 1;
           returnValue = true;
           return;
         }
@@ -162,15 +187,38 @@ export class IndexComponent implements OnInit {
   }
 
   public getWords(): void {
-    this.words = [];
+    this.ApiWords = [];
     this.http.get<any>(`${WordsAPI}?pocet=${this.maxWords}`).subscribe((data: string[]) => {
       data.forEach((i: string) => {
-        this.words.push({ value: i, mistake: false });
+        var value: wordsLetter[] = [];
+        i.split('').forEach((element: string) => {
+          value.push({ value: element, mistake: null });
+        });
+        this.ApiWords.push({ value: i, mistake: false, letters: value });
       });
     });
   }
 
   public timeDisplay(): void {
     this.displayTime = this.displayTime ? false : true;
+  }
+
+  get wrongWords(): number {
+    return this.exportData.wrongWords;
+  }
+  get wrongLetters(): number {
+    return this.exportData.wrongLetters;
+  }
+  get letters(): number {
+    return this.exportData.letters;
+  }
+  get words(): number {
+    return this.exportData.words;
+  }
+  get wpm(): number {
+    return this.getWPM();
+  }
+  get accurately(): number {
+    return this.getAccurately();
   }
 }

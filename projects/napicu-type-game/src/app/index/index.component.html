@@ -8,7 +8,7 @@
         >
           <div class="is-size-2 has-text-weight-normal">
             <span
-              *ngFor="let i of words; let index = index"
+              *ngFor="let i of ApiWords; let index = index"
               [@cursor]="index == selectedWordIndex ? 'true' : 'false'"
               [ngClass]="{
                 'has-background-grey-lighter': index == selectedWordIndex && !i.mistake,
@@ -59,13 +59,14 @@
   </main>
 </div>
 
-<section style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%">
+<section style="position: absolute; top: 50%; transform: translate(-50%, -50%); left: 50%; width: 100%;">
   <div class="features">
     <div class="container">
       <div class="columns is-centered is-vcentered is-mobile">
         <!-- Box-Alert -->
-        <div class="column is-two-fifths">
-          <div class="box has-background-link has-text-white is-one-fifth">
+        <!-- Or is-two-fifths -->
+        <div class="column is-half">
+          <div class="box has-background-link has-text-white">
             <div class="box">
               <div class="is-size-2 has-text-weight-bold has-text-centered" style="user-select: none">
                 Výsledky
@@ -73,13 +74,13 @@
             </div>
             <div class="container p-2">
               <section>
-                <div class="has-text-success is-size-1 has-text-centered has-text-weight-medium">69 WPM</div>
+                <div class="has-text-success is-size-1 has-text-centered has-text-weight-medium">{{wpm}} WPM</div>
                 <div class="container">
                   <!-- <div class="is-size-2 has-text-centered">69 chyb</div> -->
-                  <div>Úhozů</div>
-                  <div>Přesnost</div>
-                  <div>Chybných slov</div>
-                  <div>Správných slov</div>
+                  <div>Úhozů ({{ letters }}/{{ wrongLetters }})</div>
+                  <div>Přesnost {{accurately}}%</div>
+                  <div>Chybných slov {{ wrongWords }}</div>
+                  <div>Správných slov {{ words }}</div>
                 </div>
               </section>
             </div>
