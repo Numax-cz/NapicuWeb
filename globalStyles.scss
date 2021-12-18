@@ -1,0 +1,58 @@
+
+@import './imports.scss';
+html {
+  background-color: white;
+  font-size: 14px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-width: 300px;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 18px;
+  background-color: #182131;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+// #particles-js {
+//   width: 100%;
+//   height: 100%;
+//   z-index: -1;
+// }
+
+#SourceCode {
+  font-family: 'Source Code Pro', monospace;
+}
+.Ubuntu {
+  font-family: 'Ubuntu', sans-serif;
+}
+.Rubil {
+  font-family: 'Rubik', sans-serif;
+}
+.Verdana {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.Bold {
+  font-weight: bold;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+.initial {
+  line-height: initial;
+}
