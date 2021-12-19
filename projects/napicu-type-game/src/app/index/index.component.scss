@@ -23,14 +23,18 @@ input:disabled {
 #BoxPanel2 {
   width: 64px;
   height: 64px;
-  padding: 0.9rem;
-  text-align: center;
-  user-select: none;
+  display: flex;
   cursor: pointer;
+  padding: 0.9rem;
+  user-select: none;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
-#BoxPanel1 {
-  width: 84px;
-}
+// #BoxPanel1 {
+//   //width: 84px;
+//   width: 64px;
+// }
 
 #Word {
   border-radius: 10px;
