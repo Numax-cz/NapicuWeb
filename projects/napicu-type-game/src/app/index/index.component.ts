@@ -20,9 +20,21 @@ import { exportDataIn, inputValueIn, words, wordsLetter } from './interface';
       ),
       transition(`*=>*`, animate(200)),
     ]),
+    trigger('window', [
+      transition(':enter', [
+        style({ transform: 'scale(0)' }),
+        animate(150, style({ transform: 'scale(1)' })),
+      ]),
+      transition(':leave', [
+        style({ transform: 'scale(1)' }),
+        animate(150, style({ transform: 'scale(0)' })),
+      ]),
+    ]),
   ],
 })
 export class IndexComponent implements OnInit {
+  public displayScore: boolean = true;
+
   public displayTime: boolean = true;
 
   public readonly maxWords: number = 300;
@@ -84,6 +96,7 @@ export class IndexComponent implements OnInit {
   public onEnd(): void {
     this.noMove = true;
     this.launched = false;
+    this.displayScore = true;
   }
 
   protected getWPM(): number {
@@ -201,6 +214,10 @@ export class IndexComponent implements OnInit {
 
   public timeDisplay(): void {
     this.displayTime = this.displayTime ? false : true;
+  }
+
+  public onButtonClickRestart(): void {
+    this.restart();
   }
 
   get wrongWords(): number {
