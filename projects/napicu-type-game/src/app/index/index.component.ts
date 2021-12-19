@@ -33,7 +33,7 @@ import { exportDataIn, inputValueIn, words, wordsLetter } from './interface';
   ],
 })
 export class IndexComponent implements OnInit {
-  public displayScore: boolean = true;
+  public displayScore: boolean = false;
 
   public displayTime: boolean = true;
 
@@ -67,6 +67,7 @@ export class IndexComponent implements OnInit {
   public restart(): void {
     this.selectedWordIndex = 0;
     this.inputValue = null;
+    this.displayScore = false;
     this.noMove = false;
     this.timer = {
       minutes: timer_minutes,
