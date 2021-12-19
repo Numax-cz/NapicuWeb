@@ -59,30 +59,77 @@
   </main>
 </div>
 
-<section style="position: absolute; top: 50%; transform: translate(-50%, -50%); left: 50%; width: 100%;">
-  <div class="features">
+<section
+  *ngIf="displayScore"
+  style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: hsl(207deg 28% 63% / 52%);
+  "
+>
+  <div
+    class="features"
+    style="position: absolute; width: 100%; transform: translate(-50%, -50%); top: 50%; left: 50%"
+  >
     <div class="container">
-      <div class="columns is-centered is-vcentered is-mobile">
+      <div class="columns is-centered is-vcentered is-mobile" style="width: 100%; margin: 0">
         <!-- Box-Alert -->
         <!-- Or is-two-fifths -->
-        <div class="column is-half">
+        <div
+          class="
+            column
+            is-three-quarters-mobile
+            is-two-thirds-tablet
+            is-one-third-desktop
+            is-one-third-widescreen
+            is-two-fifths-fullhd
+          "
+          @window
+        >
           <div class="box has-background-link has-text-white">
             <div class="box">
               <div class="is-size-2 has-text-weight-bold has-text-centered" style="user-select: none">
                 Výsledky
               </div>
             </div>
+
+            <!-- Center -->
             <div class="container p-2">
               <section>
-                <div class="has-text-success is-size-1 has-text-centered has-text-weight-medium">{{wpm}} WPM</div>
-                <div class="container">
+                <div
+                  class="has-text-success has-text-centered has-text-weight-medium"
+                  style="font-size: 4rem"
+                >
+                  {{ wpm }} WPM
+                </div>
+                <div class="section">
                   <!-- <div class="is-size-2 has-text-centered">69 chyb</div> -->
-                  <div>Úhozů ({{ letters }}/{{ wrongLetters }})</div>
-                  <div>Přesnost {{accurately}}%</div>
-                  <div>Chybných slov {{ wrongWords }}</div>
-                  <div>Správných slov {{ words }}</div>
+                  <div class="is-size-4">
+                    Úhozů (<span class="has-text-success">{{ letters }}</span
+                    >/<span class="has-text-danger">{{ wrongLetters }}</span
+                    >)
+                  </div>
+                  <div class="is-size-4">Přesnost {{ accurately }}%</div>
+                  <div class="is-size-4">
+                    Chybných slov<span class="has-text-danger"> {{ wrongWords }}</span>
+                  </div>
+                  <div class="is-size-4">
+                    Správných slov <span class="has-text-success">{{ words }}</span>
+                  </div>
                 </div>
               </section>
+            </div>
+            <!-- Bottom -->
+            <div class="container">
+              <div
+                class="button is-success is-medium is-fullwidth m-auto column is-three-fifths"
+                (click)="onButtonClickRestart()"
+              >
+                Restartovat
+              </div>
             </div>
           </div>
         </div>
