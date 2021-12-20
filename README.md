@@ -46,3 +46,9 @@ ng g c <název_komponentu> --project <název_aplikace>
 ```sh
 npm run build <název_aplikace>
 ```
+
+## Importování Angular PWA
+
+```sh
+npm run pwa <název_aplikace>
+```
