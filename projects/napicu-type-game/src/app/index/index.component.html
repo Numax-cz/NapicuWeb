@@ -9,7 +9,7 @@
           <div class="is-size-2 has-text-weight-normal">
             <span
               *ngFor="let i of ApiWords; let index = index"
-              [@cursor]="index == selectedWordIndex ? 'true' : 'false'"
+      
               [ngClass]="{
                 'has-background-grey-lighter': index == selectedWordIndex && !i.mistake,
                 'has-background-danger': i.mistake
@@ -41,6 +41,7 @@
               type="text"
               [(ngModel)]="inputValue"
               (ngModelChange)="onInputChange($event)"
+              autofocus
             />
           </div>
           <div>
@@ -49,7 +50,7 @@
                 class="is-32x32"
                 src="/assets/refresh.svg"
                 alt="RefreshButton"
-                (click)="restart(); getWords()"
+                (click)="restart()"
               />
             </div>
           </div>
@@ -126,7 +127,7 @@
             <div class="container">
               <div
                 class="button is-success is-medium is-fullwidth m-auto column is-three-fifths"
-                (click)="onButtonClickRestart()"
+                (click)="restart()"
               >
                 Restartovat
               </div>

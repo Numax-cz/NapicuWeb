@@ -5,21 +5,13 @@ import { timer_minutes, timer_seconds } from './config';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BlockScrollStrategy } from '@angular/cdk/overlay';
 import { exportDataIn, inputValueIn, words, wordsLetter } from './interface';
+import { throwIfEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.scss'],
   animations: [
-    trigger('cursor', [
-      state(
-        'true',
-        style({
-          background: '#dbdbdb',
-        })
-      ),
-      transition(`*=>*`, animate(200)),
-    ]),
     trigger('window', [
       transition(':enter', [
         style({ transform: 'scale(0)' }),
@@ -62,6 +54,7 @@ export class IndexComponent implements OnInit {
     window.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.keyCode == 32) this.onSpaceBar(e);
     });
+    this.restart();
   }
 
   public restart(): void {
@@ -79,12 +72,11 @@ export class IndexComponent implements OnInit {
       letters: 0,
       words: 0,
     };
-  }
 
-  ngOnInit(): void {
-    this.restart();
     this.getWords();
   }
+
+  ngOnInit(): void {}
 
   public start(): void {
     if (!this.launched) {
@@ -202,6 +194,7 @@ export class IndexComponent implements OnInit {
 
   public getWords(): void {
     this.ApiWords = [];
+
     this.http.get<any>(`${WordsAPI}?pocet=${this.maxWords}`).subscribe((data: string[]) => {
       data.forEach((i: string) => {
         var value: wordsLetter[] = [];
@@ -215,10 +208,6 @@ export class IndexComponent implements OnInit {
 
   public timeDisplay(): void {
     this.displayTime = this.displayTime ? false : true;
-  }
-
-  public onButtonClickRestart(): void {
-    this.restart();
   }
 
   get wrongWords(): number {
