@@ -5,7 +5,7 @@ import { timer_minutes, timer_seconds } from './config';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BlockScrollStrategy } from '@angular/cdk/overlay';
 import { exportDataIn, inputValueIn, words, wordsLetter } from './interface';
-import { throwIfEmpty } from 'rxjs';
+import { catchError, Observable, throwError, throwIfEmpty } from 'rxjs';
 
 @Component({
   selector: 'app-index',
@@ -29,19 +29,23 @@ export class IndexComponent implements OnInit {
 
   public displayTime: boolean = true;
 
+  public ApiWords: words[] = [];
+
   public readonly maxWords: number = 300;
 
   public selectedWordIndex: number = 0;
 
   public declare inputValue: inputValueIn;
 
-  public declare ApiWords: words[];
-
   public declare launched: boolean;
 
   public declare noMove: boolean;
 
   public declare timer: any;
+
+  public ApiError: boolean = false;
+
+  public loadingRetry: boolean = false;
 
   /**
    * Data to be printed out
@@ -146,6 +150,12 @@ export class IndexComponent implements OnInit {
       this.timer.seconds--;
     }, 1000);
   }
+
+  public retry(): void {
+    this.loadingRetry = true;
+    this.getWords();
+  }
+
   public apiGetError(): void {}
 
   public onInputChange(e: string): void {
@@ -164,12 +174,10 @@ export class IndexComponent implements OnInit {
         letter.mistake = true;
       }
     }
-    // console.log(letter);
   }
 
   public checkMistakes(): void {
     var selectedWord = this.getSelecteWord();
-
     var returnValue = false;
     if (this.inputValue && selectedWord) {
       const inputLetters = this.inputValue.split('');
@@ -193,17 +201,22 @@ export class IndexComponent implements OnInit {
   }
 
   public getWords(): void {
-    this.ApiWords = [];
-
-    this.http.get<any>(`${WordsAPI}?pocet=${this.maxWords}`).subscribe((data: string[]) => {
-      data.forEach((i: string) => {
-        var value: wordsLetter[] = [];
-        i.split('').forEach((element: string) => {
-          value.push({ value: element, mistake: null });
+    this.http.get<any>(`${WordsAPI}?pocet=${this.maxWords}`).subscribe(
+      (data: string[]) => {
+        data.forEach((i: string) => {
+          var value: wordsLetter[] = [];
+          i.split('').forEach((element: string) => {
+            value.push({ value: element, mistake: null });
+          });
+          this.ApiWords.push({ value: i, mistake: false, letters: value });
         });
-        this.ApiWords.push({ value: i, mistake: false, letters: value });
-      });
-    });
+        this.ApiError = false;
+      },
+      (error: any) => {
+        this.ApiError = true;
+        this.loadingRetry = false;
+      }
+    );
   }
 
   public timeDisplay(): void {

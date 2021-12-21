@@ -9,7 +9,6 @@
           <div class="is-size-2 has-text-weight-normal">
             <span
               *ngFor="let i of ApiWords; let index = index"
-      
               [ngClass]="{
                 'has-background-grey-lighter': index == selectedWordIndex && !i.mistake,
                 'has-background-danger': i.mistake
@@ -36,7 +35,7 @@
           </div>
           <div class="InputDiv">
             <input
-              [attr.disabled]="noMove ? '' : null"
+              [attr.disabled]="noMove ? '' : !ApiWords.length ? '' : null"
               class="is-size-2 has-text-weight-normal InputWord"
               type="text"
               [(ngModel)]="inputValue"
@@ -46,12 +45,7 @@
           </div>
           <div>
             <div id="BoxPanel2" class="box">
-              <img
-                class="is-32x32"
-                src="/assets/refresh.svg"
-                alt="RefreshButton"
-                (click)="restart()"
-              />
+              <img class="is-32x32" src="/assets/refresh.svg" alt="RefreshButton" (click)="restart()" />
             </div>
           </div>
         </div>
@@ -61,7 +55,7 @@
 </div>
 
 <section
-  *ngIf="displayScore"
+  *ngIf="displayScore || ApiError"
   style="
     position: absolute;
     top: 0;
@@ -90,48 +84,78 @@
           "
           @window
         >
-          <div class="box has-background-link has-text-white">
-            <div class="box">
-              <div class="is-size-2 has-text-weight-bold has-text-centered" style="user-select: none">
-                Výsledky
+          <div
+            class="box has-background-danger has-text-white"
+            [ngClass]="ApiError ? 'has-background-danger' : 'has-background-link'"
+          >
+            <section *ngIf="displayScore">
+              <div class="box">
+                <div class="is-size-2 has-text-weight-bold has-text-centered" style="user-select: none">
+                  Výsledky
+                </div>
               </div>
-            </div>
 
-            <!-- Center -->
-            <div class="container p-2">
-              <section>
-                <div
-                  class="has-text-success has-text-centered has-text-weight-medium"
-                  style="font-size: 4rem"
-                >
-                  {{ wpm }} WPM
-                </div>
-                <div class="section">
-                  <!-- <div class="is-size-2 has-text-centered">69 chyb</div> -->
-                  <div class="is-size-4">
-                    Úhozů (<span class="has-text-success">{{ letters }}</span
-                    >/<span class="has-text-danger">{{ wrongLetters }}</span
-                    >)
+              <!-- Center -->
+              <div class="container p-2">
+                <section>
+                  <div
+                    class="has-text-success has-text-centered has-text-weight-medium"
+                    style="font-size: 4rem"
+                  >
+                    {{ wpm }} WPM
                   </div>
-                  <div class="is-size-4">Přesnost {{ accurately }}%</div>
-                  <div class="is-size-4">
-                    Chybných slov<span class="has-text-danger"> {{ wrongWords }}</span>
+                  <div class="section">
+                    <!-- <div class="is-size-2 has-text-centered">69 chyb</div> -->
+                    <div class="is-size-4">
+                      Úhozů (<span class="has-text-success">{{ letters }}</span
+                      >/<span class="has-text-danger">{{ wrongLetters }}</span
+                      >)
+                    </div>
+                    <div class="is-size-4">Přesnost {{ accurately }}%</div>
+                    <div class="is-size-4">
+                      Chybných slov<span class="has-text-danger"> {{ wrongWords }}</span>
+                    </div>
+                    <div class="is-size-4">
+                      Správných slov <span class="has-text-success">{{ words }}</span>
+                    </div>
                   </div>
-                  <div class="is-size-4">
-                    Správných slov <span class="has-text-success">{{ words }}</span>
-                  </div>
-                </div>
-              </section>
-            </div>
-            <!-- Bottom -->
-            <div class="container">
-              <div
-                class="button is-success is-medium is-fullwidth m-auto column is-three-fifths"
-                (click)="restart()"
-              >
-                Restartovat
+                </section>
               </div>
-            </div>
+              <!-- Bottom -->
+              <div class="container">
+                <div
+                  class="button is-success is-medium is-fullwidth m-auto column is-three-fifths"
+                  (click)="restart()"
+                >
+                  Restartovat
+                </div>
+              </div>
+            </section>
+            <section *ngIf="ApiError">
+              <div class="box has-background-dark">
+                <div
+                  class="is-size-2 has-text-weight-bold has-text-centered has-text-white"
+                  style="user-select: none"
+                >
+                  Nebylo možné získat data
+                </div>
+              </div>
+              <div class="container p-2">
+                <p class="has-text-weight-medium is-size-4">
+                  Je možné, že služba je momentálně nedostupná<br />
+                  <br />
+                  Zkuste to prosím později, nebo klikněte níže na tlačítko pro zopakování akce
+                </p>
+              </div>
+              <div class="container mt-5">
+                <div
+                  class="button is-success is-medium is-fullwidth m-auto column is-three-fifths" [ngClass]="{'is-loading': loadingRetry}"
+                  (click)="retry()"
+                >
+                  Zkusit znovu
+                </div>
+              </div>
+            </section>
           </div>
         </div>
       </div>
