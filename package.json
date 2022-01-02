@@ -4,9 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --output-hashing none",
+    "build": "ng build --prod --build-optimizer --extract-licenses --output-hashing none",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
     "pwa": "ng add @angular/pwa --project"
   },
   "private": true,
