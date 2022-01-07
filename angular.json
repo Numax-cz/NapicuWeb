@@ -234,7 +234,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/napicu-covid",
+            "outputPath": "dist/NapicuCovid",
             "index": "projects/napicu-covid/src/index.html",
             "main": "projects/napicu-covid/src/main.ts",
             "polyfills": "projects/napicu-covid/src/polyfills.ts",
@@ -311,5 +311,5 @@
       }
     }
   },
-  "defaultProject": "NapicuWeb2"
+  "defaultProject": "NapicuWeb"
 }
