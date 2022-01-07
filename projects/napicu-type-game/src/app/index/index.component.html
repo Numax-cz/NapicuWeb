@@ -21,11 +21,7 @@
           </div>
         </div>
         <div
-          class="
-            box
-            is-flex is-align-items-center is-justify-content-center is-justify-content-center
-            flex-direction
-          "
+          class="box is-flex is-align-items-center is-justify-content-center is-justify-content-center flex-direction"
           style="background-color: rgba(70, 70, 70, 0.444)"
         >
           <div>
@@ -74,18 +70,11 @@
         <!-- Box-Alert -->
         <!-- Or is-two-fifths -->
         <div
-          class="
-            column
-            is-three-quarters-mobile
-            is-two-thirds-tablet
-            is-one-third-desktop
-            is-one-third-widescreen
-            is-two-fifths-fullhd
-          "
+          class="column is-three-quarters-mobile is-two-thirds-tablet is-one-third-desktop is-one-third-widescreen is-two-fifths-fullhd"
           @window
         >
           <div
-            class="box has-background-danger has-text-white"
+            class="box has-text-white"
             [ngClass]="ApiError ? 'has-background-danger' : 'has-background-link'"
           >
             <section *ngIf="displayScore">
@@ -149,7 +138,8 @@
               </div>
               <div class="container mt-5">
                 <div
-                  class="button is-success is-medium is-fullwidth m-auto column is-three-fifths" [ngClass]="{'is-loading': loadingRetry}"
+                  class="button is-success is-medium is-fullwidth m-auto column is-three-fifths"
+                  [ngClass]="{ 'is-loading': loadingRetry }"
                   (click)="retry()"
                 >
                   Zkusit znovu
