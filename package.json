@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --prod --build-optimizer --extract-licenses --output-hashing none",
+    "buildall": "node build.js",
     "watch": "ng build --watch --configuration development",
     "pwa": "ng add @angular/pwa --project"
   },
