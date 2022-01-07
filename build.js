@@ -1,30 +1,30 @@
-
-//TODO Dokumentace 
-//TODO Opravit console logy
+/**
+ * @author Numax
+ * @version 1.1.0
+ * This script is used to build all projects that are registered in angular.json
+ */
 
 const fs = require('fs');
 const spawn = require('child_process').spawn;
 const { exec } = require('child_process');
-function filterProjects(projects) {
-  return Object.keys(projects).filter((project) => project.indexOf('e2e') === -1);
-}
 
 fs.readFile(`angular.json`, 'utf8', async (err, data) => {
   if (err) throw err;
 
   ngCli = JSON.parse(data);
 
-  var projects = filterProjects(ngCli.projects);
+  var projects = Object.keys(ngCli.projects).filter((project) => project.indexOf('e2e') === -1);
+
+  console.log('Building projects ' + projects.join(','));
+  console.log();
 
   for (var i = 0; i < projects.length; i += 1) {
     let promises = [];
     promises.push(buildProject(projects[i]));
-
-    console.log('Building projects ' + projects.join(','));
-
+    console.log('Building project ' + projects[i]);
     await Promise.all(promises).then(
       (statusCode) => {
-        console.log('Projects ' + projects.join(',') + ' built successfully!');
+        console.log('Project ' + projects[i] + ' built successfully!');
 
         if (i + 1 === projects.length) {
           process.exit(0);
