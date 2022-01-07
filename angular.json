@@ -206,104 +206,12 @@
             "tsConfig": "projects/napicu-type-game/tsconfig.spec.json",
             "karmaConfig": "projects/napicu-type-game/karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/napicu-type-game/src/favicon.ico", "projects/napicu-type-game/src/assets", "projects/napicu-type-game/src/manifest.webmanifest"],
-            "styles": ["projects/napicu-type-game/src/styles.scss"],
-            "scripts": []
-          }
-        }
-      }
-    },
-    "NapicuCsko": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "projects/napicu-csko",
-      "sourceRoot": "projects/napicu-csko/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/NapicuCsko",
-            "index": "projects/napicu-csko/src/index.html",
-            "main": "projects/napicu-csko/src/main.ts",
-            "polyfills": "projects/napicu-csko/src/polyfills.ts",
-            "tsConfig": "projects/napicu-csko/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/napicu-csko/src/favicon.ico",
-              "projects/napicu-csko/src/assets"
+              "projects/napicu-type-game/src/favicon.ico",
+              "projects/napicu-type-game/src/assets",
+              "projects/napicu-type-game/src/manifest.webmanifest"
             ],
-            "styles": ["projects/napicu-csko/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/napicu-csko/src/environments/environment.ts",
-                  "with": "projects/napicu-csko/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "none"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "NapicuCsko:build:production"
-            },
-            "development": {
-              "browserTarget": "NapicuCsko:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "NapicuCsko:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/napicu-csko/src/test.ts",
-            "polyfills": "projects/napicu-csko/src/polyfills.ts",
-            "tsConfig": "projects/napicu-csko/tsconfig.spec.json",
-            "karmaConfig": "projects/napicu-csko/karma.conf.js",
-            "inlineStyleLanguage": "scss",
-            "assets": ["projects/napicu-csko/src/favicon.ico", "projects/napicu-csko/src/assets"],
-            "styles": ["projects/napicu-csko/src/styles.scss"],
+            "styles": ["projects/napicu-type-game/src/styles.scss"],
             "scripts": []
           }
         }
@@ -332,13 +240,8 @@
             "polyfills": "projects/napicu-covid/src/polyfills.ts",
             "tsConfig": "projects/napicu-covid/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/napicu-covid/src/favicon.ico",
-              "projects/napicu-covid/src/assets"
-            ],
-            "styles": [
-              "projects/napicu-covid/src/styles.scss"
-            ],
+            "assets": ["projects/napicu-covid/src/favicon.ico", "projects/napicu-covid/src/assets"],
+            "styles": ["projects/napicu-covid/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -400,13 +303,8 @@
             "tsConfig": "projects/napicu-covid/tsconfig.spec.json",
             "karmaConfig": "projects/napicu-covid/karma.conf.js",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/napicu-covid/src/favicon.ico",
-              "projects/napicu-covid/src/assets"
-            ],
-            "styles": [
-              "projects/napicu-covid/src/styles.scss"
-            ],
+            "assets": ["projects/napicu-covid/src/favicon.ico", "projects/napicu-covid/src/assets"],
+            "styles": ["projects/napicu-covid/src/styles.scss"],
             "scripts": []
           }
         }
