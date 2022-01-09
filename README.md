@@ -1,6 +1,5 @@
 # NapicuWeb
 
-- NapicuWeb - druhá verze 🎉
 - Vytvořeno pomocí [Angular](https://angular.io/)
 - [NapicuWeb - První verze](https://github.com/Numax-cz/napicu-web/tree/NapicuWeb)
 - [NapicuWeb - Druhá verze](https://github.com/Numax-cz/napicu-web/tree/NapicuWeb2)
