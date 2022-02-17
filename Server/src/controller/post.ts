@@ -3,6 +3,8 @@ import {NextFunction, Request, Response, Router} from "express";
 import {middlewareValidation} from "../validation/middleware";
 import {PostService} from "../service/post";
 import {PostSchema} from "../model/post";
+import {HttpStatusCode} from "../interface/HttpStatusCode";
+import {HttpException} from "../exceptions/errors";
 
 
 export class PostController implements  Controller{
@@ -12,24 +14,20 @@ export class PostController implements  Controller{
 
 
   constructor() {
-    this.initRouter();
-  }
-
-  protected  initRouter(): void {
-
     this.router.post(`${this.path}`, middlewareValidation(PostSchema), this.post);
 
   }
 
-  private async post(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+
+
+  protected async post(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
     try {
       let {title, body} = req.body;
-      let post = await this.service.create(title, body);
+      let post = this.service.create(title, body);
 
-      console.log(`post: ${post}`);
-      //res.status(HttpStatusCode.created)
+      res.status(HttpStatusCode.created).json({post})
     }catch (e){
-      // next(new HttpException("Post error", ))
+      next(new HttpException("Post error",HttpStatusCode.badRequest ))
     }
   }
 }

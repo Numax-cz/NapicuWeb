@@ -7,7 +7,14 @@ import {api_path} from "./config/serverConfig";
 import {Controller} from "./interface/controller";
 import {middlewareError} from "./middleware/error";
 import helmet from "helmet";
-import {serverStartMsg} from "./config/consoleMsg";
+import {
+  serverInitControllersMsg,
+  serverInitDatabase, serverInitDatabaseConnected,
+  serverInitDatabaseConnectionError,
+  serverInitMiddleware,
+  serverStartMsg
+} from "./config/consoleMsg";
+import {Router} from "express";
 
 
 export class App{
@@ -17,7 +24,7 @@ export class App{
     this.express = express();
     this.port = port;
 
-    this.initDatabase();
+   // this.initDatabase();
     this.initMiddleware();
     this.initControllers(controllers);
     this.initError();
@@ -26,13 +33,20 @@ export class App{
 
 
   protected initDatabase(): void {
+    console.log(serverInitDatabase);
     const {DB_HOST,DB_USER, DB_PASSWORD, DB_DATABASE} = process.env;
-    mysql.createConnection({
+     mysql.createConnection({
       host: DB_HOST,
       user: DB_USER,
       password: DB_PASSWORD,
       database: DB_DATABASE
-    });
+    }).connect((e: mysql.MysqlError) => {
+      if(e){
+       console.log(serverInitDatabaseConnectionError);
+       return;
+      }
+       console.log(serverInitDatabaseConnected);
+     });
   }
 
   public run(): void {
@@ -46,6 +60,7 @@ export class App{
     controllers.forEach((element: Controller) => {
       this.express.use(api_path, element.router);
     });
+    console.log(serverInitControllersMsg);
   }
 
   protected initError(): void {
@@ -58,6 +73,7 @@ export class App{
     this.express.use(helmet);
     this.express.use(morgan("dev"));
     this.express.use(compression());
+    console.log(serverInitMiddleware);
   }
 
 }
