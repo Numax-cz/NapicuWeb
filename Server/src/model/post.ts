@@ -1,9 +1,7 @@
 
-import joi from 'joi'
+const joi = require('joi')
 
-const PostSchema = joi.object(
-  {
-    title: joi.string().required(),
-    body: joi.string().required()
-  }
-)
+export const PostSchema = joi.object({
+  title: joi.string().required(),
+  body: joi.string().required(),
+});
