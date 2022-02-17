@@ -1,8 +1,9 @@
-import 'dotenv/config';
+import 'dotenv/config'
 import {App} from "./App";
+import {PostController} from "./controller/post";
 
 
 
-const i = new App([], Number(process.env.PORT));
+const i = new App([new PostController()], Number(process.env.PORT));
 
 i.run();

@@ -1,16 +1,16 @@
-import express, {Application, Response, Request} from "express";
-import helmet from "helmet";
-import * as mysql from 'mysql'
-import morgan from "morgan";
-import compression from "compression";
+import * as express from "express";
+import * as mysql from "mysql"
+import * as morgan from "morgan"
+import * as compression from "compression"
+
 import {api_path} from "./config/serverConfig";
 import {Controller} from "./interface/controller";
 import {middlewareError} from "./middleware/error";
-import * as expressGraphQL from "express-graphql";
+import helmet from "helmet";
 
 
 export class App{
-  public declare express: Application;
+  public declare express: express.Application;
   public declare port: number;
   constructor(controllers: Controller[], port: number) {
     this.express = express();
