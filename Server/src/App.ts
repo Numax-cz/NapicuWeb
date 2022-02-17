@@ -7,6 +7,7 @@ import {api_path} from "./config/serverConfig";
 import {Controller} from "./interface/controller";
 import {middlewareError} from "./middleware/error";
 import helmet from "helmet";
+import {serverStartMsg} from "./config/consoleMsg";
 
 
 export class App{
@@ -36,7 +37,7 @@ export class App{
 
   public run(): void {
     this.express.listen(this.port, () => {
-      console.log(`Server listening on port ${this.port}`);
+      console.log(`${serverStartMsg} ${this.port}`);
     });
   }
 
