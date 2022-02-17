@@ -16,10 +16,6 @@
     "importHelpers": true,
     "target": "es2017",
     "module": "commonjs",
-    "paths": {
-      "@/util": ["util/*"],
-      "@/middleware": ["middleware/*"]
-    },
     "allowSyntheticDefaultImports": true
   }
 }
