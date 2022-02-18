@@ -68,10 +68,10 @@ export class App{
   }
 
   protected initMiddleware(): void {
-    this.express.use(express.urlencoded({extended: false}));
-    this.express.use(express.json);
-    this.express.use(helmet);
-    this.express.use(morgan("dev"));
+    this.express.use(helmet());
+    this.express.use(morgan('dev'));
+    this.express.use(express.json());
+    this.express.use(express.urlencoded({ extended: false }));
     this.express.use(compression());
     console.log(serverInitMiddleware);
   }
