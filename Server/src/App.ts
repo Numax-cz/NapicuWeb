@@ -1,7 +1,7 @@
-import * as express from "express";
-import * as mysql from "mysql"
-import * as morgan from "morgan"
-import * as compression from "compression"
+import express, {Application} from 'express';
+import mysql from 'mysql';
+import morgan from "morgan";
+import compression from "compression";
 
 import {api_path} from "./config/serverConfig";
 import {Controller} from "./interface/controller";
@@ -9,16 +9,16 @@ import {middlewareError} from "./middleware/error";
 import helmet from "helmet";
 import {
   serverInitControllersMsg,
-  serverInitDatabase, serverInitDatabaseConnected,
+  serverInitDatabase,
+  serverInitDatabaseConnected,
   serverInitDatabaseConnectionError,
   serverInitMiddleware,
   serverStartMsg
 } from "./config/consoleMsg";
-import {Router} from "express";
 
 
 export class App{
-  public declare express: express.Application;
+  public declare express: Application;
   public declare port: number;
   constructor(controllers: Controller[], port: number) {
     this.express = express();

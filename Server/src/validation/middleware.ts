@@ -1,9 +1,6 @@
-import {RequestHandler, Request, Response, NextFunction} from "express";
+import {NextFunction, Request, RequestHandler, Response} from "express";
 import joi, {ValidationErrorItem} from "joi";
-import {ExecException} from "child_process";
 import {HttpStatusCode} from "../interface/HttpStatusCode";
-
-
 
 
 export function middlewareValidation(schema: joi.Schema): RequestHandler {

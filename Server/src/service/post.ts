@@ -1,6 +1,5 @@
 import {PostSchema} from "../model/post";
 import joi from "joi";
-import {PostController} from "../controller/post";
 import {Post} from "../interface/post";
 
 export class PostService{
