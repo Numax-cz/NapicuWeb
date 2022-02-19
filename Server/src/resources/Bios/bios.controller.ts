@@ -12,16 +12,17 @@ export class BiosController implements NapicuApiController{
   public router: Router =  Router();
 
   constructor() {
-    this.router.post(`${this.path}/waitlist`, middlewareValidation(EmailSchema), this.waitlist);
+    this.router.post(`${this.path}/waitlist`, middlewareValidation(EmailSchema), this.post);
   }
 
 
-  public async waitlist(req: Request, res: Response, next: NextFunction ): Promise<Response | void> {
+  public async post(req: Request, res: Response, next: NextFunction ): Promise<Response | void> {
     try {
       let {email} = req.body;
-      const post = await new BiosService().addToWaitList(email);
-      res.status(HttpStatusCode.created).json(post)
+      const user = await new BiosService().addToWaitList(email);
+      res.status(HttpStatusCode.created).json('s')
     }catch (e){
+      //TODO
     }
   }
 
