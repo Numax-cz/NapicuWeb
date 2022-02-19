@@ -1,5 +1,5 @@
 import express, {Application} from 'express';
-import mysql from 'mysql';
+import "reflect-metadata";
 import morgan from "morgan";
 import compression from "compression";
 
@@ -15,6 +15,10 @@ import {
   serverInitMiddleware,
   serverStartMsg
 } from "./config/consoleMsg";
+import {createConnection} from "typeorm";
+import {BiosWaitList} from "./entities/Bios/waitListDB";
+import {PopJonanekCounter} from "./entities/PopJonanek/counter";
+
 
 
 export class App{
@@ -29,7 +33,7 @@ export class App{
   }
 
   public async init(): Promise<void> {
-    this.initDatabase();
+    await this.initDatabase();
     this.initMiddleware();
     this.initControllers(this.controllers);
     this.initError();
@@ -38,20 +42,36 @@ export class App{
 
 
 
-  protected initDatabase(): void {
+  protected async initDatabase(): Promise<void> {
     console.log(serverInitDatabase);
     const {DB_HOST,DB_USER, DB_PASSWORD, DB_DATABASE} = process.env;
-    mysql.createConnection({
-      host: DB_HOST,
-      user: DB_USER,
-      password: DB_PASSWORD,
-    }).connect((e: mysql.MysqlError) => {
-      if(e){
-        console.log(serverInitDatabaseConnectionError);
-       return;
-      }
-       console.log(serverInitDatabaseConnected);
-     });
+    try{
+      await createConnection({
+        type: "mysql",
+        host: DB_HOST,
+        username: DB_USER,
+        password: DB_PASSWORD,
+        database: DB_DATABASE,
+        logging: true,
+        synchronize: true,
+        entities: [BiosWaitList, PopJonanekCounter]
+      })
+
+
+    }catch (e){
+      console.log(serverInitDatabaseConnectionError);
+    }
+    // mysql.createConnection({
+    //   host: DB_HOST,
+    //   user: DB_USER,
+    //   password: DB_PASSWORD,
+    // }).connect((e: mysql.MysqlError) => {
+    //   if(e){
+    //     console.log(serverInitDatabaseConnectionError);
+    //    return;
+    //   }
+    //    console.log(serverInitDatabaseConnected);
+    //  });
   }
 
   protected startServer(): void {
