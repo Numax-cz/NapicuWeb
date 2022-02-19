@@ -4,7 +4,7 @@ import morgan from "morgan";
 import compression from "compression";
 
 import {api_path} from "./config/serverConfig";
-import {Controller} from "./interface/controller";
+import {NapicuApiController} from "./interface/controller";
 import {middlewareError} from "./middleware/error";
 import helmet from "helmet";
 import {
@@ -20,14 +20,20 @@ import {
 export class App{
   public declare express: Application;
   public declare port: number;
-  constructor(controllers: Controller[], port: number) {
+  protected declare controllers: NapicuApiController[];
+  constructor(controllers: NapicuApiController[], port: number) {
     this.express = express();
     this.port = port;
+    this.controllers = controllers;
 
-   // this.initDatabase();
+  }
+
+  public async init(): Promise<void> {
+    this.initDatabase();
     this.initMiddleware();
-    this.initControllers(controllers);
+    this.initControllers(this.controllers);
     this.initError();
+    this.startServer();
   }
 
 
@@ -35,29 +41,28 @@ export class App{
   protected initDatabase(): void {
     console.log(serverInitDatabase);
     const {DB_HOST,DB_USER, DB_PASSWORD, DB_DATABASE} = process.env;
-     mysql.createConnection({
+    mysql.createConnection({
       host: DB_HOST,
       user: DB_USER,
       password: DB_PASSWORD,
-      database: DB_DATABASE
     }).connect((e: mysql.MysqlError) => {
       if(e){
-       console.log(serverInitDatabaseConnectionError);
+        console.log(serverInitDatabaseConnectionError);
        return;
       }
        console.log(serverInitDatabaseConnected);
      });
   }
 
-  public run(): void {
+  protected startServer(): void {
     this.express.listen(this.port, () => {
       console.log(`${serverStartMsg} ${this.port}`);
     });
   }
 
 
-  protected initControllers(controllers: Controller[]): void {
-    controllers.forEach((element: Controller) => {
+  protected initControllers(controllers: NapicuApiController[]): void {
+    controllers.forEach((element: NapicuApiController) => {
       this.express.use(api_path, element.router);
     });
     console.log(serverInitControllersMsg);
