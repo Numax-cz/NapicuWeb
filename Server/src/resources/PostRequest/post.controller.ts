@@ -17,8 +17,8 @@ export class PostController implements  NapicuApiController{
     this.router.post(`${this.path}`, middlewareValidation(PostSchema), this.post);
   }
 
-  public async post(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
-
-      res.status(HttpStatusCode.created).json('lulz')
+  protected async post(req: Request, res: Response, next: NextFunction): Promise<Response | void> {
+    const post = new PostService().create(req.body.title, req.body.body);
+    res.status(HttpStatusCode.created).json(post);
   }
 }
