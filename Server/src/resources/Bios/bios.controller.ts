@@ -15,7 +15,7 @@ export class BiosController implements NapicuApiController{
   public router: Router =  Router();
 
   constructor() {
-    this.router.post(`${this.path}/waitlist`, [middlewareValidation(EmailSchema), middlewareValidationToManyRequests()], this.post);
+    this.router.post(`${this.path}/waitlist`, [middlewareValidation(EmailSchema), middlewareValidationToManyRequests(15)], this.post);
   }
 
 
