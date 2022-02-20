@@ -1,6 +1,5 @@
 import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
-
 @Entity()
 export class BiosWaitList extends BaseEntity{
   @PrimaryGeneratedColumn()
@@ -8,5 +7,4 @@ export class BiosWaitList extends BaseEntity{
 
   @Column()
   email!: string;
-
 }

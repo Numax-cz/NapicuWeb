@@ -12,4 +12,34 @@ const i = new App([
   new PopjonanekController()
 ], Number(process.env.PORT));
 
-i.init();
+// i.init();
+
+interface ApiResponse<T>{
+  code: number
+  value: string
+  data: T
+}
+
+class TestApp<T> implements ApiResponse<T>{
+  public declare code: number;
+  public declare value: string;
+  public declare data: T ;
+
+  constructor(code: number, value: string, data: T) {
+    this.code = code;
+    this.value = value;
+    this.data = data;
+  }
+
+}
+interface NapicuBiosAPIResponse{
+  name: string,
+  username: string
+}
+
+const data: NapicuBiosAPIResponse = {
+name: 'Marcel', username: 'Numax'
+}
+
+const app = new TestApp<NapicuBiosAPIResponse>(1, "This is Test", data);
+

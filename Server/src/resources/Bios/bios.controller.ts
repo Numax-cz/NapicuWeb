@@ -1,6 +1,9 @@
 import {NapicuApiController} from "../../interface/controller";
 import {NextFunction, Request, Response, Router} from "express";
-import {middlewareValidation} from "../../validation/middleware";
+import {
+  middlewareValidation,
+  middlewareValidationToManyRequests
+} from "../../validation/middleware";
 import {EmailSchema} from "./bios.model";
 import {PostService} from "../PostRequest/post.service";
 import {HttpStatusCode} from "../../interface/HttpStatusCode";
@@ -12,7 +15,7 @@ export class BiosController implements NapicuApiController{
   public router: Router =  Router();
 
   constructor() {
-    this.router.post(`${this.path}/waitlist`, middlewareValidation(EmailSchema), this.post);
+    this.router.post(`${this.path}/waitlist`, [middlewareValidation(EmailSchema), middlewareValidationToManyRequests()], this.post);
   }
 
 
@@ -20,7 +23,7 @@ export class BiosController implements NapicuApiController{
     try {
       let {email} = req.body;
       const user = await new BiosService().addToWaitList(email);
-      res.status(HttpStatusCode.created).json('s')
+      res.status(HttpStatusCode.created).json('s');
     }catch (e){
       //TODO
     }

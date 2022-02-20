@@ -1,6 +1,7 @@
 import {NextFunction, Request, RequestHandler, Response} from "express";
 import joi, {ValidationErrorItem} from "joi";
 import {HttpStatusCode} from "../interface/HttpStatusCode";
+import rateLimit from "express-rate-limit";
 
 
 export function middlewareValidation(schema: joi.Schema): RequestHandler {
@@ -21,3 +22,14 @@ export function middlewareValidation(schema: joi.Schema): RequestHandler {
     }
   }
 }
+
+export function middlewareValidationToManyRequests(): RequestHandler{
+  return rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 10,
+    message:
+      'Too many requests, please try again after an hour',
+    standardHeaders: true,
+    legacyHeaders: false,
+    });
+  }
