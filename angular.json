@@ -82,10 +82,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NapicuWeb2:build:production"
+              "browserTarget": "NapicuWeb:build:production"
             },
             "development": {
-              "browserTarget": "NapicuWeb2:build:development"
+              "browserTarget": "NapicuWeb:build:development"
             }
           },
           "defaultConfiguration": "development"
