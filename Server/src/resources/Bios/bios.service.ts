@@ -16,7 +16,7 @@ export class BiosService{
     });
     let i = await BiosWaitList.findOne({where: {email: email}});
     if(!i){
-      await BiosWaitList.insert({email})
+      await BiosWaitList.insert({email});
       return new HttpResponse<BiosWaitListPOSTApiResponse>(HttpStatusCode.created, true, {emailAlreadyExists: false});
     }
     return new HttpResponse<BiosWaitListPOSTApiResponse>(HttpStatusCode.badRequest, false, {emailAlreadyExists: true});
