@@ -1,37 +1,25 @@
-import {EmailSchema} from "../Bios/bios.model";
 import joi from "joi";
 import {HttpException} from "../../exceptions/errors";
 import {HttpStatusCode} from "../../interface/HttpStatusCode";
-import {BiosWaitList} from "../../entities/Bios/waitListDB";
 import {PopJonanekCounter} from "../../entities/PopJonanek/counter";
 import {PopJonanekCounterSchema} from "./popjonanek.model";
-import {PopjonanekController} from "./popjonanek.controller";
+import {HttpResponse} from "../../util/HttpResponse";
+import {NapicuAPIBasicPOSTResponse} from "../../interface/Responses";
 
 export class PopjonanekService{
-  public async getCount(){
-    let i = PopJonanekCounter.find({where: {id: 0}});
-
-    // await EmailSchema.validateAsync({email: email}).catch((e: joi.ValidationErrorItem) => {
-    //   throw new HttpException( 'Invalid email', HttpStatusCode.badRequest);
-    // });
-    // return await BiosWaitList.insert({email});
-  }
-
-  public async addCount(inNum: number){
-    await PopJonanekCounterSchema.validateAsync({counter: inNum}).catch((e: joi.ValidationErrorItem) => {
+  public async addCount(inNum: number): Promise<HttpResponse<NapicuAPIBasicPOSTResponse>>{
+    await PopJonanekCounterSchema.validateAsync({clicks: inNum}).catch((e: joi.ValidationErrorItem) => {
       throw new HttpException( 'Invalid request', HttpStatusCode.badRequest);
     });
 
-    let counts: PopJonanekCounter[] = await PopJonanekCounter.find({where: {id: 0}});
-    let num = counts[0].counter + inNum;
-    //todo
-    //todo
-    //todo rewrite
-    //todo
+    let counterDatabase = await PopJonanekCounter.findOne(0);
+    if(counterDatabase){
+      counterDatabase.counter += inNum;
+      await PopJonanekCounter.save(counterDatabase);
+      return new HttpResponse<NapicuAPIBasicPOSTResponse>(HttpStatusCode.internalServerError, false, {msg: (counterDatabase.counter + inNum).toString()})
+    }else {
+      return new HttpResponse<NapicuAPIBasicPOSTResponse>(HttpStatusCode.internalServerError, false, {msg: "Internal server error"})
+    }
 
-
-
-    return counts;
-   //return await PopJonanekCounter.insert({id: id});
   }
 }
