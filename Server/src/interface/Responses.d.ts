@@ -10,3 +10,7 @@ export declare interface PopJonanekGETApiResponse{
 export declare interface PopJonanekPOSTApiResponse{
   clicks: number
 }
+
+export declare interface BiosWaitListPOSTApiResponse{
+  emailAlreadyExists: boolean
+}

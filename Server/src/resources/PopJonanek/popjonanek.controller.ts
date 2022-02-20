@@ -19,7 +19,8 @@ export class PopjonanekController implements NapicuApiController{
     this.router.post(`${this.path}/counter`, [middlewareValidation(PopJonanekCounterSchema), middlewareValidationToManyRequests(230)], this.post);
   }
 
-  protected async post(req: Request, res: Response, next: NextFunction): Promise<HttpResponse<NapicuAPIBasicPOSTResponse>>{
-      return await new PopjonanekService().addCount(req.body.clicks);
+  protected async post(req: Request, res: Response, next: NextFunction): Promise<void>{
+    let i = await new PopjonanekService().addCount(req.body.clicks);
+     res.status(i.code).json(i);
   }
 }

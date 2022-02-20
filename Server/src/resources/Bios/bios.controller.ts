@@ -19,14 +19,9 @@ export class BiosController implements NapicuApiController{
   }
 
 
-  public async post(req: Request, res: Response, next: NextFunction ): Promise<Response | void> {
-    try {
-      let {email} = req.body;
-      const user = await new BiosService().addToWaitList(email);
-      res.status(HttpStatusCode.created).json('s');
-    }catch (e){
-      //TODO
-    }
+  public async post(req: Request, res: Response, next: NextFunction ): Promise<Response> {
+    const user = await new BiosService().addToWaitList(req.body.email);
+    return res.status(user.code).json(user);
   }
 
 }
