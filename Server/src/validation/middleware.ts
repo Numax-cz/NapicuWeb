@@ -23,10 +23,10 @@ export function middlewareValidation(schema: joi.Schema): RequestHandler {
   }
 }
 
-export function middlewareValidationToManyRequests(): RequestHandler{
+export function middlewareValidationToManyRequests(max: number): RequestHandler{
   return rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
-    max: 10,
+    max: max,
     message:
       'Too many requests, please try again after an hour',
     standardHeaders: true,
