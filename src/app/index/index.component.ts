@@ -2,11 +2,11 @@ import { Target } from '@angular/compiler';
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-index2',
-  templateUrl: './index2.component.html',
-  styleUrls: ['./index2.component.scss'],
+  selector: 'app-index',
+  templateUrl: './index.component.html',
+  styleUrls: ['./index.component.scss'],
 })
-export class Index2Component implements OnInit {
+export class IndexComponent implements OnInit {
   constructor(private ren: Renderer2) {
     //Todo items
   }
