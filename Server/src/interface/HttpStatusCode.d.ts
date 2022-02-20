@@ -2,6 +2,7 @@ export const enum HttpStatusCode{
 
 
   badRequest = 400,
-  created = 201
-
+  ok = 200,
+  created = 201,
+  tooManyRequests = 429
 }
