@@ -7,9 +7,8 @@ import {PopjonanekController} from "./resources/PopJonanek/popjonanek.controller
 
 
 const i = new App([
-  new PostController(),
   new BiosController(),
-  new PopjonanekController()
 ], Number(process.env.PORT));
 
 i.init();
+
