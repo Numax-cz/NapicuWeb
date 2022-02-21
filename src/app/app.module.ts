@@ -10,9 +10,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule } from '@angular/material/menu';
 import { IndexComponent } from './index/index.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BiosWaitListComponent } from './bios-wait-list/bios-wait-list.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
-  declarations: [AppComponent, Error404Component, IndexComponent],
+  declarations: [AppComponent, Error404Component, IndexComponent, BiosWaitListComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     NoopAnimationsModule,
     MatMenuModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
