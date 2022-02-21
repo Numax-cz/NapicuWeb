@@ -1,8 +1,10 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "baseUrl": "./src",
-    "outDir": "./dist",
+    "outDir": "./dist/NapicuApi",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -11,13 +13,12 @@
     "declaration": false,
     "noImplicitOverride": true,
     "downlevelIteration": true,
-    "esModuleInterop": true,
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2017",
     "module": "commonjs",
-    "allowSyntheticDefaultImports": true,
-    "emitDecoratorMetadata": true
-  }
+    "emitDecoratorMetadata": true,
+    "resolveJsonModule": true,
+  },
 }
