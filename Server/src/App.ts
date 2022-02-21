@@ -1,7 +1,8 @@
 import express, {Application} from 'express';
 import "reflect-metadata";
 import morgan from "morgan";
-import compression from "compression";
+import  compression from "compression";
+import cors from "cors";
 
 import {api_path} from "./config/serverConfig";
 import {NapicuApiController} from "./interface/controller";
@@ -56,22 +57,9 @@ export class App{
         synchronize: true,
         entities: [BiosWaitList, PopJonanekCounter]
       })
-
-
     }catch (e){
       console.log(serverInitDatabaseConnectionError);
     }
-    // mysql.createConnection({
-    //   host: DB_HOST,
-    //   user: DB_USER,
-    //   password: DB_PASSWORD,
-    // }).connect((e: mysql.MysqlError) => {
-    //   if(e){
-    //     console.log(serverInitDatabaseConnectionError);
-    //    return;
-    //   }
-    //    console.log(serverInitDatabaseConnected);
-    //  });
   }
 
   protected startServer(): void {
@@ -98,6 +86,7 @@ export class App{
     this.express.use(express.json());
     this.express.use(express.urlencoded({ extended: false }));
     this.express.use(compression());
+    this.express.use(cors({ origin: true, credentials: true }));
     console.log(serverInitMiddleware);
   }
 
