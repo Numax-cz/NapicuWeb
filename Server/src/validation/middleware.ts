@@ -28,7 +28,7 @@ export function middlewareValidationToManyRequests(max: number): RequestHandler{
     windowMs: 60 * 60 * 1000, // 1 hour
     max: max,
     message:
-      'Too many requests, please try again after an hour',
+      'Too many requests from this IP, please try again after an hour',
     standardHeaders: true,
     legacyHeaders: false,
     });

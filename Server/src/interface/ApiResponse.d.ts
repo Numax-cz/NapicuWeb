@@ -1,5 +1,5 @@
 export declare interface ApiResponse<T>{
-  code: number,
-  success: boolean
+  status: number,
+  ok: boolean
   data: T
 }

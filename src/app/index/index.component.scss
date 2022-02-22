@@ -9,6 +9,7 @@
 #NapicuPanel {
   padding-top: 22rem;
 }
+
 #NapicuBlock {
   width: 200px;
   height: 25px;
@@ -16,15 +17,19 @@
   margin-top: 18vh;
   background-image: linear-gradient(90deg, #0066ff, #cb16e6);
 }
+
 #NapicuMainTitle {
   font-size: 8rem;
 }
+
 #NapicuMainBox {
   max-width: 75%;
 }
+
 #NapicuBoxText-Title {
   font-size: 2rem;
 }
+
 #NapicuBoxImg {
   width: 128px;
 }
@@ -68,6 +73,7 @@
     width: 64px;
   }
 }
+
 @media screen and (max-width: 320px) {
   #NapicuMainTitle {
     font-size: 4.5rem;

@@ -1,4 +1,3 @@
-import {Target} from '@angular/compiler';
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
