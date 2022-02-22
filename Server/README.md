@@ -19,9 +19,11 @@
    DB_PASSWORD=
    DB_DATABASE=
     ```
-  * Při prvním spuštění se automaticky vytvoří veškeré potřebné tabulky v MySQL
+
+* Při prvním spuštění se automaticky vytvoří veškeré potřebné tabulky v MySQL
 
 ## Schéma API
+
 ```
   POST http://localhost:8080/api/bios/waitlist
 ```

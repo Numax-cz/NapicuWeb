@@ -1,4 +1,3 @@
-import {PostSchema} from "../PostRequest/post.model";
 import {EmailSchema} from "./bios.model";
 import {HttpException} from "../../exceptions/errors";
 import {HttpStatusCode} from "../../interface/HttpStatusCode";
@@ -8,14 +7,13 @@ import {HttpResponse} from "../../util/HttpResponse";
 import {BiosWaitListPOSTApiResponse} from "../../interface/Responses";
 
 
-
-export class BiosService{
-  public async addToWaitList(email: string): Promise<HttpResponse<BiosWaitListPOSTApiResponse>>{
+export class BiosService {
+  public async addToWaitList(email: string): Promise<HttpResponse<BiosWaitListPOSTApiResponse>> {
     await EmailSchema.validateAsync({email: email}).catch((e: joi.ValidationErrorItem) => {
-      throw new HttpException( 'Invalid email', HttpStatusCode.badRequest);
+      throw new HttpException('Invalid email', HttpStatusCode.badRequest);
     });
     let i = await BiosWaitList.findOne({where: {email: email}});
-    if(!i){
+    if (!i) {
       await BiosWaitList.insert({email});
       return new HttpResponse<BiosWaitListPOSTApiResponse>(HttpStatusCode.created, true, {emailAlreadyExists: false});
     }

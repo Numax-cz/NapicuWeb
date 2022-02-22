@@ -1,4 +1,4 @@
-export class HttpException extends Error{
+export class HttpException extends Error {
   public declare message: string
   public declare codeStatus: number;
 

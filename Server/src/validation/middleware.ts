@@ -23,7 +23,7 @@ export function middlewareValidation(schema: joi.Schema): RequestHandler {
   }
 }
 
-export function middlewareValidationToManyRequests(max: number): RequestHandler{
+export function middlewareValidationToManyRequests(max: number): RequestHandler {
   return rateLimit({
     windowMs: 60 * 60 * 1000, // 1 hour
     max: max,
@@ -31,5 +31,5 @@ export function middlewareValidationToManyRequests(max: number): RequestHandler{
       'Too many requests from this IP, please try again after an hour',
     standardHeaders: true,
     legacyHeaders: false,
-    });
-  }
+  });
+}

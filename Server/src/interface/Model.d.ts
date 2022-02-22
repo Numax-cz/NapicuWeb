@@ -1,5 +1,3 @@
-
-
-export declare interface BiosWaitListPOSTApiModel{
+export declare interface BiosWaitListPOSTApiModel {
   email: string
 }

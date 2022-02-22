@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="343.289" height="815.296" viewBox="0 0 343.289 815.296"><defs><linearGradient id="a" x1="0.195" y1="0.123" x2="0.76" y2="0.818" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#3a35cf"/><stop offset="1" stop-color="#f700ff"/></linearGradient></defs><path d="M1923.25,1049.131c-71.277,20.283-152.2-39.874-187.958-64.795s-54.092-18.965-107.274-93.183-55.844-140.219-38.509-258.962-7.617-152.193,25.531-209.7,63.752-58.292,114.75-115.353,139.874-34.175,193.459-69.194" transform="translate(1923.25 1053.238) rotate(180)" fill="url(#a)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="343.289" height="815.296"
+     viewBox="0 0 343.289 815.296">
+  <defs>
+    <linearGradient id="a" x1="0.195" y1="0.123" x2="0.76" y2="0.818" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3a35cf"/>
+      <stop offset="1" stop-color="#f700ff"/>
+    </linearGradient>
+  </defs>
+  <path
+    d="M1923.25,1049.131c-71.277,20.283-152.2-39.874-187.958-64.795s-54.092-18.965-107.274-93.183-55.844-140.219-38.509-258.962-7.617-152.193,25.531-209.7,63.752-58.292,114.75-115.353,139.874-34.175,193.459-69.194"
+    transform="translate(1923.25 1053.238) rotate(180)" fill="url(#a)"/>
+</svg>

@@ -19,6 +19,6 @@
     "target": "es2017",
     "module": "commonjs",
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true,
-  },
+    "resolveJsonModule": true
+  }
 }

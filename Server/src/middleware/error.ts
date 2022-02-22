@@ -7,8 +7,7 @@ export function middlewareError(
   req: Request,
   res: Response,
   next: NextFunction
-
-): void{
+): void {
   let message = error.message || "Error";
   let codeStatus = error.codeStatus || 500;
   res.status(codeStatus).send({

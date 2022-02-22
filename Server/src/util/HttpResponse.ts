@@ -1,6 +1,6 @@
 import {ApiResponse} from "../interface/ApiResponse";
 
-export class HttpResponse<T> implements ApiResponse<T>{
+export class HttpResponse<T> implements ApiResponse<T> {
   public declare status: number;
   public declare ok: boolean;
   public declare data: T;

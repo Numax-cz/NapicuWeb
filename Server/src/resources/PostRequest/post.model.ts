@@ -1,4 +1,3 @@
-
 const joi = require('joi')
 
 export const PostSchema = joi.object({

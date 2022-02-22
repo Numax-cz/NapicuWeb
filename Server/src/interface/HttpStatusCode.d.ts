@@ -1,4 +1,4 @@
-export const enum HttpStatusCode{
+export const enum HttpStatusCode {
 
 
   badRequest = 400,

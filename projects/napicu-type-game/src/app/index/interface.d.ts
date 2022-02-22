@@ -31,6 +31,7 @@ export declare interface words {
   mistake: boolean;
   letters: wordsLetter[];
 }
+
 export declare type inputValueIn = string | null;
 
 export declare interface wordsLetter {

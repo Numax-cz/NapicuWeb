@@ -1,6 +1,5 @@
-
-export namespace  Napicu{
-  export class Database{
+export namespace Napicu {
+  export class Database {
 
 
   }

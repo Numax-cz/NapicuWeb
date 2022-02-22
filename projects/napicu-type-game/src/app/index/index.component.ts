@@ -1,11 +1,9 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { WordsAPI } from 'api';
-import { timer_minutes, timer_seconds } from './config';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { BlockScrollStrategy } from '@angular/cdk/overlay';
-import { exportDataIn, inputValueIn, words, wordsLetter } from './interface';
-import { catchError, Observable, throwError, throwIfEmpty } from 'rxjs';
+import {Component, OnInit} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {WordsAPI} from 'api';
+import {timer_minutes, timer_seconds} from './config';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
 
 @Component({
   selector: 'app-index',
@@ -14,12 +12,12 @@ import { catchError, Observable, throwError, throwIfEmpty } from 'rxjs';
   animations: [
     trigger('window', [
       transition(':enter', [
-        style({ transform: 'scale(0)' }),
-        animate(150, style({ transform: 'scale(1)' })),
+        style({transform: 'scale(0)'}),
+        animate(150, style({transform: 'scale(1)'})),
       ]),
       transition(':leave', [
-        style({ transform: 'scale(1)' }),
-        animate(150, style({ transform: 'scale(0)' })),
+        style({transform: 'scale(1)'}),
+        animate(150, style({transform: 'scale(0)'})),
       ]),
     ]),
   ],
@@ -80,7 +78,8 @@ export class IndexComponent implements OnInit {
     this.getWords();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public start(): void {
     if (!this.launched) {
@@ -90,6 +89,7 @@ export class IndexComponent implements OnInit {
     this.restart();
     this.setTimer();
   }
+
   public onEnd(): void {
     this.noMove = true;
     this.launched = false;
@@ -156,7 +156,8 @@ export class IndexComponent implements OnInit {
     this.getWords();
   }
 
-  public apiGetError(): void {}
+  public apiGetError(): void {
+  }
 
   public onInputChange(e: string): void {
     if (!this.launched) this.start();
@@ -206,9 +207,9 @@ export class IndexComponent implements OnInit {
         data.forEach((i: string) => {
           var value: wordsLetter[] = [];
           i.split('').forEach((element: string) => {
-            value.push({ value: element, mistake: null });
+            value.push({value: element, mistake: null});
           });
-          this.ApiWords.push({ value: i, mistake: false, letters: value });
+          this.ApiWords.push({value: i, mistake: false, letters: value});
         });
         this.ApiError = false;
       },
@@ -226,18 +227,23 @@ export class IndexComponent implements OnInit {
   get wrongWords(): number {
     return this.exportData.wrongWords;
   }
+
   get wrongLetters(): number {
     return this.exportData.wrongLetters;
   }
+
   get letters(): number {
     return this.exportData.letters;
   }
+
   get words(): number {
     return this.exportData.words;
   }
+
   get wpm(): number {
     return this.getWPM();
   }
+
   get accurately(): number {
     return this.getAccurately();
   }
