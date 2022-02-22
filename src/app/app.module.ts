@@ -11,7 +11,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { IndexComponent } from './index/index.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BiosWaitListComponent } from './bios-wait-list/bios-wait-list.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [AppComponent, Error404Component, IndexComponent, BiosWaitListComponent],
@@ -28,6 +28,7 @@ import {FormsModule} from "@angular/forms";
     MatMenuModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
