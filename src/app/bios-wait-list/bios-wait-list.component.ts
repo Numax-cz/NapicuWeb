@@ -35,9 +35,9 @@ export class BiosWaitListComponent implements OnInit {
       const body: BiosWaitListPOSTApiModel = {email: this.EmailInput};
       this.http.post<HttpResponse<BiosWaitListPOSTApiResponse>>(biosEmailAPI, body).subscribe((data: HttpResponse<BiosWaitListPOSTApiResponse>)=> {
         if(data.data.emailAlreadyExists){
-          this.formSusSubmittedEmail = body.email
-        }else {
           this.formSusError = true;
+        }else {
+          this.formSusSubmittedEmail = body.email
         }
         this.formSusSubmitted = true;
       });
