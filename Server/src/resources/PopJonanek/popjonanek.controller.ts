@@ -14,6 +14,6 @@ export class PopjonanekController implements NapicuApiController {
 
   protected async post(req: Request, res: Response, next: NextFunction): Promise<void> {
     let i = await new PopjonanekService().addCount(req.body.clicks);
-    res.status(i.code).json(i);
+    res.status(i.status).json(i);
   }
 }
