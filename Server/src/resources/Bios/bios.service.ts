@@ -19,6 +19,6 @@ export class BiosService{
       await BiosWaitList.insert({email});
       return new HttpResponse<BiosWaitListPOSTApiResponse>(HttpStatusCode.created, true, {emailAlreadyExists: false});
     }
-    return new HttpResponse<BiosWaitListPOSTApiResponse>(HttpStatusCode.badRequest, false, {emailAlreadyExists: true});
+    return new HttpResponse<BiosWaitListPOSTApiResponse>(HttpStatusCode.ok, false, {emailAlreadyExists: true});
   }
 }
