@@ -3,7 +3,7 @@ import {api_bios_main_path, api_bios_wait_list, api_path} from "./Server/src/con
 
 export const WordsAPI: string = 'https://viem.napicu.eu/api/slova';
 
-const mainApiPath: string = "https://api.napicu.eu"
+const mainApiPath: string = "https://api.napicu.eu";
 
 
-export const biosEmailAPI: string = `${mainApiPath}${api_path}${api_bios_main_path}${api_bios_wait_list}`
+export const biosEmailAPI: string = `${mainApiPath}${api_path}${api_bios_main_path}${api_bios_wait_list}`;
