@@ -1,6 +1,5 @@
 <div class="is-relative">
 <div id="Background" ></div>
-
   <main>
     <div class="section">
       <div class="container is-max-desktop initial">
@@ -9,15 +8,28 @@
           <div class="main-text">NapicuBios</div>
         </div>
         <!--EmailInput-->
-        <div class="is-flex is-align-items-center mt-5">
-          <input email [(ngModel)]="EmailInput" (ngModelChange)="inputChange()" name="email"
-                 class="input is-medium napicu-input has-text-weight-bold" type="text" placeholder="Email">
-          <button class="button is-info ml-4 is-fullheight is-medium" (click)="buttonClick()">Upozornit mě</button>
-        </div>
+        <ng-container *ngIf="!this.formSusSubmitted">
+          <form [formGroup]="napicuForm" class="is-flex is-align-items-center mt-5" (ngSubmit)="submit()" >
+            <input email [(ngModel)]="EmailInput" name="email" formControlName="email" ngModel [ngClass]="{ 'is-danger':
+             email?.value && email?.invalid || email?.invalid && submittedClick}"
+                   class="input is-medium napicu-input has-text-weight-bold" type="text" placeholder="Email">
+            <button class="button is-info ml-4 is-fullheight is-medium" type="submit">Upozornit mě</button>
+          </form>
+          <ng-container *ngIf="email?.value && email?.invalid || email?.invalid && submittedClick">
+            <div class="is-size-2 p-3 has-text-danger has-text-weight-bold">E-mail je neplatný</div>
+          </ng-container>
         <!--InputTxt-->
         <div class="mt-3 has-text-light">
           <p>Kliknutím na toto tlačítko potvrzuji, že napicu.eu může zpracovat mou e-mailovou adresu a zaslat mi zprávu ohledně novinek NapicuBiosu.</p>
         </div>
+        </ng-container>
+        <ng-container *ngIf="this.formSusSubmitted">
+          <div class="has-text-light p-6">
+            <div class="is-size-1 has-text-centered has-text-weight-bold">Děkujeme za váš zájem!</div>
+            <div class="is-size-5 p-2 has-text-centered">Veškeré noviny vám odešleme na email
+              {{formSusSubmittedEmail}}</div>
+          </div>
+        </ng-container>
 
       <!-- Imgs-->
         <div class="mt-6 has-text-light is-size-2" id="napicu-bios-imgs">
@@ -48,7 +60,7 @@
             <img src="/assets/img/Bios/systemAppsScreen.webp" alt="NapicuBiosMainPage"
                  class="napicu-bios-img">
             <div class="section">
-              <p>Součástí NapicuBiosu je také NapicuOS se svým jednoduchým designem připomínající GNOME</p>
+              <p>Součástí NapicuBiosu je také NapicuOS se svým jednoduchým designem připomínající GNOME!</p>
             </div>
           </div>
           <div class="napicu-bios-github is-flex">
