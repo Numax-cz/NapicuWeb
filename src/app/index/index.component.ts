@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit {
   ngAfterViewInit(): void {
     this.Burger.nativeElement.addEventListener('click', () => {
       this.NavMenu.nativeElement.classList.toggle('is-active');
-      this.MenuOpen = !this.MenuOpen ? true : false;
+      this.MenuOpen = !this.MenuOpen;
     });
   }
 
