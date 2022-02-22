@@ -1,5 +1,5 @@
-import { Target } from '@angular/compiler';
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {Target} from '@angular/compiler';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-index',
@@ -10,6 +10,7 @@ export class IndexComponent implements OnInit {
   constructor(private ren: Renderer2) {
     //Todo items
   }
+
   public MenuOpen: boolean = false;
 
   public readonly Email: string = 'numax@napicu.eu';
@@ -22,6 +23,7 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     //this.LoadParticles();
   }
+
   ngAfterViewInit(): void {
     this.Burger.nativeElement.addEventListener('click', () => {
       this.NavMenu.nativeElement.classList.toggle('is-active');
