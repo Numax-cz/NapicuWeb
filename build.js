@@ -40,7 +40,7 @@ fs.readFile(`angular.json`, 'utf8', async (err, data) => {
 
 function buildProject(project) {
   return new Promise((resolve, reject) => {
-    var params = exec(`ng build --project ${project} --prod --extract-licenses --build-optimizer`);
+    var params = exec(`ng build --project ${project} --prod --extract-licenses --build-optimizer --output-hashing none`);
 
     params.on('error', (er) => {
       console.log(er);
