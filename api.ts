@@ -7,3 +7,7 @@ const mainApiPath: string = "https://api.napicu.eu";
 
 
 export const biosEmailAPI: string = `${mainApiPath}${api_path}${api_bios_main_path}${api_bios_wait_list}`;
+
+
+
+export const NapicuIPApi: string = "http://localhost:8080/ip"; //TODO

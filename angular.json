@@ -422,6 +422,109 @@
           }
         }
       }
+    },
+    "NapicuIP": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/napicu-ip",
+      "sourceRoot": "projects/napicu-ip/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/NapicuIP",
+            "index": "projects/napicu-ip/src/index.html",
+            "main": "projects/napicu-ip/src/main.ts",
+            "polyfills": "projects/napicu-ip/src/polyfills.ts",
+            "tsConfig": "projects/napicu-ip/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/napicu-ip/src/favicon.ico",
+              "projects/napicu-ip/src/assets"
+            ],
+            "styles": [
+              "projects/napicu-ip/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/napicu-ip/src/environments/environment.ts",
+                  "with": "projects/napicu-ip/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "NapicuIP:build:production"
+            },
+            "development": {
+              "browserTarget": "NapicuIP:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "NapicuIP:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/napicu-ip/src/test.ts",
+            "polyfills": "projects/napicu-ip/src/polyfills.ts",
+            "tsConfig": "projects/napicu-ip/tsconfig.spec.json",
+            "karmaConfig": "projects/napicu-ip/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/napicu-ip/src/favicon.ico",
+              "projects/napicu-ip/src/assets"
+            ],
+            "styles": [
+              "projects/napicu-ip/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "NapicuWeb"
