@@ -5,7 +5,6 @@
  */
 
 const fs = require('fs');
-const spawn = require('child_process').spawn;
 const { exec } = require('child_process');
 
 fs.readFile(`angular.json`, 'utf8', async (err, data) => {
