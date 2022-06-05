@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NapicuIPService} from "./napicu-ip.service";
-import {NapicuIPApiResponse} from "../../../../Interface/NapicuIP";
+import {INapicuIPApiResponse} from "../../../../Interface/NapicuIP";
 import {NAPICU_IP_404_ERROR, NAPICU_IP_LOADING_TEXT} from "./configuration";
 
 
@@ -13,7 +13,7 @@ export class AppComponent implements OnInit{
   public err: boolean = false;
   public text: string = this.getLoadingText;
 
-  public declare data: NapicuIPApiResponse;
+  public declare data: INapicuIPApiResponse;
 
   constructor(private service: NapicuIPService) {
     let apiData = service.getApiData();

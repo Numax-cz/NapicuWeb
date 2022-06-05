@@ -1,4 +1,6 @@
-export declare interface NapicuApiResponse<T>{
-  success: boolean,
+import {HttpStatusCode} from "./HttpCodes";
+
+export declare interface INapicuApiResponse<T>{
+  status: HttpStatusCode,
   data: T
 }
