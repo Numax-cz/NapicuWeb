@@ -1,9 +1,13 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {WordsAPI} from 'api';
 import {timer_minutes, timer_seconds} from './config';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
+import {NapicuTypeGameService} from "./napicu-type-game.service";
+import {INapicuApiResponse} from "@Napicu/Interface/Api";
+import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
+import {HttpStatusCode} from "@Napicu/Interface/HttpCodes";
+import {HttpErrorResponse} from "@angular/common/http";
+
 
 @Component({
   selector: 'app-index',
@@ -27,9 +31,9 @@ export class IndexComponent implements OnInit {
 
   public displayTime: boolean = true;
 
-  public ApiWords: words[] = [];
+  public apiWords: words[] = [];
 
-  public readonly maxWords: number = 300;
+  public readonly wordsCount: number = 300;
 
   public selectedWordIndex: number = 0;
 
@@ -41,25 +45,22 @@ export class IndexComponent implements OnInit {
 
   public declare timer: any;
 
-  public ApiError: boolean = false;
+  public apiError: boolean = false;
 
   public loadingRetry: boolean = false;
 
-  /**
-   * Data to be printed out
-   */
   public declare exportData: exportDataIn;
 
   public declare previousWordPosition: number;
 
-  constructor(private http: HttpClient) {
+  constructor(private service: NapicuTypeGameService) {
     window.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.keyCode == 32) this.onSpaceBar(e);
     });
-    this.restart();
+    this.clickRestart();
   }
 
-  public restart(): void {
+  public clickRestart(): void {
     this.selectedWordIndex = 0;
     this.inputValue = null;
     this.displayScore = false;
@@ -75,7 +76,7 @@ export class IndexComponent implements OnInit {
       words: 0,
     };
 
-    this.getWords();
+    this.loadApiData();
   }
 
   ngOnInit(): void {
@@ -86,7 +87,7 @@ export class IndexComponent implements OnInit {
       this.launched = true;
     }
 
-    this.restart();
+    this.clickRestart();
     this.setTimer();
   }
 
@@ -107,7 +108,7 @@ export class IndexComponent implements OnInit {
   }
 
   public getSelecteWord(): words {
-    return this.ApiWords[this.selectedWordIndex];
+    return this.apiWords[this.selectedWordIndex];
   }
 
   public onSpaceBar(e: KeyboardEvent): void {
@@ -117,7 +118,7 @@ export class IndexComponent implements OnInit {
       .item(0) as HTMLElement;
 
     if (this.previousWordPosition < element.offsetTop) {
-      this.ApiWords.splice(0, this.selectedWordIndex + 1);
+      this.apiWords.splice(0, this.selectedWordIndex + 1);
       this.selectedWordIndex = -1;
     }
     this.previousWordPosition = element.offsetTop;
@@ -151,13 +152,11 @@ export class IndexComponent implements OnInit {
     }, 1000);
   }
 
-  public retry(): void {
+  public retry = (): void => {
     this.loadingRetry = true;
-    this.getWords();
+    this.loadApiData();
   }
 
-  public apiGetError(): void {
-  }
 
   public onInputChange(e: string): void {
     if (!this.launched) this.start();
@@ -201,27 +200,32 @@ export class IndexComponent implements OnInit {
     }
   }
 
-  public getWords(): void {
-    this.http.get<any>(`${WordsAPI}?pocet=${this.maxWords}`).subscribe(
-      (data: string[]) => {
-        data.forEach((i: string) => {
-          var value: wordsLetter[] = [];
-          i.split('').forEach((element: string) => {
-            value.push({value: element, mistake: null});
-          });
-          this.ApiWords.push({value: i, mistake: false, letters: value});
-        });
-        this.ApiError = false;
-      },
-      (error: any) => {
-        this.ApiError = true;
-        this.loadingRetry = false;
-      }
-    );
+  public async loadApiData(): Promise<void> {
+    this.loadingRetry = true;
+    await this.service.getWords(this.wordsCount)
+      .then((data: INapicuApiResponse<INapicuWordsApiResponse>) => {
+        this.setWords(data.data);
+      })
+      .catch((error: any) => {
+        this.apiError = true;
+      })
+    this.loadingRetry = false;
+  }
+
+  protected setWords(words: string[]): void {
+    this.apiWords = [];
+    words.forEach((i: string) => {
+      var value: wordsLetter[] = [];
+      i.split('').forEach((element: string) => {
+        value.push({value: element, mistake: null});
+      });
+      this.apiWords.push({value: i, mistake: false, letters: value});
+    });
+    this.apiError = false;
   }
 
   public timeDisplay(): void {
-    this.displayTime = this.displayTime ? false : true;
+    this.displayTime = !this.displayTime;
   }
 
   get wrongWords(): number {

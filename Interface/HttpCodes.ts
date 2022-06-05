@@ -1,6 +1,6 @@
 //Original code: https://gist.github.com/scokmen/f813c904ef79022e84ab2409574d1b45#file-httpstatuscode-ts
 
-export declare enum HttpStatusCode {
+export const enum HttpStatusCode {
 
   /**
    * The server has received the request headers and the client should proceed to send the request body

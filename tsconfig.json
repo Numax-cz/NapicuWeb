@@ -19,7 +19,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@Napicu/Modules/*": ["./lib/Modules/*"],
+      "@Napicu/Interface/*": ["./Interface/*"],
+      "@Napicu/Api/URL": ["./api.ts"],
+      "@Napicu/Styles": ["./styles.scss"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

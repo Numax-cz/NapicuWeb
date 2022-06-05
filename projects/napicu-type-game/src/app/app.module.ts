@@ -10,14 +10,17 @@ import {IndexComponent} from './index/index.component';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 
+import {ApiErrorSchemaModule} from "@Napicu/Modules/Error/api-error-schema/api-error-schema.module";
+
+
 @NgModule({
   declarations: [AppComponent, IndexComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, ServiceWorkerModule.register('ngsw-worker.js', {
+  imports: [BrowserModule, ApiErrorSchemaModule, AppRoutingModule, HttpClientModule, FormsModule, BrowserAnimationsModule, ServiceWorkerModule.register('ngsw-worker.js', {
     enabled: environment.production,
     // Register the ServiceWorker as soon as the app is stable
     // or after 30 seconds (whichever comes first).
     registrationStrategy: 'registerWhenStable:30000'
-  })],
+  }), ApiErrorSchemaModule],
   providers: [],
   bootstrap: [AppComponent],
 })
