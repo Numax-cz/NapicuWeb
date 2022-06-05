@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'NapicuPocasi';
+  public declare inputValue: string;
+
+  public onInputChange(event: Event): void {
+
+  };
 }
