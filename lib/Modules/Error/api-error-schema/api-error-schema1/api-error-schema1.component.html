@@ -1,0 +1,26 @@
+<section>
+  <div class="box has-background-dark">
+    <div
+      class="is-size-2 has-text-weight-bold has-text-centered has-text-white"
+      style="user-select: none"
+    >
+      Nebylo možné získat data
+    </div>
+  </div>
+  <div class="container p-2">
+    <p class="has-text-weight-medium is-size-4">
+      Je možné, že služba je momentálně nedostupná<br/>
+      <br/>
+      Zkuste to prosím později, nebo klikněte níže na tlačítko pro zopakování akce
+    </p>
+  </div>
+  <div class="container mt-5">
+    <div
+      class="button is-success is-medium is-fullwidth m-auto column is-three-fifths"
+      [ngClass]="{ 'is-loading': getTrying }"
+      (click)="apiRetry()"
+    >
+      Zkusit znovu
+    </div>
+  </div>
+</section>

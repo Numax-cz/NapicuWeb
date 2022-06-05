@@ -543,7 +543,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/NapicuPocasi",
+            "outputPath": "dist/napicu-pocasi",
             "index": "projects/napicu-pocasi/src/index.html",
             "main": "projects/napicu-pocasi/src/main.ts",
             "polyfills": "projects/napicu-pocasi/src/polyfills.ts",
