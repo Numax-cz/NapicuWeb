@@ -5,8 +5,6 @@ import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
 import {NapicuTypeGameService} from "./napicu-type-game.service";
 import {INapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
-import {HttpStatusCode} from "@Napicu/Interface/HttpCodes";
-import {HttpErrorResponse} from "@angular/common/http";
 
 
 @Component({
