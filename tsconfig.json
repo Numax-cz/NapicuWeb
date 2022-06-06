@@ -23,6 +23,7 @@
     "paths": {
       "@Napicu/Modules/*": ["./lib/Modules/*"],
       "@Napicu/Interface/*": ["./Interface/*"],
+      "@Napicu/Class/*": ["./lib/Class/*"],
       "@Napicu/Api/URL": ["./api.ts"],
       "@Napicu/Styles": ["./styles.scss"],
     }

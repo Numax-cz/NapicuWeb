@@ -24,7 +24,23 @@ export class AppComponent {
       return item.toLocaleLowerCase().startsWith(this.inputValue.toLocaleLowerCase())
     });
     this.filterList = this.filterList.slice(0, NapicuPocasiCitiesMaxView);
+    if( this.filterList[0]?.toLocaleLowerCase() === this.inputValue?.toLocaleLowerCase()) {
+      this.filterList = [];
+    }
   }
 
+  public selectCity(city: string): void {
+    this.inputValue = city;
+    this.updateFilterMenu();
+    this.submit();
+  }
 
+  public submit(): void {
+    if(this.inputValue.length) {
+
+    }
+  }
 }
+
+
+

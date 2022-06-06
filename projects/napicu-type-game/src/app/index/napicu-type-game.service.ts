@@ -5,7 +5,7 @@ import {INapicuApiResponse} from "@Napicu/Interface/Api";
 import {NapicuApiURLWords} from "@Napicu/Api/URL";
 import {Observable} from "rxjs";
 import {HttpStatusCode} from "@Napicu/Interface/HttpCodes";
-import {NapicuApiHandler} from "../../../../../lib/NapicuApi";
+import {NapicuApiHandler} from "../../../../../lib/Class/NapicuApi";
 
 
 @Injectable({

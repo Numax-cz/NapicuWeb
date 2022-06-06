@@ -13,4 +13,6 @@ export const NapicuIPApi: string = "http://localhost:8080/ip"; //TODO
 
 
 //TODO Move here
-export const NapicuApiURLWords: string = 'http://localhost:8080/words'; //https://viem.napicu.eu/api/slova
+export const NapicuApiURLWords: string = 'http://localhost:8080/words';
+
+export const NapicuApiWeather: string = 'http://localhost:8080/weather';
