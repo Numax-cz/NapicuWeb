@@ -14,12 +14,10 @@
               autofocus
             />
           </div>
-          <div *ngIf="inputValue.length && filterList.length" class="box is-size-3 has-text-weight-normal">
-
+          <div *ngIf="inputValue?.length && filterList?.length" class="box m-2 is-size-3 has-text-weight-normal" style="width: 350px">
               <div *ngFor="let i of filterList" >
                 {{i}}
               </div>
-
           </div>
         </div>
       </div>

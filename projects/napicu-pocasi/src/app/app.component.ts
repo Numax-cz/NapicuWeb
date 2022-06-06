@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {NapicuPocasiCities, NapicuPocasiCitiesMaxView} from "./config";
+import {NapicuPocasiService} from "./napicu-pocasi.service";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,9 @@ export class AppComponent {
   public declare inputValue: string;
   public filterList: string[] = [];
 
+  constructor(private service: NapicuPocasiService) {
+
+  }
 
   public onInputChange(event: Event): void {
     this.updateFilterMenu();
@@ -17,10 +21,9 @@ export class AppComponent {
 
   public updateFilterMenu(): void {
     this.filterList = NapicuPocasiCities.filter((item: string) => {
-      // return this.inputValue.toLowerCase().includes(item.toLowerCase());
       return item.toLocaleLowerCase().startsWith(this.inputValue.toLocaleLowerCase())
     });
-    this.filterList.length = NapicuPocasiCitiesMaxView;
+    this.filterList = this.filterList.slice(0, NapicuPocasiCitiesMaxView);
   }
 
 
