@@ -1,21 +1,23 @@
 <div class="hero is-fullheight" id="Background" style="background-image: url('/assets/background.webp')">
   <main>
     <div class="hero-body">
-      <div class="container">
+      <div class="container is-max-desktop">
         <div
           class=" is-flex is-align-items-center is-justify-content-center is-justify-content-center is-flex-direction-column"
         >
-          <div style="width: 33%;">
+            <p class="has-text-weight-normal is-size-6 is-centered has-text-white">Lze zadat i města, která nejsou v nabídce*</p>
+          <div>
             <input
               class="is-size-2 has-text-weight-normal InputWord"
               type="text"
+              placeholder="Zadejte město"
               [(ngModel)]="inputValue"
               (ngModelChange)="onInputChange($event)"
               autofocus
             />
           </div>
           <div *ngIf="inputValue?.length && filterList?.length" class="box m-2 is-size-3 has-text-weight-normal" style="width: 350px">
-              <div *ngFor="let i of filterList" >
+              <div *ngFor="let i of filterList" class="CityItem is-clickable">
                 {{i}}
               </div>
           </div>

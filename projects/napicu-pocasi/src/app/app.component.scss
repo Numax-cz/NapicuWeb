@@ -1,5 +1,4 @@
 #Background{
-  background-image: url("/assets/background.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -13,4 +12,11 @@
   padding: 10px 14px;
   border-radius: 7px;
 }
+.CityItem {
+  padding: 5px;
+}
 
+.CityItem:hover {
+  background-color: hsl(0, 0%, 90%);
+  border-radius: 76px;
+}
