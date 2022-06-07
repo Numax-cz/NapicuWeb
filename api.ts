@@ -9,10 +9,11 @@ export const biosEmailAPI: string = `${mainApiPath}${api_path}${api_bios_main_pa
 
 
 
-export const NapicuIPApi: string = "http://localhost:8080/ip"; //TODO
 
 
 //TODO Move here
 export const NapicuApiURLWords: string = 'http://localhost:8080/words';
 
-export const NapicuApiWeather: string = 'http://localhost:8080/weather';
+export const NapicuApiURLWeather: string = 'http://localhost:8080/weather';
+
+export const NapicuApiURLIp: string = "http://localhost:8080/ip"; //TODO
