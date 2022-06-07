@@ -25,7 +25,48 @@
                 {{i}}
               </div>
           </div>
-        </div>
+          <ng-container *ngIf="apiData">
+          <!--Main input-->
+          <section class=" section has-text-centered has-text-weight-normal has-text-white">
+            <div class="has-text-grey-lighter is-size-4">{{this.apiData.name}}, {{this.apiData.country}}</div>
+            <div style="font-size: 5.5rem">{{this.apiData.temp}}°C</div>
+            <div class="is-size-5">{{this.apiData.description}}</div>
+          </section>
+        <!--Main box-->
+          <section  class="section">
+            <div class="box columns  is-size-3 is-justify-content-space-between">
+              <section>
+                <div class="column">
+                  <span class="has-text-weight-bold">Teplota:</span>{{this.apiData.temp}}°C
+                </div>
+                <div class="column">
+                  <span class="has-text-weight-bold">Max. teplota:</span>{{this.apiData.temp_max}}°C
+                </div>
+                <div class="column">
+                  <span class="has-text-weight-bold">Min. teplota:</span>{{this.apiData.temp_min}}°C
+                </div>
+                <div class="column">
+                  <span class="has-text-weight-bold">Poci. teplota:</span>{{this.apiData.feels_like}}°C
+                </div>
+              </section>
+              <section>
+                <div class="column">
+                  <span class="has-text-weight-bold">Tlak:</span>{{this.apiData.pressure}}hPa
+                </div>
+                <div class="column">
+                  <span class="has-text-weight-bold">Vlhkost:</span>{{this.apiData.humidity}}%
+                </div>
+                <div class="column">
+                  <span class="has-text-weight-bold">Vítr:</span>{{this.apiData.wind_speed}}m/s
+                </div>
+                <div class="column">
+                  <span class="has-text-weight-bold">Mraky:</span>{{this.apiData.clouds}}%
+                </div>
+              </section>
+            </div>
+          </section>
+          </ng-container>
+          </div>
       </div>
     </div>
   </main>

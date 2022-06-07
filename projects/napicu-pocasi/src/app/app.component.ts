@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import {NapicuPocasiCities, NapicuPocasiCitiesMaxView} from "./config";
 import {NapicuPocasiService} from "./napicu-pocasi.service";
+import {INapicuApiResponse} from "@Napicu/Interface/Api";
+import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import {NapicuPocasiService} from "./napicu-pocasi.service";
 export class AppComponent {
   public declare inputValue: string;
   public filterList: string[] = [];
-
+  public apiData: INapicuWeatherApiResponse | null = null;
   constructor(private service: NapicuPocasiService) {
 
   }
@@ -36,9 +38,19 @@ export class AppComponent {
   }
 
   public submit(): void {
-    if(this.inputValue.length) {
 
+    if(this.inputValue.length) {
+      this.service.getOpenWeather(this.inputValue).then((data: INapicuApiResponse<INapicuWeatherApiResponse>) => {
+        this.apiData = data.data;
+      }).catch((error: any) => {
+        console.log(error)
+        }
+      )
     }
+  }
+
+  public getIcon(icon: string): string {
+    return `https://openweathermap.org/img/wn/${this.apiData?.icon}@2x.png`
   }
 }
 
