@@ -3,6 +3,7 @@ import {NapicuPocasiCities, NapicuPocasiCitiesMaxView} from "./config";
 import {NapicuPocasiService} from "./napicu-pocasi.service";
 import {INapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ export class AppComponent {
   public declare inputValue: string;
   public filterList: string[] = [];
   public apiData: INapicuWeatherApiResponse | null = null;
-  constructor(private service: NapicuPocasiService) {
+
+  constructor(public service: NapicuPocasiService) {
 
   }
 

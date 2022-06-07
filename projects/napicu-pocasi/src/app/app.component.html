@@ -31,6 +31,9 @@
             <div class="has-text-grey-lighter is-size-4">{{this.apiData.name}}, {{this.apiData.country}}</div>
             <div style="font-size: 5.5rem">{{this.apiData.temp}}°C</div>
             <div class="is-size-5">{{this.apiData.description}}</div>
+            <div>
+              <img [src]="getIcon(this.apiData.icon)" alt="Weather icon">
+            </div>
           </section>
         <!--Main box-->
           <section  class="section">
