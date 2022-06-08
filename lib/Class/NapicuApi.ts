@@ -1,5 +1,5 @@
 import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {INapicuApiResponse} from "@Napicu/Interface/Api";
+import { INapicuApiResponse} from "@Napicu/Interface/Api";
 import {HttpStatusCode} from "@Napicu/Interface/HttpCodes";
 import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
 
