@@ -4,6 +4,7 @@ import {NapicuPocasiService} from "./napicu-pocasi.service";
 import {INapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
 import {HttpClient} from "@angular/common/http";
+import {NAPICU_SERVER_404_ERROR} from "../../../configuration";
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ export class AppComponent {
   public declare inputValue: string;
   public filterList: string[] = [];
   public apiData: INapicuWeatherApiResponse | null = null;
+  public err: boolean = true;
 
   constructor(public service: NapicuPocasiService) {
 
@@ -24,6 +26,7 @@ export class AppComponent {
   };
 
   public updateFilterMenu(): void {
+    this.err = false;
     this.filterList = NapicuPocasiCities.filter((item: string) => {
       return item.toLocaleLowerCase().startsWith(this.inputValue.toLocaleLowerCase())
     });
@@ -39,16 +42,20 @@ export class AppComponent {
     this.submit();
   }
 
-  public submit(): void {
-
-    if(this.inputValue.length) {
-      this.service.getOpenWeather(this.inputValue).then((data: INapicuApiResponse<INapicuWeatherApiResponse>) => {
+  public async submit(): Promise<void> {
+    this.err = true;
+    if (this.inputValue.length) {
+      await this.service.getOpenWeather(this.inputValue).then((data: INapicuApiResponse<INapicuWeatherApiResponse>) => {
         this.apiData = data.data;
       }).catch((error: any) => {
-        console.log(error)
+          console.log(error)
         }
       )
     }
+  }
+
+  get get404ErrorText(): string{
+    return NAPICU_SERVER_404_ERROR;
   }
 
   public getIcon(icon: string): string {

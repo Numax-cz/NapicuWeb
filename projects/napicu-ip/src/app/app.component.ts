@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {NapicuIPService} from "./napicu-ip.service";
 import {INapicuIPApiResponse} from "@Napicu/Interface/NapicuIP";
-import {NAPICU_IP_404_ERROR, NAPICU_IP_LOADING_TEXT} from "./configuration";
+import {NAPICU_SERVER_404_ERROR, NAPICU_IP_LOADING_TEXT} from "../../../configuration";
 import {INapicuApiResponse} from "@Napicu/Interface/Api";
 import {HttpClient} from "@angular/common/http";
 import {logMessages} from "@angular-devkit/build-angular/src/builders/browser-esbuild/esbuild";
@@ -41,6 +41,6 @@ export class AppComponent implements OnInit{
   }
 
   get get404ErrorText(): string{
-    return NAPICU_IP_404_ERROR;
+    return NAPICU_SERVER_404_ERROR;
   }
 }

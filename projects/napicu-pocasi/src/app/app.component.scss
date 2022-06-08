@@ -20,3 +20,14 @@
   background-color: hsl(0, 0%, 90%);
   border-radius: 6px;
 }
+.napicu-search-bar{
+  width: 350px
+}
+
+@media (max-width: 430px) {
+  .napicu-search-bar{
+    width: 270px
+  }
+}
+
+
