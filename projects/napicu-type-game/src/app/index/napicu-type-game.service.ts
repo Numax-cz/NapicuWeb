@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
-import {INapicuApiResponse} from "@Napicu/Interface/Api";
+import {NapicuApiResponse} from "@Napicu/Interface/Api";
 import {NapicuApiURLWords} from "@Napicu/Api/URL";
 import {NapicuApiHandler} from "@Napicu/Class/NapicuApi";
 
@@ -15,7 +15,7 @@ export class NapicuTypeGameService extends NapicuApiHandler{
     super();
   }
 
-  public getWords(count: number): Promise<INapicuApiResponse<INapicuWordsApiResponse>>{
+  public getWords(count: number): Promise<NapicuApiResponse<INapicuWordsApiResponse>>{
     return this.getApiData<INapicuWordsApiResponse>(`${NapicuApiURLWords}?count=${count}`);
   }
 

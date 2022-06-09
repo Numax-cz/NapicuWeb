@@ -1,5 +1,7 @@
 //Original code: https://gist.github.com/scokmen/f813c904ef79022e84ab2409574d1b45#file-httpstatuscode-ts
 
+
+
 export const enum HttpStatusCode {
 
   /**

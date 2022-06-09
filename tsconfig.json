@@ -25,7 +25,9 @@
       "@Napicu/Interface/*": ["./Interface/*"],
       "@Napicu/Class/*": ["./lib/Class/*"],
       "@Napicu/Api/URL": ["./api.ts"],
-      "@Napicu/Styles": ["./styles.scss"],
+      "@Napicu/Api/ResponseStatus": ["./Interface/ApiResponseStatus.ts"],
+      "@Napicu/Api/HttpCodes": ["./Interface/HttpCodes.ts"],
+      "@Napicu/Styles": ["./styles.scss"]
     }
   },
   "angularCompilerOptions": {
@@ -33,5 +35,8 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "include": [
+    "./Interface/**/*"
+  ],
 }

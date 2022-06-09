@@ -3,7 +3,7 @@ import {timer_minutes, timer_seconds} from './config';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
 import {NapicuTypeGameService} from "./napicu-type-game.service";
-import {INapicuApiResponse} from "@Napicu/Interface/Api";
+import {NapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
 
 
@@ -201,7 +201,7 @@ export class IndexComponent implements OnInit {
   public async loadApiData(): Promise<void> {
     this.loadingRetry = true;
     await this.service.getWords(this.wordsCount)
-      .then((data: INapicuApiResponse<INapicuWordsApiResponse>) => {
+      .then((data: NapicuApiResponse<INapicuWordsApiResponse>) => {
         this.setWords(data.data);
       })
       .catch((error: any) => {

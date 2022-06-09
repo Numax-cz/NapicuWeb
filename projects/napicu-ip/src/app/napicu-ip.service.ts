@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {NapicuApiURLWords, NapicuApiURLIp, NapicuApiURLWeather} from "@Napicu/Api/URL";
-import {INapicuApiResponse} from "@Napicu/Interface/Api";
+import {NapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuIPApiResponse} from "@Napicu/Interface/NapicuIP";
 import {NapicuApiHandler} from "@Napicu/Class/NapicuApi";
-import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
+
 
 
 @Injectable({
@@ -17,7 +17,7 @@ export class NapicuIPService extends NapicuApiHandler{
     super();
   }
 
-  public getIP(): Promise<INapicuApiResponse<INapicuIPApiResponse>>{
+  public getIP(): Promise<NapicuApiResponse<INapicuIPApiResponse>>{
     return this.getApiData<INapicuIPApiResponse>(NapicuApiURLIp);
   }
 }
