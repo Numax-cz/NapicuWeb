@@ -53,6 +53,7 @@ export class AppComponent {
           }else {
             this.err = this.get404ErrorText;
           }
+        this.clearApiData();
         }
       )
     }
@@ -62,6 +63,10 @@ export class AppComponent {
   protected resetInput(): void {
     this.filterList = [];
     this.inputValue = "";
+  }
+
+  protected clearApiData(): void {
+    this.apiData = null;
   }
 
   get get404ErrorText(): string{
