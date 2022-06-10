@@ -21,7 +21,7 @@
             />
           </div>
           <div *ngIf="inputValue?.length && filterList?.length" class="box m-2 is-size-3 has-text-weight-normal napicu-search-bar">
-              <div *ngFor="let i of filterList" class="CityItem is-clickable" (click)="selectCity(i)">
+              <div *ngFor="let i of filterList; let index = index" class="CityItem is-clickable" [class]="{selectedItem: index === this.selectedFilterListItem}" (mouseenter)="onMouseHover(index)" (click)="selectCity(i)">
                 {{i}}
               </div>
           </div>
@@ -69,7 +69,7 @@
             </div>
           </section>
           </ng-container>
-          <ng-container *ngIf="this.err">
+          <ng-container *ngIf="this.err" >
             <div class="has-text-weight-bold has-text-white has-text-centered is-size-1" >{{this.err}}</div>
           </ng-container>
           </div>

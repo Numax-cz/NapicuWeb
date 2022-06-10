@@ -14,12 +14,13 @@
 }
 .CityItem {
   padding: 5px;
-}
-
-.CityItem:hover {
-  background-color: hsl(0, 0%, 90%);
   border-radius: 6px;
 }
+
+.selectedItem{
+  background-color: hsl(0, 0%, 90%);
+}
+
 .napicu-search-bar{
   width: 350px;
   top: 70px;
