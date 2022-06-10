@@ -50,6 +50,8 @@ export class AppComponent {
       }).catch((error: NapicuApiResponseException) => {
           if(error.code === NapicuApiResponseStatus.NAPICU_POCASI_CITY_NOT_FOUND) {
               this.err = this.getCityNotFound;
+          }else {
+            this.err = this.get404ErrorText;
           }
         }
       )
