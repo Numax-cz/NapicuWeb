@@ -1,8 +1,7 @@
 <section  class="hero is-fullheight has-background-primary">
   <div class="hero-body">
     <div class="container has-text-black">
-      <div  *ngIf="data && !err">
-
+      <div  *ngIf="data">
         <div class="has-text-weight-bold has-text-centered is-size-1-mobile"
              style="font-size: 5rem">{{data.query}}</div>
         <div class="is-size-4 is-size-5-mobile column is-one-third box m-auto ">
@@ -10,13 +9,10 @@
           <p>Zěmě: <span class="has-text-weight-bold">{{data.country}}</span></p>
           <p>Poskytovatel: <span class="has-text-weight-bold">{{data.org}}</span></p>
         </div>
-
-
       </div>
-        <div *ngIf="!data || err">
-          <div class="has-text-weight-bold has-text-centered" style="font-size: 5rem">{{text}}</div>
+        <div *ngIf="!data && txt">
+          <div class="has-text-weight-bold has-text-centered" style="font-size: 5rem">{{txt}}</div>
         </div>
-
       </div>
     </div>
   <div class="has-text-centered ">
