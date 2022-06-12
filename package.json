@@ -6,6 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build-openapi-dev": "openapi-generator-cli generate -o ./open-api -i http://localhost:8080/v3/api-docs/ -g typescript-angular",
     "build": "ng build --prod --build-optimizer --extract-licenses --output-hashing none",
     "buildall": "node build.js",
     "watch": "ng build --watch --configuration development",
@@ -33,6 +34,7 @@
     "@angular-devkit/build-angular": "~14.0.1",
     "@angular/cli": "~14.0.1",
     "@angular/compiler-cli": "~14.0.1",
+    "@openapitools/openapi-generator-cli": "^2.5.1",
     "@types/jasmine": "~4.0.3",
     "@types/node": "^17.0.41",
     "jasmine-core": "~4.2.0",

@@ -5,6 +5,8 @@ import {NapicuApiResponse, NapicuApiResponseException} from "@Napicu/Interface/A
 import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
 import {NAPICU_POCASI_CITY_NOT_FOUND, NAPICU_SERVER_404_ERROR} from "../../../configuration";
 import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
+import {NapicuPocasiControllerService} from "../../../../open-api";
+import {NapicuPocasiResponseModel} from "../../../../open-api/model/napicuPocasiResponseModel";
 
 @Component({
   selector: 'app-root',
@@ -14,13 +16,12 @@ import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
 export class AppComponent implements OnInit{
   public declare inputValue: string;
   public filterList: string[] = [];
-  public apiData: INapicuWeatherApiResponse | null = null;
+  public apiData: NapicuPocasiResponseModel | null = null;
   public err: string | null = null;
   public selectedFilterListItem: number | null = null;
 
-  constructor(public service: NapicuPocasiService) {
+  constructor(public service: NapicuPocasiControllerService) {}
 
-  }
 
   ngOnInit(): void {
     window.addEventListener('keydown', this.onKeyDown);
@@ -44,7 +45,7 @@ export class AppComponent implements OnInit{
         //DOWN
         else if(event.keyCode === 40 && this.selectedFilterListItem < this.filterList.length - 1) {
           {
-            this.selectedFilterListItem += 1
+            this.selectedFilterListItem += 1;
           }
         }
       }
@@ -77,17 +78,19 @@ export class AppComponent implements OnInit{
   public async submit(): Promise<void> {
     this.err = null;
     if (this.inputValue.length) {
-      await this.service.getOpenWeather(this.inputValue).then((data: NapicuApiResponse<INapicuWeatherApiResponse>) => {
-        this.apiData = data.data;
-      }).catch((error: NapicuApiResponseException) => {
-          if(error.code === NapicuApiResponseStatus.NAPICU_POCASI_CITY_NOT_FOUND) {
-              this.err = this.getCityNotFound;
-          }else {
+      await this.service.get(this.inputValue).subscribe({
+          next: (data) => {
+            if(data){
+              this.apiData = data;
+            }
+            console.log(data)
+          },
+          error: () => {
             this.err = this.get404ErrorText;
           }
-        this.clearApiData();
         }
       )
+
     }
     this.resetInput();
   }

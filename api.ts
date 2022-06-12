@@ -1,7 +1,5 @@
 // https://viem.pinktube.eu/api/slova?pocet=num
 import {api_bios_main_path, api_bios_wait_list, api_path} from "./Server/src/config/serverConfig";
-import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
-
 const mainApiPath: string = "https://api.napicu.eu";
 
 
