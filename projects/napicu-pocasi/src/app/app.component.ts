@@ -5,8 +5,7 @@ import {NapicuApiResponse, NapicuApiResponseException} from "@Napicu/Interface/A
 import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
 import {NAPICU_POCASI_CITY_NOT_FOUND, NAPICU_SERVER_404_ERROR} from "../../../configuration";
 import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
-import {NapicuPocasiControllerService} from "../../../../open-api";
-import {NapicuPocasiResponseModel} from "../../../../open-api/model/napicuPocasiResponseModel";
+import {NapicuPocasiControllerService, NapicuPocasiResponseModel} from "../../../../open-api";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({

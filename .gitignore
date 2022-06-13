@@ -45,5 +45,5 @@ Thumbs.db
 /Server/test/
 
 /open-api/README.md
-
 /open-api/git_push.sh
+/open-api/.openapi-generator-ignore
