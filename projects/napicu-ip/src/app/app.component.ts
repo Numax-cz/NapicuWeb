@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {NapicuIPService} from "./napicu-ip.service";
 import {INapicuIPApiResponse} from "@Napicu/Interface/NapicuIP";
 import {NAPICU_IP_LOADING_TEXT, NAPICU_SERVER_404_ERROR} from "../../../configuration";
-import {NapicuApiResponse, NapicuApiResponseException} from "@Napicu/Interface/Api";
-import {NapicuApiResponseStatus} from "@Napicu/Interface/ApiResponseStatus";
-import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
+import {NapicuIpControllerService} from "../../../../open-api";
+import {HttpErrorResponse} from "@angular/common/http";
+import {NapicuApiResponseException} from "@Napicu/Interface/Api";
+import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
 
 
 @Component({
@@ -17,21 +18,24 @@ export class AppComponent implements OnInit{
 
   public declare data: INapicuIPApiResponse;
 
-  constructor(private service: NapicuIPService) {
+  constructor(private service: NapicuIpControllerService) {
   }
-
 
   ngOnInit(): void {
     this.getApiData();
   }
 
   public getApiData(): any {
-    this.service.getIP().then((data: NapicuApiResponse<INapicuIPApiResponse>) => {
-      this.data = data.data;
-      console.log(data)
-    }).catch((error: NapicuApiResponseException) => {
-        this.txt = this.get404ErrorText;
-    })
+    this.service.get1().subscribe(
+      {
+        next: value => {
+          this.data = value;
+        },
+        error: (error: HttpErrorResponse) => {
+          this.txt = this.get404ErrorText;
+        }
+      }
+    )
   }
 
   get getLoadingText(): string {

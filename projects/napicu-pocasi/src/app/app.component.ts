@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NapicuPocasiCities, NapicuPocasiCitiesMaxView} from "./config";
-import {NapicuPocasiService} from "./napicu-pocasi.service";
+
 import {NapicuApiResponse, NapicuApiResponseException} from "@Napicu/Interface/Api";
 import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
 import {NAPICU_POCASI_CITY_NOT_FOUND, NAPICU_SERVER_404_ERROR} from "../../../configuration";
