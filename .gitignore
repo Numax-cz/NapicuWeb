@@ -43,3 +43,7 @@ testem.log
 .DS_Store
 Thumbs.db
 /Server/test/
+
+/open-api/README.md
+
+/open-api/git_push.sh
