@@ -21,7 +21,7 @@ import { Observable }                                        from 'rxjs';
 // @ts-ignore
 import { NapicuPopJonanekPostModel } from '../model/napicuPopJonanekPostModel';
 // @ts-ignore
-import { NapicuPopJonanekResponseModel } from '../model/napicuPopJonanekResponseModel';
+import { RequestExceptionSchema } from '../model/requestExceptionSchema';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -93,10 +93,10 @@ export class NapicuPopJonanekControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<NapicuPopJonanekResponseModel>;
-    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpResponse<NapicuPopJonanekResponseModel>>;
-    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpEvent<NapicuPopJonanekResponseModel>>;
-    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<any> {
+    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any>;
+    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<any>>;
+    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<any>>;
+    public setGetCounter(napicuPopJonanekPostModel: NapicuPopJonanekPostModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (napicuPopJonanekPostModel === null || napicuPopJonanekPostModel === undefined) {
             throw new Error('Required parameter napicuPopJonanekPostModel was null or undefined when calling setGetCounter.');
         }
@@ -107,7 +107,7 @@ export class NapicuPopJonanekControllerService {
         if (localVarHttpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                '*/*'
+                'application/json'
             ];
             localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }
@@ -141,7 +141,7 @@ export class NapicuPopJonanekControllerService {
             }
         }
 
-        return this.httpClient.post<NapicuPopJonanekResponseModel>(`${this.configuration.basePath}/popjonanek`,
+        return this.httpClient.post<any>(`${this.configuration.basePath}/popjonanek`,
             napicuPopJonanekPostModel,
             {
                 context: localVarHttpContext,

@@ -7,6 +7,7 @@ import {NAPICU_POCASI_CITY_NOT_FOUND, NAPICU_SERVER_404_ERROR} from "../../../co
 import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
 import {NapicuPocasiControllerService} from "../../../../open-api";
 import {NapicuPocasiResponseModel} from "../../../../open-api/model/napicuPocasiResponseModel";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -78,15 +79,14 @@ export class AppComponent implements OnInit{
   public async submit(): Promise<void> {
     this.err = null;
     if (this.inputValue.length) {
-      await this.service.get(this.inputValue).subscribe({
+      this.service.get(this.inputValue).subscribe({
           next: (data) => {
-            if(data){
+            if (data) {
               this.apiData = data;
             }
-            console.log(data)
           },
-          error: () => {
-            this.err = this.get404ErrorText;
+          error: (data: HttpErrorResponse) => {
+            console.log(data.error);
           }
         }
       )

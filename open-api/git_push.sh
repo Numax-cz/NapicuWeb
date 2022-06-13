@@ -5,7 +5,7 @@
 
 git_user_id=$1
 git_repo_id=$2
-release_note=$3
+release_not=$3
 git_host=$4
 
 if [ "$git_host" = "" ]; then
