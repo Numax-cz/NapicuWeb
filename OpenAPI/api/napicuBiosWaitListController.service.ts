@@ -22,6 +22,8 @@ import { Observable }                                        from 'rxjs';
 import { NapicuBiosWaitListModel } from '../model/napicuBiosWaitListModel';
 // @ts-ignore
 import { NapicuBiosWaitListResponseModel } from '../model/napicuBiosWaitListResponseModel';
+// @ts-ignore
+import { RequestExceptionSchema } from '../model/requestExceptionSchema';
 
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
@@ -93,10 +95,10 @@ export class NapicuBiosWaitListControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<NapicuBiosWaitListResponseModel>;
-    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpResponse<NapicuBiosWaitListResponseModel>>;
-    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpEvent<NapicuBiosWaitListResponseModel>>;
-    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<any> {
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext}): Observable<NapicuBiosWaitListResponseModel>;
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext}): Observable<HttpResponse<NapicuBiosWaitListResponseModel>>;
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext}): Observable<HttpEvent<NapicuBiosWaitListResponseModel>>;
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*' | 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -104,7 +106,8 @@ export class NapicuBiosWaitListControllerService {
         if (localVarHttpHeaderAcceptSelected === undefined) {
             // to determine the Accept header
             const httpHeaderAccepts: string[] = [
-                '*/*'
+                '*/*',
+                'application/json'
             ];
             localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
         }

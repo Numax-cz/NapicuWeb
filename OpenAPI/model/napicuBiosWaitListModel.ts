@@ -12,6 +12,6 @@
 
 
 export interface NapicuBiosWaitListModel { 
-    email?: string;
+    email: string;
 }
 

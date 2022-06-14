@@ -12,6 +12,6 @@
 
 
 export interface NapicuBiosWaitListResponseModel { 
-    success?: boolean;
+    success: boolean;
 }
 
