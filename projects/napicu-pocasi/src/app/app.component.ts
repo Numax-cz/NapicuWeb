@@ -2,8 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {NapicuPocasiCities, NapicuPocasiCitiesMaxView} from "./config";
 import {NAPICU_POCASI_CITY_NOT_FOUND, NAPICU_SERVER_404_ERROR} from "../../../configuration";
 import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
-import {NapicuPocasiControllerService, NapicuPocasiResponseModel, RequestExceptionSchema} from "../../../../open-api";
 import {HttpErrorResponse} from "@angular/common/http";
+import {NapicuPocasiResponseModel} from "@Napicu/OpenAPI/model/napicuPocasiResponseModel";
+import {NapicuPocasiControllerService} from "@Napicu/OpenAPI/api/napicuPocasiController.service";
+import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSchema";
 
 @Component({
   selector: 'app-root',

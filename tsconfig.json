@@ -27,7 +27,8 @@
       "@Napicu/Api/URL": ["./api.ts"],
       "@Napicu/Api/ResponseStatus": ["./Interface/ApiResponseStatus.ts"],
       "@Napicu/Api/HttpCodes": ["./Interface/HttpCodes.ts"],
-      "@Napicu/Styles": ["./styles.scss"]
+      "@Napicu/Styles": ["./styles.scss"],
+      "@Napicu/OpenAPI/*": ["./OpenAPI/*"]
     }
   },
   "angularCompilerOptions": {

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {INapicuIPApiResponse} from "@Napicu/Interface/NapicuIP";
 import {NAPICU_IP_LOADING_TEXT, NAPICU_SERVER_404_ERROR} from "../../../configuration";
-import {NapicuIpControllerService} from "../../../../open-api";
 import {HttpErrorResponse} from "@angular/common/http";
+import {NapicuIpControllerService} from "@Napicu/OpenAPI/api/napicuIpController.service";
+import {NapicuIPResponseModel} from "@Napicu/OpenAPI/model/napicuIPResponseModel";
 
 
 @Component({
@@ -13,7 +13,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class AppComponent implements OnInit{
   public txt: string = this.getLoadingText;
 
-  public declare data: INapicuIPApiResponse;
+  public declare data: NapicuIPResponseModel;
 
   constructor(private service: NapicuIpControllerService) {
   }
@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
   public getApiData(): any {
     this.service.get1().subscribe(
       {
-        next: value => {
+        next: (value: NapicuIPResponseModel) => {
           this.data = value;
         },
         error: (error: HttpErrorResponse) => {

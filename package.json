@@ -6,7 +6,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build-openapi-dev": "openapi-generator-cli generate -o ./open-api -i http://localhost:8080/v3/api-docs/ -g typescript-angular",
+    "build-openapi-dev": "openapi-generator-cli generate -o ./OpenAPI -i http://localhost:8080/v3/api-docs/ -g typescript-angular",
     "build": "ng build --prod --build-optimizer --extract-licenses --output-hashing none",
     "buildall": "node build.js",
     "watch": "ng build --watch --configuration development",

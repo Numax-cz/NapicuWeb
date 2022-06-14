@@ -44,6 +44,6 @@ testem.log
 Thumbs.db
 /Server/test/
 
-/open-api/README.md
-/open-api/git_push.sh
-/open-api/.openapi-generator-ignore
+/OpenAPI/README.md
+/OpenAPI/git_push.sh
+/OpenAPI/.openapi-generator-ignore

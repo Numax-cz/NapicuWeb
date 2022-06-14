@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {timer_minutes, timer_seconds} from './config';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
-import {NapicuTypeGameControllerService} from "../../../../../open-api";
+import {NapicuTypeGameControllerService} from "@Napicu/OpenAPI/api/napicuTypeGameController.service";
 
 
 @Component({
@@ -198,11 +198,10 @@ export class IndexComponent implements OnInit {
   public async loadApiData(): Promise<void> {
     this.loadingRetry = true;
     await this.service.getWords(this.wordsCount).toPromise()
-      .then((data) => {
+      .then((data: string[] | undefined) => {
         if(data) this.setWords(data);
       })
       .catch((error) => {
-        console.log(error)
         this.apiError = true;
         });
 
