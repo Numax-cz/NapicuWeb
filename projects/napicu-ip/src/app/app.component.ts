@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {NapicuIPService} from "./napicu-ip.service";
 import {INapicuIPApiResponse} from "@Napicu/Interface/NapicuIP";
 import {NAPICU_IP_LOADING_TEXT, NAPICU_SERVER_404_ERROR} from "../../../configuration";
 import {NapicuIpControllerService} from "../../../../open-api";
 import {HttpErrorResponse} from "@angular/common/http";
-import {NapicuApiResponseException} from "@Napicu/Interface/Api";
-import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
 
 
 @Component({

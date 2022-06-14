@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
 
   constructor(public service: NapicuPocasiControllerService) {}
 
-
   ngOnInit(): void {
     window.addEventListener('keydown', this.onKeyDown);
   }

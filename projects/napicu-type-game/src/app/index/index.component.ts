@@ -2,9 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {timer_minutes, timer_seconds} from './config';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
-import {NapicuTypeGameService} from "./napicu-type-game.service";
-import {NapicuApiResponse} from "@Napicu/Interface/Api";
-import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
 import {NapicuTypeGameControllerService} from "../../../../../open-api";
 
 
