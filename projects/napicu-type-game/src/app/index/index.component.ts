@@ -5,6 +5,7 @@ import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
 import {NapicuTypeGameService} from "./napicu-type-game.service";
 import {NapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuWordsApiResponse} from "@Napicu/Interface/NapicuWords";
+import {NapicuTypeGameControllerService} from "../../../../../open-api";
 
 
 @Component({
@@ -51,7 +52,7 @@ export class IndexComponent implements OnInit {
 
   public declare previousWordPosition: number;
 
-  constructor(private service: NapicuTypeGameService) {
+  constructor(private service: NapicuTypeGameControllerService) {
     window.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.keyCode == 32) this.onSpaceBar(e);
     });
@@ -151,7 +152,6 @@ export class IndexComponent implements OnInit {
   }
 
   public retry = (): void => {
-    this.loadingRetry = true;
     this.loadApiData();
   }
 
@@ -200,14 +200,17 @@ export class IndexComponent implements OnInit {
 
   public async loadApiData(): Promise<void> {
     this.loadingRetry = true;
-    await this.service.getWords(this.wordsCount)
-      .then((data: NapicuApiResponse<INapicuWordsApiResponse>) => {
-        this.setWords(data.data);
+    await this.service.getWords(this.wordsCount).toPromise()
+      .then((data) => {
+        if(data) this.setWords(data);
       })
-      .catch((error: any) => {
+      .catch((error) => {
+        console.log(error)
         this.apiError = true;
-      })
+        });
+
     this.loadingRetry = false;
+
   }
 
   protected setWords(words: string[]): void {
