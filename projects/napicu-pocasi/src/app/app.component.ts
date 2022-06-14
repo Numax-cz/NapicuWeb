@@ -1,11 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {NapicuPocasiCities, NapicuPocasiCitiesMaxView} from "./config";
-
-import {NapicuApiResponse, NapicuApiResponseException} from "@Napicu/Interface/Api";
-import {INapicuWeatherApiResponse} from "@Napicu/Interface/NapicuWeather";
 import {NAPICU_POCASI_CITY_NOT_FOUND, NAPICU_SERVER_404_ERROR} from "../../../configuration";
 import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
-import {NapicuPocasiControllerService, NapicuPocasiResponseModel} from "../../../../open-api";
+import {NapicuPocasiControllerService, NapicuPocasiResponseModel, RequestExceptionSchema} from "../../../../open-api";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -85,7 +82,10 @@ export class AppComponent implements OnInit{
             }
           },
           error: (data: HttpErrorResponse) => {
-            console.log(data.error);
+            let i = data.error as RequestExceptionSchema;
+            if(i.status === NapicuApiResponseStatus.NAPICU_POCASI_CITY_NOT_FOUND){
+              this.err = this.getCityNotFound;
+            } else this.err = this.get404ErrorText;
           }
         }
       )
