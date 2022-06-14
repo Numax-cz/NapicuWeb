@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {NapicuApiURLWords, NapicuApiURLIp, NapicuApiURLWeather} from "@Napicu/Api/URL";
+import {NapicuApiURLIp} from "@Napicu/Api/URL";
 import {NapicuApiResponse} from "@Napicu/Interface/Api";
 import {INapicuIPApiResponse} from "@Napicu/Interface/NapicuIP";
 import {NapicuApiHandler} from "@Napicu/Class/NapicuApi";
-
 
 
 @Injectable({
