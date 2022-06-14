@@ -93,10 +93,10 @@ export class NapicuBiosWaitListControllerService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public setGetCounter(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<NapicuBiosWaitListResponseModel>;
-    public setGetCounter(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpResponse<NapicuBiosWaitListResponseModel>>;
-    public setGetCounter(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpEvent<NapicuBiosWaitListResponseModel>>;
-    public setGetCounter(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<any> {
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<NapicuBiosWaitListResponseModel>;
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpResponse<NapicuBiosWaitListResponseModel>>;
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<HttpEvent<NapicuBiosWaitListResponseModel>>;
+    public post(napicuBiosWaitListModel?: NapicuBiosWaitListModel, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
