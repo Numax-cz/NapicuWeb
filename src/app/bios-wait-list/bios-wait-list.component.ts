@@ -1,11 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {biosEmailAPI} from '../../../api';
-import {HttpClient} from '@angular/common/http';
-import {BiosWaitListPOSTApiModel} from '../../../Server/src/interface/Model';
-import {BiosWaitListPOSTApiResponse} from '../../../Server/src/interface/Responses';
-import {HttpResponse} from '../../../Server/src/util/HttpResponse';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {HttpStatusCode} from '../../../Server/src/interface/HttpStatusCode';
+import {NapicuBiosWaitListControllerService} from "@Napicu/OpenAPI/api/napicuBiosWaitListController.service";
+import {NapicuApiResponseStatus} from "@Napicu/Api/ResponseStatus";
+import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSchema";
+import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
+import {NapicuBiosWaitListModel} from "@Napicu/OpenAPI/model/napicuBiosWaitListModel";
+import {NapicuBiosWaitListResponseModel} from "@Napicu/OpenAPI/model/napicuBiosWaitListResponseModel";
+
 
 
 interface APIResponseEnum {
@@ -35,30 +39,32 @@ export class BiosWaitListComponent implements OnInit {
     email: new FormControl('', [Validators.required, Validators.email]),
   });
 
-  constructor(private http: HttpClient) {
+  constructor(public service: NapicuBiosWaitListControllerService) {
   }
 
   ngOnInit(): void {
   }
 
   public submit(): void {
-    if (this.email?.valid) {
-      const body: BiosWaitListPOSTApiModel = {email: this.EmailInput};
-      this.http.post<HttpResponse<BiosWaitListPOSTApiResponse>>(biosEmailAPI, body).subscribe((data: HttpResponse<BiosWaitListPOSTApiResponse>) => {
-        console.log(data);
-        if (data.data.emailAlreadyExists) {
-          this.apiStatement.emailExist = true;
-        } else {
-        }
-        this.apiStatement.ok = true;
-      }, (error: HttpResponse<BiosWaitListPOSTApiResponse>) => {
-        if (error.status === HttpStatusCode.tooManyRequests) {
-          this.apiStatement.tooManyRequests = true;
-        }
-      });
-    }
-    this.submittedClick = true;
+
   }
+
+  public async getApiData(): Promise<void>{
+    if (this.email?.valid && this.email.value) {
+      await this.service.post({email: this.email.value}).toPromise()
+        .then((data) => {
+          this.apiStatement.ok = true;
+        })
+        .catch((error: HttpErrorResponse) => {
+          let i = error.error as RequestExceptionSchema;
+          if (i.code === HttpStatusCode.TOO_MANY_REQUESTS) {
+            this.apiStatement.tooManyRequests = true;
+          }
+        })
+      this.submittedClick = true; //TODO
+    }
+  }
+
 
   get email() {
     return this.napicuForm.get('email');
