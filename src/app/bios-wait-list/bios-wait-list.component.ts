@@ -43,16 +43,23 @@ export class BiosWaitListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.addEventListener("keydown", this.onKeyDown);
   }
 
   public submit(): void {
+    this.getApiData();
+  }
 
+  public onKeyDown = (event: KeyboardEvent): void =>  {
+    if(event.keyCode == 13){
+      this.submit();
+    }
   }
 
   public async getApiData(): Promise<void>{
     if (this.email?.valid && this.email.value) {
       await this.service.post({email: this.email.value}).toPromise()
-        .then((data) => {
+        .then((data: NapicuBiosWaitListResponseModel | undefined) => {
           this.apiStatement.ok = true;
         })
         .catch((error: HttpErrorResponse) => {
@@ -65,10 +72,8 @@ export class BiosWaitListComponent implements OnInit {
     }
   }
 
-
   get email() {
     return this.napicuForm.get('email');
   }
-
 
 }
