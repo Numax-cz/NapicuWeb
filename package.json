@@ -7,7 +7,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build-openapi-dev": "openapi-generator-cli generate -o ./OpenAPI -i http://localhost:8080/v3/api-docs/ -g typescript-angular",
-    "build": "ng build --prod --build-optimizer --extract-licenses --output-hashing none",
+    "build-openapi-prod": "openapi-generator-cli generate -o ./OpenAPI -i https://api2.napicu.eu/v3/api-docs/ -g typescript-angular",
+    "build": "ng build  --build-optimizer --extract-licenses --output-hashing none",
     "buildall": "node build.js",
     "watch": "ng build --watch --configuration development",
     "pwa": "ng add @angular/pwa --project"
