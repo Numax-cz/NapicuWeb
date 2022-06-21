@@ -6,6 +6,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {NapicuPocasiResponseModel} from "@Napicu/OpenAPI/model/napicuPocasiResponseModel";
 import {NapicuPocasiControllerService} from "@Napicu/OpenAPI/api/napicuPocasiController.service";
 import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSchema";
+import {NAPICU_TO_MANY_REQUESTS} from "../../../../lib/msgs";
+import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
 
 @Component({
   selector: 'app-root',
@@ -84,9 +86,12 @@ export class AppComponent implements OnInit{
           },
           error: (data: HttpErrorResponse) => {
             let i = data.error as RequestExceptionSchema;
-            if(i.status === NapicuApiResponseStatus.NAPICU_POCASI_CITY_NOT_FOUND){
+            this.apiData = null;
+            if(i.code === NapicuApiResponseStatus.NAPICU_POCASI_CITY_NOT_FOUND){
               this.err = this.getCityNotFound;
-            } else this.err = this.get404ErrorText;
+            } else  if(i.code === HttpStatusCode.TOO_MANY_REQUESTS) {
+              this.err = this.tooManyRequestsErrMsg;
+            }else this.err = this.get404ErrorText;
           }
         }
       )
@@ -110,6 +115,11 @@ export class AppComponent implements OnInit{
 
   get getCityNotFound(): string {
     return NAPICU_POCASI_CITY_NOT_FOUND;
+  }
+
+
+  get tooManyRequestsErrMsg(): string  {
+    return NAPICU_TO_MANY_REQUESTS;
   }
 
   public getIcon(icon: string): string {

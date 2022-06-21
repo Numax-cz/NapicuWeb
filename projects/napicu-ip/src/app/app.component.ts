@@ -3,6 +3,9 @@ import {NAPICU_IP_LOADING_TEXT, NAPICU_SERVER_404_ERROR} from "../../../configur
 import {HttpErrorResponse} from "@angular/common/http";
 import {NapicuIpControllerService} from "@Napicu/OpenAPI/api/napicuIpController.service";
 import {NapicuIPResponseModel} from "@Napicu/OpenAPI/model/napicuIPResponseModel";
+import {NAPICU_TO_MANY_REQUESTS} from "../../../../lib/msgs";
+import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSchema";
+import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
 
 
 @Component({
@@ -29,7 +32,10 @@ export class AppComponent implements OnInit{
           this.data = value;
         },
         error: (error: HttpErrorResponse) => {
-          this.txt = this.get404ErrorText;
+          let err = error.error as RequestExceptionSchema;
+          if(err.code == HttpStatusCode.TOO_MANY_REQUESTS){
+            this.txt = this.tooManyRequestsErrMsg;
+          }else this.txt = this.get404ErrorText;
         }
       }
     )
@@ -41,5 +47,9 @@ export class AppComponent implements OnInit{
 
   get get404ErrorText(): string{
     return NAPICU_SERVER_404_ERROR;
+  }
+
+  get tooManyRequestsErrMsg(): string  {
+    return NAPICU_TO_MANY_REQUESTS;
   }
 }

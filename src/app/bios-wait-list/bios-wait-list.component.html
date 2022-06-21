@@ -19,9 +19,7 @@
             <div class="is-size-2 p-3 has-text-danger has-text-weight-bold">E-mail je neplatný</div>
           </ng-container>
           <ng-container *ngIf="apiStatement.tooManyRequests">
-            <div class="is-size-2 p-3 has-text-danger has-text-weight-bold">Příliš mnoho požadavků z této IP adresy,
-              zkuste to prosím za hodinu znovu :(
-            </div>
+            <div class="is-size-2 p-3 has-text-danger has-text-weight-bold">{{tooManyRequestsErrMsg}}</div>
           </ng-container>
           <!--InputTxt-->
           <div class="mt-3 has-text-light">

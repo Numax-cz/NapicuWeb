@@ -9,6 +9,7 @@ import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSche
 import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
 import {NapicuBiosWaitListModel} from "@Napicu/OpenAPI/model/napicuBiosWaitListModel";
 import {NapicuBiosWaitListResponseModel} from "@Napicu/OpenAPI/model/napicuBiosWaitListResponseModel";
+import {NAPICU_TO_MANY_REQUESTS} from "../../../lib/msgs";
 
 
 
@@ -76,4 +77,9 @@ export class BiosWaitListComponent implements OnInit {
     return this.napicuForm.get('email');
   }
 
+  get tooManyRequestsErrMsg(): string  {
+    return NAPICU_TO_MANY_REQUESTS;
+  }
 }
+
+
