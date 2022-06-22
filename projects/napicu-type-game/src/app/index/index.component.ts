@@ -3,6 +3,10 @@ import {timer_minutes, timer_seconds} from './config';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {exportDataIn, inputValueIn, words, wordsLetter} from './interface';
 import {NapicuTypeGameControllerService} from "@Napicu/OpenAPI/api/napicuTypeGameController.service";
+import {NAPICU_TO_MANY_REQUESTS} from "../../../../../lib/msgs";
+import {HttpErrorResponse} from "@angular/common/http";
+import {RequestExceptionSchema} from "@Napicu/OpenAPI/model/requestExceptionSchema";
+import {HttpStatusCode} from "@Napicu/Api/HttpCodes";
 
 
 @Component({
@@ -201,7 +205,11 @@ export class IndexComponent implements OnInit {
       .then((data: string[] | undefined) => {
         if(data) this.setWords(data);
       })
-      .catch((error) => {
+      .catch((error: HttpErrorResponse) => {
+        let err = error.error as RequestExceptionSchema;
+        if(err?.code === HttpStatusCode.TOO_MANY_REQUESTS){
+
+        }
         this.apiError = true;
         });
 
@@ -247,5 +255,9 @@ export class IndexComponent implements OnInit {
 
   get accurately(): number {
     return this.getAccurately();
+  }
+
+  get tooManyRequestsErrMsg(): string  {
+    return NAPICU_TO_MANY_REQUESTS;
   }
 }
