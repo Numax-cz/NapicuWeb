@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {biosEmailAPI} from '../../../api';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 
 import {FormControl, FormGroup, Validators} from '@angular/forms';
