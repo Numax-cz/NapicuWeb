@@ -11,6 +11,7 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 
 import {ApiErrorSchemaModule} from "@Napicu/Modules/Error/api-error-schema/api-error-schema.module";
+import {NapicuApiModule} from "@Napicu/Modules/napicu-api/napicu-api.module";
 
 
 @NgModule({
@@ -20,7 +21,10 @@ import {ApiErrorSchemaModule} from "@Napicu/Modules/Error/api-error-schema/api-e
     // Register the ServiceWorker as soon as the app is stable
     // or after 30 seconds (whichever comes first).
     registrationStrategy: 'registerWhenStable:30000'
-  }), ApiErrorSchemaModule],
+  }),
+    ApiErrorSchemaModule,
+    NapicuApiModule
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

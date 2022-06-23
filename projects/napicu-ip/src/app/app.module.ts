@@ -3,6 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NapicuApiModule} from "@Napicu/Modules/napicu-api/napicu-api.module";
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NapicuApiModule
   ],
   providers: [],
   bootstrap: [AppComponent]

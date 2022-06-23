@@ -14,6 +14,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ApiModule} from "@Napicu/OpenAPI/api.module";
 import {Configuration} from "@Napicu/OpenAPI/configuration";
 import {environment} from "../../environments/environment";
+import {NapicuApiModule} from "@Napicu/Modules/napicu-api/napicu-api.module";
 
 @NgModule({
     declarations: [AppComponent, Error404Component, IndexComponent, BiosWaitListComponent],
@@ -31,7 +32,7 @@ import {environment} from "../../environments/environment";
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-      ApiModule.forRoot( () => {return new Configuration({basePath: environment.basePath})}),
+        NapicuApiModule
     ],
     providers: [],
     bootstrap: [AppComponent],
