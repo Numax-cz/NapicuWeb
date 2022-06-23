@@ -15,6 +15,14 @@
    npm install
    ```
 
+## Konfigurace
+V souboru `environments/environment.ts` nastavíte výchozí konfiguraci (pro vývoj)
+
+V souboru `environments/environment.prod.ts` nastavíte konfiguraci pro nasazení
+
+* Profily lze přepínat pomocí přepínače `--configuration=` více na https://angular.io/guide/build#configure-environment-specific-defaults
+
+
 ## Commands
 
 - Spuštění aplikace hlavního webu
