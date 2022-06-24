@@ -14,6 +14,19 @@ fs.readFile(`angular.json`, 'utf8', async (err, data) => {
 
   var projects = Object.keys(ngCli.projects).filter((project) => project.indexOf('e2e') === -1);
 
+  console.log('Updating OpenAPI');
+
+  await updateOpenAPI().then(
+    (resolve) => {
+      console.log("OpenAPI has been successfully updated!")
+    },
+    (reject) => {
+      console.log(reject);
+      process.exit(1);
+    }
+  );
+
+  console.log();
   console.log('Building projects ' + projects.join(','));
   console.log();
 
@@ -36,6 +49,35 @@ fs.readFile(`angular.json`, 'utf8', async (err, data) => {
     );
   }
 });
+
+function updateOpenAPI(){
+  return new Promise((resolve, reject) => {
+    var cmd = exec("npm run build-openapi-prod");
+
+
+
+    cmd.on("error", (er) => {
+      console.log(er);
+    });
+
+    cmd.stdout.on('data', (data) => {
+      console.log(data.toString());
+    });
+
+    cmd.stderr.on('data', (data) => {
+      console.log(data)
+    });
+
+    cmd.on('close', (code) => {
+      if (code === 0) {
+        resolve(code);
+      } else {
+        reject(code);
+      }
+    });
+  });
+}
+
 
 function buildProject(project) {
   return new Promise((resolve, reject) => {
