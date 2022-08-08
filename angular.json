@@ -643,7 +643,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/napicu-switch",
+            "outputPath": "dist/NapicuSwitch",
             "index": "projects/napicu-switch/src/index.html",
             "main": "projects/napicu-switch/src/main.ts",
             "polyfills": "projects/napicu-switch/src/polyfills.ts",
