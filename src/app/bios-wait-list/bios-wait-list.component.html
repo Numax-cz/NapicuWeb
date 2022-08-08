@@ -9,14 +9,14 @@
         </div>
         <!--EmailInput-->
         <ng-container *ngIf="!this.apiStatement.ok">
-          <form [formGroup]="napicuForm" class="is-flex is-align-items-center mt-5" (ngSubmit)="submit()">
+          <form [formGroup]="napicuForm" class="is-flex is-align-items-center mt-5 is-fullwidth" (ngSubmit)="submit()">
             <input email [(ngModel)]="EmailInput" name="email" formControlName="email" ngModel [ngClass]="{ 'is-danger':
              email?.value && email?.invalid || email?.invalid && submittedClick}"
-                   class="input is-medium napicu-input has-text-weight-bold" type="text" placeholder="Email">
-            <button class="button is-info ml-4 is-fullheight is-medium" type="submit">Upozornit mě</button>
+                   class="input is-medium is-small-mobile napicu-input has-text-weight-bold is-size-6-mobile" type="text" placeholder="Email">
+            <button class="button is-info ml-4 is-fullheight is-medium  is-small-mobile is-size-6-mobile" type="submit">Upozornit mě</button>
           </form>
           <ng-container *ngIf="email?.value && email?.invalid || email?.invalid && submittedClick">
-            <div class="is-size-2 p-3 has-text-danger has-text-weight-bold">E-mail je neplatný</div>
+            <div class="is-size-2 has-text-danger has-text-weight-bold">E-mail je neplatný</div>
           </ng-container>
           <ng-container *ngIf="apiStatement.tooManyRequests">
             <div class="is-size-2 p-3 has-text-danger has-text-weight-bold">{{tooManyRequestsErrMsg}}</div>

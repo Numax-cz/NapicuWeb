@@ -47,3 +47,33 @@
     font-weight: 500;
   }
 }
+
+
+
+
+@media  screen and(max-width: 455px) {
+  .main-text {
+    font-size: 4rem;
+  }
+
+}
+
+@media screen and (max-width: 415px) {
+  .main-text {
+    font-size: 4rem;
+  }
+
+  .napicu-input {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 333px) {
+  .main-text {
+    font-size: 3rem;
+  }
+
+  .napicu-input {
+    width: 60%;
+  }
+}
