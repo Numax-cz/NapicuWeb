@@ -728,6 +728,106 @@
           }
         }
       }
+    },
+    "NapicuNotebook": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/napicu-notebook",
+      "sourceRoot": "projects/napicu-notebook/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/NapicuNotebook",
+            "index": "projects/napicu-notebook/src/index.html",
+            "main": "projects/napicu-notebook/src/main.ts",
+            "polyfills": "projects/napicu-notebook/src/polyfills.ts",
+            "tsConfig": "projects/napicu-notebook/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/napicu-notebook/src/favicon.ico",
+              "projects/napicu-notebook/src/assets"
+            ],
+            "styles": [
+              "projects/napicu-notebook/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/napicu-notebook/src/environments/environment.ts",
+                  "with": "projects/napicu-notebook/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "NapicuNotebook:build:production"
+            },
+            "development": {
+              "browserTarget": "NapicuNotebook:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "NapicuNotebook:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/napicu-notebook/src/test.ts",
+            "polyfills": "projects/napicu-notebook/src/polyfills.ts",
+            "tsConfig": "projects/napicu-notebook/tsconfig.spec.json",
+            "karmaConfig": "projects/napicu-notebook/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/napicu-notebook/src/favicon.ico",
+              "projects/napicu-notebook/src/assets"
+            ],
+            "styles": [
+              "projects/napicu-notebook/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "NapicuWeb"
