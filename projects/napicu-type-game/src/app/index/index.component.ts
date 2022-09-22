@@ -87,7 +87,6 @@ export class IndexComponent implements OnInit {
       this.launched = true;
     }
 
-    this.clickRestart();
     this.setTimer();
   }
 
