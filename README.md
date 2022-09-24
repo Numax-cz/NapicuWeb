@@ -1,6 +1,7 @@
 # NapicuWeb
 
 - Vytvořeno pomocí [Angular](https://angular.io/)
+- Použitý modul [BSoD](https://github.com/AmanoTeam/BSoD)
 - [NapicuWeb - První verze](https://github.com/Numax-cz/napicu-web/tree/NapicuWeb)
 - [NapicuWeb - Druhá verze](https://github.com/Numax-cz/napicu-web/tree/NapicuWeb2)
 
