@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {animate, query, style, transition, trigger} from "@angular/animations";
 
 @Component({
@@ -20,6 +20,8 @@ import {animate, query, style, transition, trigger} from "@angular/animations";
   ]
 })
 export class AppComponent implements OnInit{
+  @ViewChild('QRCode') declare canvas: ElementRef<HTMLCanvasElement>;
+
   public emoji = ":(";
 
   public description = "Your PC ran into a problem and needs to restart. We’re just collecting some error info, and then we’ll restart for you."
@@ -27,6 +29,8 @@ export class AppComponent implements OnInit{
   public stopCode = "KERNEL_MODE_HEAP_CORRUPTION";
 
   public editMode = true;
+
+  public QRCode = "https://napicu.eu";
 
 
   ngOnInit() {
