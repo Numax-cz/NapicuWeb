@@ -4,7 +4,7 @@
       <h1 class="emotion">{{emoji}}</h1>
     </header>
     <a class="description">{{description}}
-      <p><span id="progress">0</span>% complete</p>
+      <p><span id="progress">{{valuePercentage}}</span>% complete</p>
     </a>
     <table>
       <tr>
@@ -40,6 +40,10 @@
       <div>
         <p>StopCode</p>
         <input [(ngModel)]="stopCode">
+      </div>
+      <div>
+        <p>Speed (1 = 1% per 1s )</p>
+        <input type="number" [(ngModel)]="percentageSpeed" (change)= "percentageSpeed < 0 ? percentageSpeed = 0 : percentageSpeed;">
       </div>
       <p class="EditModePanelInfo">*To open this setting, press F2</p>
       <div>

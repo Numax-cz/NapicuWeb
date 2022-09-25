@@ -20,7 +20,6 @@ import {animate, query, style, transition, trigger} from "@angular/animations";
   ]
 })
 export class AppComponent implements OnInit{
-  @ViewChild('QRCode') declare canvas: ElementRef<HTMLCanvasElement>;
 
   public emoji = ":(";
 
@@ -32,22 +31,34 @@ export class AppComponent implements OnInit{
 
   public QRCode = "https://napicu.eu";
 
+  public valuePercentage = 0;
+
+  public percentageSpeed = 10;
+
+  protected percentageInterval: any = null;
 
   ngOnInit() {
     window.addEventListener("keydown", this.onKeyDown);
   }
 
-
   public onKeyDown = (event: KeyboardEvent) => {
     if(event.keyCode === 113){
       this.editMode = true;
+      this.clearInterval();
       event.preventDefault();
     }
   }
 
   public exitEditMode(): void {
     this.editMode = false;
+    this.percentageInterval = setInterval(() => {
+      this.valuePercentage += 1;
+      if(this.valuePercentage >= 100) this.clearInterval();
+    }, 1000 * this.percentageSpeed);
   }
 
-
+  protected clearInterval(): void {
+    clearInterval(this.percentageInterval);
+    this.percentageInterval = null;
+  }
 }
