@@ -1,0 +1,26 @@
+@import "loader";
+
+.BackGroundColor{
+  font-family: "Segoe UI";
+  display: inline-block;
+  color: #FFF;
+  background: #106faa;
+  width: 100%;
+  height: 100vh;
+}
+
+.UpdateContainer{
+
+  margin-top: 25%;
+
+  .UpdateText{
+    margin-top: 25px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 100;
+  }
+}
+
+
+
+
