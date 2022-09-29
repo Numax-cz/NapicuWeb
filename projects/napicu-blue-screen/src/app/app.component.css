@@ -183,3 +183,48 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
+
+@media (max-width: 1402px) {
+  .EditModePanelContainer{
+    width: 50%;
+  }
+}
+
+@media(max-width: 768px){
+  .MainContent{
+    margin: 5% 2% 5% 3%;
+  }
+}
+
+@media (max-width: 650px) {
+  .EditModePanelContainer{
+    width: 80%;
+  }
+}
+
+@media (max-width: 425px){
+  .QRDesc{
+    width: 250px;
+  }
+}
+
+@media (max-width: 395px){
+  .QRDesc{
+    width: 220px;
+  }
+}
+
+@media (max-width: 365px){
+  .QRDesc{
+    width: 120px;
+  }
+}
+
+@media (max-width: 320px) {
+  td{
+    vertical-align: top;
+  }
+  .QRDesc{
+    width: 180px;
+  }
+}
