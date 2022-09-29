@@ -45,7 +45,8 @@
         <p>Speed (1 = 1% per 1s )</p>
         <input type="number" [(ngModel)]="percentageSpeed" (change)= "percentageSpeed < 0 ? percentageSpeed = 0 : percentageSpeed;">
       </div>
-      <p class="EditModePanelInfo">*To open this setting, press F2</p>
+      <p *ngIf="!isDeviceMobile" class="EditModePanelInfo">*To open this setting, press F2</p>
+      <p *ngIf="isDeviceMobile" class="EditModePanelInfo">*To open this setting, double tap on screen</p>
       <div>
         <button (click)="exitEditMode()">Exit</button>
       </div>

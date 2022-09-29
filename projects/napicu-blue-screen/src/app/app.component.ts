@@ -37,8 +37,25 @@ export class AppComponent implements OnInit{
 
   protected percentageInterval: any = null;
 
+  public isDeviceMobile: boolean = false;
+
+  public tapedTwice = false;
+
   ngOnInit() {
     window.addEventListener("keydown", this.onKeyDown);
+    window.addEventListener("touchstart", this.onTouchScreen)
+    if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))this.isDeviceMobile = true;
+  }
+
+  public onTouchScreen = (event: TouchEvent): void => {
+    if(this.editMode) return;
+    if(!this.tapedTwice) {
+      this.tapedTwice = true;
+      setTimeout( () => { this.tapedTwice = false; }, 300 );
+      return;
+    }
+    this.editMode = true;
+    //event.preventDefault();
   }
 
   public onKeyDown = (event: KeyboardEvent) => {
