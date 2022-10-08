@@ -6,7 +6,7 @@ import {BiosWaitListComponent} from "./bios-wait-list/bios-wait-list.component";
 
 const routes: Routes = [
   {path: '', component: IndexComponent},
-  {path: 'bios', component: BiosWaitListComponent},
+  // {path: 'bios', component: BiosWaitListComponent},
   {path: '**', component: Error404Component},
 ];
 
