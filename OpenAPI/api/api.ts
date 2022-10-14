@@ -1,5 +1,3 @@
-export * from './napicuBiosWaitListController.service';
-import { NapicuBiosWaitListControllerService } from './napicuBiosWaitListController.service';
 export * from './napicuIpController.service';
 import { NapicuIpControllerService } from './napicuIpController.service';
 export * from './napicuPocasiController.service';
@@ -8,4 +6,4 @@ export * from './napicuPopJonanekController.service';
 import { NapicuPopJonanekControllerService } from './napicuPopJonanekController.service';
 export * from './napicuTypeGameController.service';
 import { NapicuTypeGameControllerService } from './napicuTypeGameController.service';
-export const APIS = [NapicuBiosWaitListControllerService, NapicuIpControllerService, NapicuPocasiControllerService, NapicuPopJonanekControllerService, NapicuTypeGameControllerService];
+export const APIS = [NapicuIpControllerService, NapicuPocasiControllerService, NapicuPopJonanekControllerService, NapicuTypeGameControllerService];
