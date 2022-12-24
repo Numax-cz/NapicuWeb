@@ -1022,6 +1022,94 @@
           }
         }
       }
+    },
+    "NapicuVanoce": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/napicu-vanoce",
+      "sourceRoot": "projects/napicu-vanoce/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/NapicuVanoce",
+            "index": "projects/napicu-vanoce/src/index.html",
+            "main": "projects/napicu-vanoce/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/napicu-vanoce/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/napicu-vanoce/src/favicon.ico",
+              "projects/napicu-vanoce/src/assets"
+            ],
+            "styles": [
+              "projects/napicu-vanoce/src/styles.scss"
+            ],
+            "scripts": [
+              "node_modules/particles.js/particles.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "NapicuVanoce:build:production"
+            },
+            "development": {
+              "browserTarget": "NapicuVanoce:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "NapicuVanoce:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/napicu-vanoce/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/napicu-vanoce/src/favicon.ico",
+              "projects/napicu-vanoce/src/assets"
+            ],
+            "styles": [
+              "projects/napicu-vanoce/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "NapicuWeb"
