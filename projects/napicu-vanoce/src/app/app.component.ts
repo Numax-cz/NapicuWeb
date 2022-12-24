@@ -26,6 +26,7 @@ export class AppComponent implements OnInit{
 
   public ngOnInit(): void {
     this.load_sound();
+    this.update_time();
     setInterval(this.update_time, 1000);
     particlesJS('snow', particle_js_config);
   }
