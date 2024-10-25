@@ -1,8 +1,8 @@
 {
   "name": "NapicuWeb",
   "short_name": "NapicuWeb",
-  "theme_color": "#f39c12",
-  "background_color": "#fafafa",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "minimal-ui",
   "scope": "./",
   "start_url": "./",
